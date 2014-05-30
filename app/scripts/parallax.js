@@ -1,26 +1,14 @@
-'use strict';
+jQuery(document).ready(function($) {
 
-angular.module('aquiferiumApp')
-  .controller('CavesKarstsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
-    $scope.pageClass = 'caves-karsts';
-
-    /* INSERTING PARALLAX CODE */
     //initialise Stellar.js
     $(window).stellar();
 
     //Cache some variables
     var links = $('.navigation').find('li');
-    var slide = $('.slide');
-    var button = $('.button-scroll');
-    var mywindow = $(window);
-    var htmlbody = $('html,body');
-    var dataslide = {};
+    slide = $('.slide');
+    button = $('.button');
+    mywindow = $(window);
+    htmlbody = $('html,body');
 
     //Setup waypoints plugin
     slide.waypoint(function(event, direction) {
@@ -47,8 +35,8 @@ angular.module('aquiferiumApp')
     //from navigation link slide 2 and adds it to navigation link slide 1. 
     mywindow.scroll(function() {
         if (mywindow.scrollTop() == 0) {
-            $('.navigation li[data-slide="1"]').addClass('active');
-            $('.navigation li[data-slide="2"]').removeClass('active');
+            $('.navigation li[data-slide="0"]').addClass('active');
+            $('.navigation li[data-slide="1"]').removeClass('active');
         }
     });
 
@@ -73,7 +61,5 @@ angular.module('aquiferiumApp')
         e.preventDefault();
         dataslide = $(this).attr('data-slide');
         goToByScroll(dataslide);
-    });    
-    /* END PARALLAX CODE */
-    
-  });
+    });
+});

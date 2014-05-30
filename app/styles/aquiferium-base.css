@@ -162,6 +162,7 @@ a:hover {
     position: fixed;
     padding: 0em 1em 0em 1em;
     bottom: 0;
+    right: 0;
     width: auto;
     z-index: 5000;
     background-color: #000;
@@ -173,20 +174,18 @@ a:hover {
 @media (max-width: 209px) {
     .test-media-queries p span:after {         
         color: #FF0000;
-        content: 'Micro Screen (max-width = 209px)';
+        content: 'Micro Screen (max-width <= 209px)';
     }
-    body {
-        padding-top: 9.5em;
-    }
+    html { font-size: 10px; }
+    body { padding-top: 9.5em; }
 }
 @media (min-width: 210px) and (max-width: 310px) {
     .test-media-queries p span:after {         
         color: #FF5500;
         content: 'Tiny Screen (min-width = 210px && max-width = 310px)';
     }
-    body {
-        padding-top: 6.5em;
-    }
+    html { font-size: 12px; }
+    body { padding-top: 6.5em; }
 }
 /* Extra small devices (phones, less than 768px) */
 @media (min-width: 311px) and (max-width: 767px) {
@@ -194,9 +193,8 @@ a:hover {
         color: #FFAA00;
         content: 'Small Screen (min-width = 311px && max-width < 767px)';
     }
-    body {
-        padding-top: 3.5em;
-    }
+    html { font-size: 14px; }
+    body { padding-top: 3.5em; }
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -204,9 +202,8 @@ a:hover {
         color: #FFFF00;
         content: 'Tablet Screen (min-width = 768px && max-width < 991px)';
     }
-    body {
-        padding-top: 6.5em;
-    }
+    html { font-size: 16px; }
+    body { padding-top: 6.5em; }
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -214,17 +211,15 @@ a:hover {
         color: #00FF00;
         content: 'Desktop Screen (min-width = 992px && max-width < 1199px)';
     }
-    body {
-        padding-top: 6.5em;
-    }
+    html { font-size: 18px; }
+    body { padding-top: 6.5em; }
 }
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .test-media-queries p span:after { 
         color: #00AAFF;
-        content: 'Large Screen (min-width = 1200px)';
+        content: 'Large Screen (min-width >= 1200px)';
     }
-    body {
-        padding-top: 3.5em;
-    }
+    html { font-size: 18px; }
+    body { padding-top: 3.5em; }
 }

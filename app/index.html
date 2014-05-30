@@ -1,0 +1,156 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/aquiferium-base.css">
+    <link rel="stylesheet" href="styles/aquiferium-charts.css">
+    <link rel="stylesheet" href="styles/transitions-angular.css">
+    <!-- <link rel="stylesheet" href="styles/transitions-moo.css"> -->
+    <!-- <link rel="stylesheet" href="styles/super-awesome-buttons.css"> -->
+    <!-- <link rel="stylesheet" href="styles/background-effects.css"> -->
+    <!-- <link rel="stylesheet" href="styles/animations.css"> -->
+    <link rel="stylesheet" href="styles/angular-carousel.css">
+    <!-- endbuild -->
+</head>
+
+<body data-ng-app="aquiferiumApp">
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="HeaderCtrl">
+        <div class="container">
+            <div class="navbar-header">
+                <img class="img-responsive pull-left eaa-logo" src="./images/eaa_branding/eaa-logo-color.png" />
+                <span class="navbar-brand no-Ibar"><a href="#/">The Aquiferium</a></span>
+                <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
+                <ul class="nav navbar-nav">
+                    <li ng-class="getClass('/explore')"><a href="#/explore">Explore</a></li>
+                    <li ng-class="getClass('/caves-karsts')"><a href="#/caves-karsts">Caves &amp; Karsts</a></li>
+                    <li ng-class="getClass('/conservation')"><a href="#/conservation">Conservation</a></li>
+                    <li ng-class="getClass('/springs')"><a href="#/springs">Springs</a></li>
+                    <li ng-class="getClass('/about')"><a href="#/about">About</a></li>
+                    <li ng-class="getClass('/contact')"><a href="#/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Views -->
+    <div class="container">
+        <div class="view-animate-container">
+            <div class="view-animate" data-ng-view=""></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="navbar-inverse navbar-fixed-bottom footer centered">
+        <div class="container">
+            <p>&#169; 2014 <a data-ng-href="http://edwardsaquifer.org" title="Edwards Aquifer Authority" target="new">Edwards Aquifer Authority</a> | Developed by <a data-ng-href="http://www.encompassproject.org" title="Encompass Project" target="new">Encompass Labs</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Testing Media Queries - remove before deploying. -->
+    <div class="testing">
+        <div class="test-media-queries">
+            <br/>
+            <p>screen-type &#38; media query:
+                <br/>
+                <span></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
+
+    <!--[if lt IE 9]>
+        <script src="bower_components/es5-shim/es5-shim.js"></script>
+        <script src="bower_components/json3/lib/json3.min.js"></script>
+        <![endif]-->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/angular-scenario/angular-scenario.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
+    <script src="bower_components/jquery.stellar/jquery.stellar.js"></script>
+    <script src="bower_components/jquery.easing/js/jquery.easing.min.js"></script>
+    <script src="bower_components/jquery-waypoints/waypoints.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/controllers/explore.js"></script>
+    <script src="scripts/controllers/caves-karsts.js"></script>
+    <script src="scripts/controllers/conservation.js"></script>
+    <script src="scripts/controllers/springs.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/contact.js"></script>
+    <script src="scripts/directives/d3-geojson-directive.js"></script>
+    <!-- <script src="scripts/directives/test-directive.js"></script> -->
+    <!-- <script src="scripts/directives/bars-chart-directive.js"></script> -->
+    <!-- <script src="scripts/controllers/githubChart.js"></script> -->
+    <!-- <script src="scripts/directives/gh-visualization-directive.js"></script> -->
+    <!-- <script src="scripts/controllers/d3Map.js"></script> -->    
+    <!-- <script src="scripts/directives/bootstrap-carousel-directive.js"></script> -->    
+    <!-- endbuild -->
+</body>
+
+</html>

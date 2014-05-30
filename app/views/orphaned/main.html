@@ -1,0 +1,67 @@
+<div>
+    <h1>The Aquiferium
+        <br/>
+        <small>A journey through the Texas aquifer systems</small>
+    </h1>
+
+    <!-- <div>
+        <div style="height: 600px">
+            <carousel interval="myInterval">
+                <slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div class="carousel-caption">
+                        <h4>Slide {{$index}}</h4>
+                        <p>{{slide.text}}</p>
+                    </div>
+                </slide>
+            </carousel>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+            </div>
+            <div class="col-md-6">
+                Interval, in milliseconds:
+                <input type="number" class="form-control" ng-model="myInterval">
+                <br />Enter a negative number to stop the interval.
+            </div>
+        </div>
+    </div> -->
+
+   <!--  <div>
+    <carousel id="carousel">
+	  <carousel-item>
+	    <div class="carousel-caption">
+	       <h4>First Thumbnail label</h4>
+	       <p>Content</p>
+	    </div>
+	    <img src="/images/maps/For-Doty1_940x714.png" />
+	  </carousel-item>
+	  <carousel-item>
+	   <div class="carousel-caption">
+	       <h4>Second Thumbnail label</h4>
+	       <p>Content</p>
+	    </div>
+	    <img src="/images/maps/Major%20Aquifers%20in%20Texas.jpg" />
+	  </carousel-item>
+	</carousel>
+	</div> -->
+
+	<!-- <div>
+		<ul rn-carousel class="image">
+		  <li ng-repeat="image in aquiferiumImages" style="background-image:url({{ image }});">
+		    <div class="layer">{{ image }}</div>
+		  </li>
+		</ul>
+	</div> -->
+
+	<div class="centered">
+        <ul rn-carousel rn-carousel-buffered rn-carousel-indicator rn-carousel-control class="my-slider ng-cloak">
+            <li ng-repeat="slide in slides|limitTo:5" ng-style="{'background-image': 'url(' + slide.img + ')'}">
+                <div class="debug">
+                    {{ slide.label }} / {{ slides.length }}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

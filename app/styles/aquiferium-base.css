@@ -1,0 +1,230 @@
+@charset "utf-8";
+
+/* 
+*   CSS for NAS BRDI 2014 Project v1.0
+*   Created by John Gentle for Encompass Labs - CAT - UT Austin 
+*   Created:            2014.05.02
+*   Last Updated:       2014.05.03 
+*   
+*   Bootstrap 3 Media Querie Sizes:
+*   
+*   Mobile First Method (This is the preferred 'Bootstrap 3 Way'):;
+*       Small Devices, Mobile & Tablets
+*       @media only screen and (min-width : 768px)
+*       Medium Devices, Laptops & Desktops 
+*       @media only screen and (min-width : 992px) 
+*       Large Devices, Wide Screens
+*       @media only screen and (min-width : 1200px)
+*
+*
+*   Color Scheme (from EAA Style Guide):
+*
+*   Primary EAA Logo Colors:
+*
+*   Blue (PMS 7546):    #425968;
+*   Orange (PMS 724):   #AB650D;
+*   Gold (PMS 620):     #8F8100;
+*   Black:              #000000;
+*   White:              #FFFFFF;
+*   Grey:               #777777;
+*
+*   Support Colors:
+*
+*   Tan (PMS 7502):     #E6D395;
+*   Stone (PMS 416):    #8E8C7A;
+*   Lake (PMS 7458):    #71B2C9;
+*
+*   Accent Colors:
+*
+*   Amber (PMS 131):    #C6930A;
+*   Orange (PMS 1595):  #D15B05;
+*   Brown (PMS 7518):   #6D4F47;
+*   Melon (PMS 367):    #AADD6D;
+*   Teal (PMS 339):     #00B28C;
+*   Sky (PMS 7459):     #4298B5;
+*
+*
+*   PRIMARY TYPEFACES:  This sans-serif typeface can be used for headlines, cutlines, and body copy applications.
+*       Font:   HELVETICA Neue family: condensed, extended and regular width versions in light, roman, bold and black weights.
+*   
+*   INTERNAL TYPEFACE:  For internal publications and when the primary typeface choices are unavailable, it is acceptable to use the following:
+*       Font:   ARIAL (Sans-serif), TIMES NEW ROMAN (Serif)
+*
+*   WEB TYPEFACE:   For web copy, use the following:
+*       Font:   ARIAL (Sans-serif)
+*
+*   SUGGESTED USAGE
+*           Body copy:
+*               average size 9 - 10 pt
+*               average leading 11 pt
+*           Cutlines:
+*               average size 7 - 8.5 pt
+*               average leading 9 pt
+*
+*   Typography:
+*       - Forced justified is the preferred usage for body copy.
+*       - Bulleted text is aligned left.
+*/
+
+/*****************/
+/*  CUSTOM CSS   */
+/*****************/
+html {
+    max-width: 100%;
+    max-height: 100%;
+    font-size: 14px;
+}
+body {
+    overflow-x: hidden;
+    /*min-width: 680px;*/
+    min-height: 100%;
+    padding-top: 3.5em;
+    padding-bottom: 4em;
+    font: 100% Helvetica, Arial, Georgia, 'Times New Roman', 'Trebuchet MS', Verdana, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    background-color: #425968; /* #425968; #85A2B4; #E6D395; #E8F5FB; #fff;*/
+    color: #fff;
+}
+h1 {
+    font-size: 3em; /* 48 / 16 */
+    line-height: 1em; /* 48 / 48 */
+    margin-bottom: .5em; /* 24 / 48 */
+}
+h2 {
+    font-size: 2.25em; /* 36 / 16 */
+    line-height: 1.333333333333333em; /* 48 / 36 */
+    margin-bottom: .6666666666666667em; /* 24 / 36 */
+}
+h3 {
+    font-size: 1.5em; /* 24 / 16 */
+    line-height: 1em; /* 24 / 24 */
+    margin-bottom: 1em; /* 24 / 24 */
+}
+h4 {
+    font-size: 1.3125em; /* 21 / 16 */
+    line-height: 1.142857142857143em; /* 24 / 21 */
+    margin-bottom: 1.142857142857143em; /* 24 / 21 */
+}
+h5 {
+    font-size: 1.125em; /* 18 / 16 */
+    line-height: 1.333333333333333em; /* 24 / 18 */
+    margin-bottom: 1.333333333333333em; /* 24 / 18 */
+}
+h6 {
+    font-size: 1em; /* 16 / 16 */
+    line-height: 1.5em; /* 24 / 16 */
+    margin-bottom: 1.5em; /* 24 / 16 */
+}
+p {
+    font-size: 1em; /* 16 / 16 */
+    line-height: 1.5em; /* 24 / 16 */
+    margin-bottom: 1.5em; /* 24 / 16 */
+}
+/* fix for angular-ui-bootstrap directives */
+.nav, .pagination, .carousel, .panel-title a { 
+    cursor: pointer; 
+}
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color: #999;
+}
+a:hover {
+    color: #fff; 
+}
+.eaa-logo {
+    min-width: 80px;
+    max-width: 10%;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 1em;
+}
+.no-Ibar {
+    cursor:default;
+}
+.footer {
+    padding: 1em 0em 0em 0em;
+    background-color: #333;
+    border: none;
+}
+.centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.custom-email {
+    color: #fff;
+}
+.text-muted {
+    /*color: #444444;*/
+}
+.testing {
+    position: fixed;
+    padding: 0em 1em 0em 1em;
+    bottom: 0;
+    width: auto;
+    z-index: 5000;
+    background-color: #000;
+}
+/*****************/
+/* MEDIA QUERIES */
+/*****************/
+/* Dealing with Bootstrap on tiny screens */
+@media (max-width: 209px) {
+    .test-media-queries p span:after {         
+        color: #FF0000;
+        content: 'Micro Screen (max-width = 209px)';
+    }
+    body {
+        padding-top: 9.5em;
+    }
+}
+@media (min-width: 210px) and (max-width: 310px) {
+    .test-media-queries p span:after {         
+        color: #FF5500;
+        content: 'Tiny Screen (min-width = 210px && max-width = 310px)';
+    }
+    body {
+        padding-top: 6.5em;
+    }
+}
+/* Extra small devices (phones, less than 768px) */
+@media (min-width: 311px) and (max-width: 767px) {
+    .test-media-queries p span:after {         
+        color: #FFAA00;
+        content: 'Small Screen (min-width = 311px && max-width < 767px)';
+    }
+    body {
+        padding-top: 3.5em;
+    }
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .test-media-queries p span:after { 
+        color: #FFFF00;
+        content: 'Tablet Screen (min-width = 768px && max-width < 991px)';
+    }
+    body {
+        padding-top: 6.5em;
+    }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .test-media-queries p span:after { 
+        color: #00FF00;
+        content: 'Desktop Screen (min-width = 992px && max-width < 1199px)';
+    }
+    body {
+        padding-top: 6.5em;
+    }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .test-media-queries p span:after { 
+        color: #00AAFF;
+        content: 'Large Screen (min-width = 1200px)';
+    }
+    body {
+        padding-top: 3.5em;
+    }
+}

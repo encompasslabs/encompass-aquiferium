@@ -82,7 +82,7 @@ body {
     padding-bottom: 4em;
     font: 100% Helvetica, Arial, Georgia, 'Times New Roman', 'Trebuchet MS', Verdana, Arial, sans-serif;
     text-rendering: optimizeLegibility;
-    background-color: #425968; /* #425968; #85A2B4; #E6D395; #E8F5FB; #fff;*/
+    background-color: #000; /* #425968; #85A2B4; #E6D395; #E8F5FB; #fff;*/
     color: #fff;
 }
 h1 {
@@ -203,7 +203,7 @@ a:hover {
         content: 'Tablet Screen (min-width = 768px && max-width < 991px)';
     }
     html { font-size: 16px; }
-    body { padding-top: 6.5em; }
+    body { padding-top: 6.0em; }
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -212,7 +212,7 @@ a:hover {
         content: 'Desktop Screen (min-width = 992px && max-width < 1199px)';
     }
     html { font-size: 18px; }
-    body { padding-top: 6.5em; }
+    body { padding-top: 5.6em; }
 }
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
@@ -221,5 +221,5 @@ a:hover {
         content: 'Large Screen (min-width >= 1200px)';
     }
     html { font-size: 18px; }
-    body { padding-top: 3.5em; }
+    body { padding-top: 2.6em; }
 }

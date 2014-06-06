@@ -205,7 +205,7 @@ a:hover {
 .slide p:first-child {
     position: absolute;
     border: 1px solid #fff;
-    top: 13%; /*80px;*/
+    top: 17%; /*80px;*/
     left: 12%; /*80px;*/
     width: 66%;
     padding: 0.4em 0.8em;
@@ -233,7 +233,7 @@ a:hover {
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 15%; /*100px;*/
+    top: 17%; /*100px;*/
     left: 5%; /*22px;*/
     background-image: url(../images/arrow.png);
     background-repeat: no-repeat;
@@ -265,7 +265,7 @@ a:hover {
 *******************************/
 /*** SLIDE 0 ***/
  #slide0 {
-    background-image: url(../images/caves-karsts/DSC_0318_web.jpg);
+    background-image: url(../images/caves_karsts/DSC_0318_web.jpg);
 }
 #slide0 p:first-child {
     border: 1px solid #8F8100;
@@ -280,7 +280,7 @@ a:hover {
 }*/
 /*** SLIDE 1 ***/
  #slide1 {
-    /*background-image:url(../images/caves-karsts/Seco chnl3 7-25-07.MPG);*/
+    /*background-image:url(../images/caves_karsts/Seco chnl3 7-25-07.MPG);*/
     background-color: #222;
 }
 #slide1 p:first-child {
@@ -296,7 +296,7 @@ a:hover {
 }*/
 /*** SLIDE 2 ***/
  #slide2 {
-    background-image:url(../images/caves-karsts/For-Doty1_940x714_web.jpg);
+    background-image:url(../images/caves_karsts/For-Doty1_940x714_web.jpg);
 }
 #slide2 p:first-child {
     border: 1px solid #8F8100;
@@ -311,7 +311,7 @@ a:hover {
 }*/
 /*** SLIDE 3 ***/
  #slide3 {
-    /*background-image:url(../images/caves-karsts/MVI_3085.MOV);*/
+    /*background-image:url(../images/caves_karsts/MVI_3085.MOV);*/
     background-color: #222;
 }
 #slide3 p:first-child {
@@ -327,7 +327,7 @@ a:hover {
 }*/
 /*** SLIDE 4 ***/
  #slide4 {
-    background-image:url(../images/caves-karsts/edwards-limestone_web.jpg);
+    background-image:url(../images/caves_karsts/edwards-limestone_web.jpg);
 }
 #slide4 p:first-child {
     border: 1px solid #8F8100;
@@ -342,7 +342,7 @@ a:hover {
 }*/
 /*** SLIDE 5 ***/
  #slide5 {
-    /*background-image:url(../images/caves-karsts/MVI_3004.MOV);*/
+    /*background-image:url(../images/caves_karsts/MVI_3004.MOV);*/
     background-color: #222;
 }
 #slide5 p:first-child {
@@ -358,7 +358,7 @@ a:hover {
 }*/
 /*** SLIDE 6 ***/
  #slide6 {
-    background-image:url(../images/caves-karsts/valdina_8r_web.jpg);
+    background-image:url(../images/caves_karsts/valdina_8r_web.jpg);
 }
 #slide6 p:first-child {
     border: 1px solid #8F8100;
@@ -373,7 +373,7 @@ a:hover {
 }*/
 /*** SLIDE 7 ***/
  #slide7 {
-    background-image:url(../images/caves-karsts/Valdina_Farms_Cave_IMG0017_web.jpg);
+    background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web.jpg);
 }
 #slide7 p:first-child {
     border: 1px solid #AB650D;

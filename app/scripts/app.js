@@ -7,7 +7,8 @@ angular
         'ngSanitize',
         'ngRoute',
         'ngAnimate',
-        'angular-carousel',
+        'angular-carousel'
+        //'timeDirective'
         // 'd3'
     ])
     .config(function($routeProvider) {

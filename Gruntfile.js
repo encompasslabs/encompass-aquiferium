@@ -163,20 +163,28 @@ module.exports = function (grunt) {
         sassDir: '<%= yeoman.app %>/styles',
         cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
+        // generatedImagesPath: '.tmp/images/generated', // testing path - no effect.
         imagesDir: '<%= yeoman.app %>/images',
+        // imagesPath: '/images',  // testing path - no effect.
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
         importPath: '<%= yeoman.app %>/bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
-        relativeAssets: false,
+        relativeAssets: true, //false,  // testing true - no effect.
         assetCacheBuster: false,
         raw: 'Sass::Script::Number.precision = 10\n'
       },
+      // Adding in sass-bootstrap-official.
+      bootstrap: {
+        sassDir: '<%= yeoman.app %>/bower_components/bootstrap-sass-official',
+        cssDir: '.tmp/styles'
+      },
       dist: {
         options: {
-          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+          generatedImagesDir: '<%= yeoman.dist %>/images/generated',
+          generatedImagesPath: '<%= yeoman.dist %>/images/'
         }
       },
       server: {
@@ -193,7 +201,7 @@ module.exports = function (grunt) {
           src: [
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
-            // '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}', // This line can cause issues in minification output due to bug in usemin. Safe to comment out if needed.
             '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
@@ -221,11 +229,19 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+      html: ['<%= yeoman.dist %>/{,*/}*.html'],   // Default:  /{,*/}*.html'],    // Test 1: /**/*.html'], 
+      css: ['<%= yeoman.dist %>/styles/**/*.css'],  // Default:  {,*/}*.css'],  // Test 1: /styles/**/*.css'],  // This Test 1
       options: {
-        assetsDirs: ['<%= yeoman.dist %>'], //, '<%= yeoman.dist %>/images']
-        basedir: ['<%= yeoman.dist %>']
+        assetsDirs: ['<%= yeoman.dist %>'], // Default: ['<%= yeoman.dist %>'],  // Test 1: ['<%= yeoman.dist %>/**/'],  // Test 2: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images'],
+        // Test 3: basedir: '<%= yeoman.dist %>'
+        /*
+        patterns: {
+          // FIXME While usemin won't have full support for revved files we have to put all references manually here
+          js: [
+              [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
+          ]
+        }
+        */
       }
     },
 
@@ -392,6 +408,7 @@ module.exports = function (grunt) {
       'clean:server',
       'bowerInstall',
       'concurrent:server',
+      'compass:bootstrap',  // Tetsing sass-bootstrap-official.
       'autoprefixer',
       'connect:livereload',
       'watch'

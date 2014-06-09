@@ -13,6 +13,7 @@ angular.module('aquiferiumApp')
         // START PARALLAX CODE //
         //initialise Stellar.js
         $(window).stellar();
+        // $scope.stellar();
 
         //Cache some variables
         var links = $('.navigation').find('li');

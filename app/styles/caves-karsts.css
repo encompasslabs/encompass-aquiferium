@@ -1,136 +1,131 @@
-/* slides */
-.slide {
-    background-attachment: fixed;
-    width:100%;
-    height:100%;
-    position: relative;
-    box-shadow:inset 0px 10px 10px rgba(0,0,0,0.3);
-}
-.wrapper {
-    width:960px;
-    height:200px;
-    margin:0 auto;
-    position:relative;
-}
-.slideno {
-    position:absolute;
-    bottom:0px;
-    left:0px;
-    font-size:100px;
-    font-weight:bold;
-    color:rgba(255,255,255,0.3);
-}
-/* button */
-.button{
-    display:block;
-    width:50px;
-    height:50px;
-    position:absolute;
-    bottom:0px;
-    left:50%;
-    background-color:#333333;
-    background-image:url(../assets/images/arrow-down.gif);
-    background-repeat:no-repeat;
-    z-index:1;
-}
-.button:hover{
-    background-color:#494949;
-    cursor:pointer;
-}
+/* individual slides */
 /******************************
- SLIDE 1 
+ SECO SINNKHOLE
 *******************************/
-#slide1{
-    background-color:#5c9900;
-     
+/*** SLIDE 0 ***/
+ #slide0 {
+    background-image: url(../images/caves_karsts/DSC_0318_web.jpg);
 }
-/******************************
- SLIDE 2 
-*******************************/
-#slide2{
-    background-color:#005c99;
-     
+#slide0 p:first-child {
+    border: 1px solid #8F8100;
 }
-#slide2 img:first-child{
-    position:absolute;
-    top: 200px;
-    left: -400px;
+/*#slideno0 {
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #8F8100,  
+    1px -1px 0 #8F8100,
+    -1px 1px 0 #8F8100,
+    1px 1px 0 #8F8100;
+}*/
+/*** SLIDE 1 ***/
+ #slide1 {
+    /*background-image:url(../images/caves_karsts/Seco chnl3 7-25-07.MPG);*/
+    background-color: #222;
 }
-#slide2 img:nth-child(2){
-    position:absolute;
-    top: 250px;
-    left: -350px;
+#slide1 p:first-child {
+    border: 1px solid #425968;
 }
-#slide2 img:nth-child(3){
-    position:absolute;
-    top: 300px;
-    left: -300px;
+/*#slideno1 {
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #425968,  
+    1px -1px 0 #425968,
+    -1px 1px 0 #425968,
+    1px 1px 0 #425968;
+}*/
+/*** SLIDE 2 ***/
+ #slide2 {
+    background-image:url(../images/caves_karsts/For-Doty1_940x714_web.jpg);
 }
-#slide2 img:nth-child(4){
-    position:absolute;
-    top: 350px;
-    left: -250px;
+#slide2 p:first-child {
+    border: 1px solid #8F8100;
 }
-#slide2 img:nth-child(5){
-    position:absolute;
-    top: 400px;
-    right: -200px;
+/*#slideno2 {
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #8F8100,  
+    1px -1px 0 #8F8100,
+    -1px 1px 0 #8F8100,
+    1px 1px 0 #8F8100;
+}*/
+/*** SLIDE 3 ***/
+ #slide3 {
+    /*background-image:url(../images/caves_karsts/MVI_3085.MOV);*/
+    background-color: #222;
 }
-#slide2 img:nth-child(6){
-    position:absolute;
-    top: 450px;
-    right: -150px;
+#slide3 p:first-child {
+    border: 1px solid #425968;
 }
-/******************************
- SLIDE 3 
- *******************************/ 
-#slide3 {   
-    background-color:#b6c10b;  
-}  
-#slide3 img:first-child {   
-    position:absolute;  
-    top: 200px;
-    left: -400px;
-}  
-#slide3 img:nth-child(2){   
-    position:absolute;      
-    top: 250px;
-    left: -350px; 
-}  
-#slide3 img:nth-child(3){   
-    position:absolute;      
-    top: 300px;
-    left: -300px;  
-}  
-#slide3 img:nth-child(4){   
-    position:absolute;      
-    top: 350px;      
-    left: -250px; 
-}  
-#slide3 img:nth-child(5){   
-    position:absolute;      
-    top: 400px;      
-    right: -200px;  
-}  
-#slide3 img:nth-child(6){   
-    position:absolute;      
-    top: 450px;      
-    right: -150px;  
+/*#slideno3 {
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #425968,  
+    1px -1px 0 #425968,
+    -1px 1px 0 #425968,
+    1px 1px 0 #425968;
+}*/
+/*** SLIDE 4 ***/
+ #slide4 {
+    background-image:url(../images/caves_karsts/edwards-limestone_web.jpg);
 }
-/******************************
- SLIDE 4 
-*******************************/
-#slide4{
-    background-image:url(../assets/images/bridge.jpg);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+#slide4 p:first-child {
+    border: 1px solid #8F8100;
 }
-#slide4 .parallaxbg{
-    position: absolute;
-    right: 0px;
-    top: -50px;
-    font-size: 28px;
-    color: rgba(51,51,51,0.3);
+/*#slideno4 {
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #8F8100,  
+    1px -1px 0 #8F8100,
+    -1px 1px 0 #8F8100,
+    1px 1px 0 #8F8100;
+}*/
+/*** SLIDE 5 ***/
+ #slide5 {
+    /*background-image:url(../images/caves_karsts/MVI_3004.MOV);*/
+    background-color: #222;
+}
+#slide5 p:first-child {
+    border: 1px solid #425968;
+}
+/*#slideno5 {
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #425968,  
+    1px -1px 0 #425968,
+    -1px 1px 0 #425968,
+    1px 1px 0 #425968;
+}*/
+/*** SLIDE 6 ***/
+ #slide6 {
+    background-image:url(../images/caves_karsts/valdina_8r_web.jpg);
+}
+#slide6 p:first-child {
+    border: 1px solid #8F8100;
+}
+/*#slideno6 {
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #8F8100,  
+    1px -1px 0 #8F8100,
+    -1px 1px 0 #8F8100,
+    1px 1px 0 #8F8100;
+}*/
+/*** SLIDE 7 ***/
+ #slide7 {
+    background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web.jpg);
+}
+#slide7 p:first-child {
+    border: 1px solid #AB650D;
+}
+/*#slideno7 {
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #AB650D,  
+    1px -1px 0 #AB650D,
+    -1px 1px 0 #AB650D,
+    1px 1px 0 #AB650D;
+}*/
+/*** SLIDE 8 ***/
+ #slide8 {
+    background-color: #000;
 }

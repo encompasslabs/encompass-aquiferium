@@ -1,12 +1,11 @@
-/* individual slides */
 /******************************
- SECO SINNKHOLE
+ CAVES & KARSTS
 *******************************/
 /*** SLIDE 0 ***/
- #slide0 {
+ #ck-slide0 {
     background-image: url(../images/caves_karsts/DSC_0318_web.jpg);
 }
-#slide0 p:first-child {
+#ck-slide0 p:first-child {
     border: 1px solid #8F8100;
 }
 /*#slideno0 {
@@ -18,11 +17,11 @@
     1px 1px 0 #8F8100;
 }*/
 /*** SLIDE 1 ***/
- #slide1 {
+ #ck-slide1 {
     /*background-image:url(../images/caves_karsts/Seco chnl3 7-25-07.MPG);*/
     background-color: #222;
 }
-#slide1 p:first-child {
+#ck-slide1 p:first-child {
     border: 1px solid #425968;
 }
 /*#slideno1 {
@@ -34,10 +33,10 @@
     1px 1px 0 #425968;
 }*/
 /*** SLIDE 2 ***/
- #slide2 {
+ #ck-slide2 {
     background-image:url(../images/caves_karsts/For-Doty1_940x714_web.jpg);
 }
-#slide2 p:first-child {
+#ck-slide2 p:first-child {
     border: 1px solid #8F8100;
 }
 /*#slideno2 {
@@ -49,11 +48,11 @@
     1px 1px 0 #8F8100;
 }*/
 /*** SLIDE 3 ***/
- #slide3 {
+ #ck-slide3 {
     /*background-image:url(../images/caves_karsts/MVI_3085.MOV);*/
     background-color: #222;
 }
-#slide3 p:first-child {
+#ck-slide3 p:first-child {
     border: 1px solid #425968;
 }
 /*#slideno3 {
@@ -65,10 +64,10 @@
     1px 1px 0 #425968;
 }*/
 /*** SLIDE 4 ***/
- #slide4 {
+ #ck-slide4 {
     background-image:url(../images/caves_karsts/edwards-limestone_web.jpg);
 }
-#slide4 p:first-child {
+#ck-slide4 p:first-child {
     border: 1px solid #8F8100;
 }
 /*#slideno4 {
@@ -80,11 +79,11 @@
     1px 1px 0 #8F8100;
 }*/
 /*** SLIDE 5 ***/
- #slide5 {
+ #ck-slide5 {
     /*background-image:url(../images/caves_karsts/MVI_3004.MOV);*/
     background-color: #222;
 }
-#slide5 p:first-child {
+#ck-slide5 p:first-child {
     border: 1px solid #425968;
 }
 /*#slideno5 {
@@ -96,10 +95,10 @@
     1px 1px 0 #425968;
 }*/
 /*** SLIDE 6 ***/
- #slide6 {
+ #ck-slide6 {
     background-image:url(../images/caves_karsts/valdina_8r_web.jpg);
 }
-#slide6 p:first-child {
+#ck-slide6 p:first-child {
     border: 1px solid #8F8100;
 }
 /*#slideno6 {
@@ -111,10 +110,10 @@
     1px 1px 0 #8F8100;
 }*/
 /*** SLIDE 7 ***/
- #slide7 {
+ #ck-slide7 {
     background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web.jpg);
 }
-#slide7 p:first-child {
+#ck-slide7 p:first-child {
     border: 1px solid #AB650D;
 }
 /*#slideno7 {
@@ -126,6 +125,6 @@
     1px 1px 0 #AB650D;
 }*/
 /*** SLIDE 8 ***/
- #slide8 {
+ #ck-slide8 {
     background-color: #000;
 }

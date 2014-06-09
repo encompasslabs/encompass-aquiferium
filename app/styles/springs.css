@@ -1,0 +1,71 @@
+/******************************
+ CONSERVATION
+*******************************/
+/*** SLIDE 0 ***/
+#springs-slide0 {
+    /*background-image: url(../images/caves_karsts/DSC_0318_web.jpg);*/
+    background-color: #555;
+}
+#springs-slide0 p:first-child {
+    border: 1px solid #8F8100;
+}
+/*** SLIDE 1 ***/
+#springs-slide1 {
+    /*background-image:url(../images/caves_karsts/Seco chnl3 7-25-07.MPG);*/
+    background-color: #222;
+}
+#springs-slide1 p:first-child {
+    border: 1px solid #425968;
+}
+/*** SLIDE 2 ***/
+#springs-slide2 {
+    /*background-image:url(../images/caves_karsts/For-Doty1_940x714_web.jpg);*/
+    background-color: #555;
+}
+#springs-slide2 p:first-child {
+    border: 1px solid #8F8100;
+}
+/*** SLIDE 3 ***/
+#springs-slide3 {
+    /*background-image:url(../images/caves_karsts/MVI_3085.MOV);*/
+    background-color: #222;
+}
+#springs-slide3 p:first-child {
+    border: 1px solid #425968;
+}
+/*** SLIDE 4 ***/
+#springs-slide4 {
+    /*background-image:url(../images/caves_karsts/edwards-limestone_web.jpg);*/
+    background-color: #555;
+}
+#springs-slide4 p:first-child {
+    border: 1px solid #8F8100;
+}
+/*** SLIDE 5 ***/
+#springs-slide5 {
+    /*background-image:url(../images/caves_karsts/MVI_3004.MOV);*/
+    background-color: #222;
+}
+#springs-slide5 p:first-child {
+    border: 1px solid #425968;
+}
+/*** SLIDE 6 ***/
+#springs-slide6 {
+    /*background-image:url(../images/caves_karsts/valdina_8r_web.jpg);*/
+    background-color: #555;
+}
+#springs-slide6 p:first-child {
+    border: 1px solid #8F8100;
+}
+/*** SLIDE 7 ***/
+#springs-slide7 {
+    /*background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web.jpg);*/
+    background-color: #222;
+}
+#springs-slide7 p:first-child {
+    border: 1px solid #AB650D;
+}
+/*** SLIDE 8 ***/
+#springs-slide8 {
+    background-color: #000;
+}

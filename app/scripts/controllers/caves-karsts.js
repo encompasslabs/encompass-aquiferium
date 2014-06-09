@@ -20,9 +20,15 @@ angular.module('aquiferiumApp')
         var slide = $('.slide');
         var button = $('.button-scroll');
         var mywindow = $(window);
-        // var mywindow = $scope.$window;
         var htmlbody = $('html,body');
         var dataslide = {};
+
+        // $scope.links = $('.navigation').find('li');
+        // $scope.slide = $('.slide');
+        // $scope.button = $('.button-scroll');
+        // $scope.mywindow = $(window);
+        // $scope.htmlbody = $('html,body');
+        // $scope.dataslide = {};
 
         //Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. 
         // The Jquery easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
@@ -40,5 +46,11 @@ angular.module('aquiferiumApp')
             dataslide = $(this).attr('data-slide');
             goToByScroll(dataslide);
         });
+
+        // $scope.button.click(function(e) {
+        //     e.preventDefault();
+        //     $scope.dataslide = $(this).attr('data-slide');
+        //     goToByScroll($scope.dataslide);
+        // });
         // END PARALLAX CODE //
     });

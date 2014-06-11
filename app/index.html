@@ -26,11 +26,12 @@
     <link rel="stylesheet" type="text/css" href="styles/caves-karsts.css">
     <link rel="stylesheet" type="text/css" href="styles/conservation.css">
     <link rel="stylesheet" type="text/css" href="styles/springs.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styles/angular-carousel.css"> -->
     <!-- <link rel="stylesheet" href="styles/transitions-moo.css"> -->
     <!-- <link rel="stylesheet" href="styles/super-awesome-buttons.css"> -->
     <!-- <link rel="stylesheet" href="styles/background-effects.css"> -->
     <!-- <link rel="stylesheet" href="styles/animations.css"> -->
-    <link rel="stylesheet" type="text/css" href="styles/angular-carousel.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styles/animate.css"> -->
     <!-- <link rel="stylesheet" href="styles/parallax.css"> -->
     <!-- endbuild -->
 </head>
@@ -41,7 +42,7 @@
     <![endif]-->
 
     <!-- Navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation" data-ng-controller="HeaderCtrl">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" data-ng-controller="NavigationCtrl">
         <div class="container">
             <div class="navbar-header">
                 <img class="img-responsive pull-left eaa-logo" src="./images/eaa_branding/eaa-logo-color.png" />
@@ -142,24 +143,25 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="bower_components/angular-scenario/angular-scenario.js"></script>
-    <script src="bower_components/jquery.stellar/jquery.stellar.js"></script>
     <script src="bower_components/jquery.easing/js/jquery.easing.min.js"></script>
     <script src="bower_components/jquery-waypoints/waypoints.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
+    <script src="bower_components/angular-parallax/scripts/angular-parallax.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/header.js"></script>
-    <script src="scripts/controllers/explore.js"></script>
-    <script src="scripts/controllers/caves-karsts.js"></script>
-    <script src="scripts/controllers/conservation.js"></script>
-    <script src="scripts/controllers/springs.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/controllers/contact.js"></script>
+    <script src="scripts/controllers/navigation-controller.js"></script>
+    <script src="scripts/controllers/explore-controller.js"></script>
+    <script src="scripts/controllers/caves-karsts-controller.js"></script>
+    <script src="scripts/controllers/conservation-controller.js"></script>
+    <script src="scripts/controllers/springs-controller.js"></script>
+    <script src="scripts/controllers/about-controller.js"></script>
+    <script src="scripts/controllers/contact-controller.js"></script>
     <script src="scripts/directives/d3-geojson-directive.js"></script>
+    <!-- <script scr>="scripts/directives/view-reset-directive.js"</script> -->
     <script src="scripts/directives/test-directive-a.js"></script>
     <script src="scripts/directives/test-directive-b.js"></script>
     <script src="scripts/directives/tell-time-directive.js"></script>

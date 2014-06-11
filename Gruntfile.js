@@ -32,18 +32,18 @@ module.exports = function (grunt) {
         tasks: ['bowerInstall']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/scripts/**/*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: true
         }
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['test/spec/**/*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {
@@ -54,10 +54,10 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.app %>/data/{,*/}*.{json,csv,tsv}'
+          '<%= yeoman.app %>/**/*.html',
+          '.tmp/styles/**/*.css',
+          '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.app %>/data/**/*.{json,csv,tsv}'
         ]
       }
     },
@@ -104,19 +104,21 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
+        '<%= yeoman.app %>/scripts/**/*.js'
       ],
       test: {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['test/spec/{,*/}*.js']
+        src: ['test/spec/**/*.js']
       }
     },
 
     // Empties folders to start fresh
     clean: {
-      options: { force: true },
+      options: {
+        force: true
+      },
       dist: {
         files: [{
           dot: true,
@@ -139,7 +141,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
+          src: '**/*.css',
           dest: '.tmp/styles/'
         }]
       }
@@ -152,7 +154,7 @@ module.exports = function (grunt) {
         ignorePath: '<%= yeoman.app %>/'
       },
       sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
         ignorePath: '<%= yeoman.app %>/bower_components/'
       }
     },
@@ -199,9 +201,9 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}', // This line can cause issues in minification output due to bug in usemin. Safe to comment out if needed.
+            '<%= yeoman.dist %>/scripts/**/*.js',
+            '<%= yeoman.dist %>/styles/**/*.css',
+            '<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}', // This line can cause issues in minification output due to bug in usemin. Safe to comment out if needed.
             '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
@@ -229,10 +231,13 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],   // Default:  /{,*/}*.html'],    // Test 1: /**/*.html'], 
-      css: ['<%= yeoman.dist %>/styles/**/*.css'],  // Default:  {,*/}*.css'],  // Test 1: /styles/**/*.css'],  // This Test 1
+      html: ['<%= yeoman.dist %>/**/*.html'], // Default:  /{,*/}*.html'],    // Test 1: /**/*.html'], 
+      css: ['<%= yeoman.dist %>/styles/**/*.css'], // Default:  {,*/}*.css'],  // Test 1: /styles/**/*.css'],  // This Test 1
       options: {
-        assetsDirs: ['<%= yeoman.dist %>'], // Default: ['<%= yeoman.dist %>'],  // Test 1: ['<%= yeoman.dist %>/**/'],  // Test 2: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images'],
+        assetsDirs: ['<%= yeoman.dist %>'],
+        // Default: ['<%= yeoman.dist %>'],  
+        // Test 1: ['<%= yeoman.dist %>/**/'],  
+        // Test 2: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images'],
         // Test 3: basedir: '<%= yeoman.dist %>'
         /*
         patterns: {
@@ -257,7 +262,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
+          src: '**/*.{png,jpg,jpeg,gif}',
           dest: '<%= yeoman.dist %>/images'
         }]
       }
@@ -268,7 +273,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
+          src: '**/*.svg',
           dest: '<%= yeoman.dist %>/images'
         }]
       }
@@ -285,7 +290,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
+          src: ['*.html', 'views/**/*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -324,9 +329,9 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'data/{,*/}*.{json,csv,tsv}',
+            'views/**/*.html',
+            'images/**/*.{webp}',
+            'data/**/*.{json,csv,tsv}',
             'fonts/*'
           ]
         }, {
@@ -340,7 +345,7 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
-        src: '{,*/}*.css'
+        src: '**/*.css'
       }
     },
 
@@ -398,7 +403,6 @@ module.exports = function (grunt) {
     }
   });
 
-
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -408,7 +412,7 @@ module.exports = function (grunt) {
       'clean:server',
       'bowerInstall',
       'concurrent:server',
-      'compass:bootstrap',  // Tetsing sass-bootstrap-official.
+      'compass:bootstrap', // Tetsing sass-bootstrap-official.
       'autoprefixer',
       'connect:livereload',
       'watch'

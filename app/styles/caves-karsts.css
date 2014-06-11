@@ -4,6 +4,7 @@
 /*** SLIDE 0 ***/
  #ck-slide0 {
     background-image: url(../images/caves_karsts/DSC_0318_web.jpg);
+    max-width: 100%;
 }
 #ck-slide0 p:first-child {
     border: 1px solid #8F8100;
@@ -22,7 +23,7 @@
     background-color: #222;
 }
 #ck-slide1 p:first-child {
-    border: 1px solid #425968;
+    border: 1px solid #777;
 }
 /*#slideno1 {
     color: #000;
@@ -53,7 +54,7 @@
     background-color: #222;
 }
 #ck-slide3 p:first-child {
-    border: 1px solid #425968;
+    border: 1px solid #777;
 }
 /*#slideno3 {
     color: #000;
@@ -84,7 +85,7 @@
     background-color: #222;
 }
 #ck-slide5 p:first-child {
-    border: 1px solid #425968;
+    border: 1px solid #777;
 }
 /*#slideno5 {
     color: #000;

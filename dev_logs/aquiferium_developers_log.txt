@@ -1,0 +1,248 @@
+Aquiferium Project - Developers Log
+
+----------------------------------------------------------------------------
+Important Dates
+----------------------------------------------------------------------------
+
+Project Start Date:			2014.04.21
+Project POC target Date:	2014.06.01
+Project Due Date:			2014.08.31
+
+----------------------------------------------------------------------------
+Developers
+----------------------------------------------------------------------------
+
+Lead - John Gentle
+
+----------------------------------------------------------------------------
+Log Entries
+----------------------------------------------------------------------------
+
+Entry Date:		2014.04.21
+
+KICKOFF TELECON
+
+Review of the final contract and the general timeline and deliverables.
+
+Current do-outs are:
+
+- Close loop on administrative paperwork for purchase orders and payment between UT and EAA (Suzanne).
+- Styleguides for EAA (Brent & Elizabeth).
+- Equipment comparison document (Suzanne).
+- Setup a folder for asset exchange between EAA and UT (John).
+- Weekly telecons on Mondays @ 10AM via Google Hangout.
+- Setup Live Development Server for Aquiferium Project.
+- Create initial prototype for rapid iteration by first meeting (2014.04.28).
+
+Short Term Goal:
+
+Functional prototype for demonstration to the EAA board in June.
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.04.22
+
+Setup BOX folder for asset transfer from EAA to UT.
+Sent out info on Google Hangouts for meetings.
+Further research into best generator/seed for project continues...
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.04.30
+
+Delayed initial app review due to being out all week for personal reasons.
+Review will take place on Monday 5.5 instead.
+
+Adjusted approach and setup app using yeoman generator-angular along with some tweaks on testing configs.
+Finally ready to do the development it seems.
+
+Brent has uploaded tons of files into Box for use in the app.
+Building out UI next.
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.05.04
+
+- Basic app skeleton is setup and functional in Angular.
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.05.14
+
+Need to combine the code from the 'aquiferium' and the 'aquiferium-v07' code bases.
+
+'aquiferium' has some basic work done but is not configured for the e2e testing.
+Best approach would be to version 'aquiferium' and then implement the e2e testing as is in 'aquiferium-v07' and continue development from there. 
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.05.15
+
+TODO:
+
+- Integrate e2e testing in codebase.
+- Properly integrate Bootstrap usage (overhaul codebase as required).
+- Build prototype virtual tour module for Negales caves.
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.05.16
+
+TODO:
+
+- Update Encompass webserver to allow navigation to GWDSS, Watermark and Aquiferium projects.
+- Upload code for Aquiferium project to Encompass webserver.
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.05.18
+
+TODO:
+
+- Setup live version on AWS.
+- Fix carousel directive on main page.
+- Add point location to GIS map for aquifer tours.
+- Create modal virtual tour directive.
+- Workout projection for GIS data.
+- Time series data for Texas choropleth.
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.05.19
+
+Meeting Notes:
+
+- No popups to ensure compatability with all systems.
+- test modals jsut to be sure.
+---- TESTED: this is not an issue so long as the modal-dialog is triggered by a user action (ie - click a button or link) and not by a script.
+
+- No home button. Remove Home.
+- Start with Explore.
+---- DONE
+
+- Caves and Karst (Recharge)
+-- Tours
+--- Greys
+
+- Conservation (Usage)
+-- Sharks & Minnows webflow
+--- Greens
+
+- Springs (Discharge)
+-- Mix of two styles
+--- Blues
+
+- GIS projection NAD83 for website data (confirmed).
+-- season@edwardsaquifer.org (Sarah Eason) - CC Elizabeth on any correspondance.
+---- RESOLVED: GDAL command requires an argument to convert lat-lon from gridded coordinate system ( -t_srs EPSG:4326 ).
+
+- San Antonio segment of the Balcones Meadows Edwards Aquifer
+-- reference video: https://www.youtube.com/watch?v=NzYWOM2TmJk
+
+- uniform navigation system/ui for each section.
+- keep organic storyboard discover experience and avoid website-vibe. 
+
+- Need a place for info/data/learning (historical data)
+
+- Need side by side comparison of historical data on choroplethg map with scrubber.
+-- Use county as key.
+--- Time scrubber example: http://bost.ocks.org/mike/nations/
+
+- per capita water use of population during drought of 50's, during 80's (no regulation period) and now (critical period reductions)
+-- show how conservation and critical stage drought management has made a difference with the population.
+--- three column directive for choropleth map that shows historical data and allows selection of metric.
+
+Next week: Tuesday telecon @ 10am due to Memorial Day Holiday.
+
+Dev Notes:
+
+- Need to cache geojson data and use local copy instead of fetching every time page is called.
+- Need to ID why geojson doesn't consistently load when clicking the same nav option twice in a row.
+-- Page reloads, but geojson does not render.
+-- Going to a different page THEN navigating back works fine.
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.05.27
+
+Meeting Notes:
+
+- For next week:
+	-- In the context of the full app using directive
+	-- Adjust images to fit screen fully
+	-- Get video working and compressed
+	-- Change breadcrumbs (or remove)
+	-- Other 2 narratives
+	-- Drought interaction (separate component - focuse on that in 2 weeks)
+	-- Convert aquifer geojson to static image and add anchor links to specific narrative pages from the 'explore' view.
+
+----------------------------------------------------------------------------
+
+Entry Date:		2014.06.10
+
+Dev Notes:
+
+- Issue with usemin script revved image paths in CSS is not resolved still. 
+	-- Cannot seem to find a workaround that solves the issue. 
+	-- Switching the CSS over to SASS and Compass in hopes that the use of these librraies will eliminate the problem.
+	-- Still have yet to transition the css into SASS format.
+
+- Bower and dependnecy issues crept up.
+	-- Had to upgrade several dependencies.
+	-- Keep an eye on this, may require revisiting periodically throughout the project lifecycle.
+	
+- D3 reusable directive status:
+	-- I have a basic reusable directive working.
+	-- Currently the sourcedatais hardcoded in the directive.
+	-- I need a configurable interface to define the source data.
+	-- Need to revisit how the D3 content is rendered in relation to Bootstrap+RWD+Angular to ensure proper performance.
+	-- Should be able to reuse directive multiple times on same view with unique configuration.
+
+- Parallax Scroll directive status:
+	-- I have directly implemented the stellar.js library in the Controller file.
+	-- Currently all Views seem to be calling the same code, no isolate scope implemented yet.
+	-- Currently the initial load of the parallax content is inconsistently misaligned onscreen.
+	-- There seems to be a delay in loading the parallax content.
+	-- Parallax code needs to be made a dependency for injection before rendering onscreen.
+
+- Aquiferium Modules review:
+	-- Need to have better modular design to facilitate better isolation between components.
+	-- Need to ensure appropriate dependencies are injected to respective modules.
+
+NOTE: You cannot redefine app level dependencies within individual files.
+      Doing so will overwrite the dependnecy list and reconfigure the app.
+      All dependencies should be injected at the level in which they are needed.
+      If the entire app is one module (as Aquiferium currently is) then all dependencies should be listed in app.js.
+
+Aquiferium App Module Structure:
+
+[VIEW == index.html]
+app.js 				               ===		angular.module('aquiferiumApp', ['ngCookies','ngResource','ngSanitize','ngRoute','ngAnimate','angular-carousel']);
+navigation-controller.js 		 ===		angular.module('aquiferiumApp').controller('HeaderCtrl', function($scope, $location){...}};
+
+[VIEW == explore.html]
+explore-controller.js        ===   angular.module('aquiferiumApp').controller('ExploreCtrl', function($scope){...}};
+
+[VIEW == caves-karsts.html]
+caves-karsts-controller.js   ===   angular.module('aquiferiumApp').controller('CavesKarstsCtrl', function($scope){...}};
+
+[VIEW == conservation.html]
+conservation-controller.js   ===   angular.module('aquiferiumApp').controller('ConservationCtrl', function($scope){...}};
+
+[VIEW == springs.html]
+springs-controller.js        ===   angular.module('aquiferiumApp').controller('SpringsCtrl', function($scope){...}};
+
+[VIEW == about.html]
+about-controller.js          ===   angular.module('aquiferiumApp').controller('AboutCtrl', function($scope){...}};
+
+[VIEW == contact.html]
+contact-controller.js        ===   angular.module('aquiferiumApp').controller('ContactCtrl', function($scope){...}};
+
+
+ISSUES:
+
+- Renamed header.js to navigation-controller.js.
+- Updated all refs to the scipt file and to NavigationCtrl (in app.js and index.html).
+- The app is now unstable or inconsistent in its navbar.
+
+----------------------------------------------------------------------------

@@ -4,15 +4,15 @@
 /*** SLIDE 0 ***/
 #cons-slide0 {
     /*background-image: url(../images/caves_karsts/DSC_0318_web.jpg);*/
-    background-color: #555;
+    background-color: #27343D;
 }
 #cons-slide0 p:first-child {
-    border: 1px solid #8F8100;
+    border: 1px solid #425968;
 }
 /*** SLIDE 1 ***/
 #cons-slide1 {
     /*background-image:url(../images/caves_karsts/Seco chnl3 7-25-07.MPG);*/
-    background-color: #222;
+    background-color: #613907;
 }
 #cons-slide1 p:first-child {
     border: 1px solid #425968;
@@ -20,7 +20,7 @@
 /*** SLIDE 2 ***/
 #cons-slide2 {
     /*background-image:url(../images/caves_karsts/For-Doty1_940x714_web.jpg);*/
-    background-color: #555;
+    background-color: #4A4300;
 }
 #cons-slide2 p:first-child {
     border: 1px solid #8F8100;
@@ -28,7 +28,7 @@
 /*** SLIDE 3 ***/
 #cons-slide3 {
     /*background-image:url(../images/caves_karsts/MVI_3085.MOV);*/
-    background-color: #222;
+    background-color: #27343D;
 }
 #cons-slide3 p:first-child {
     border: 1px solid #425968;
@@ -36,31 +36,31 @@
 /*** SLIDE 4 ***/
 #cons-slide4 {
     /*background-image:url(../images/caves_karsts/edwards-limestone_web.jpg);*/
-    background-color: #555;
+    background-color: #613907;
 }
 #cons-slide4 p:first-child {
-    border: 1px solid #8F8100;
+    border: 1px solid #AB650D;
 }
 /*** SLIDE 5 ***/
 #cons-slide5 {
     /*background-image:url(../images/caves_karsts/MVI_3004.MOV);*/
-    background-color: #222;
+    background-color: #4A4300;
 }
 #cons-slide5 p:first-child {
-    border: 1px solid #425968;
+    border: 1px solid #8F8100;
 }
 /*** SLIDE 6 ***/
 #cons-slide6 {
     /*background-image:url(../images/caves_karsts/valdina_8r_web.jpg);*/
-    background-color: #555;
+    background-color: #27343D;
 }
 #cons-slide6 p:first-child {
-    border: 1px solid #8F8100;
+    border: 1px solid #425968;
 }
 /*** SLIDE 7 ***/
 #cons-slide7 {
     /*background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web.jpg);*/
-    background-color: #222;
+    background-color: #613907;
 }
 #cons-slide7 p:first-child {
     border: 1px solid #AB650D;

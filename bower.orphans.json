@@ -2,9 +2,10 @@
   "name": "aquiferium",
   "version": "0.0.1",
   "dependencies": {
-// 		"angular-scenario": "1.2.17"
+    // REMOVED.
 		"angular-bootstrap": "~0.11.0",
-// 		"modernizr": "~2.8.2"
+    "jquery.stellar": "~0.6.2",
+    // END REMOVED.
 	},
   "devDependencies": {}
 }   

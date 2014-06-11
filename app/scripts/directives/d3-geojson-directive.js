@@ -47,7 +47,7 @@ angular.module('aquiferiumApp')
                     // set up initial svg object
                     var canvas = d3.select('d3-geojson').append('svg').attr('width', canvasWidth).attr('height', canvasHeight);
 
-                    console.log(scope.geo);
+                    // console.log(scope.geo);
 
                     // assign data source.
                     var dataSource = dataSource06;

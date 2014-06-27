@@ -4,6 +4,7 @@
 /*** SLIDE 0 ***/
  #ck-slide0 {
     background-image: url(../images/caves_karsts/DSC_0318_web.jpg);
+    background-position: 0px 0px;
     max-width: 100%;
 }
 #ck-slide0 p:first-child {

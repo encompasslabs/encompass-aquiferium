@@ -21,7 +21,8 @@
     "jquery-waypoints": "~2.0.5",
     "font-awesome": "~4.1.0",
     "angular-carousel": "~0.2.3",
-    "angular-parallax": "*"
+    "angular-parallax": "*",
+    "ng-videosharing-embed": "~0.2.1"
   },
   "devDependencies": {}
 }

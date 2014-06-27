@@ -1,7 +1,7 @@
 /************************************/
 /* ANGULAR DOCS */
  .view-animate-container {
-  position:relative;
+  position:relative; /*relative*/
   height:100%!important;
 }
 .view-animate {
@@ -11,9 +11,9 @@
     -moz-transition:all cubic-bezier(0.250, 0.450, 0.450, 0.950) 0.80s;
     -o-transition:all cubic-bezier(0.250, 0.450, 0.450, 0.950) 0.80s;
     transition:all cubic-bezier(0.250, 0.450, 0.450, 0.950) 0.80s;
-    display:block;
+    display:inline-block;
     width:100%;
-    position:absolute;
+    position:absolute; /*absolute, relative*/
 }
 .view-animate.ng-enter {
     left:100%;

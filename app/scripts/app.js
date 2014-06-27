@@ -1,17 +1,15 @@
 'use strict';
 
 angular.module('aquiferiumApp', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
-    'ngRoute',
-    'ngAnimate',
-    'angular-carousel',
-    'angular-parallax'
-    //'timeDirective'
-    // 'd3'
-  ])
-
+  'ngCookies',
+  'ngResource',
+  'ngSanitize',
+  'ngRoute',
+  'ngAnimate',
+  'angular-carousel',
+  'angular-parallax',
+  'videosharing-embed'
+])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

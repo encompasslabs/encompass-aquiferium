@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('ContactCtrl', function($scope) {
+  .controller('ContactCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

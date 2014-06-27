@@ -19,9 +19,10 @@ angular.module('aquiferiumApp')
 
     $scope.goToByScroll = function (slidenumber) {
       // console.log('slide: ' + slidenumber);
+      var navbarHeight = $('#navbar').innerHeight();
       var htmlBody = angular.element(document).find('body').css('class', '.conservation');
       htmlBody.animate({
-        scrollTop: $('.slide[data-slide="' + slidenumber + '"]').offset().top
+        scrollTop: $('.slide[data-slide="' + slidenumber + '"]').offset().top - navbarHeight
       }, 2000, 'easeInOutQuint');
     };
 

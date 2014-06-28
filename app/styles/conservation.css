@@ -8,6 +8,13 @@
 }
 #cons-slide0 p:first-child {
     border: 1px solid #777;
+    -webkit-border-radius: 0 4em 0;
+    -moz-border-radius: 0 4em 0;
+    border-radius: 0 4em 0;
+    padding: 1em 2em 1em 2em;
+    opacity: 0.85;
+    text-shadow: 1px 1px 1px #000;
+    text-align: justify;
 }
 /*** SLIDE 1 ***/
 #cons-slide1 {
@@ -16,6 +23,13 @@
 }
 #cons-slide1 p:first-child {
     border: 1px solid #777;
+    -webkit-border-radius: 0 4em 0;
+    -moz-border-radius: 0 4em 0;
+    border-radius: 0 4em 0;
+    padding: 1em 2em 1em 2em;
+    opacity: 0.85;
+    text-shadow: 1px 1px 1px #000;
+    text-align: justify;
 }
 /*** SLIDE 2 ***/
 #cons-slide2 {
@@ -24,6 +38,13 @@
 }
 #cons-slide2 p:first-child {
     border: 1px solid #777;
+    -webkit-border-radius: 0 4em 0;
+    -moz-border-radius: 0 4em 0;
+    border-radius: 0 4em 0;
+    padding: 1em 2em 1em 2em;
+    opacity: 0.85;
+    text-shadow: 1px 1px 1px #000;
+    text-align: justify;
 }
 /*** SLIDE 3 ***/
 #cons-slide3 {
@@ -32,6 +53,13 @@
 }
 #cons-slide3 p:first-child {
     border: 1px solid #777;
+    -webkit-border-radius: 0 4em 0;
+    -moz-border-radius: 0 4em 0;
+    border-radius: 0 4em 0;
+    padding: 1em 2em 1em 2em;
+    opacity: 0.85;
+    text-shadow: 1px 1px 1px #000;
+    text-align: justify;
 }
 /*** SLIDE 4 ***/
 #cons-slide4 {
@@ -40,6 +68,13 @@
 }
 #cons-slide4 p:first-child {
     border: 1px solid #777;
+    -webkit-border-radius: 0 4em 0;
+    -moz-border-radius: 0 4em 0;
+    border-radius: 0 4em 0;
+    padding: 1em 2em 1em 2em;
+    opacity: 0.85;
+    text-shadow: 1px 1px 1px #000;
+    text-align: justify;
 }
 /*** SLIDE 5 ***/
 #cons-slide5 {
@@ -48,6 +83,13 @@
 }
 #cons-slide5 p:first-child {
     border: 1px solid #777;
+    -webkit-border-radius: 0 4em 0;
+    -moz-border-radius: 0 4em 0;
+    border-radius: 0 4em 0;
+    padding: 1em 2em 1em 2em;
+    opacity: 0.85;
+    text-shadow: 1px 1px 1px #000;
+    text-align: justify;
 }
 /*** SLIDE 6 ***/
 #cons-slide6 {
@@ -56,6 +98,13 @@
 }
 #cons-slide6 p:first-child {
     border: 1px solid #777;
+    -webkit-border-radius: 0 4em 0;
+    -moz-border-radius: 0 4em 0;
+    border-radius: 0 4em 0;
+    padding: 1em 2em 1em 2em;
+    opacity: 0.85;
+    text-shadow: 1px 1px 1px #000;
+    text-align: justify;
 }
 /*** SLIDE 7 ***/
 #cons-slide7 {
@@ -64,6 +113,13 @@
 }
 #cons-slide7 p:first-child {
     border: 1px solid #777;
+    -webkit-border-radius: 0 4em 0;
+    -moz-border-radius: 0 4em 0;
+    border-radius: 0 4em 0;
+    padding: 1em 2em 1em 2em;
+    opacity: 0.85;
+    text-shadow: 1px 1px 1px #000;
+    text-align: justify;
 }
 /*** SLIDE 8 ***/
 #cons-slide8 {

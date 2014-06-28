@@ -93,7 +93,7 @@ h1 {
   margin-bottom: .5em; /* 24 / 48 */
 }
 h1 small {
-  color: #4298B5;
+  color: #8F8100;  /* #4298B5; #425968; */
 }
 h2 {
   font-size: 2.25em; /* 36 / 16 */
@@ -193,13 +193,22 @@ a:hover {
 .imageRight {
   margin: 1em;
 }
+.quotebox {
+  border: 1px solid #8F8100; /* #AB650D; */
+  -webkit-border-radius: 0 4em 0;
+  -moz-border-radius: 0 4em 0;
+  border-radius: 0 4em 0;
+  padding: 1em;
+}
 .quoted {
-  margin-bottom: 1em;
+  margin: 0 4em 0 3em;
   font-style: italic;
   color: #4298B5; /*#71B2C9;*/
+  text-align: justify;
 }
 .quotedby {
-  float: right;
+  margin-left: 65%;
+  padding-top: 1em;
   font-size: .8em;
   color: #aaa;
 }
@@ -238,9 +247,9 @@ a:hover {
 .slide p:first-child {
   position: absolute;
   border: 1px solid #fff;
-  top: 17%;
-  left: 12%;
-  width: 66%;
+  top: 12%;
+  left: 2%;
+  width: 40%;
   padding: 0.4em 0.8em;
   color: #fff;
   background-color: #111;
@@ -249,8 +258,8 @@ a:hover {
 }
 .slideno {
   position: absolute;
-  top: 5%;
-  left: 4%;
+  top: 0;
+  left: 2%;
   font-size: 80px;
   font-weight: bold;
   color: rgba(0, 0, 0, 1);
@@ -266,16 +275,30 @@ a:hover {
   width: 50px;
   height: 50px;
   position: absolute;
-  top: 17%;
-  left: 5%;
-  background-image: url(../images/arrow.png);
-  background-repeat: no-repeat;
+  top: 13%;
+  left: 42.5%;
   z-index: 10;
+  color: #ddd;
+  /*background-image: url(../images/arrow.png);*/
+  /*background-repeat: no-repeat;*/
+  width: 0; 
+  height: 0; 
+  border-top: 2em solid #425968;   /* #4298B5; #425968; rgba(255, 255, 255, 1); rgba(0, 0, 0, .7); rgba(119, 119, 119, 0.7); */
+  border-left: 2em solid transparent;
+  border-right: 2em solid transparent;
 }
 .button-scroll:hover {
-  background-image:url(../images/arrow-invert.png);
-  background-repeat:no-repeat;
   cursor:pointer;
+  /*background-image:url(../images/arrow-invert.png);
+  background-repeat:no-repeat;*/
+  width: 0; 
+  height: 0; 
+  border-top: 2em solid #AB650D;   /* #71B2C9 also rgba(113, 178, 201, 1); rgba(0, 0, 0, 1); */
+  border-left: 2em solid transparent;
+  border-right: 2em solid transparent;
+}
+.button-scroll:hover, .button-scroll:hover:after {
+   box-shadow: none;
 }
 #reverse {
   behavior:url(-ms-transform.htc);

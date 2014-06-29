@@ -53,7 +53,7 @@
     background-image:url(../images/caves_karsts/For-Doty1_940x714_web.jpg);
 }
 #ck-slide2 p:first-child {
-    border: 1px solid #8F8100;
+    border: 1px solid #C6930A;   /*  #8F8100;*/
     -webkit-border-radius: 0 4em 0;
     -moz-border-radius: 0 4em 0;
     border-radius: 0 4em 0;
@@ -143,7 +143,7 @@
     background-image:url(../images/caves_karsts/valdina_8r_web.jpg);
 }
 #ck-slide6 p:first-child {
-    border: 1px solid #8F8100;
+    border: 1px solid #C6930A;
     -webkit-border-radius: 0 4em 0;
     -moz-border-radius: 0 4em 0;
     border-radius: 0 4em 0;

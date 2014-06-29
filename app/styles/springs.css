@@ -151,6 +151,14 @@
     text-shadow: 1px 1px 1px #000;
     text-align: justify;
 }
+.navLinkHcp:hover, .navLinkHcp:visited, .navLinkHcp:link, .navLinkHcp:active
+{
+  text-decoration: none;
+  color: #C6930A;
+}
+.navLinkHcp:hover {
+  color: #E6D395; 
+}
 /*** SLIDE 10 ***/
 #springs-slide10 {
     background-color: #000;

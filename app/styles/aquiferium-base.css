@@ -283,7 +283,7 @@ a:hover {
   /*background-repeat: no-repeat;*/
   width: 0; 
   height: 0; 
-  border-top: 2em solid #425968;   /* #4298B5; #425968; rgba(255, 255, 255, 1); rgba(0, 0, 0, .7); rgba(119, 119, 119, 0.7); */
+  border-top: 2em solid rgba(175, 175, 175, 0.6);   /* #4298B5; #425968; rgba(255, 255, 255, 1); rgba(0, 0, 0, .7); rgba(119, 119, 119, 0.7); */
   border-left: 2em solid transparent;
   border-right: 2em solid transparent;
 }
@@ -293,7 +293,7 @@ a:hover {
   background-repeat:no-repeat;*/
   width: 0; 
   height: 0; 
-  border-top: 2em solid #AB650D;   /* #71B2C9 also rgba(113, 178, 201, 1); rgba(0, 0, 0, 1); */
+  border-top: 2em solid rgba(255, 255, 255, 0.6);   /*  #71B2C9 also rgba(113, 178, 201, 1); rgba(0, 0, 0, 1); #AB650D*/  
   border-left: 2em solid transparent;
   border-right: 2em solid transparent;
 }

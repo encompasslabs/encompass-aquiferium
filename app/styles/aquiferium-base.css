@@ -221,6 +221,62 @@ a:hover {
   z-index: 5000;
   background-color: #000;
 }
+
+
+/**********************
+*  D3 TEXAS AQUIFERS  *
+**********************/
+donut-chart {
+  /*width: 450px;*/
+  /*height: 450px;*/
+  width: 30em; /*10em;*/
+  height: 30em; /*10em;*/
+  /*position: absolute;*/
+  /*float: left;*/
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  cursor: pointer;
+  /*outline: solid 2px #fff;*/
+}
+.chartLabel {
+  font: 16px sans-serif;
+  fill: #ccc;
+}
+.arcLabel {
+  font: 10px sans-serif;
+  fill: #fff;
+}
+
+eaa-aquifers-map {
+  /*width: 450px;*/
+  /*height: 450px;*/
+  /*width: 30em; /*10em;*/
+  /*height: 30em; /*10em;*/
+  /*position: absolute;*/
+  /*float: left;*/
+  /*display: inline-block;*/
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  outline: solid 2px #fff;
+}
+
+eaa-aquifers-boundary-map {
+  /*width: 450px;*/
+  /*height: 450px;*/
+  /*width: 30em; /*10em;*/
+  /*height: 30em; /*10em;*/
+  /*position: absolute;*/
+  /*float: left;*/
+  /*display: inline-block;*/
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  outline: solid 2px #fff;
+}
+
+
 /********************
 *  PARALLAX EFFECT  *
 ********************/

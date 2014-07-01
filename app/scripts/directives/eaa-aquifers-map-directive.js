@@ -37,7 +37,7 @@ angular.module('d3-map', [])
       console.log('vizHeight: ', vizHeight);
 
       var el = element[0];
-      var tooltip = d3.select(el).append('div').attr('class', 'tooltip');
+      var tooltip = d3.select(el).append('div').attr('class', 'tooltip').attr('visibility', 'hidden');
       var map = d3.select(el).append('div').attr('class', 'map');
       var mapSvg = d3.select('.map').append('svg').attr('height', height).attr('class', 'mapSvg');
       var texas = mapSvg.append('g').attr('class', 'texas');
@@ -72,8 +72,70 @@ angular.module('d3-map', [])
         return newColor;
       };
 
-      function onTargetClick(event) {
-        console.log(event);
+      // function onTargetClick(event) {
+      //   console.log(event);
+      //   // console.log(pageClass);   // Fails with pageClass undefined.
+      //   console.log(scope.pageClass);   // returns string 'undefined' if isolate scope is defined. returns string 'explore' if no isolate scope is defined.
+      // };
+
+      var lastClickTarget = {};
+      var newSelection = {};
+      var oldSelection = {};
+
+      function moveToFront (target) {
+        console.log('moveToFront: ', target);
+        return target.each(function () {
+          target.parentNode.appendChild(target);
+        });
+      };
+
+      function moveToBack (target) {
+        console.log('moveToBack: ', target);
+        return target.each(function () {
+          var firstChild = target.parentNode.firstChild;
+          if (firstChild) {
+            target.parentNode.insertBefore(target, firstChild);
+          }
+        });
+      };
+
+      function onTargetClick (target) {
+        console.log('target: ', target);
+        console.log('newSelection: ', newSelection);
+        console.log('oldSelection: ', oldSelection);
+        newSelection = d3.select(this);
+        if (tooltip.style('visibility') === 'hidden') {
+          console.log('tooltip is now visible.');
+          // console.log('newSelection: ', newSelection);
+          // console.log('oldSelection: ', oldSelection);
+          moveToFront(newSelection);
+          newSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+          // newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+          lastClickTarget = target;
+          oldSelection = newSelection;
+          return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + target.img + '" alt="" /><br/>' + '<a href="../">Explore</a>');
+        } else if (tooltip.style('visibility') === 'visible' && target !== lastClickTarget) {
+          console.log('you clicked another object.');
+          // console.log('newSelection: ', newSelection);
+          // console.log('oldSelection: ', oldSelection);
+          // oldSelection.moveToBack().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+          moveToBack(oldSelection);
+          oldSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+          // newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+          moveToFront(newSelection);
+          newSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+          lastClickTarget = target;
+          oldSelection = newSelection;
+          return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + target.img + '" alt="" /><br/>' + '<a href="../">Explore</a>');
+        }
+        console.log('tooltip is now hidden.');
+        // console.log('newSelection: ', newSelection);
+        // console.log('oldSelection: ', oldSelection);
+        newSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+        lastClickTarget = {};
+        oldSelection = {};
+        newSelection = {};
+        return tooltip.style('visibility', 'hidden');
       };
 
       // APP.
@@ -93,6 +155,59 @@ angular.module('d3-map', [])
         // draw texas aquifers map.
         var texasMap = texas.selectAll('g').data(mapData.features).enter().append('g');
         texasMap.append('path').attr('d', path).attr('class', 'area').attr('fill', '#425968').attr('stroke', '#4298B5');
+
+        // var lastClickTarget = {};
+        // var newSelection = {};
+        // var oldSelection = {};
+
+        // var moveToFront = function (target) {
+        //   console.log('moveToFront: ', target);
+        //   return target.each(function () {
+        //     target.parentNode.appendChild(target);
+        //   });
+        // };
+
+        // var moveToBack = function (target) {
+        //   console.log('moveToBack: ', target);
+        //   return target.each(function () {
+        //     var firstChild = target.parentNode.firstChild;
+        //     if (firstChild) {
+        //       target.parentNode.insertBefore(target, firstChild);
+        //     }
+        //   });
+        // };
+
+        // var onTargetClick = function (target) {
+        //   console.log(target);
+        //   newSelection = d3.select(this);
+        //   console.log(newSelection);
+        //   if (tooltip.style('visibility') === 'hidden') {
+        //     // console.log('tooltip is now visible.');
+        //     moveToFront(newSelection);
+        //     newSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+        //     // newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+        //     lastClickTarget = target;
+        //     oldSelection = newSelection;
+        //     return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + target.img + '" alt="" /><br/>' + '<a href="../">Explore</a>');
+        //   } else if (tooltip.style('visibility') === 'visible' && target !== lastClickTarget) {
+        //     // console.log('you clicked another object.');
+        //     // oldSelection.moveToBack().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+        //     moveToBack(oldSelection);
+        //     oldSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+        //     // newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+        //     moveToFront(newSelection);
+        //     newSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+        //     lastClickTarget = target;
+        //     oldSelection = newSelection;
+        //     return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + target.img + '" alt="" /><br/>' + '<a href="../">Explore</a>');
+        //   }
+        //   // console.log('tooltip is now hidden.');
+        //   newSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+        //   lastClickTarget = {};
+        //   oldSelection = {};
+        //   newSelection = {};
+        //   return tooltip.style('visibility', 'hidden');
+        // };
 
         d3.json(boundariesSource, function (error, boundariesData) {
           if (error) {
@@ -128,10 +243,9 @@ angular.module('d3-map', [])
     return {
       restrict: 'E',
       replace: false,
-      scope: {
-        'data': '=',
-        'onClick': '&'
-      },
+      // this will create an isolate scope.
+      // scope: {
+      // },
       link: link
     };
   });

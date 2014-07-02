@@ -2,12 +2,6 @@
 
 angular.module('aquiferiumApp')
   .controller('CavesKarstsCtrl', function ($scope, $location, $anchorScroll) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
     $scope.pageClass = 'caves-karsts';
 
     $scope.resetView = function () {
@@ -18,7 +12,6 @@ angular.module('aquiferiumApp')
     $scope.resetView();
 
     $scope.goToByScroll = function (slidenumber) {
-      // console.log('slide: ' + slidenumber);
       var navbarHeight = $('#navbar').innerHeight();
       var htmlBody = angular.element(document).find('body').css('class', '.caveskarsts');
       htmlBody.animate({
@@ -30,7 +23,6 @@ angular.module('aquiferiumApp')
       // console.log('firing click event from controller $scope with e == ' + e.valueOf());
       e.preventDefault();
       var dataslide = angular.element(e.target).attr("data-slide");
-      // console.log(dataslide);
       $scope.goToByScroll(dataslide);
     };
   });

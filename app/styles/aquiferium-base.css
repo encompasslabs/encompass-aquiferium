@@ -75,12 +75,13 @@
 html {
   max-width: 100%;
   max-height: 100%;
+  min-width: 640px;
+  min-height: 100%;
 }
 body {
   overflow-x: hidden;
   overflow-y: scroll;
-  min-width: 640px;
-  min-height: 100%;
+  /*min-height: 100%;*/
   margin-bottom: 10em;
   font: 100% 'Trebuchet MS', Georgia, Helvetica, 'Times New Roman', Verdana, Arial, sans-serif; 
   text-rendering: optimizeLegibility;
@@ -226,27 +227,6 @@ a:hover {
 /**********************
 *  D3 TEXAS AQUIFERS  *
 **********************/
-donut-chart {
-  /*width: 450px;*/
-  /*height: 450px;*/
-  width: 30em; /*10em;*/
-  height: 30em; /*10em;*/
-  /*position: absolute;*/
-  /*float: left;*/
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-block;
-  cursor: pointer;
-  /*outline: solid 2px #fff;*/
-}
-.chartLabel {
-  font: 16px sans-serif;
-  fill: #ccc;
-}
-.arcLabel {
-  font: 10px sans-serif;
-  fill: #fff;
-}
 
 eaa-aquifers-map {
   /*width: 450px;*/
@@ -267,6 +247,7 @@ eaa-aquifers-boundary-map {
   /*height: 450px;*/
   /*width: 30em; /*10em;*/
   /*height: 30em; /*10em;*/
+  width: 99.8%;
   /*position: absolute;*/
   /*float: left;*/
   /*display: inline-block;*/
@@ -276,18 +257,34 @@ eaa-aquifers-boundary-map {
   outline: solid 2px #fff;
 }
 
+.tooltip {   
+  position: absolute;
+  top: 120px;
+  left: 0px;      
+  text-align: center;
+  width: 200px;              
+  height: 200px;           
+  padding: 1em;             
+  font: 400 12px 'PT Sans';       
+  background: #ddd;
+  color: #000; 
+  border: 1px solid #000;      
+  border-radius: 8px;           
+  pointer-events: none;   
+  visibility: hidden;
+  z-index: 10;
+}
+
+.tooltip img {
+  margin-bottom: .5em;
+  width: 96px;
+  height: auto;
+}
 
 /********************
 *  PARALLAX EFFECT  *
 ********************/
 /* slides */
-.wrapper {
-  width: 100%;
-  min-width: 100%;
-  height: 900px;
-  margin: 0 auto;
-  position: relative;
-}
 .slide {
   position: relative;
   width: 100%;
@@ -299,6 +296,7 @@ eaa-aquifers-boundary-map {
   -o-background-size: cover;
   background-size: cover;    
   box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);
+  padding-left: 1em;
 }
 .slide p:first-child {
   position: absolute;
@@ -310,13 +308,17 @@ eaa-aquifers-boundary-map {
   color: #fff;
   background-color: #111;
   box-shadow: 0 0 1em #000;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 .slideno {
   position: absolute;
-  top: 0;
-  left: 2%;
-  font-size: 80px;
+  /*top: 0;*/
+  /*left: 2%;*/
+  font-size: 3.2em; /* 48 / 16 */
+  line-height: 1em; /* 48 / 48 */
+  margin: .3em 1em .5em .6em;
+  /*margin-bottom: .5em; *//* 24 / 48 */
+  /*font-size: 80px;*/
   font-weight: bold;
   color: rgba(0, 0, 0, 1);
   text-shadow:
@@ -325,6 +327,13 @@ eaa-aquifers-boundary-map {
     -1px 1px 0 #eee,
     1px 1px 0 #eee;
 }
+.wrapper {
+  width: 100%;
+  min-width: 100%;
+  height: 900px;
+  margin: 0 auto;
+  position: relative;
+}
 /* buttons */
 .button-scroll {
   display: block;
@@ -332,7 +341,7 @@ eaa-aquifers-boundary-map {
   height: 50px;
   position: absolute;
   top: 13%;
-  left: 42.5%;
+  left: 45%;
   z-index: 10;
   color: #ddd;
   /*background-image: url(../images/arrow.png);*/
@@ -371,6 +380,30 @@ eaa-aquifers-boundary-map {
   /* IE8 */
   /*-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"; */
 }
+/************
+*  D3 TETS  *
+************/
+donut-chart {
+  /*width: 450px;*/
+  /*height: 450px;*/
+  width: 30em; /*10em;*/
+  height: 30em; /*10em;*/
+  /*position: absolute;*/
+  /*float: left;*/
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  cursor: pointer;
+  /*outline: solid 2px #fff;*/
+}
+.chartLabel {
+  font: 16px sans-serif;
+  fill: #ccc;
+}
+.arcLabel {
+  font: 10px sans-serif;
+  fill: #fff;
+}
 /*****************/
 /* MEDIA QUERIES */
 /*****************/
@@ -382,6 +415,7 @@ eaa-aquifers-boundary-map {
   }
   html { font-size: 20px; }
   body { padding-top: 2.6em; }
+  .slide { padding-left: 4.8em; }
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -391,6 +425,8 @@ eaa-aquifers-boundary-map {
   }
   html { font-size: 18px; }
   body { padding-top: 5.6em; }
+  /*.slide { padding-left: 1em; }*/
+  .button-scroll { left: 43%; }
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -400,44 +436,53 @@ eaa-aquifers-boundary-map {
   }
   html { font-size: 16px; }
   body { padding-top: 6.0em; }
+  /*.slide { padding-left: .8em; }*/
+  .button-scroll { left: 43%; }
 }
 /* Extra small devices (phones, less than 768px) */
-@media (min-width: 311px) and (max-width: 767px) {
+/*@media (min-width: 311px) and (max-width: 767px) {*/
+@media (min-width: 1px) and (max-width: 767px) {
   .test-media-queries p span:after {         
       color: #FFAA00;
       content: 'Small Screen (min-width = 311px && max-width < 767px)';
   }
   html { font-size: 14px; }
   body { padding-top: 3.5em; }
+  /*.slide { padding-left: .8em; }*/
+  .button-scroll { left: 43%; }
   .apptitle {
       font-size: 24px;
       top: 20%;
   }
 }
 /* Dealing with Bootstrap on tiny screens */
-@media (min-width: 210px) and (max-width: 310px) {
+/*@media (min-width: 210px) and (max-width: 310px) {
   .test-media-queries p span:after {         
       color: #FF5500;
       content: 'Tiny Screen (min-width = 210px && max-width = 310px)';
   }
   html { font-size: 12px; }
   body { padding-top: 6.5em; }
+  .slide { padding-left: .8em; }
+  .button-scroll { left: 43%; }
   .apptitle {
       font-size: 18px;
       top: 12%;
   }
-}
+}*/
 /* Dealing with Bootstrap on micro screens */
-@media (min-width: 80px) and (max-width: 209px) {
+/*@media (min-width: 80px) and (max-width: 209px) {
   .test-media-queries p span:after {         
       color: #FF0000;
       content: 'Micro Screen (max-width <= 209px)';
   }
   html { font-size: 10px; }
   body { padding-top: 9.5em; }
+  .slide { padding-left: .8em; }
+  .button-scroll { left: 43%; }
   .apptitle {
       font-size: 16px;
       top: 4%;
   }
-}
+}*/
 /* END CSS */

@@ -2,12 +2,6 @@
 
 angular.module('aquiferiumApp')
   .controller('NavigationCtrl', function ($scope, $location) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
     $scope.isCollapsed = true;
 
     $scope.$on('$routeChangeSuccess', function () {
@@ -22,15 +16,11 @@ angular.module('aquiferiumApp')
       if (path === '/') {
         if ($location.path() === '/') {
           return "active";
-        } /*else {
-          return " ";
-        }*/
+        }
       }
 
       if ($location.path().substr(0, path.length) === path) {
         return "active";
-      } /*else {
-        return " ";
-      }*/
+      }
     };
   });

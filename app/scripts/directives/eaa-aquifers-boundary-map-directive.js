@@ -6,7 +6,6 @@ angular.module('d3-visualizations', [])
     function link(scope, element, attrs) {
 
       // VARS.
-      // Screen Setup.
       var w = window,
         d = document,
         e = d.documentElement,
@@ -23,16 +22,21 @@ angular.module('d3-visualizations', [])
 
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var markerLocations = '../../data/eaaAquiferium-allSprings-markerData.csv';
+      var imagePath = '../../images/d3map/';
 
       var vizMargin = {top: 0, right: 0, bottom: 0, left: 0};
       var vizWidth = width - vizMargin.left - vizMargin.right;
       var vizHeight = height - vizMargin.top - vizMargin.bottom;
 
-      console.log('width: ', width);
-      console.log('height: ', height);
-      console.log('vizMargin: ', vizMargin);
-      console.log('vizWidth: ', vizWidth);
-      console.log('vizHeight: ', vizHeight);
+      var tooltipHorOffset = 20;
+      var tooltipVertOffset = 190;
+      var markerRadius = 8;
+      var markerRadiusSelected = 20;
+      var markerStrokeAnimationSpeed = 250;
+
+      var lastClickTarget = {};
+      var newSelection = {};
+      var oldSelection = {};
 
       var el = element[0];
       var tooltip = d3.select(el).append('div').attr('class', 'tooltip');
@@ -40,23 +44,53 @@ angular.module('d3-visualizations', [])
       var mapSvg = d3.select('.map').append('svg').attr('height', height).attr('class', 'mapSvg');
       var eaaBounds = mapSvg.append('g').attr('class', 'boundaries');
 
-      var tooltipHorOffset = 20;
-      var tooltipVertOffset = 190;
-      var markerRadius = 10;
-      var markerRadiusSelected = 20;
-      var markerStrokeAnimationSpeed = 250;
-
       // METHODS.
+      d3.selection.prototype.moveToFront = function () {
+        return this.each(function () {
+          this.parentNode.appendChild(this);
+        });
+      };
+
+      d3.selection.prototype.moveToBack = function () {
+        return this.each(function () {
+          var firstChild = this.parentNode.firstChild;
+          if (firstChild) {
+            this.parentNode.insertBefore(this, firstChild);
+          }
+        });
+      };
+
       function randomColor() {
         var newColor = '#' + ('00000' + (Math.random() * (1 << 24) | 0).toString(16)).slice(-6);
         return newColor;
       };
 
-      function onTargetClick(event) {
-        console.log(event);
+      function onTargetClick (target) {
+        newSelection = d3.select(this);
+        if (tooltip.style('visibility') === 'hidden') {
+          // console.log('first click on marker and tooltip is now visible.');
+          newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+          lastClickTarget = target;
+          oldSelection = newSelection;
+          return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + (imagePath + target.img) + '" alt="" /><br/>' + '<a href="../">Explore</a>');
+        } else if (tooltip.style('visibility') === 'visible' && target !== lastClickTarget) {
+          // console.log('click on different marker, tooltip is now updated.');
+          oldSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+          oldSelection.moveToBack();
+          newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+          lastClickTarget = target;
+          oldSelection = newSelection;
+          return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + (imagePath + target.img) + '" alt="" /><br/>' + '<a href="../">Explore</a>');
+        }
+        // console.log('second click on marker and tooltip is now hidden.');
+        newSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+        lastClickTarget = {};
+        oldSelection = {};
+        newSelection = {};
+        return tooltip.style('visibility', 'hidden');
       };
 
-      // APP.
+      // VIZ.
       d3.json(boundariesSource, function (error, boundariesData) {
         if (error) {
           return console.error(error);
@@ -69,16 +103,15 @@ angular.module('d3-visualizations', [])
         // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
         // Note: albersUsa() requires additional configs. transverseMercator() as well.
 
-        // draw eaa boundaries map.
         var eaaBoundaries = eaaBounds.selectAll('g').data(boundariesData.features).enter().append('g');
         eaaBoundaries.append('path').attr('d', path).attr('class', 'area').attr('fill', '#8F8100').attr('stroke', '#000');
+        var eaaMarkers = eaaBoundaries.append('g');
 
-        // add markers.
         d3.csv(markerLocations, function (error, data) {
           if (error) {
             return console.error(error);
           }
-          eaaBoundaries.selectAll('circle').data(data).enter().append('circle')
+          eaaMarkers.selectAll('circle').data(data).enter().append('circle')
             .attr('cx', function (d) {
               return projection([d.lon_ddd, d.lat_ddd])[0];
             })
@@ -98,10 +131,6 @@ angular.module('d3-visualizations', [])
     return {
       restrict: 'E',
       replace: false,
-      scope: {
-        'data': '=',
-        'onClick': '&'
-      },
       link: link
     };
   });

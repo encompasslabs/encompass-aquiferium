@@ -1,7 +1,6 @@
 .sass-cache
 .tmp
 app/bower_components
-dist
 large_media
 node_modules
 orphan_code

@@ -21,27 +21,27 @@
 *
 *   Primary EAA Logo Colors:
 *
-*   Blue (PMS 7546):    #425968;
-*   Orange (PMS 724):   #AB650D;
-*   Gold (PMS 620):     #8F8100;
-*   Black:              #000000;
-*   White:              #FFFFFF;
-*   Grey:               #777777;
+*   Blue (PMS 7546):    #425968;  rgba(66, 89, 104, 1);
+*   Orange (PMS 724):   #AB650D;  rgba(171, 101, 13, 1);
+*   Gold (PMS 620):     #8F8100;  rgba(143, 129, 0, 1);
+*   Black:              #000000;  rgba(0, 0, 0, 1);
+*   White:              #FFFFFF;  rgba(255, 255, 255, 1);
+*   Grey:               #777777;  rgba(119, 119, 119, 1);
 *
 *   Support Colors:
 *
-*   Tan (PMS 7502):     #E6D395;
-*   Stone (PMS 416):    #8E8C7A;
-*   Lake (PMS 7458):    #71B2C9;
+*   Tan (PMS 7502):     #E6D395;  rgba(230, 211, 149, 1);
+*   Stone (PMS 416):    #8E8C7A;  rgba(142, 140, 122, 1);
+*   Lake (PMS 7458):    #71B2C9;  rgba(113, 178, 201, 1);
 *
 *   Accent Colors:
 *
-*   Amber (PMS 131):    #C6930A;
-*   Orange (PMS 1595):  #D15B05;
-*   Brown (PMS 7518):   #6D4F47;
-*   Melon (PMS 367):    #AADD6D;
-*   Teal (PMS 339):     #00B28C;
-*   Sky (PMS 7459):     #4298B5;
+*   Amber (PMS 131):    #C6930A;  rgba(198, 147, 10, 1);
+*   Orange (PMS 1595):  #D15B05;  rgba(209, 91, 5, 1);
+*   Brown (PMS 7518):   #6D4F47;  rgba(109, 79, 71, 1);
+*   Melon (PMS 367):    #AADD6D;  rgba(170, 221, 109, 1);
+*   Teal (PMS 339):     #00B28C;  rgba(0, 178, 140, 1);
+*   Sky (PMS 7459):     #4298B5;  rgba(66, 152, 181, 1);
 *
 *
 *   PRIMARY TYPEFACES:  This sans-serif typeface can be used for headlines, cutlines, and body copy applications.
@@ -308,24 +308,17 @@ eaa-aquifers-boundary-map {
   color: #fff;
   background-color: #111;
   box-shadow: 0 0 1em #000;
-  font-size: 1em;
 }
 .slideno {
   position: absolute;
   /*top: 0;*/
   /*left: 2%;*/
-  font-size: 3.2em; /* 48 / 16 */
-  line-height: 1em; /* 48 / 48 */
-  margin: .3em 1em .5em .6em;
-  /*margin-bottom: .5em; *//* 24 / 48 */
-  /*font-size: 80px;*/
-  font-weight: bold;
-  color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);     /* rgba(240, 240, 240, 0.9);  rgba(143, 129, 0, 1);  rgba(171, 101, 13, 1);  rgba(113, 178, 201, 1);*/
   text-shadow:
-    -1px -1px 0 #eee,  
-    1px -1px 0 #eee,
-    -1px 1px 0 #eee,
-    1px 1px 0 #eee;
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 .wrapper {
   width: 100%;

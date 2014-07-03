@@ -155,7 +155,6 @@ angular.module('d3-visualizations', [])
       return linkFunction;
     };
     
-
     /*
     // WITH OUT COMPILE PROPERTY.
     // If no compile property is define:

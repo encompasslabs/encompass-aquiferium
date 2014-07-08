@@ -20,13 +20,9 @@ angular.module('aquiferiumApp')
     };
 
     $scope.buttonClick = function (e) {
+      // console.log('firing click event from controller $scope with e == ' + e.valueOf());
       e.preventDefault();
       var dataslide = angular.element(e.target).attr("data-slide");
       $scope.goToByScroll(dataslide);
-    };
-
-    $scope.randomColor = function () {
-      var newColor = '#' + ('00000' + (Math.random() * (1 << 24) | 0).toString(16)).slice(-6);
-      return newColor;
-    };    
+    };   
   });

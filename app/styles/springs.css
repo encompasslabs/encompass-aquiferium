@@ -1,5 +1,5 @@
 /******************************
- CONSERVATION
+ SPRINGS
 *******************************/
 /*** SLIDE 0 ***/
 #springs-slide0 {
@@ -18,8 +18,8 @@
 }
 /*** SLIDE 1 ***/
 #springs-slide1 {
-    /*background-image: url(../images/springs/**);*/
-    background-color: #222;
+    background-image: url(../images/springs/waterfall_web.jpg);
+    /*background-color: #222;*/
 }
 #springs-slide1 p:first-child {
     border: 1px solid #777;
@@ -33,8 +33,8 @@
 }
 /*** SLIDE 2 ***/
 #springs-slide2 {
-    /*background-image: url(../images/springs/**);*/
-    background-color: #555;
+    background-image: url(../images/springs/Boat_0054_web.jpg);
+    /*background-color: #555;*/
 }
 #springs-slide2 p:first-child {
     border: 1px solid #777;
@@ -63,8 +63,8 @@
 }
 /*** SLIDE 4 ***/
 #springs-slide4 {
-    /*background-image: url(../images/springs/**);*/
-    background-color: #555;
+    background-image: url(../images/springs/Looking-Underwater_0017_web.jpg);
+    /*background-color: #555;*/
 }
 #springs-slide4 p:first-child {
     border: 1px solid #777;
@@ -109,7 +109,7 @@
 /*** SLIDE 7 ***/
 #springs-slide7 {
     background-image: url(../images/springs/EAArice20120503_3620_web.jpg);
-    background-color: #222;
+    /*background-color: #222;*/
 }
 #springs-slide7 p:first-child {
     border: 1px solid #AADD6D;
@@ -124,7 +124,7 @@
 /*** SLIDE 8 ***/
 #springs-slide8 {
     background-image: url(../images/springs/EAAOriparianrandy20120801_0404_web.jpg);
-    background-color: #222;
+    /*background-color: #222;*/
 }
 #springs-slide8 p:first-child {
     border: 1px solid #AADD6D;
@@ -138,8 +138,8 @@
 }
 /*** SLIDE 9 ***/
 #springs-slide9 {
-    /*background-image: url(../images/springs/**);*/
-    background-color: #222;
+    background-image: url(../images/springs/Looking-Underwater_0020_web.jpg);
+    /*background-color: #222;*/
 }
 #springs-slide9 p:first-child {
     border: 1px solid #777;

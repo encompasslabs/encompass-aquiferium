@@ -6,9 +6,10 @@ angular.module('aquiferiumApp')
 
     $scope.hcpurl = 'http://eahcp.org/index.php/about_eahcp/covered_species';
 
-    $scope.trustUrl = function(url) {
-      return $sce.trustAsResourceUrl(url);
-    };
+    $scope.linkModelFunc = function (url){
+      // console.log('link model function');
+      $window.open(url);
+    }
 
     $scope.resetView = function () {
       $location.hash('.springs');
@@ -26,14 +27,9 @@ angular.module('aquiferiumApp')
     };
 
     $scope.buttonClick = function (e) {
-      console.log('firing click event from controller $scope with e == ' + e.valueOf());
+      // console.log('firing click event from controller $scope with e == ' + e.valueOf());
       e.preventDefault();
       var dataslide = angular.element(e.target).attr('data-slide');
       $scope.goToByScroll(dataslide);
     };
-
-    $scope.linkModelFunc = function (url){
-      console.log('link model function');
-      $window.open(url);
-    }
   });

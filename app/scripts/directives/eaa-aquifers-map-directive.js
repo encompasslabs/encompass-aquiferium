@@ -1,9 +1,29 @@
 'use strict';
 
-angular.module('d3-map', [])
-  .directive('eaaAquifersMap', function () {
+angular.module('app.directives.d3.maps', [])
+  .directive('eaaAquifersMap', function() {
     // console.log('eaaAquifersMap directive initialized.');
-    function link(scope, element, attrs) {
+    // generic directiveDefinitionObject config.
+    var directiveDefinitionObject = {
+      compile: false,
+      controller: function($scope) {
+        console.log('controller for:', $scope.pageClass);
+      }, /*false,*/
+      controllerAs: false,
+      link: false,
+      priority: 0,
+      // replace: false,  -deprecated.
+      require: false,
+      restrict: 'E',
+      scope: false,
+      template: false,
+      templateUrl: false,
+      terminal: false,
+      transclude: false,
+      type: false 
+    };
+
+    directiveDefinitionObject.link = function postLink(scope, element, attrs) {
 
       // VARS.
       var w = window;
@@ -12,11 +32,11 @@ angular.module('d3-map', [])
       var g = d.getElementsByTagName('body')[0];
       var xx = w.innerWidth || e.clientWidth || g.clientWidth;
       var yy = w.innerHeight || e.clientHeight || g.clientHeight;
-      // console.log(xx + ' × ' + yy);
-      // console.log(window.screen.availWidth);
-      // console.log(window.screen.availHeight);
-      var xScaling = 0.965;
-      var yScaling = 0.65;
+      // alert(xx + ' × ' + yy);
+      // alert(window.screen.availWidth);
+      // alert(window.screen.availHeight);
+      var xScaling = 0.9; // 0.965;
+      var yScaling = 0.55; // 0.65;
       var width = xx * xScaling;
       var height = yy * yScaling;
 
@@ -25,7 +45,7 @@ angular.module('d3-map', [])
       var markerLocations = '../../data/eaaAquiferium-allSprings-markerData.csv';
       var imagePath = '../../images/d3map/';
 
-      var vizMargin = {top: 0, right: 0, bottom: 0, left: 0};
+      var vizMargin = {top: 0, right: 10, bottom: 0, left: 100};
       var vizWidth = width - vizMargin.left - vizMargin.right;
       var vizHeight = height - vizMargin.top - vizMargin.bottom;
 
@@ -77,8 +97,8 @@ angular.module('d3-map', [])
           return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + (imagePath + target.img) + '" alt="" /><br/>' + '<a href="../">Explore</a>');
         } else if (tooltip.style('visibility') === 'visible' && target !== lastClickTarget) {
           // console.log('click on different marker, tooltip is now updated.');
-          oldSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
-          oldSelection.moveToBack();
+          oldSelection.moveToBack().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+          // oldSelection.moveToBack();
           newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
           lastClickTarget = target;
           oldSelection = newSelection;
@@ -93,7 +113,7 @@ angular.module('d3-map', [])
       };
 
       // VIZ.
-      d3.json(mapSource, function(error, mapData) {
+      d3.json(mapSource, function (error, mapData) {
         if (error) {
           return console.error(error);
         }
@@ -101,11 +121,10 @@ angular.module('d3-map', [])
         var scale = height * 4;
         var offset = [width / 2, height / 2];
         var center = d3.geo.centroid(mapData);
-        var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
-        var path = d3.geo.path().projection(projection);
         // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
         // Note: albersUsa() and transverseMercator() require additional configs.
-
+        var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
+        var path = d3.geo.path().projection(projection);
         var texasMap = texas.selectAll('g').data(mapData.features).enter().append('g');
         texasMap.append('path').attr('d', path).attr('class', 'area').attr('fill', '#425968').attr('stroke', '#4298B5');
 
@@ -139,9 +158,6 @@ angular.module('d3-map', [])
       });
     };
 
-    return {
-      restrict: 'E',
-      replace: false,
-      link: link
-    };
+    console.log('directiveDefinitionObject: ', directiveDefinitionObject);
+    return directiveDefinitionObject;
   });

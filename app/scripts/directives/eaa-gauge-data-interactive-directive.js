@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('app.directives.d3.charts', [])
-  .directive('eaaGaugeDataChart', function() {
+angular.module('app.directives.d3.interactives', [])
+  .directive('eaaGaugeDataInteractive', function() {
     // console.log('eaaAquifersBoundaryMap directive initialized.');
     // generic directiveDefinitionObject config.
     var directiveDefinitionObject = {
       compile: false,
       controller: function($scope) {
-        console.log('controller for:', $scope.pageClass);
+        // console.log('controller for:', $scope.pageClass);
       }, /*false,*/
       controllerAs: false,
       link: false,
@@ -20,7 +20,7 @@ angular.module('app.directives.d3.charts', [])
       templateUrl: false,
       terminal: false,
       transclude: false,
-      type: false
+      type: false 
     };
 
     directiveDefinitionObject.link = function postLink(scope, element, attrs) {
@@ -35,34 +35,68 @@ angular.module('app.directives.d3.charts', [])
       // alert(xx + ' × ' + yy);
       // alert(window.screen.availWidth);
       // alert(window.screen.availHeight);
-      var xScaling = 0.9; //0.965;
-      var yScaling = 0.2; //0.65;
+      var xScaling = 0.965;
+      var yScaling = 0.65;
       var width = xx * xScaling;
-      var height = yy * yScaling;
+      var height = yy * yScaling; // 900;
 
+      var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
+      var markerLocations = '../../data/eaaAquiferium-allSprings-markerData.csv';
+      var imagePath = '../../images/d3map/';
       var dataSource1 = '../../data/eaaAquiferium-allSpringsData-annualAvg-byDate.csv';
 
-      var vizMargin = {top: 20, right: 180, bottom: 50, left: 50};
+      var vizMargin = {top: 20, right: 0, bottom: 20, left: 0};
       var vizWidth = width - vizMargin.left - vizMargin.right;
       var vizHeight = height - vizMargin.top - vizMargin.bottom;
+
+      var mapWidth = vizWidth * .9;
+      var mapHeight = vizHeight * .4;
+
+      var graphWidth = vizWidth * .8;
+      var graphHeight = vizHeight * .6;
+      console.log(vizMargin, vizWidth, vizHeight, mapWidth, mapHeight, graphWidth, graphHeight);
+
+      var tooltipHorOffset = 20;
+      var tooltipVertOffset = 190;
+      var markerRadius = 5;
+      var markerRadiusSelected = 20;
+      var markerStrokeAnimationSpeed = 250;
+
+      var lastClickTarget = {};
+      var newSelection = {};
+      var oldSelection = {};
 
       var color = d3.scale.category10().domain(['Barton Springs', 'Comal Springs', 'Hueco Springs', 'J17', 'J27', 'Las Moras Springs', 'Leona Springs', 'San Antonio Springs', 'San Marcos Springs', 'San Pedro Springs']);
       var dataKey = d3.scale.ordinal();
       var parseDate = d3.time.format('%Y');
 
-      var x = d3.time.scale().range([0, vizWidth]);
-      var y = d3.scale.linear().range([vizHeight, 0]);
+      var x = d3.time.scale().range([0, graphWidth-20]);
+      var y = d3.scale.linear().range([graphHeight-20, 0]);
 
       var xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(20);
       var yAxis = d3.svg.axis().scale(y).orient('left').ticks(20);
 
       var el = element[0];
+      var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
+      // viz.attr('transform', 'translate(-40,40)');
 
-      var chart = d3.select(el).append('svg').attr('class', 'chart')
-        .attr('width', vizWidth + vizMargin.left + vizMargin.right)
-        .attr('height', vizHeight + vizMargin.top + vizMargin.bottom)
-        .attr('y', '400')
-        .append('g');
+      // var legend = d3.select('.viz').append('div').attr('class', 'legend');
+
+      var map = d3.select('.viz').append('div').attr('class', 'map');
+      var mapSvg = d3.select('.map').append('svg').attr('class', 'mapSvg')
+        // .attr('width', mapWidth)
+        .attr('height', mapHeight);
+
+      var eaaBounds = mapSvg.append('g').attr('class', 'eaabounds');
+      eaaBounds.attr('transform', 'translate(100,20)');
+
+      var chart = d3.select('.viz').append('div').attr('class', 'chart');
+      var chartSvg = d3.select('.chart').append('svg').attr('class', 'chartSvg')
+        // .attr('width', graphWidth)
+        .attr('height', graphHeight);
+
+      var graphBounds = chartSvg.append('g').attr('class', 'graphbounds');
+      graphBounds.attr('transform', 'translate(0,0)');
 
       var line = d3.svg.line()
         .interpolate('monotone') // basis, basis-open, basis-closed, linear, step, step-before, step-after, bundle, cardinal, cardinal-open, cardinal-closed, monotone 
@@ -71,20 +105,20 @@ angular.module('app.directives.d3.charts', [])
         .defined(function (d) { return d.gindex; });
 
       // METHODS.
-      // d3.selection.prototype.moveToFront = function () {
-      //   return this.each(function () {
-      //     this.parentNode.appendChild(this);
-      //   });
-      // };
+      d3.selection.prototype.moveToFront = function () {
+        return this.each(function () {
+          this.parentNode.appendChild(this);
+        });
+      };
 
-      // d3.selection.prototype.moveToBack = function () {
-      //   return this.each(function () {
-      //     var firstChild = this.parentNode.firstChild;
-      //     if (firstChild) {
-      //       this.parentNode.insertBefore(this, firstChild);
-      //     }
-      //   });
-      // };
+      d3.selection.prototype.moveToBack = function () {
+        return this.each(function () {
+          var firstChild = this.parentNode.firstChild;
+          if (firstChild) {
+            this.parentNode.insertBefore(this, firstChild);
+          }
+        });
+      };
 
       function overGauge (d) {
         // console.log('over gauge: ', d.name);
@@ -96,7 +130,47 @@ angular.module('app.directives.d3.charts', [])
         d3.select(this).style('stroke-width', '2px');
       };
 
-      // VIZ.
+      function onTargetClick (target) {
+        console.log(d3.select(target)[0][0]['Location']);
+      };
+
+      // VIZ - MAP.
+      d3.json(boundariesSource, function (error, boundariesData) {
+        if (error) {
+          return console.error(error);
+        }
+        var scale = mapHeight * 28;
+        var offset = [mapWidth / 2, mapHeight / 2];
+        var center = d3.geo.centroid(boundariesData);
+        // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
+        // Note: albersUsa() and transverseMercator() require additional configs.
+        var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
+        var path = d3.geo.path().projection(projection);
+        var eaaBoundaries = eaaBounds.selectAll('g').data(boundariesData.features).enter().append('g');
+        eaaBoundaries.append('path').attr('d', path).attr('class', 'area').attr('fill', '#8F8100').attr('stroke', '#000');
+        var eaaMarkers = eaaBoundaries.append('g');
+
+        d3.csv(markerLocations, function (error, data) {
+          if (error) {
+            return console.error(error);
+          }
+          eaaMarkers.selectAll('circle').data(data).enter().append('circle')
+            .attr('class', function (d) { /*console.log(d['Location']);*/ return d['Location']; })
+            .attr('cx', function (d) {
+              return projection([d.lon_ddd, d.lat_ddd])[0];
+            })
+            .attr('cy', function (d) {
+              return projection([d.lon_ddd, d.lat_ddd])[1];
+            })
+            .attr('r', markerRadius)
+            .attr('z-index', 0)
+            .style('fill', function (d) { return color(d['Location']); })
+            .style('stroke', '#000')
+            .on('click', onTargetClick);
+        });
+      });
+
+      // VIZ - CHART.
       d3.csv(dataSource1, function(error, data) {
 
         data.forEach(function(d) {
@@ -132,12 +206,12 @@ angular.module('app.directives.d3.charts', [])
         // console.log('x.domain: ', x.domain());
         // console.log('y.domain: ', y.domain());
 
-        chart.append('g')
+        graphBounds.append('g')
           .attr('class', 'x axis')
-          .attr('transform', 'translate(0,' + (height - vizMargin.bottom - vizMargin.top) + ')')
+          .attr('transform', 'translate(0,' + (graphHeight - 20) + ')')
           .call(xAxis);
 
-        chart.append('g')
+        graphBounds.append('g')
           .attr('class', 'y axis')
           .call(yAxis)
           .append('text')
@@ -147,7 +221,7 @@ angular.module('app.directives.d3.charts', [])
           .style('text-anchor', 'end')
           .text('Gauge Level');
 
-        var gauge = chart.selectAll('.gauge')
+        var gauge = graphBounds.selectAll('.gauge')
           .data(gauges)
           .enter().append('g')
           .attr('class', function (gauges) { return gauges['name']; });
@@ -177,21 +251,21 @@ angular.module('app.directives.d3.charts', [])
           .style('fill', '#555');
 
         filtered.on('mouseover', function (d) {
-          filtered.append("text")
+          filtered.append('text')
             .attr({
-                x: function (dd){
-                  return x(d.date)
-                },
-                y: function (dd){
-                  return y(d.gindex)
-                },
-                dx:-3,
-                dy:".35em",
-                "text-anchor":"end"
+              x: function (dd){
+                return x(d.date)
+              },
+              y: function (dd){
+                return y(d.gindex)
+              },
+              dx:-3,
+              dy:'.35em',
+              'text-anchor':'end'
             })
-            .style("fill", "black")
+            .style('fill', 'black')
             .text( function (dd) {
-                var formatDate = d3.time.format("%d-%B-%Y");
+                var formatDate = d3.time.format('%d-%B-%Y');
                 return 'Date:' + formatDate(d.date) + ',index:' + d.gindex;
               }
             )
@@ -201,20 +275,12 @@ angular.module('app.directives.d3.charts', [])
           .selectAll('text').remove()
           });
 
-        // Doesn't display lables properly due to gaps in data. Specifically for Leona Springs.
-        // gauge.append('text')
-        //   .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-        //   .attr('transform', function(d) { return 'translate(' /*+ '(20,'*/ + (x(d.value.date) + 10) + ','  + y(d.value.gindex) + ')'; })
-        //   .attr('x', 3)
-        //   .attr('dy', '.35em')
-        //   .text(function(d) { return d.name; });
-
-        var legend = chart.selectAll('.chart')
+        var legend = graphBounds.selectAll('.svg')
           .data(gauges)
           .enter()
           .append('g')
-          .attr('class', 'legend');
-          // .attr('transform', 'translate(' + 0 + ',' + vizHeight / 4 + ')');  // Will reposition the legend group.
+          .attr('class', 'legend')
+          .attr('transform', 'translate(-240,0)'); // -1160,0 // Will reposition the legend group.
           
         legend.append('rect')
           .attr('x', vizWidth + 20)
@@ -237,6 +303,6 @@ angular.module('app.directives.d3.charts', [])
       });
     };
 
-    console.log('directiveDefinitionObject: ', directiveDefinitionObject);
+    // console.log('directiveDefinitionObject: ', directiveDefinitionObject);
     return directiveDefinitionObject;
   });

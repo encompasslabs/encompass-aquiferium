@@ -6,6 +6,9 @@
 }*/
 
 /* Line Chart */
+.chart {
+  font-size: .6em;
+}
 .axis path,
 .axis line {
   fill: none;
@@ -18,4 +21,10 @@
 .line {
   fill: none;
   stroke-width: 2px;
+}
+.chart-subtext {
+  margin-top: 1em;
+  color: #000;
+  font-size: .6em;
+  font-style: italic;
 }

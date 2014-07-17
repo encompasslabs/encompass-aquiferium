@@ -32,22 +32,25 @@ angular.module('app.directives.d3.maps', [])
       var g = d.getElementsByTagName('body')[0];
       var xx = w.innerWidth || e.clientWidth || g.clientWidth;
       var yy = w.innerHeight || e.clientHeight || g.clientHeight;
-      // alert(xx + ' × ' + yy);
-      // alert(window.screen.availWidth);
-      // alert(window.screen.availHeight);
+      console.log(xx + ' × ' + yy);
+      console.log(window.screen.availWidth, window.screen.availHeight);
       var xScaling = 0.9; // 0.965;
-      var yScaling = 0.55; // 0.65;
+      var yScaling = 0.6; // 0.65;
       var width = xx * xScaling;
       var height = yy * yScaling;
+      console.log(width, height);
 
       var mapSource = '../../data/geojson/NEW_major_aquifers_dd_reduced100.geo.json';
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var markerLocations = '../../data/eaaAquiferium-allSprings-markerData.csv';
       var imagePath = '../../images/d3map/';
 
-      var vizMargin = {top: 0, right: 10, bottom: 0, left: 100};
+      var vizMargin = {top: 10, right: 10, bottom: 10, left: 10};
       var vizWidth = width - vizMargin.left - vizMargin.right;
       var vizHeight = height - vizMargin.top - vizMargin.bottom;
+
+      var mapOffset = [vizWidth / 2, vizHeight / 2];
+      var mapScale = vizHeight * 4;
 
       var tooltipHorOffset = 20;
       var tooltipVertOffset = 190;
@@ -62,7 +65,7 @@ angular.module('app.directives.d3.maps', [])
       var el = element[0];
       var tooltip = d3.select(el).append('div').attr('class', 'tooltip');
       var map = d3.select(el).append('div').attr('class', 'map');
-      var mapSvg = d3.select('.map').append('svg').attr('height', height).attr('class', 'mapSvg');
+      var mapSvg = d3.select('.map').append('svg').attr('width', vizWidth).attr('height', vizHeight).attr('class', 'mapSvg');
       var texas = mapSvg.append('g').attr('class', 'texas');
       var eaaBounds = mapSvg.append('g').attr('class', 'boundaries');
 
@@ -118,8 +121,8 @@ angular.module('app.directives.d3.maps', [])
           return console.error(error);
         }
 
-        var scale = height * 4;
-        var offset = [width / 2, height / 2];
+        var scale = mapScale;
+        var offset = mapOffset;
         var center = d3.geo.centroid(mapData);
         // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
         // Note: albersUsa() and transverseMercator() require additional configs.

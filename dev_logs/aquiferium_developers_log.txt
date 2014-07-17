@@ -246,3 +246,49 @@ ISSUES:
 - The app is now unstable or inconsistent in its navbar.
 
 ----------------------------------------------------------------------------
+
+Entry Date:   2014.07.17
+
+Dev Notes:
+
+Been a while - lots to update!
+
+We are now entering the mad dash again, one week left before deming to the EAA board and LOTS to do.
+I have made issue tickets in bitbucket, but need them broken into sprint groups of related tatsks for sanity sake.
+My grouping and sprint order goes as follows:
+
+Sprint 1 - 2014.07.17:
+
+- Optimize assets for various screen sizes (4 sets: sm, med, lrg, hd).
+- Create CSS media Queries for new assets.
+- Safari parallax effect scrollin gbug fix.
+- Implement web fonts thorughout app.
+- Setup eventlistener to redraw display on screen rezie events.
+- Preloader for caching all Aquiferium content at first launch.
+
+Sprint 2 - 2014.07.18:
+
+- Break the meta-data interactive into 3 distinct versions: springs, wells, recharge.
+- Make directives configurable since it is the same directive used for all 3 viz's (externally specify geojson, data, markers).
+- Update labels on graphs accordingly.
+- Time line scrubbing of date ranges to see realtime display of annual data values per gauge.
+- Add symbology for springs and wells.
+- Color code the data displays according to drought thresholds.
+- Improve directive display scaling.
+- Ensure directive loads on first page load instead of resfresh. (See preloader above)
+
+Sprint 3 - 2014.07.21:
+
+- Update existing content (text, styles and images aa identified).
+- Add new content (videos, gifs, parallax image layers, etc.).
+- Add Aquifer related address lookup URL somewhere (will be specified).
+- Create new animated interactive for Explore view with zoom in from texas ot EAA region.
+- Setup offline mode.
+- Add links to hi-rez images.
+
+Sprint 4 - 2014.07.23:
+
+- Squash any bugs left.
+- OPTIMIZE MAOR!!
+- New capability: masking box interactive.
+

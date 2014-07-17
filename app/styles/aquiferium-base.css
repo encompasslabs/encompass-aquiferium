@@ -1,20 +1,22 @@
 @charset "utf-8";
 
 /* 
-*   CSS for NAS BRDI 2014 Project v1.0
+*   CSS for EAA Aquiferium Project v1.0 - 2014.
 *   Created by John Gentle for Encompass Labs - CAT - UT Austin 
 *   Created:            2014.05.02
-*   Last Updated:       2014.05.03 
+*   Last Updated:       2014.07.17 
 *   
-*   Bootstrap 3 Media Querie Sizes:
+*   Bootstrap 3 Media Query Sizes:
 *   
-*   Mobile First Method (This is the preferred 'Bootstrap 3 Way'):;
+*   Mobile First Method (This is the preferred 'Bootstrap 3 Way'):
 *       Small Devices, Mobile & Tablets
 *       @media only screen and (min-width : 768px)
 *       Medium Devices, Laptops & Desktops 
 *       @media only screen and (min-width : 992px) 
 *       Large Devices, Wide Screens
 *       @media only screen and (min-width : 1200px)
+*
+*   NOTE: Building the app based on large to small display instead.
 *
 *
 *   Color Scheme (from EAA Style Guide):
@@ -126,6 +128,9 @@ p {
   line-height: 1.5em; /* 24 / 16 */
   margin-bottom: 1.5em; /* 24 / 16 */
 }
+img { 
+  max-width: 100%; 
+}
 /* fix for angular-ui-bootstrap directives */
 .nav, .pagination, .carousel, .panel-title a { 
   cursor: pointer; 
@@ -133,10 +138,10 @@ p {
 a:hover, a:visited, a:link, a:active
 {
   text-decoration: none;
-  color: #999;
+  color: #71B2C9;  /*#999;*/
 }
 a:hover {
-  color: #fff; 
+  color: #AB650D;  /*#fff;*/
 }
 .content-container {
   padding-left: 1%;
@@ -179,40 +184,6 @@ a:hover {
 .text-muted {
   /*color: #444444;*/
 }
-.about {
-  /*margin-bottom: 10em;*/
-}
-.embededVideo {
-  /*border: 1px solid #fff;*/
-  margin: 1em auto 1em auto;
-  width: 45em;
-  height: 30em;
-}
-.imageLeft {
-  margin: 1em;
-}
-.imageRight {
-  margin: 1em;
-}
-.quotebox {
-  border: 1px solid #8F8100; /* #AB650D; */
-  -webkit-border-radius: 0 4em 0;
-  -moz-border-radius: 0 4em 0;
-  border-radius: 0 4em 0;
-  padding: 1em;
-}
-.quoted {
-  margin: 0 4em 0 3em;
-  font-style: italic;
-  color: #4298B5; /*#71B2C9;*/
-  text-align: justify;
-}
-.quotedby {
-  margin-left: 65%;
-  padding-top: 1em;
-  font-size: .8em;
-  color: #aaa;
-}
 .testing {
   position: fixed;
   padding: 0em 1em 0em 1em;
@@ -223,155 +194,24 @@ a:hover {
   background-color: #000;
 }
 
-
-/**********************
-*  D3 TEXAS AQUIFERS  *
-**********************/
-
-eaa-aquifers-map {
-  margin: auto;
-  cursor: pointer;
-  outline: solid 2px #fff;
-}
-
-eaa-aquifers-boundary-map {
-  /*width: 99.8%;*/
-  margin: auto;
-  cursor: pointer;
-  outline: solid 2px #fff;
-}
-
-.tooltip {   
-  position: absolute;
-  top: 120px;
-  left: 0px;      
-  text-align: center;
-  width: 200px;              
-  height: 200px;           
-  padding: 1em;             
-  font: 400 12px 'PT Sans';       
-  background: #ddd;
-  color: #000; 
-  border: 1px solid #000;      
-  border-radius: 8px;           
-  pointer-events: none;   
-  visibility: hidden;
-  z-index: 10;
-}
-
-.tooltip img {
-  margin-bottom: .5em;
-  width: 96px;
-  height: auto;
-}
-
-/********************
-*  PARALLAX EFFECT  *
-********************/
-/* slides */
-.slide {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-attachment: inherit;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;    
-  box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);
-}
-.slide p:first-child {
-  position: absolute;
-  border: 1px solid #fff;
-  top: 10%;
-  left: 3%;
-  width: 50%;
-  color: #fff;
-  background-color: #111;
-  box-shadow: 0 0 1em #000;
-}
-.slideno {
-  position: absolute;
-  color: rgba(255, 255, 255, 1);
-  text-shadow:
-    -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
-}
-/* buttons */
-@-webkit-keyframes pulse_animation {
-  0% { -webkit-transform: scale(1); }
-  10% { -webkit-transform: scale(1); }
-  50% { -webkit-transform: scale(0.8); }
-  90% { -webkit-transform: scale(1); }
-  100% { -webkit-transform: scale(1); }
-}
-
-.button-scroll {
-  display: block;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 10%;
-  left: 2%;
-  z-index: 10;
-  width: 0; 
-  height: 0; 
-  border-top: 2em solid rgba(175, 175, 175, 0.6);   /* #4298B5; #425968; rgba(255, 255, 255, 1); rgba(0, 0, 0, .7); rgba(119, 119, 119, 0.7); */
-  border-left: 2em solid transparent;
-  border-right: 2em solid transparent;
-  -webkit-animation-name: 'pulse_animation';
-  -webkit-animation-duration: 2000ms;
-  -webkit-transform-origin:70% 70%;
-  -webkit-animation-iteration-count: 3; /* set to a number for finite pulses or infinite for infinite pulses. */
-  -webkit-animation-timing-function: ease-in-out;
-}
-.button-scroll:hover {
-  cursor:pointer;
-  width: 0; 
-  height: 0; 
-  border-top: 2em solid rgba(255, 255, 255, 0.6);   /*  #71B2C9 also rgba(113, 178, 201, 1); rgba(0, 0, 0, 1); #AB650D*/  
-  border-left: 2em solid transparent;
-  border-right: 2em solid transparent;
-}
-.button-scroll:hover, .button-scroll:hover:after {
-   box-shadow: none;
-}
-#reverse {
-  top: 8.6%;
-  left: 0;
-  behavior:url(-ms-transform.htc);
-  /* Firefox */
-  -moz-transform:rotate(180deg);
-  /* Safari and Chrome */
-  -webkit-transform:rotate(180deg);
-  /* Opera */
-  -o-transform:rotate(180deg);
-  /* IE9 */
-  -ms-transform:rotate(180deg);
-  /* IE6,IE7 */
-  /*filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476);*/
-  /* IE8 */
-  /*-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"; */
-}
-/* slide content */
-.wrapper {
-  width: 100%;
-  min-width: 100%;
-  height: 900px;
-  position: relative;
-  margin: 0em 0em 0em 3.2em;
-}
 /*****************/
 /* MEDIA QUERIES */
 /*****************/
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+/* HD devices (big screens, 1368px and up) */
+@media (min-width: 1368px) {
   .test-media-queries p span:after { 
       color: #00AAFF;
-      content: 'Large Screen (min-width >= 1200px)';
+      content: 'Big Screen (min-width >= 1368px)';
+  }
+  html { font-size: 20px; }
+  body { padding-top: 2.6em; }
+  .slide { padding-left: 1em; }
+}
+/* XLarge devices (large desktops, 1200px to 1367px) */
+@media (min-width: 1200px) and (max-width: 1367px) {
+  .test-media-queries p span:after { 
+      color: #00AAFF;
+      content: 'Large Screen (min-width >= 1200px && max-width < 1367px)';
   }
   html { font-size: 20px; }
   body { padding-top: 2.6em; }
@@ -412,5 +252,3 @@ eaa-aquifers-boundary-map {
       top: 20%;
   }
 }
-
-/* END CSS */

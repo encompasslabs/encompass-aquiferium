@@ -1,0 +1,39 @@
+/**************************
+*  D3 MAP TEXAS AQUIFERS  *
+**************************/
+eaa-aquifers-map {
+  margin: auto;
+  cursor: pointer;
+  outline: solid 2px #fff;
+}
+
+eaa-aquifers-boundary-map {
+  /*width: 99.8%;*/
+  margin: auto;
+  cursor: pointer;
+  outline: solid 2px #fff;
+}
+
+.tooltip {   
+  position: absolute;
+  top: 120px;
+  left: 0px;      
+  text-align: center;
+  width: 200px;              
+  height: 200px;           
+  padding: 1em;             
+  font: 400 12px 'PT Sans';       
+  background: #ddd;
+  color: #000; 
+  border: 1px solid #000;      
+  border-radius: 8px;           
+  pointer-events: none;   
+  visibility: hidden;
+  z-index: 10;
+}
+
+.tooltip img {
+  margin-bottom: .5em;
+  width: 96px;
+  height: auto;
+}

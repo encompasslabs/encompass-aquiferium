@@ -292,3 +292,8 @@ Sprint 4 - 2014.07.23:
 - OPTIMIZE MAOR!!
 - New capability: masking box interactive.
 
+NOTES ON BUILD ISSUES:
+
+Images: img path is busted. '/images/whatever' needs to be replaced with '../images/whatever' for all CSS.
+
+Scripts: data path is busted. '../../data/whatever' needs to be replaced with './data/whatever' for all scripts.

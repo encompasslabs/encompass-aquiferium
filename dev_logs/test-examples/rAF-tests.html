@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>rAF Tests</title>
+  <style>
+  body {
+    background-color: #fff;
+    color: #409;
+  }
+  </style>
+</head>
+<body>
+  <div>
+    <p>
+      <h1>rAF Tests</h1>
+    </p>
+  </div>
+  <script type="text/javascript">
+    console.log('rAF Testing ready.');
+    // console.log(window);
+
+    function onScroll() {
+      console.log('onScroll() called.');
+      update();
+    }
+
+    function update() {
+      // assume some domElement has been declared by now.
+      for (var i=0; i < domElements.length; i++) {
+        // 1) read the offset of DOM elements to determine visibility (reflow).
+
+        // 2) then apply some CSS classes to the visible items (repaint).
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, false);
+  </script>
+</body>
+</html>

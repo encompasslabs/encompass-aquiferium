@@ -5,7 +5,7 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
-module.exports = function (grunt) {  
+module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt); // Load grunt tasks automatically.
   require('time-grunt')(grunt); // Time how long tasks take. Can help when optimizing build times.
 
@@ -305,7 +305,7 @@ module.exports = function (grunt) {
         dest: '<%= yeoman.dist %>/videos',
         src: '**'
       }
-    },  
+    },
     concurrent: { // Run some tasks in parallel to speed up the build process
       server: [
         'compass:server'

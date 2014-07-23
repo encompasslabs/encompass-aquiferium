@@ -15,12 +15,12 @@ angular.module('aquiferiumApp')
     $scope.getClass = function (path) {
       if (path === '/') {
         if ($location.path() === '/') {
-          return "active";
+          return 'active';
         }
       }
 
       if ($location.path().substr(0, path.length) === path) {
-        return "active";
+        return 'active';
       }
     };
   }]);

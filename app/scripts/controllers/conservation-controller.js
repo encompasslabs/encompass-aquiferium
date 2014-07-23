@@ -22,7 +22,7 @@ angular.module('aquiferiumApp')
     $scope.buttonClick = function (e) {
       // console.log('firing click event from controller $scope with e == ' + e.valueOf());
       e.preventDefault();
-      var dataslide = angular.element(e.target).attr("data-slide");
+      var dataslide = angular.element(e.target).attr('data-slide');
       $scope.goToByScroll(dataslide);
     };
   }]);

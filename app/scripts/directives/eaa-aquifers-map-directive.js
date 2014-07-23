@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.directives.d3.maps', [])
+angular.module('eaa.directives.d3.maps', [])
   .directive('eaaAquifersMap', [function() {
     // console.log('eaaAquifersMap directive initialized.');
     // generic directiveDefinitionObject config.
@@ -20,10 +20,10 @@ angular.module('app.directives.d3.maps', [])
       templateUrl: false,
       terminal: false,
       transclude: false,
-      type: false 
+      type: false
     };
 
-    directiveDefinitionObject.link = function postLink(scope, element, attrs) {
+    directiveDefinitionObject.link = function postLink(scope, element) {
 
       // VARS.
       var w = window;
@@ -43,7 +43,7 @@ angular.module('app.directives.d3.maps', [])
       var mapSource = '../../data/geojson/NEW_major_aquifers_dd_reduced100.geo.json';
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var markerLocations = '../../data/eaaAquiferium-allSprings-markerData.csv';
-      var imagePath = '../../images/d3map/';
+      // var imagePath = '../../images/d3map/';
 
       var vizMargin = {top: 10, right: 10, bottom: 10, left: 10};
       var vizWidth = width - vizMargin.left - vizMargin.right;
@@ -52,20 +52,20 @@ angular.module('app.directives.d3.maps', [])
       var mapOffset = [vizWidth / 2, vizHeight / 2];
       var mapScale = vizHeight * 4;
 
-      var tooltipHorOffset = 20;
-      var tooltipVertOffset = 190;
+      // var tooltipHorOffset = 20;
+      // var tooltipVertOffset = 190;
       var markerRadius = 5;
-      var markerRadiusSelected = 20;
-      var markerStrokeAnimationSpeed = 250;
+      // var markerRadiusSelected = 20;
+      // var markerStrokeAnimationSpeed = 250;
 
-      var lastClickTarget = {};
-      var newSelection = {};
-      var oldSelection = {};
+      // var lastClickTarget = {};
+      // var newSelection = {};
+      // var oldSelection = {};
 
       var el = element[0];
-      var tooltip = d3.select(el).append('div').attr('class', 'tooltip');
+      // var tooltip = d3.select(el).append('div').attr('class', 'tooltip');
       var map = d3.select(el).append('div').attr('class', 'map');
-      var mapSvg = d3.select('.map').append('svg').attr('width', vizWidth).attr('height', vizHeight).attr('class', 'mapSvg');
+      var mapSvg = map.append('svg').attr('width', vizWidth).attr('height', vizHeight).attr('class', 'mapSvg');
       var texas = mapSvg.append('g').attr('class', 'texas');
       var eaaBounds = mapSvg.append('g').attr('class', 'boundaries');
 
@@ -88,32 +88,33 @@ angular.module('app.directives.d3.maps', [])
       function randomColor() {
         var newColor = '#' + ('00000' + (Math.random() * (1 << 24) | 0).toString(16)).slice(-6);
         return newColor;
-      };
+      }
 
       function onTargetClick (target) {
-        newSelection = d3.select(this);
-        if (tooltip.style('visibility') === 'hidden') {
-          // console.log('first click on marker and tooltip is now visible.');
-          newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
-          lastClickTarget = target;
-          oldSelection = newSelection;
-          return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + (imagePath + target.img) + '" alt="" /><br/>' + '<a href="../">Explore</a>');
-        } else if (tooltip.style('visibility') === 'visible' && target !== lastClickTarget) {
-          // console.log('click on different marker, tooltip is now updated.');
-          oldSelection.moveToBack().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
-          // oldSelection.moveToBack();
-          newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
-          lastClickTarget = target;
-          oldSelection = newSelection;
-          return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + (imagePath + target.img) + '" alt="" /><br/>' + '<a href="../">Explore</a>');
-        }
-        // console.log('second click on marker and tooltip is now hidden.');
-        newSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
-        lastClickTarget = {};
-        oldSelection = {};
-        newSelection = {};
-        return tooltip.style('visibility', 'hidden');
-      };
+        console.log(target);
+        // newSelection = d3.select(this);
+        // if (tooltip.style('visibility') === 'hidden') {
+        //   // console.log('first click on marker and tooltip is now visible.');
+        //   newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+        //   lastClickTarget = target;
+        //   oldSelection = newSelection;
+        //   return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + (imagePath + target.img) + '" alt="" /><br/>' + '<a href="../">Explore</a>');
+        // } else if (tooltip.style('visibility') === 'visible' && target !== lastClickTarget) {
+        //   // console.log('click on different marker, tooltip is now updated.');
+        //   oldSelection.moveToBack().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+        //   // oldSelection.moveToBack();
+        //   newSelection.moveToFront().transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadiusSelected).style('stroke-width', '3px').style('stroke', '#ff0');
+        //   lastClickTarget = target;
+        //   oldSelection = newSelection;
+        //   return tooltip.style('visibility', 'visible').html('<h2>' + target.Location + '</h2><br/>' + '<img src="' + (imagePath + target.img) + '" alt="" /><br/>' + '<a href="../">Explore</a>');
+        // }
+        // // console.log('second click on marker and tooltip is now hidden.');
+        // newSelection.transition().duration(markerStrokeAnimationSpeed).attr('r', markerRadius).style('stroke-width', '1px').style('stroke', '#000');
+        // lastClickTarget = {};
+        // oldSelection = {};
+        // newSelection = {};
+        // return tooltip.style('visibility', 'hidden');
+      }
 
       // VIZ.
       d3.json(mapSource, function (error, mapData) {

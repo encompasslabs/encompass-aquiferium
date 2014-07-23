@@ -9,8 +9,8 @@ angular.module('aquiferiumApp', [
   'angular-carousel',
   'angular-parallax',
   'videosharing-embed',
-  'app.directives.d3.maps',
-  'app.directives.d3.interactives'
+  'eaa.directives.d3.maps',
+  'eaa.directives.d3.interactives'
 ])
   .config(function ($routeProvider) {
     $routeProvider

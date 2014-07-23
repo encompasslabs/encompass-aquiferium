@@ -253,7 +253,7 @@ Dev Notes:
 
 Been a while - lots to update!
 
-We are now entering the mad dash again, one week left before deming to the EAA board and LOTS to do.
+We are now entering the mad dash again, one week left before demoing to the EAA board and LOTS to do.
 I have made issue tickets in bitbucket, but need them broken into sprint groups of related tatsks for sanity sake.
 My grouping and sprint order goes as follows:
 
@@ -261,7 +261,7 @@ Sprint 1 - 2014.07.17:
 
 - Optimize assets for various screen sizes (4 sets: sm, med, lrg, hd).
 - Create CSS media Queries for new assets.
-- Safari parallax effect scrollin gbug fix.
+- Safari parallax effect scrolling bug fix.
 - Implement web fonts thorughout app.
 - Setup eventlistener to redraw display on screen rezie events.
 - Preloader for caching all Aquiferium content at first launch.
@@ -294,6 +294,27 @@ Sprint 4 - 2014.07.23:
 
 NOTES ON BUILD ISSUES:
 
-Images: img path is busted. '/images/whatever' needs to be replaced with '../images/whatever' for all CSS.
+During development the resource pathing is fine using standard relative paths for assets.
+When the grunt build process executes renaming and minification it screws up the pathing.
+Using search & replace to manually correct the pathing in the following types of files is requried until the build process is corrected.
 
-Scripts: data path is busted. '../../data/whatever' needs to be replaced with './data/whatever' for all scripts.
+NAME.html
+HASH.main.css
+HASH.scripts.js
+
+Path changes by type.
+
+HTML
+Dev paths:        '../videos/video.mp4'
+Build path:       '../videos/video.mp4'   <-- verify this.
+Corrected path:   './videos/video.mp4'
+
+CSS
+Dev paths:        '../images/image.jpg'
+Build path:       '/images/image.jpg'     <-- verify this.
+Corrected path:   '../images/image.jpg'
+
+Scripts
+Dev paths:        '../../data/script.js'
+Build path:       '../../data/script.js'  <-- verify this.
+Corrected path:   './data/script.js'

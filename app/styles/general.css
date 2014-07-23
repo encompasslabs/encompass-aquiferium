@@ -1,0 +1,83 @@
+@charset "utf-8";
+html {
+  min-width: 640px;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-bottom: 4rem;
+  font: 400 100% 'Open Sans';
+  text-rendering: optimizeLegibility;
+  background-color: #000;
+  color: #fff;
+}
+/* 
+  rem conversions:
+  (assuming 1rem = 16px)
+  .5rem = 8px, 
+  1rem = 16px, 
+  1.5rem = 24px, 
+  2rem = 32px, 
+  2.25rem = 36px, 
+  2.5rem = 40px, 
+  3rem = 48px;
+*/
+/*
+h1 {
+  font-size: 3rem;
+  line-height: 1rem; 
+  margin-bottom: .5rem;
+}
+h2 {
+  font-size: 2.25rem;
+  line-height: 1.333333333333333rem;
+  margin-bottom: .6666666666666667rem;
+}
+h3 {
+  font-size: 1.5rem;
+  line-height: 1rem;
+  margin-bottom: 1rem;
+}
+h4 {
+  font-size: 1.3125rem;
+  line-height: 1.142857142857143rem;
+  margin-bottom: 1.142857142857143rem;
+}
+h5 {
+  font-size: 1.125rem;
+  line-height: 1.333333333333333rem;
+  margin-bottom: 1.333333333333333rem;
+}
+h6 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+*/
+h1 small {
+  color: #8F8100;
+}
+a:hover, a:visited, a:link, a:active
+{
+  text-decoration: none;
+  color: #71B2C9;
+}
+a:hover {
+  color: #AB650D;
+}
+.footer {
+  background-color: #111;
+  border-top: 1px solid #333;
+  font-size: 0.8rem;
+  padding-top: 0.8rem;
+}
+.centered {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

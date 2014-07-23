@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app.directives.d3.visualizations', [])
-  .directive('eaaAquifersBoundaryMap', function() {
+  .directive('eaaAquifersBoundaryMap', [function() {
     // console.log('eaaAquifersBoundaryMap directive initialized.');
     // generic directiveDefinitionObject config.
     var directiveDefinitionObject = {
@@ -323,4 +323,4 @@ angular.module('app.directives.d3.visualizations', [])
 
     console.log('directiveDefinitionObject: ', directiveDefinitionObject);
     return directiveDefinitionObject;
-  });
+  }]);

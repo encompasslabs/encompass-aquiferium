@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('ConservationCtrl', function ($scope, $location, $anchorScroll) {
+  .controller('ConservationCtrl', ['$scope', '$location', '$anchorScroll', function ($scope, $location, $anchorScroll) {
     $scope.pageClass = 'conservation';
 
     $scope.resetView = function () {
@@ -24,5 +24,5 @@ angular.module('aquiferiumApp')
       e.preventDefault();
       var dataslide = angular.element(e.target).attr("data-slide");
       $scope.goToByScroll(dataslide);
-    };   
-  });
+    };
+  }]);

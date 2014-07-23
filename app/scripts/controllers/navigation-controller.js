@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('NavigationCtrl', function ($scope, $location) {
+  .controller('NavigationCtrl', ['$scope', '$location', function ($scope, $location) {
     $scope.isCollapsed = true;
 
     $scope.$on('$routeChangeSuccess', function () {
@@ -23,4 +23,4 @@ angular.module('aquiferiumApp')
         return "active";
       }
     };
-  });
+  }]);

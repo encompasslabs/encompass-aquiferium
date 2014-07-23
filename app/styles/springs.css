@@ -1,105 +1,33 @@
-/******************************
- SPRINGS
-*******************************/
+@charset "utf-8";
 #springs-slide0 p:first-child {
-    border: 1px solid #71B2C9;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #71B2C9;
 }
 #springs-slide1 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #springs-slide2 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #springs-slide3 p:first-child {
-    border: 1px solid #AADD6D;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #AADD6D;
 }
 #springs-slide4 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #springs-slide5 p:first-child {
-    border: 1px solid #71B2C9;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #71B2C9;
 }
 #springs-slide6 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #springs-slide7 p:first-child {
-    border: 1px solid #AADD6D;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #AADD6D;
 }
 #springs-slide8 p:first-child {
-    border: 1px solid #AADD6D;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #AADD6D;
 }
 #springs-slide9 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 .navLinkHcp:hover, .navLinkHcp:visited, .navLinkHcp:link, .navLinkHcp:active
 {
@@ -108,189 +36,4 @@
 }
 .navLinkHcp:hover {
   color: #E6D395; 
-}
-
-/*****************/
-/* MEDIA QUERIES */
-/*****************/
-/* HD devices (big screens, 1368px and up) */
-@media (min-width: 1368px) {
-  #springs-slide0 {
-    background-image: url(../images/springs/com-springs2_web_hd.jpg);
-  }
-  #springs-slide1 {
-    background-image: url(../images/springs/waterfall_web_hd.jpg);
-  }
-  #springs-slide2 {
-    background-image: url(../images/springs/Boat_0054_web_hd.jpg);
-  }
-  #springs-slide3 {
-    background-image:url(../images/springs/aerial_view_web_hd.jpg);
-  }
-  #springs-slide4 {
-    background-image: url(../images/springs/Looking-Underwater_0017_web_hd.jpg);
-  }
-  #springs-slide5 {
-    background-image: url(../images/springs/EAAaquarena20120702_8316_web_hd.jpg);
-  }
-  #springs-slide6 {
-    background-color: #555;
-  }
-  #springs-slide7 {
-    background-image: url(../images/springs/EAArice20120503_3620_web_hd.jpg);
-  }
-  #springs-slide8 {
-    background-image: url(../images/springs/EAAOriparianrandy20120801_0404_web_hd.jpg);
-  }
-  #springs-slide9 {
-    background-image: url(../images/springs/Looking-Underwater_0020_web_hd.jpg);
-  }
-  #springs-slide10 {
-    background-color: #000;
-  }
-}
-/* XLarge devices (large desktops, 1200px to 1367px) */
-@media (min-width: 1200px) and (max-width: 1367px) {
-  #springs-slide0 {
-    background-image: url(../images/springs/com-springs2_web_xlg.jpg);
-  }
-  #springs-slide1 {
-    background-image: url(../images/springs/waterfall_web_xlg.jpg);
-  }
-  #springs-slide2 {
-    background-image: url(../images/springs/Boat_0054_web_xlg.jpg);
-  }
-  #springs-slide3 {
-    background-image:url(../images/springs/aerial_view_web_xlg.jpg);
-  }
-  #springs-slide4 {
-    background-image: url(../images/springs/Looking-Underwater_0017_web_xlg.jpg);
-  }
-  #springs-slide5 {
-    background-image: url(../images/springs/EAAaquarena20120702_8316_web_xlg.jpg);
-  }
-  #springs-slide6 {
-    background-color: #555;
-  }
-  #springs-slide7 {
-    background-image: url(../images/springs/EAArice20120503_3620_web_xlg.jpg);
-  }
-  #springs-slide8 {
-    background-image: url(../images/springs/EAAOriparianrandy20120801_0404_web_xlg.jpg);
-  }
-  #springs-slide9 {
-    background-image: url(../images/springs/Looking-Underwater_0020_web_xlg.jpg);
-  }
-  #springs-slide10 {
-    background-color: #000;
-  }
-}
-/* Large devices (desktops, 992px to 1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
-  #springs-slide0 {
-    background-image: url(../images/springs/com-springs2_web_lg.jpg);
-  }
-  #springs-slide1 {
-    background-image: url(../images/springs/waterfall_web_lg.jpg);
-  }
-  #springs-slide2 {
-    background-image: url(../images/springs/Boat_0054_web_lg.jpg);
-  }
-  #springs-slide3 {
-    background-image:url(../images/springs/aerial_view_web_lg.jpg);
-  }
-  #springs-slide4 {
-    background-image: url(../images/springs/Looking-Underwater_0017_web_lg.jpg);
-  }
-  #springs-slide5 {
-    background-image: url(../images/springs/EAAaquarena20120702_8316_web_lg.jpg);
-  }
-  #springs-slide6 {
-    background-color: #555;
-  }
-  #springs-slide7 {
-    background-image: url(../images/springs/EAArice20120503_3620_web_lg.jpg);
-  }
-  #springs-slide8 {
-    background-image: url(../images/springs/EAAOriparianrandy20120801_0404_web_lg.jpg);
-  }
-  #springs-slide9 {
-    background-image: url(../images/springs/Looking-Underwater_0020_web_lg.jpg);
-  }
-  #springs-slide10 {
-    background-color: #000;
-  }
-}
-/* Medium devices (tablets, 768px to 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-  #springs-slide0 {
-    background-image: url(../images/springs/com-springs2_web_md.jpg);
-  }
-  #springs-slide1 {
-    background-image: url(../images/springs/waterfall_web_md.jpg);
-  }
-  #springs-slide2 {
-    background-image: url(../images/springs/Boat_0054_web_md.jpg);
-  }
-  #springs-slide3 {
-    background-image:url(../images/springs/aerial_view_web_md.jpg);
-  }
-  #springs-slide4 {
-    background-image: url(../images/springs/Looking-Underwater_0017_web_md.jpg);
-  }
-  #springs-slide5 {
-    background-image: url(../images/springs/EAAaquarena20120702_8316_web_md.jpg);
-  }
-  #springs-slide6 {
-    background-color: #555;
-  }
-  #springs-slide7 {
-    background-image: url(../images/springs/EAArice20120503_3620_web_md.jpg);
-  }
-  #springs-slide8 {
-    background-image: url(../images/springs/EAAOriparianrandy20120801_0404_web_md.jpg);
-  }
-  #springs-slide9 {
-    background-image: url(../images/springs/Looking-Underwater_0020_web_md.jpg);
-  }
-  #springs-slide10 {
-    background-color: #000;
-  }
-}
-/* Small devices (phones, less than 768px) */
-/*@media (min-width: 311px) and (max-width: 767px) {*/
-@media (min-width: 1px) and (max-width: 767px) {
-  #springs-slide0 {
-    background-image: url(../images/springs/com-springs2_web_sm.jpg);
-  }
-  #springs-slide1 {
-    background-image: url(../images/springs/waterfall_web_sm.jpg);
-  }
-  #springs-slide2 {
-    background-image: url(../images/springs/Boat_0054_web_sm.jpg);
-  }
-  #springs-slide3 {
-    background-image:url(../images/springs/aerial_view_web_sm.jpg);
-  }
-  #springs-slide4 {
-    background-image: url(../images/springs/Looking-Underwater_0017_web_sm.jpg);
-  }
-  #springs-slide5 {
-    background-image: url(../images/springs/EAAaquarena20120702_8316_web_sm.jpg);
-  }
-  #springs-slide6 {
-    background-color: #555;
-  }
-  #springs-slide7 {
-    background-image: url(../images/springs/EAArice20120503_3620_web_sm.jpg);
-  }
-  #springs-slide8 {
-    background-image: url(../images/springs/EAAOriparianrandy20120801_0404_web_sm.jpg);
-  }
-  #springs-slide9 {
-    background-image: url(../images/springs/Looking-Underwater_0020_web_sm.jpg);
-  }
-  #springs-slide10 {
-    background-color: #000;
-  }
 }

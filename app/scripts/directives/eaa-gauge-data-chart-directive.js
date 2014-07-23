@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app.directives.d3.charts', [])
-  .directive('eaaGaugeDataChart', function() {
+  .directive('eaaGaugeDataChart', [function() {
     // console.log('eaaAquifersBoundaryMap directive initialized.');
     // generic directiveDefinitionObject config.
     var directiveDefinitionObject = {
@@ -239,4 +239,4 @@ angular.module('app.directives.d3.charts', [])
 
     console.log('directiveDefinitionObject: ', directiveDefinitionObject);
     return directiveDefinitionObject;
-  });
+  }]);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('CavesKarstsCtrl', function ($scope, $location, $anchorScroll) {
+  .controller('CavesKarstsCtrl', ['$scope', '$location', '$anchorScroll', function ($scope, $location, $anchorScroll) {
     $scope.pageClass = 'caves-karsts';
 
     $scope.resetView = function () {
@@ -25,4 +25,4 @@ angular.module('aquiferiumApp')
       var dataslide = angular.element(e.target).attr("data-slide");
       $scope.goToByScroll(dataslide);
     };
-  });
+  }]);

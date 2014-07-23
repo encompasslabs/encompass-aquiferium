@@ -1,0 +1,68 @@
+
+CSS for EAA Aquiferium Project v1.0 - 2014.
+Created by John Gentle for Encompass Labs - CAT - UT Austin 
+Created:            2014.05.02
+Last Updated:       2014.07.17 
+
+Bootstrap 3 Media Query Sizes:
+
+Mobile First Method (This is the preferred 'Bootstrap 3 Way'):
+  Small Devices, Mobile & Tablets
+  @media only screen and (min-width : 768px)
+  Medium Devices, Laptops & Desktops 
+  @media only screen and (min-width : 992px) 
+  Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px)
+
+NOTE: Building the app based on large to small display instead.
+
+
+Color Scheme (from EAA Style Guide):
+
+Primary EAA Logo Colors:
+
+Blue (PMS 7546):    #425968;  rgba(66, 89, 104, 1);
+Orange (PMS 724):   #AB650D;  rgba(171, 101, 13, 1);
+Gold (PMS 620):     #8F8100;  rgba(143, 129, 0, 1);
+Black:              #000000;  rgba(0, 0, 0, 1);
+White:              #FFFFFF;  rgba(255, 255, 255, 1);
+Grey:               #777777;  rgba(119, 119, 119, 1);
+
+Support Colors:
+
+Tan (PMS 7502):     #E6D395;  rgba(230, 211, 149, 1);
+Stone (PMS 416):    #8E8C7A;  rgba(142, 140, 122, 1);
+Lake (PMS 7458):    #71B2C9;  rgba(113, 178, 201, 1);
+
+Accent Colors:
+
+Amber (PMS 131):    #C6930A;  rgba(198, 147, 10, 1);
+Orange (PMS 1595):  #D15B05;  rgba(209, 91, 5, 1);
+Brown (PMS 7518):   #6D4F47;  rgba(109, 79, 71, 1);
+Melon (PMS 367):    #AADD6D;  rgba(170, 221, 109, 1);
+Teal (PMS 339):     #00B28C;  rgba(0, 178, 140, 1);
+Sky (PMS 7459):     #4298B5;  rgba(66, 152, 181, 1);
+
+
+PRIMARY TYPEFACES:  This sans-serif typeface can be used for headlines, cutlines, and body copy applications.
+  Font:   HELVETICA Neue family: condensed, extended and regular width versions in light, roman, bold and black weights.
+
+INTERNAL TYPEFACE:  For internal publications and when the primary typeface choices are unavailable, it is acceptable to use the following:
+  Font:   ARIAL (Sans-serif), TIMES NEW ROMAN (Serif)
+
+WEB TYPEFACE:   For web copy, use the following:
+  Font:   ARIAL (Sans-serif)
+
+SUGGESTED USAGE
+  Body copy:
+    average size 9 - 10 pt
+    average leading 11 pt
+  Cutlines:
+    average size 7 - 8.5 pt
+    average leading 9 pt
+
+Typography:
+  - Forced justified is the preferred usage for body copy.
+  - Bulleted text is aligned left.
+
+Fonts: Helvetica, Georgia, 'Times New Roman', 'Trebuchet MS', Verdana, Arial, sans-serif;

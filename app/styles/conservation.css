@@ -1,288 +1,31 @@
-/******************************
- CONSERVATION
-*******************************/
+@charset "utf-8";
 #cons-slide0 p:first-child {
-    border: 1px solid #AB650D;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #AB650D;
 }
 #cons-slide1 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #cons-slide2 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #cons-slide3 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #cons-slide4 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #cons-slide5 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #cons-slide6 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #cons-slide7 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #cons-slide8 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #cons-slide9 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
-}
-
-/*****************/
-/* MEDIA QUERIES */
-/*****************/
-/* HD devices (big screens, 1368px and up) */
-@media (min-width: 1368px) {
-  #cons-slide0 {
-    background-image: url(../images/conservation/07Jul_PumpStation_CMYK_web_hd.jpg);
-  }
-  #cons-slide1 {
-    background-image: url(../images/conservation/XO5J7652_web_hd.jpg);
-  }
-  #cons-slide2 {
-    background-image: url(../images/conservation/EAAgilleland_web_hd.jpg);
-  }
-  #cons-slide3 {
-    background-image: url(../images/conservation/05May_MartinMarietta_CMYK_web_hd.jpg);
-  }
-  #cons-slide4 {
-    background-image: url(../images/conservation/08Aug_Landa_CMYK_web_hd.jpg);
-  }
-  #cons-slide5 {
-    background-image: url(../images/conservation/SM_salamander_XO5J9266_web_hd.jpg);
-  }
-  #cons-slide6 {
-    background-image: url(../images/conservation/Board-Room-corner_Panorama1-P_web_hd.jpg);
-  }
-  #cons-slide7 {
-    background-image: url(../images/conservation/EAA-rainGauge_web_hd.jpg);
-  }
-  #cons-slide8 {
-    background-color: #eee;
-  }
-  #cons-slide9 {
-    background-image: url(../images/conservation/GBRA_20121017_6763_web_hd.jpg);
-  }
-  #cons-slide10 {
-    background-color: #000;
-  }
-}
-/* XLarge devices (large desktops, 1200px to 1367px) */
-@media (min-width: 1200px) and (max-width: 1367px) {
-  #cons-slide0 {
-    background-image: url(../images/conservation/07Jul_PumpStation_CMYK_web_xlg.jpg);
-  }
-  #cons-slide1 {
-    background-image: url(../images/conservation/XO5J7652_web_xlg.jpg);
-  }
-  #cons-slide2 {
-    background-image: url(../images/conservation/EAAgilleland_web_xlg.jpg);
-  }
-  #cons-slide3 {
-    background-image: url(../images/conservation/05May_MartinMarietta_CMYK_web_xlg.jpg);
-  }
-  #cons-slide4 {
-    background-image: url(../images/conservation/08Aug_Landa_CMYK_web_xlg.jpg);
-  }
-  #cons-slide5 {
-    background-image: url(../images/conservation/SM_salamander_XO5J9266_web_xlg.jpg);
-  }
-  #cons-slide6 {
-    background-image: url(../images/conservation/Board-Room-corner_Panorama1-P_web_xlg.jpg);
-  }
-  #cons-slide7 {
-    background-image: url(../images/conservation/EAA-rainGauge_web_xlg.jpg);
-  }
-  #cons-slide8 {
-    background-color: #eee;
-  }
-  #cons-slide9 {
-    background-image: url(../images/conservation/GBRA_20121017_6763_web_xlg.jpg);
-  }
-  #cons-slide10 {
-    background-color: #000;
-  }
-}
-/* Large devices (desktops, 992px to 1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
-  #cons-slide0 {
-    background-image: url(../images/conservation/07Jul_PumpStation_CMYK_web_lg.jpg);
-  }
-  #cons-slide1 {
-    background-image: url(../images/conservation/XO5J7652_web_lg.jpg);
-  }
-  #cons-slide2 {
-    background-image: url(../images/conservation/EAAgilleland_web_lg.jpg);
-  }
-  #cons-slide3 {
-    background-image: url(../images/conservation/05May_MartinMarietta_CMYK_web_lg.jpg);
-  }
-  #cons-slide4 {
-    background-image: url(../images/conservation/08Aug_Landa_CMYK_web_lg.jpg);
-  }
-  #cons-slide5 {
-    background-image: url(../images/conservation/SM_salamander_XO5J9266_web_lg.jpg);
-  }
-  #cons-slide6 {
-    background-image: url(../images/conservation/Board-Room-corner_Panorama1-P_web_lg.jpg);
-  }
-  #cons-slide7 {
-    background-image: url(../images/conservation/EAA-rainGauge_web_lg.jpg);
-  }
-  #cons-slide8 {
-    background-color: #eee;
-  }
-  #cons-slide9 {
-    background-image: url(../images/conservation/GBRA_20121017_6763_web_lg.jpg);
-  }
-  #cons-slide10 {
-    background-color: #000;
-  }
-}
-/* Medium devices (tablets, 768px to 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-  #cons-slide0 {
-    background-image: url(../images/conservation/07Jul_PumpStation_CMYK_web_md.jpg);
-  }
-  #cons-slide1 {
-    background-image: url(../images/conservation/XO5J7652_web_md.jpg);
-  }
-  #cons-slide2 {
-    background-image: url(../images/conservation/EAAgilleland_web_md.jpg);
-  }
-  #cons-slide3 {
-    background-image: url(../images/conservation/05May_MartinMarietta_CMYK_web_md.jpg);
-  }
-  #cons-slide4 {
-    background-image: url(../images/conservation/08Aug_Landa_CMYK_web_md.jpg);
-  }
-  #cons-slide5 {
-    background-image: url(../images/conservation/SM_salamander_XO5J9266_web_md.jpg);
-  }
-  #cons-slide6 {
-    background-image: url(../images/conservation/Board-Room-corner_Panorama1-P_web_md.jpg);
-  }
-  #cons-slide7 {
-    background-image: url(../images/conservation/EAA-rainGauge_web_md.jpg);
-  }
-  #cons-slide8 {
-    background-color: #eee;
-  }
-  #cons-slide9 {
-    background-image: url(../images/conservation/GBRA_20121017_6763_web_md.jpg);
-  }
-  #cons-slide10 {
-    background-color: #000;
-  }
-}
-/* Small devices (phones, less than 768px) */
-/*@media (min-width: 311px) and (max-width: 767px) {*/
-@media (min-width: 1px) and (max-width: 767px) {
-  #cons-slide0 {
-    background-image: url(../images/conservation/07Jul_PumpStation_CMYK_web_sm.jpg);
-  }
-  #cons-slide1 {
-    background-image: url(../images/conservation/XO5J7652_web_sm.jpg);
-  }
-  #cons-slide2 {
-    background-image: url(../images/conservation/EAAgilleland_web_sm.jpg);
-  }
-  #cons-slide3 {
-    background-image: url(../images/conservation/05May_MartinMarietta_CMYK_web_sm.jpg);
-  }
-  #cons-slide4 {
-    background-image: url(../images/conservation/08Aug_Landa_CMYK_web_sm.jpg);
-  }
-  #cons-slide5 {
-    background-image: url(../images/conservation/SM_salamander_XO5J9266_web_sm.jpg);
-  }
-  #cons-slide6 {
-    background-image: url(../images/conservation/Board-Room-corner_Panorama1-P_web_sm.jpg);
-  }
-  #cons-slide7 {
-    background-image: url(../images/conservation/EAA-rainGauge_web_sm.jpg);
-  }
-  #cons-slide8 {
-    background-color: #eee;
-  }
-  #cons-slide9 {
-    background-image: url(../images/conservation/GBRA_20121017_6763_web_sm.jpg);
-  }
-  #cons-slide10 {
-    background-color: #000;
-  }
+  border-color: #777;
 }

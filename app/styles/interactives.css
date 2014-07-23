@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* Map */
+/* TBD */
+/* Gauge Data Line Chart */
+.chart {
+  font-size: .6rem;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.x.axis path {
+  display: none;
+}
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+.chart-subtext {
+  margin-top: 1rem;
+  color: #000;
+  font-size: .6rem;
+  font-style: italic;
+}

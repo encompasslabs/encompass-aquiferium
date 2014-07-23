@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('ContactCtrl', function ($scope) {
+  .controller('ContactCtrl', ['$scope', function ($scope) {
     $scope.pageClass = 'contact';
-  });
+  }]);

@@ -1,238 +1,25 @@
-/******************************
- CAVES & KARSTS
-*******************************/
+@charset "utf-8";
 #ck-slide0 p:first-child {
-    border: 1px solid #8F8100;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #8F8100;
 }
 #ck-slide1 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #ck-slide2 p:first-child {
-    border: 1px solid #C6930A;   /*  #8F8100;*/
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #C6930A;
 }
 #ck-slide3 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #ck-slide4 p:first-child {
-    border: 1px solid #8F8100;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #8F8100;
 }
 #ck-slide5 p:first-child {
-    border: 1px solid #777;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #777;
 }
 #ck-slide6 p:first-child {
-    border: 1px solid #C6930A;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
+  border-color: #C6930A;
 }
 #ck-slide7 p:first-child {
-    border: 1px solid #AB650D;
-    -webkit-border-radius: 0 4em 0;
-    -moz-border-radius: 0 4em 0;
-    border-radius: 0 4em 0;
-    padding: 1em 2em 1em 2em;
-    opacity: 0.85;
-    text-shadow: 1px 1px 1px #000;
-    text-align: justify;
-}
-
-/*****************/
-/* MEDIA QUERIES */
-/*****************/
-/* HD devices (big screens, 1368px and up) */
-@media (min-width: 1368px) {
-  #ck-slide0 {
-    background-image: url(../images/caves_karsts/DSC_0318_web_hd.jpg);
-  }
-  #ck-slide1 {
-    background-color: #222;
-  }
-  #ck-slide2 {
-    background-image:url(../images/caves_karsts/For-Doty1_1280x979_web_hd.jpg);
-  }
-  #ck-slide3 {
-    background-color: #222;
-  }
-  #ck-slide4 {
-    background-image:url(../images/caves_karsts/edwards-limestone_web_hd.jpg);
-  }
-  #ck-slide5 {
-    background-color: #222;
-  }
-  #ck-slide6 {
-    background-image:url(../images/caves_karsts/valdina_8r_web_hd.jpg);
-  }
-  #ck-slide7 {
-    background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_hd.jpg);
-  }
-  #ck-slide8 {
-    background-color: #000;
-  }
-}
-/* XLarge devices (large desktops, 1200px to 1367px) */
-@media (min-width: 1200px) and (max-width: 1367px) {
-  #ck-slide0 {
-    background-image: url(../images/caves_karsts/DSC_0318_web_xlg.jpg);
-  }
-  #ck-slide1 {
-    background-color: #222;
-  }
-  #ck-slide2 {
-    background-image:url(../images/caves_karsts/For-Doty1_1280x979_web_xlg.jpg);
-  }
-  #ck-slide3 {
-    background-color: #222;
-  }
-  #ck-slide4 {
-    background-image:url(../images/caves_karsts/edwards-limestone_web_xlg.jpg);
-  }
-  #ck-slide5 {
-    background-color: #222;
-  }
-  #ck-slide6 {
-    background-image:url(../images/caves_karsts/valdina_8r_web_xlg.jpg);
-  }
-  #ck-slide7 {
-    background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_xlg.jpg);
-  }
-  #ck-slide8 {
-    background-color: #000;
-  }
-}
-/* Large devices (desktops, 992px to 1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
-  #ck-slide0 {
-    background-image: url(../images/caves_karsts/DSC_0318_web_lg.jpg);
-  }
-  #ck-slide1 {
-    background-color: #222;
-  }
-  #ck-slide2 {
-    background-image:url(../images/caves_karsts/For-Doty1_1280x979_web_lg.jpg);
-  }
-  #ck-slide3 {
-    background-color: #222;
-  }
-  #ck-slide4 {
-    background-image:url(../images/caves_karsts/edwards-limestone_web_lg.jpg);
-  }
-  #ck-slide5 {
-    background-color: #222;
-  }
-  #ck-slide6 {
-    background-image:url(../images/caves_karsts/valdina_8r_web_lg.jpg);
-  }
-  #ck-slide7 {
-    background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_lg.jpg);
-  }
-  #ck-slide8 {
-    background-color: #000;
-  }
-}
-/* Medium devices (tablets, 768px to 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-  #ck-slide0 {
-    background-image: url(../images/caves_karsts/DSC_0318_web_md.jpg);
-  }
-  #ck-slide1 {
-    background-color: #222;
-  }
-  #ck-slide2 {
-    background-image:url(../images/caves_karsts/For-Doty1_1280x979_web_md.jpg);
-  }
-  #ck-slide3 {
-    background-color: #222;
-  }
-  #ck-slide4 {
-    background-image:url(../images/caves_karsts/edwards-limestone_web_md.jpg);
-  }
-  #ck-slide5 {
-    background-color: #222;
-  }
-  #ck-slide6 {
-    background-image:url(../images/caves_karsts/valdina_8r_web_md.jpg);
-  }
-  #ck-slide7 {
-    background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_md.jpg);
-  }
-  #ck-slide8 {
-    background-color: #000;
-  }
-}
-/* Small devices (phones, less than 768px) */
-/*@media (min-width: 311px) and (max-width: 767px) {*/
-@media (min-width: 1px) and (max-width: 767px) {
-  #ck-slide0 {
-    background-image: url(../images/caves_karsts/DSC_0318_web_sm.jpg);
-  }
-  #ck-slide1 {
-    background-color: #222;
-  }
-  #ck-slide2 {
-    background-image:url(../images/caves_karsts/For-Doty1_1280x979_web_sm.jpg);
-  }
-  #ck-slide3 {
-    background-color: #222;
-  }
-  #ck-slide4 {
-    background-image:url(../images/caves_karsts/edwards-limestone_web_sm.jpg);
-  }
-  #ck-slide5 {
-    background-color: #222;
-  }
-  #ck-slide6 {
-    background-image:url(../images/caves_karsts/valdina_8r_web_sm.jpg);
-  }
-  #ck-slide7 {
-    background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_sm.jpg);
-  }
-  #ck-slide8 {
-    background-color: #000;
-  }
+  border-color: #AB650D;
 }

@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('SpringsCtrl', function ($window, $scope, $location, $anchorScroll) {
+  .controller('SpringsCtrl', ['$window', '$scope', '$location', '$anchorScroll', function ($window, $scope, $location, $anchorScroll) {
     $scope.pageClass = 'springs';
 
     $scope.hcpurl = 'http://eahcp.org/index.php/about_eahcp/covered_species';
 
-    $scope.linkModelFunc = function (url){
+    $scope.linkModelFunc = function (url) {
       // console.log('link model function');
       $window.open(url);
-    }
+    };
 
     $scope.resetView = function () {
       $location.hash('.springs');
@@ -32,4 +32,4 @@ angular.module('aquiferiumApp')
       var dataslide = angular.element(e.target).attr('data-slide');
       $scope.goToByScroll(dataslide);
     };
-  });
+  }]);

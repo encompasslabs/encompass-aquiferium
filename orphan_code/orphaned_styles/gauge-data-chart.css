@@ -1,0 +1,30 @@
+/* D3 */
+/*border: 1px solid #ccc;*/
+/*.svg {
+  width: 99.8%;
+  font: 400 12px 'PT Sans';
+}*/
+
+/* Line Chart */
+.chart {
+  font-size: .6em;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.x.axis path {
+  display: none;
+}
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+.chart-subtext {
+  margin-top: 1em;
+  color: #000;
+  font-size: .6em;
+  font-style: italic;
+}

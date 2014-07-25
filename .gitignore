@@ -1,10 +1,8 @@
 .sass-cache
 .tmp
 app/bower_components
-app/videos/1080p
 large_media
 node_modules
-orphan_code
-ref_materials
 gource
 dev_logs/test-examples
+dist

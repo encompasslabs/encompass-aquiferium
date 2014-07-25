@@ -1,0 +1,24 @@
+/************
+*  D3 TETS  *
+************/
+donut-chart {
+  /*width: 450px;*/
+  /*height: 450px;*/
+  width: 30em; /*10em;*/
+  height: 30em; /*10em;*/
+  /*position: absolute;*/
+  /*float: left;*/
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  cursor: pointer;
+  /*outline: solid 2px #fff;*/
+}
+.chartLabel {
+  font: 16px sans-serif;
+  fill: #ccc;
+}
+.arcLabel {
+  font: 10px sans-serif;
+  fill: #fff;
+}

@@ -1,0 +1,37 @@
+/************************************/
+/* YEAR OF MOO */
+
+.my-slide-container {
+  position:relative;
+  /*overflow-x: hidden;*/
+}
+.my-slide-animation.ng-enter, .my-slide-animation.ng-leave {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:100%;
+}
+
+.my-slide-animation.ng-enter {
+  z-index:100;
+  top:100%;
+  opacity:0;
+}
+.my-slide-animation.ng-enter.ng-enter-active {
+  top:0;
+  opacity:1;
+}
+
+.my-slide-animation.ng-leave {
+  z-index:101;
+  top:0;
+  opacity:1;
+}
+.my-slide-animation.ng-leave.ng-leave-active {
+  top:-100%;
+  opacity:0;
+}

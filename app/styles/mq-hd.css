@@ -2,11 +2,10 @@
 /*HD Devices, 2K+ Screens*/
 @media only screen and (min-width : 1440px) {
   /* General */
-  html { font-size: 22px; }
+  html { font-size: 18px; }
   /* Nav */
-  .apptitle { font-size: 1.3rem; }
+  .apptitle { font-size: 1.65rem; top: 0.1rem; }
   /* Explore */
-  /*video#bgvid { width: 1920; height: 1080; }*/
   /* Parallax */
   /* Caves & Karts */
   #ck-slide0 {

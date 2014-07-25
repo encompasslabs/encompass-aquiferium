@@ -1,6 +1,7 @@
 .sass-cache
 .tmp
 app/bower_components
+app/videos/1080p
 large_media
 node_modules
 orphan_code

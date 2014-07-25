@@ -2,12 +2,11 @@
 /*Large Devices, Laptops & Desktops */
 @media only screen and (min-width : 992px) {
   /* General */
-  html { font-size: 18px; }
+  html { font-size: 16px; }
   body { padding-top: 5.6rem; }
   /* Nav */
-  .apptitle { font-size: 1.6rem; }
+  .apptitle { font-size: 1.75rem; }
   /* Explore */
-  /*video#bgvid { width: 1920; height: 1080; }*/
   /* Parallax */
   .slide { padding-left: 1rem; }
   /* Caves & Karts */

@@ -29,12 +29,12 @@
 #springs-slide9 p:first-child {
   border-color: #777;
 }
-.navLinkHcp:hover, .navLinkHcp:visited, .navLinkHcp:link, .navLinkHcp:active
+.nav-link-hcp:hover, .nav-link-hcp:visited, .nav-link-hcp:link, .nav-link-hcp:active
 {
   text-decoration: none;
   color: #C6930A;
 }
-.navLinkHcp:hover {
+.nav-link-hcp:hover {
   color: #E6D395; 
 }
 video.bgv-springs-slide0 {

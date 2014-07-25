@@ -1,0 +1,11 @@
+.address-block {
+  display: inline-block;
+}
+.address-block-line1 {
+  display: inline-block;
+  margin-left: -0.3rem;
+}
+.address-block-line2 {
+  display: inline-block;
+  margin-left: 1.7rem;
+}

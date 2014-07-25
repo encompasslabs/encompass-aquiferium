@@ -22,14 +22,14 @@ video.bgvexplore {
   margin-top: 3%;
   margin-left: auto;
   margin-right: auto;
-  width: 96%;
+  width: 94%;
   color: #fff;
   background-color: #000; /*#222D35;*/
   box-shadow: 0 0 1rem #000;
-  border: 1px solid #71B2C9;
+  border: 2px solid #71B2C9;
   -webkit-border-radius: 0 4rem 0;
   -moz-border-radius: 0 4rem 0;
-  border-radius: 0 4rem 0;
+  border-radius: 0 8rem 0;
   padding: 1rem 2rem 1rem 2rem;
   opacity: 0.75;
 }

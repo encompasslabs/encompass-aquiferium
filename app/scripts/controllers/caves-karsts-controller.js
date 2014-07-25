@@ -1,8 +1,15 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('CavesKarstsCtrl', ['$scope', '$location', '$anchorScroll', function ($scope, $location, $anchorScroll) {
+  .controller('CavesKarstsCtrl', ['$window', '$scope', '$location', '$anchorScroll', function ($window, $scope, $location, $anchorScroll) {
     $scope.pageClass = 'caves-karsts';
+
+    $scope.urlAddressLookup = 'http://www.arcgis.com/home/webmap/viewer.html?webmap=2dc9266dc088444b82dd368c2222f6f6&extent=-101.1491,28.3665,-96.6364,30.6277';
+
+    $scope.linkModelFunc = function (url) {
+      // console.log('link model function');
+      $window.open(url);
+    };
 
     $scope.resetView = function () {
       $location.hash('.caveskarsts');

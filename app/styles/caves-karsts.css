@@ -35,3 +35,25 @@ video.bgv-ck-slide3 {
 video.bgv-ck-slide5 {
   background: url(../images/caves_karsts/CaveEntrance.jpg) no-repeat;
 }
+.address-lookup {
+  line-height: 2rem;
+  padding-left: 1.5rem;
+  /*font-weight: 700;*/
+}
+.address-lookup a {
+  padding-left: 1rem;
+}
+.address-lookup-color {
+  color: #C6930A;
+}
+.nav-link-address-lookup:hover, .nav-link-address-lookup:visited, .nav-link-address-lookup:link, .nav-link-address-lookup:active
+{
+  text-decoration: none;
+  color: #AADD6D;
+}
+.nav-link-address-lookup:hover {
+  color: #71B2C9;
+}
+#descent {
+  height: 75rem;
+}

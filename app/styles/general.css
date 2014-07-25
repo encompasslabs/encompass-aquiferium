@@ -7,7 +7,6 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   margin-bottom: 5rem;
-  /*font: 400 100% 'Open Sans';*/
   font-family: 'Open Sans', sans-serif;
   font-size: 100%;
   text-rendering: optimizeLegibility;
@@ -15,7 +14,7 @@ body {
   color: #fff;
 }
 h1 small {
-  color: #71B2C9; /*#AADD6D;*/ /*#71B2C9;*/ /*#4298B5;*/ /*#AB650D;*/ /*#8F8100;*/
+  color: #8F8100; /*#AADD6D;*/ /*#71B2C9;*/ /*#4298B5;*/ /*#AB650D;*/ /*#8F8100;*/
 }
 a:hover, a:visited, a:link, a:active
 {
@@ -28,7 +27,7 @@ a:hover {
 .footer {
   background-color: #111;
   border-top: 1px solid #333;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   padding-top: 0.8rem;
 }
 .centered {
@@ -48,3 +47,31 @@ a:hover {
     min-height: 100%;
     min-width: 100%;
   }
+.glyph-spacing-right {
+  padding-right: 0.8rem;
+}
+.glyph-spacing-left {
+  padding-left: 0.8rem;
+}
+.overlay {
+  z-index: 100;
+  position: absolute;
+  max-width: 40%;
+  max-height: 40%;
+  border-radius: 15px;
+  border: 1px solid #8E8C7A;
+  box-shadow:2px 2px 7px 1px rgba(0,0,0,0.5);
+}
+.overlay-left {
+  left: 3rem;
+  bottom: 7rem;
+}
+.overlay-center {
+  z-index: 110;
+  left: 30%;
+  bottom: 25rem;
+}
+.overlay-right {
+  right: 3rem;
+  bottom: 7rem;
+}

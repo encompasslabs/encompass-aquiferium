@@ -4,7 +4,7 @@ angular.module('aquiferiumApp')
   .controller('SpringsCtrl', ['$window', '$scope', '$location', '$anchorScroll', function ($window, $scope, $location, $anchorScroll) {
     $scope.pageClass = 'springs';
 
-    $scope.hcpurl = 'http://eahcp.org/index.php/about_eahcp/covered_species';
+    $scope.urlHcp = 'http://eahcp.org/index.php/about_eahcp/covered_species';
 
     $scope.linkModelFunc = function (url) {
       // console.log('link model function');

@@ -5,12 +5,8 @@
   html { font-size: 14px; }
   body { padding-top: 3.5rem; }
   /* Nav */
-  .apptitle {
-      font-size: 2rem;
-      top: .1rem;
-  }
+  .apptitle { font-size: 2rem; }
   /* Explore */
-  /*video#bgvid { width: 1920; height: 1080; }*/
   /* Parallax */
   .slide { padding-left: .8rem; }
   /* Caves & Karts */

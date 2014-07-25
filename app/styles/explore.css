@@ -4,10 +4,41 @@ video#bgvid {
     width: auto;
     height: auto;
     z-index: -100;
-    background: #000; /*url(../images/) no-repeat;*/
+    background: url(../videos/720p/HCPSanMarcosRiver-loop3.jpg) no-repeat;
     background-size: cover;
     right: 0;
     bottom: 0;
     min-height: 100%;
     min-width: 100%;
   }
+.outline h1,small {
+  text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.outline h1 {
+  color: #AADD6D; /*#71B2C9;*/ /*#C6930A;*/ /*#AADD6D;*/ /*#AB650D;*/
+  font-size: 2em;
+  font-weight: 700;
+}
+.outline h1 small {
+  color: #fff;
+  font-weight: 700;
+}
+.map-view {
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 96%;
+  color: #fff;
+  background-color: #000; /*#222D35;*/
+  box-shadow: 0 0 1rem #000;
+  border: 1px solid #71B2C9;
+  -webkit-border-radius: 0 4rem 0;
+  -moz-border-radius: 0 4rem 0;
+  border-radius: 0 4rem 0;
+  padding: 1rem 2rem 1rem 2rem;
+  opacity: 0.75;
+}

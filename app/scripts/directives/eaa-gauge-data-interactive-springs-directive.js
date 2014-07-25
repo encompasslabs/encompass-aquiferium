@@ -32,12 +32,12 @@ angular.module('eaa.directives.d3.interactives', [])
       var g = d.getElementsByTagName('body')[0];
       var xx = w.innerWidth || e.clientWidth || g.clientWidth;
       var yy = w.innerHeight || e.clientHeight || g.clientHeight;
-      console.log(xx, yy);
+      // console.log(xx, yy);
       var xScaling = 0.965;
       var yScaling = 0.65;
       var width = xx; // * xScaling;
       var height = yy; // * yScaling; // 900;
-      console.log(width, height);
+      // console.log(width, height);
 
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var markerLocations = '../../data/eaaAquiferium-allSprings-markerData.csv';
@@ -53,10 +53,10 @@ angular.module('eaa.directives.d3.interactives', [])
 
       var graphWidth = vizWidth * 0.9;
       var graphHeight = vizHeight * 0.5;
-      console.log(vizMargin, vizWidth, vizHeight, mapWidth, mapHeight, graphWidth, graphHeight);
-      console.log(mapWidth + vizMargin.left + vizMargin.right);
-      console.log(graphWidth + vizMargin.left + vizMargin.right);
-      console.log(mapHeight + graphHeight + vizMargin.top + vizMargin.bottom);
+      // console.log(vizMargin, vizWidth, vizHeight, mapWidth, mapHeight, graphWidth, graphHeight);
+      // console.log(mapWidth + vizMargin.left + vizMargin.right);
+      // console.log(graphWidth + vizMargin.left + vizMargin.right);
+      // console.log(mapHeight + graphHeight + vizMargin.top + vizMargin.bottom);
 
       // var tooltipHorOffset = 20;
       // var tooltipVertOffset = 190;
@@ -242,7 +242,7 @@ angular.module('eaa.directives.d3.interactives', [])
         var filtered = gauge
           // Filter data points by gauge.
           .filter(function(d){
-            console.log(d);
+            // console.log(d.name);
             // return d.name == 'J27';
             // return d.values.gindex !== NaN;
             // return d.name === 'Barton Springs' || 'Comal Springs' || 'Hueco Springs' || 'J17' || 'J27' || 'Las Moras Springs' || 'Leona Springs' || 'San Antonio Springs' || 'San Marcos Springs' || 'San Pedro Springs';

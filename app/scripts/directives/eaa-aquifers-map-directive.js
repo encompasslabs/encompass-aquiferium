@@ -6,8 +6,8 @@ angular.module('eaa.directives.d3.maps', [])
     // generic directiveDefinitionObject config.
     var directiveDefinitionObject = {
       compile: false,
-      controller: function($scope) {
-        console.log('controller for:', $scope.pageClass);
+      controller: function ($scope) {
+        // console.log('controller for:', $scope.pageClass);
       }, /*false,*/
       controllerAs: false,
       link: false,
@@ -23,7 +23,7 @@ angular.module('eaa.directives.d3.maps', [])
       type: false
     };
 
-    directiveDefinitionObject.link = function postLink(scope, element) {
+    directiveDefinitionObject.link = function postLink (scope, element) {
 
       // VARS.
       var w = window;
@@ -32,13 +32,13 @@ angular.module('eaa.directives.d3.maps', [])
       var g = d.getElementsByTagName('body')[0];
       var xx = w.innerWidth || e.clientWidth || g.clientWidth;
       var yy = w.innerHeight || e.clientHeight || g.clientHeight;
-      console.log(xx + ' × ' + yy);
-      console.log(window.screen.availWidth, window.screen.availHeight);
+      // console.log(xx + ' × ' + yy);
+      // console.log(window.screen.availWidth, window.screen.availHeight);
       var xScaling = 0.9; // 0.965;
       var yScaling = 0.6; // 0.65;
       var width = xx * xScaling;
       var height = yy * yScaling;
-      console.log(width, height);
+      // console.log(width, height);
 
       var mapSource = '../../data/geojson/NEW_major_aquifers_dd_reduced100.geo.json';
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
@@ -48,9 +48,46 @@ angular.module('eaa.directives.d3.maps', [])
       var vizMargin = {top: 10, right: 10, bottom: 10, left: 10};
       var vizWidth = width - vizMargin.left - vizMargin.right;
       var vizHeight = height - vizMargin.top - vizMargin.bottom;
+      // console.log(vizWidth, vizHeight);
 
-      var mapOffset = [vizWidth / 2, vizHeight / 2];
-      var mapScale = vizHeight * 4;
+      var mapOffset = [vizWidth * 0.5, vizHeight * 0.5];
+      var mapScale = 3.8;
+      // console.log(mapOffset, mapScale);
+
+      function setMapOffset() {
+        // console.log('setMapOffset()');
+        if (vizWidth > 1440) {
+          mapOffset = [vizWidth * 0.3, vizHeight * 0.5];
+        } else if (vizWidth > 1200) {
+          mapOffset = [vizWidth * 0.4, vizHeight * 0.5];
+        } else if (vizWidth > 960) {
+          mapOffset = [vizWidth * 0.45, vizHeight * 0.5];
+        } else if (vizWidth > 768) {
+          mapOffset = [vizWidth * 0.42, vizHeight * 0.5];
+        } else {
+          mapOffset = [vizWidth * 0.5, vizHeight * 0.5];
+        }
+        // console.log(mapOffset);
+      }
+
+      function setMapScale() {
+        // console.log('setMapScale()');
+        if (vizWidth > 1440) {
+          mapScale = 5.5;
+        } else if (vizWidth > 1200) {
+          mapScale = 5;
+        } else if (vizWidth > 960) {
+          mapScale = 4.5;
+        } else if (vizWidth > 768) {
+          mapScale = 4;
+        } else {
+          mapScale = 3.5;
+        }
+        // console.log(mapScale);
+      }
+      
+      setMapOffset();
+      setMapScale();
 
       // var tooltipHorOffset = 20;
       // var tooltipVertOffset = 190;
@@ -65,7 +102,7 @@ angular.module('eaa.directives.d3.maps', [])
       var el = element[0];
       // var tooltip = d3.select(el).append('div').attr('class', 'tooltip');
       var map = d3.select(el).append('div').attr('class', 'map');
-      var mapSvg = map.append('svg').attr('width', vizWidth).attr('height', vizHeight).attr('class', 'mapSvg');
+      var mapSvg = map.append('svg').attr('class', 'mapSvg').attr('width', vizWidth * 0.92).attr('height', vizHeight);
       var texas = mapSvg.append('g').attr('class', 'texas');
       var eaaBounds = mapSvg.append('g').attr('class', 'boundaries');
 
@@ -122,15 +159,14 @@ angular.module('eaa.directives.d3.maps', [])
           return console.error(error);
         }
 
-        var scale = mapScale;
-        var offset = mapOffset;
         var center = d3.geo.centroid(mapData);
         // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
         // Note: albersUsa() and transverseMercator() require additional configs.
-        var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
+        var projection = d3.geo.mercator().scale(mapScale).center(center).translate(mapOffset);
         var path = d3.geo.path().projection(projection);
         var texasMap = texas.selectAll('g').data(mapData.features).enter().append('g');
-        texasMap.append('path').attr('d', path).attr('class', 'area').attr('fill', '#425968').attr('stroke', '#4298B5');
+        texasMap.append('path').attr('d', path).attr('class', 'area').attr('fill', '#71B2C9').attr('stroke', '#4298B5');
+        // texasMap.attr('transform', 'translate(-200,0)');
 
         d3.json(boundariesSource, function (error, boundariesData) {
           if (error) {
@@ -162,6 +198,6 @@ angular.module('eaa.directives.d3.maps', [])
       });
     };
 
-    console.log('directiveDefinitionObject: ', directiveDefinitionObject);
+    // console.log('directiveDefinitionObject: ', directiveDefinitionObject);
     return directiveDefinitionObject;
   }]);

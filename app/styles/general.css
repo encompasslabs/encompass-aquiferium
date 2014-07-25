@@ -1,12 +1,12 @@
 @charset "utf-8";
 /*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);*/
 html {
-  min-width: 640px;
+  min-width: 680px;
 }
 body {
   overflow-x: hidden;
   overflow-y: scroll;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
   /*font: 400 100% 'Open Sans';*/
   font-family: 'Open Sans', sans-serif;
   font-size: 100%;
@@ -14,56 +14,8 @@ body {
   background-color: #000;
   color: #fff;
 }
-/* 
-  rem conversions:
-  (assuming 1rem = 16px)
-  .5rem = 8px, 
-  1rem = 16px, 
-  1.5rem = 24px, 
-  2rem = 32px, 
-  2.25rem = 36px, 
-  2.5rem = 40px, 
-  3rem = 48px;
-*/
-/*
-h1 {
-  font-size: 3rem;
-  line-height: 1rem; 
-  margin-bottom: .5rem;
-}
-h2 {
-  font-size: 2.25rem;
-  line-height: 1.333333333333333rem;
-  margin-bottom: .6666666666666667rem;
-}
-h3 {
-  font-size: 1.5rem;
-  line-height: 1rem;
-  margin-bottom: 1rem;
-}
-h4 {
-  font-size: 1.3125rem;
-  line-height: 1.142857142857143rem;
-  margin-bottom: 1.142857142857143rem;
-}
-h5 {
-  font-size: 1.125rem;
-  line-height: 1.333333333333333rem;
-  margin-bottom: 1.333333333333333rem;
-}
-h6 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-p {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-*/
 h1 small {
-  color: #8F8100;
+  color: #71B2C9; /*#AADD6D;*/ /*#71B2C9;*/ /*#4298B5;*/ /*#AB650D;*/ /*#8F8100;*/
 }
 a:hover, a:visited, a:link, a:active
 {

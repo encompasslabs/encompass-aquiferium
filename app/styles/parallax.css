@@ -94,6 +94,16 @@
   /*-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"; */
 }
 /* slide content */
+.slide video.plxbgvideo {
+    margin-left: -4.2em;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+  }
 .wrapper {
   width: 100%;
   min-width: 100%;

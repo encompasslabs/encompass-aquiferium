@@ -29,3 +29,9 @@
 #cons-slide9 p:first-child {
   border-color: #777;
 }
+video.bgv-cons-slide0 {
+  background: url(../images/conservation/HCPSanMarcos.jpg) no-repeat;
+}
+video.bgv-cons-slide7 {
+  background: url(../images/conservation/HCPSpringLake.jpg) no-repeat;
+}

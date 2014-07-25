@@ -18,8 +18,20 @@
   border-color: #777;
 }
 #ck-slide6 p:first-child {
-  border-color: #C6930A;
+  border-color: #AB650D;
 }
 #ck-slide7 p:first-child {
+  border-color: #C6930A;
+}
+#ck-slide8 p:first-child {
   border-color: #AB650D;
+}
+video.bgv-ck-slide1 {
+  background: url(../images/caves_karsts/SecoSinkhole.jpg) no-repeat;
+}
+video.bgv-ck-slide3 {
+  background: url(../images/caves_karsts/DrainageArea.jpg) no-repeat;
+}
+video.bgv-ck-slide5 {
+  background: url(../images/caves_karsts/CaveEntrance.jpg) no-repeat;
 }

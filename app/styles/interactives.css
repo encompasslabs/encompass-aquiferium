@@ -24,3 +24,36 @@
   font-size: .6rem;
   font-style: italic;
 }
+
+.subunit {
+  stroke: rgba(0,0,0,1);
+  stroke-width: 0.5px;
+  fill: #440099;
+}
+
+.subunit-label {
+  fill: #777;
+  fill-opacity: .5;
+  font-size: 20px;
+  font-weight: 300;
+  text-anchor: middle;
+}
+
+.map-label {
+  /*z-index: 100;*/
+/*  position:absolute;
+  left:100px;
+  top:150px;*/
+}
+
+.Drainage {
+  fill: rgba(230, 211, 149, 1);
+}
+
+.Recharge {
+  fill: rgba(113, 178, 201, 1);
+}
+
+.Artesian {
+  fill: #8E8C7A;  rgba(142, 140, 122, 1);
+}

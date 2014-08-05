@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('eaa.directives.d3.interactive.springs', [])
-  .directive('eaaGaugeDataInteractiveSprings', [function() {
+angular.module('eaa.directives.d3.interactive.wells', [])
+  .directive('eaaGaugeDataInteractiveWells', [function() {
     // console.log('eaaAquifersBoundaryMap directive initialized.');
     // generic directiveDefinitionObject config.
     var directiveDefinitionObject = {
@@ -40,10 +40,8 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       // console.log(width, height);
 
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
-      // var markersSource = '../../data/eaaAquiferium-allSprings-markerData.csv';
-      var markersSource = '../../data/springs-markerData.csv';
-      // var dataSource = '../../data/eaaAquiferium-allSpringsData-annualAvg-byDate.csv';
-      var dataSource = '../../data/springs-annualAvg-byDate.csv';
+      var markersSource = '../../data/wells-markerData.csv';
+      var dataSource = '../../data/wells-annualAvg-byDate.csv';
 
       var vizMargin = {top: 20, right: 0, bottom: 20, left: 0};
       var vizWidth = width - vizMargin.left - vizMargin.right;
@@ -179,16 +177,16 @@ angular.module('eaa.directives.d3.interactive.springs', [])
 
         data.forEach(function(d) {
           d.Date = parseDate.parse(d.Date);
-          d['Barton Springs'] = +d['Barton Springs'];
-          d['Comal Springs'] = +d['Comal Springs'];
-          d['Hueco Springs'] = +d['Hueco Springs'];
-          // d['J17'] = +d['J17'];
-          // d['J27'] = +d['J27'];
-          d['Las Moras Springs'] = +d['Las Moras Springs'];
-          d['Leona Springs'] = +d['Leona Springs'];
-          d['San Antonio Springs'] = +d['San Antonio Springs'];
-          d['San Marcos Springs'] = +d['San Marcos Springs'];
-          d['San Pedro Springs'] = +d['San Pedro Springs'];
+          // d['Barton Springs'] = +d['Barton Springs'];
+          // d['Comal Springs'] = +d['Comal Springs'];
+          // d['Hueco Springs'] = +d['Hueco Springs'];
+          d['J17'] = +d['J17'];
+          d['J27'] = +d['J27'];
+          // d['Las Moras Springs'] = +d['Las Moras Springs'];
+          // d['Leona Springs'] = +d['Leona Springs'];
+          // d['San Antonio Springs'] = +d['San Antonio Springs'];
+          // d['San Marcos Springs'] = +d['San Marcos Springs'];
+          // d['San Pedro Springs'] = +d['San Pedro Springs'];
         });
 
         dataKey.domain(d3.keys(data[0]).filter(function (key) { return key !== 'Date'; }));
@@ -223,7 +221,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
           .attr('y', 6)
           .attr('dy', '.71em')
           .style('text-anchor', 'end')
-          .text('cfs');
+          .text('ft above msl');
 
         var gauge = graphBounds.selectAll('.gauge')
           .data(gauges)

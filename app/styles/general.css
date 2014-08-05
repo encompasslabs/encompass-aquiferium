@@ -78,3 +78,4 @@ a:hover {
   right: 3rem;
   bottom: 8rem;
 }
+.text-black { color: #222; text-shadow: none; }

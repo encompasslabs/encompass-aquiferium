@@ -10,7 +10,9 @@ angular.module('aquiferiumApp', [
   'angular-parallax',
   'videosharing-embed',
   'eaa.directives.d3.maps',
-  'eaa.directives.d3.interactives'
+  'eaa.directives.d3.interactive.recharge',
+  'eaa.directives.d3.interactive.wells',
+  'eaa.directives.d3.interactive.springs'
 ])
   .config(function ($routeProvider) {
     $routeProvider

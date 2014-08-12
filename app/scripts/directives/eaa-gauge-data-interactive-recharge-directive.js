@@ -39,8 +39,8 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var height = yy; // * yScaling; // 900;
       // console.log(width, height);
 
-      var boundariesSource = '../../data/geojson/eaa-aquifer-zones-2014-opt800.geo.json';
-      var dataSource = '../../data/recharge-historic-water-levels.csv';
+      var boundariesSource = '../../data/geojson/eaa-aquifer-zones-2014.geo.json';
+      var dataSource = '../../data/recharge-historic-water-levels-byDate.csv';
 
       var vizMargin = {top: 20, right: 0, bottom: 20, left: 0};
       var vizWidth = width - vizMargin.left - vizMargin.right;
@@ -140,12 +140,13 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         if (error) {
           return console.error(error);
         }
-        var scale = mapHeight * 10;
+        var scale = mapHeight * 30;
         var offset = [mapWidth / 2, mapHeight / 2];
         var center = d3.geo.centroid(boundariesData);
+        var rotation = [180,0];
         // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
         // Note: albersUsa() and transverseMercator() require additional configs.
-        var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
+        var projection = d3.geo.mercator().scale(scale).center(center).translate(offset); //.rotate(rotation);
         var path = d3.geo.path().projection(projection);
         var eaaBoundaries = eaaBounds.selectAll('g').data(boundariesData.features).enter().append('g');
         eaaBoundaries.append('path').attr('d', path).attr('class', function(d) { return "subunit " + d.properties.Symbolize; }).attr('stroke', '#000');
@@ -156,26 +157,15 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .attr("dy", ".35em")
           .style("font-size", "1em")
           .text(function(d) { return d.properties.Symbolize; });
-        eaaBoundaries.selectAll("g").selectAll("text").moveToFront();
+        // eaaBoundaries.selectAll("g").selectAll("text").moveToFront();
       });
 
       // VIZ - CHART.
       d3.csv(dataSource, function(error, data) {
 
         data.forEach(function(d) {
-          d.pDate = parseDate.parse(d.pDate);
-          // d['Barton Springs'] = +d['Barton Springs'];
-          // d['Comal Springs'] = +d['Comal Springs'];
-          // d['Hueco Springs'] = +d['Hueco Springs'];
-          // d['J17'] = +d['J17'];
-          // d['J27'] = +d['J27'];
-          // d['Las Moras Springs'] = +d['Las Moras Springs'];
-          // d['Leona Springs'] = +d['Leona Springs'];
-          // d['San Antonio Springs'] = +d['San Antonio Springs'];
-          // d['San Marcos Springs'] = +d['San Marcos Springs'];
-          // d['San Pedro Springs'] = +d['San Pedro Springs'];
-          d['maxLevel'] = +d['maxLevel'];
-          d['StationId'] = d['StationId'];
+          d.Date = parseDate.parse(d.Date);
+          d['Station ID: AY 68-37-203'] = +d['Station ID: AY 68-37-203'];
         });
 
         console.log(data);

@@ -37,24 +37,28 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var yScaling = 0.65;
       var width = xx; // * xScaling;
       var height = yy; // * yScaling; // 900;
+      // var width = 1024;
+      // var height = 868; // Add 100 for right margin for legend.
       // console.log(width, height);
 
-      var boundariesSource = '../../data/geojson/eaa-aquifer-zones-2014.geo.json';
-      var dataSource = '../../data/recharge-historic-water-levels-byDate.csv';
-
-      var vizMargin = {top: 20, right: 0, bottom: 20, left: 0};
+      var vizMargin = {top: 0, right: 20, bottom: 0, left: 20};
       var vizWidth = width - vizMargin.left - vizMargin.right;
       var vizHeight = height - vizMargin.top - vizMargin.bottom;
 
-      var mapWidth = vizWidth * 0.9;
+      var mapWidth = vizWidth; //vizWidth * 0.9;
       var mapHeight = vizHeight * 0.4;
 
-      var graphWidth = vizWidth * 0.9;
-      var graphHeight = vizHeight * 0.5;
+      var graphWidth = vizWidth; //vizWidth * 0.9;
+      var graphHeight = vizHeight * 0.4;
+      var graphLeftOffset = graphWidth*0.05;
+
       // console.log(vizMargin, vizWidth, vizHeight, mapWidth, mapHeight, graphWidth, graphHeight);
       // console.log(mapWidth + vizMargin.left + vizMargin.right);
       // console.log(graphWidth + vizMargin.left + vizMargin.right);
       // console.log(mapHeight + graphHeight + vizMargin.top + vizMargin.bottom);
+
+      var boundariesSource = '../../data/geojson/eaa-aquifer-zones-2014.geo.json';
+      var dataSource = '../../data/recharge-annualAvg-byDate.csv';
 
       // var tooltipHorOffset = 20;
       // var tooltipVertOffset = 190;
@@ -68,17 +72,17 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       var color = d3.scale.category10().domain(['Barton Springs', 'Comal Springs', 'Hueco Springs', 'J17', 'J27', 'Las Moras Springs', 'Leona Springs', 'San Antonio Springs', 'San Marcos Springs', 'San Pedro Springs']);
       var dataKey = d3.scale.ordinal();
-      var parseDate = d3.time.format('%m-%d-%Y');
+      var parseDate = d3.time.format('%Y');
 
-      var x = d3.time.scale().range([0, graphWidth-20]);
-      var y = d3.scale.linear().range([graphHeight-20, 0]);
+      var x = d3.time.scale().range([graphLeftOffset, graphWidth*0.85]);
+      var y = d3.scale.linear().range([graphHeight-50, 50]);
 
       var xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(20);
-      var yAxis = d3.svg.axis().scale(y).orient('left').ticks(20);
+      var yAxis = d3.svg.axis().scale(y).orient('left').ticks(10);
 
       var el = element[0];
       var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
-      // viz.attr('transform', 'translate(-40,40)');
+      // viz.attr('transform', 'translate(-200,200)');
 
       // var legend = d3.select('.viz').append('div').attr('class', 'legend');
 
@@ -88,7 +92,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         .attr('height', mapHeight);
 
       var eaaBounds = mapSvg.append('g').attr('class', 'eaabounds');
-      eaaBounds.attr('transform', 'translate(0,20)');
+      // eaaBounds.attr('transform', 'translate(0,20)');
 
       var chart = viz.append('div').attr('class', 'chart');
       var chartSvg = chart.append('svg').attr('class', 'chartSvg')
@@ -96,7 +100,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         .attr('height', graphHeight);
 
       var graphBounds = chartSvg.append('g').attr('class', 'graphbounds');
-      graphBounds.attr('transform', 'translate(0,0)');
+      // graphBounds.attr('transform', 'translate(0,0)');
 
       var line = d3.svg.line()
         .interpolate('monotone') // basis, basis-open, basis-closed, linear, step, step-before, step-after, bundle, cardinal, cardinal-open, cardinal-closed, monotone 
@@ -140,13 +144,12 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         if (error) {
           return console.error(error);
         }
-        var scale = mapHeight * 30;
+        var scale = mapHeight * 30; // geojson display.
         var offset = [mapWidth / 2, mapHeight / 2];
         var center = d3.geo.centroid(boundariesData);
-        var rotation = [180,0];
         // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
         // Note: albersUsa() and transverseMercator() require additional configs.
-        var projection = d3.geo.mercator().scale(scale).center(center).translate(offset); //.rotate(rotation);
+        var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
         var path = d3.geo.path().projection(projection);
         var eaaBoundaries = eaaBounds.selectAll('g').data(boundariesData.features).enter().append('g');
         eaaBoundaries.append('path').attr('d', path).attr('class', function(d) { return "subunit " + d.properties.Symbolize; }).attr('stroke', '#000');
@@ -167,8 +170,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           d.Date = parseDate.parse(d.Date);
           d['Station ID: AY 68-37-203'] = +d['Station ID: AY 68-37-203'];
         });
-
-        console.log(data);
 
         dataKey.domain(d3.keys(data[0]).filter(function (key) { return key !== 'Date'; }));
 
@@ -191,16 +192,17 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
         graphBounds.append('g')
           .attr('class', 'x axis')
-          .attr('transform', 'translate(0,' + (graphHeight - 20) + ')')
+          .attr('transform', 'translate(0,' + (graphHeight - 50) + ')')
           .call(xAxis);
 
         graphBounds.append('g')
           .attr('class', 'y axis')
+          .attr('transform', 'translate(' + graphLeftOffset + ',0)')
           .call(yAxis)
           .append('text')
           .attr('transform', 'rotate(-90)')
-          .attr('y', 6)
-          .attr('dy', '.71em')
+          .attr('x', -50)
+          .attr('dy', '1em')
           .style('text-anchor', 'end')
           .text('ft above msl');
 
@@ -260,12 +262,11 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
               .selectAll('text').remove();
           });
 
-        var legend = graphBounds.selectAll('.svg')
+        var legend = graphBounds.append('g').attr('class','chart-legend').selectAll('.svg')
           .data(gauges)
           .enter()
           .append('g')
-          .attr('class', 'legend')
-          .attr('transform', 'translate(-240,0)'); // -1160,0 // Will reposition the legend group.
+          .attr('transform', 'translate(-150,30)'); // Will reposition the legend group.
           
         legend.append('rect')
           .attr('x', vizWidth + 20)

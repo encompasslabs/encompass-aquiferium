@@ -7,9 +7,42 @@
   margin-left, margin-right: auto;
   /*border: 1px solid #999;*/
 }
+/* Data Display */
+.data-display {
+  z-index: 100;
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  color: #111;
+}
+.year-display {
+  font-size: 10em;
+  color: rgba(0,0,0,0.6);
+}
+.recharge-value-display {
+  position: relative;
+  top: -2em;
+  padding-left: 2rem;
+  /*font-size: 1rem;*/
+  color: rgba(0,0,0,0.8);
+}
+.wells-value-display {
+  position: relative;
+  top: -2em;
+  padding-left: 2rem;
+  /*font-size: 1rem;*/
+  color: rgba(0,0,0,0.8);
+}
+.springs-value-display {
+  position: relative;
+  top: -2em;
+  padding-left: 2rem;
+  /*font-size: 1rem;*/
+  color: rgba(0,0,0,0.8);
+}
 /* Map */
 /* TBD */
-/* Gauge Data Line Chart */
+/* Line Graph */
 .chart {
   font-size: .7rem;
   /*border: 1px solid #999;*/
@@ -39,7 +72,8 @@
   font-style: italic;
 }
 .chart-legend {
-  border: 5px solid #555;
+  cursor: default;
+  font-size: 0.7rem;
 }
 
 .subunit {

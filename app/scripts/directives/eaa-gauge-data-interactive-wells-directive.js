@@ -30,16 +30,8 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var d = document;
       var e = d.documentElement;
       var g = d.getElementsByTagName('body')[0];
-      var xx = w.innerWidth || e.clientWidth || g.clientWidth;
-      var yy = w.innerHeight || e.clientHeight || g.clientHeight;
-      // console.log(xx, yy);
-      var xScaling = 0.965;
-      var yScaling = 0.65;
-      var width = xx; // * xScaling;
-      var height = yy; // * yScaling; // 900;
-      // var width = 1024;
-      // var height = 868; // Add 100 for right margin for legend.
-      // console.log(width, height);
+      var width = w.innerWidth || e.clientWidth || g.clientWidth;
+      var height = w.innerHeight || e.clientHeight || g.clientHeight;
 
       var vizMargin = {top: 0, right: 20, bottom: 0, left: 20};
       var vizWidth = width - vizMargin.left - vizMargin.right;
@@ -51,11 +43,6 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var graphWidth = vizWidth; //vizWidth * 0.9;
       var graphHeight = vizHeight * 0.4;
       var graphLeftOffset = graphWidth*0.05;
-
-      // console.log(vizMargin, vizWidth, vizHeight, mapWidth, mapHeight, graphWidth, graphHeight);
-      // console.log(mapWidth + vizMargin.left + vizMargin.right);
-      // console.log(graphWidth + vizMargin.left + vizMargin.right);
-      // console.log(mapHeight + graphHeight + vizMargin.top + vizMargin.bottom);
 
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var markersSource = '../../data/wells-markerData.csv';
@@ -83,17 +70,21 @@ angular.module('eaa.directives.d3.interactive.wells', [])
 
       var el = element[0];
       var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
-      // viz.attr('transform', 'translate(-200,200)');
 
-      // var legend = d3.select('.viz').append('div').attr('class', 'legend');
+      var dataDisplay = viz.append('div').attr('class','data-display');
+      dataDisplay.append('text').attr('class','year-display').text('YYYY');
+      dataDisplay.append('br');
+      dataDisplay.append('text').attr('class','wells-value-display').text('value: TBD');
+      dataDisplay.append('br');
+      dataDisplay.append('text').attr('class','wells-value-display').text('value: TBD');
 
       var map = viz.append('div').attr('class', 'map');
       var mapSvg = map.append('svg').attr('class', 'mapSvg')
         .attr('width', mapWidth)
         .attr('height', mapHeight);
 
-      var eaaBounds = mapSvg.append('g').attr('class', 'eaabounds');
-      eaaBounds.attr('transform', 'translate(0,20)');
+      var geoBounds = mapSvg.append('g').attr('class', 'geoBounds');
+      geoBounds.attr('transform', 'translate(200,40)');
 
       var chart = viz.append('div').attr('class', 'chart');
       var chartSvg = chart.append('svg').attr('class', 'chartSvg')
@@ -152,9 +143,9 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         // Note: albersUsa() and transverseMercator() require additional configs.
         var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
         var path = d3.geo.path().projection(projection);
-        var eaaBoundaries = eaaBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-        eaaBoundaries.append('path').attr('d', path).attr('class', 'area').attr('fill', '#8F8100').attr('stroke', '#000');
-        var eaaMarkers = eaaBoundaries.append('g');
+        var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
+        geoBoundaries.append('path').attr('d', path).attr('class', 'area').attr('fill', '#8F8100').attr('stroke', '#000');
+        var eaaMarkers = geoBoundaries.append('g');
 
         d3.csv(markersSource, function (error, data) {
           if (error) {
@@ -201,8 +192,6 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           d3.min(gauges, function (c) { return d3.min(c.values, function (v) { return v.gindex; }); }),
           d3.max(gauges, function (c) { return d3.max(c.values, function (v) { return v.gindex; }); })
         ]);
-        // console.log('x.domain: ', x.domain());
-        // console.log('y.domain: ', y.domain());
 
         graphBounds.append('g')
           .attr('class', 'x axis')
@@ -276,11 +265,8 @@ angular.module('eaa.directives.d3.interactive.wells', [])
               .selectAll('text').remove();
           });
 
-        var legend = graphBounds.append('g').attr('class','chart-legend').selectAll('.svg')
-          .data(gauges)
-          .enter()
-          .append('g')
-          .attr('transform', 'translate(-180,30)'); // Will reposition the legend group.
+        var legend = graphBounds.append('g').attr('class','chart-legend').attr('transform', 'translate(-180,30)')
+          .selectAll('.svg').data(gauges).enter().append('g');
           
         legend.append('rect')
           .attr('x', vizWidth + 20)
@@ -303,6 +289,5 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       });
     };
 
-    // console.log('directiveDefinitionObject: ', directiveDefinitionObject);
     return directiveDefinitionObject;
   }]);

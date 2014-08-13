@@ -286,7 +286,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
           .data(gauges)
           .enter()
           .append('g')
-          .attr('transform', 'translate(-150,30)'); // Will reposition the legend group.
+          .attr('transform', 'translate(-180,30)'); // Will reposition the legend group.
           
         legend.append('rect')
           .attr('x', vizWidth + 20)

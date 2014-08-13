@@ -153,13 +153,13 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var path = d3.geo.path().projection(projection);
         var eaaBoundaries = eaaBounds.selectAll('g').data(boundariesData.features).enter().append('g');
         eaaBoundaries.append('path').attr('d', path).attr('class', function(d) { return "subunit " + d.properties.Symbolize; }).attr('stroke', '#000');
-        eaaBoundaries.append("text")
-          .attr("class", "map-label")
-          // .attr("class", function(d) { return "subunit-label " + d.properties.Symbolize; })
-          .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
-          .attr("dy", ".35em")
-          .style("font-size", "1em")
-          .text(function(d) { return d.properties.Symbolize; });
+        // eaaBoundaries.append("text")
+        //   .attr("class", "map-label")
+        //   // .attr("class", function(d) { return "subunit-label " + d.properties.Symbolize; })
+        //   .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+        //   .attr("dy", ".35em")
+        //   .style("font-size", "1em")
+        //   .text(function(d) { return d.properties.Symbolize; });
         // eaaBoundaries.selectAll("g").selectAll("text").moveToFront();
       });
 
@@ -266,7 +266,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .data(gauges)
           .enter()
           .append('g')
-          .attr('transform', 'translate(-150,30)'); // Will reposition the legend group.
+          .attr('transform', 'translate(-180,30)'); // Will reposition the legend group.
           
         legend.append('rect')
           .attr('x', vizWidth + 20)

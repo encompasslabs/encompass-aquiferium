@@ -127,7 +127,8 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       }
 
       function onTargetClick (target) {
-        console.log(d3.select(target)[0][0].Location);
+        // console.log(d3.select(target)[0][0].Location);
+        console.log(target);
       }
 
       // VIZ - MAP.
@@ -143,15 +144,30 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
         var path = d3.geo.path().projection(projection);
         var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-        geoBoundaries.append('path').attr('d', path).attr('class', function(d) { return "subunit " + d.properties.Symbolize; }).attr('stroke', '#000');
-        // geoBoundaries.append("text")
-        //   .attr("class", "map-label")
-        //   // .attr("class", function(d) { return "subunit-label " + d.properties.Symbolize; })
-        //   .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
-        //   .attr("dy", ".35em")
-        //   .style("font-size", "1em")
-        //   .text(function(d) { return d.properties.Symbolize; });
-        // geoBoundaries.selectAll("g").selectAll("text").moveToFront();
+        geoBoundaries.append('path').attr('d', path).attr('class', function(d) { return "subunit " + d.properties.Name; }).attr('stroke', '#000').on('click', onTargetClick);
+        geoBoundaries.append("text")
+          .attr("class", "map-label")
+          // .attr("class", function(d) { return "subunit-label " + d.properties.Symbolize; })
+          .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+          .attr("dy", ".35em")
+          .style("font-size", "1em")
+          .text(function(d) {
+            return d.properties.Name;
+
+            // var labels = [];
+            // var thisName = d.properties.Name;
+            // for (var i = 0; i < labels.length; i++) {
+            //   if (thisName == labels[i]) {
+            //     console.log('thisName == labels[i], label already exists.');
+            //     return;
+            //   } else {
+            //     labels.push(thisName);
+            //     console.log(labels);
+            //     return d.properties.Name;
+            //   }
+            // }
+          });
+        geoBoundaries.selectAll("g").selectAll("text").moveToFront();
       });
 
       // VIZ - CHART.

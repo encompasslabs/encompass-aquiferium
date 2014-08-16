@@ -13,12 +13,25 @@
   position: absolute;
   top: 2rem;
   left: 3rem;
-  color: #111;
+  color: #000;
 }
 .year-display {
   font-size: 10em;
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.9);
 }
+.legend {
+  z-index: 200;
+  position: absolute;
+  /*display: block;*/
+  cursor: default;
+  left:1rem;
+  top: 12rem;
+  margin-top: 1rem;
+  line-height: 1rem;
+  font-size: 1.2rem;
+  /*color: #000;*/
+}
+
 .recharge-value-display {
   position: relative;
   top: -2em;
@@ -40,9 +53,46 @@
   /*font-size: 1rem;*/
   color: rgba(0,0,0,0.8);
 }
+
+
 /* Map */
-/* TBD */
+.geo-bounds {
+  margin-left: 8rem;
+  margin-top: 3rem;
+}
+.subunit {
+  stroke: rgba(0,0,0,1);
+  stroke-width: 0.5px;
+  fill: #440099;
+}
+.subunit-label {
+  fill: #777;
+  fill-opacity: .5;
+  font-size: 20px;
+  font-weight: 300;
+  text-anchor: middle;
+}
+.map-label {
+  /*z-index: 100;*/
+/*  position:absolute;
+  left:100px;
+  top:150px;*/
+  color: #f00;
+}
+.Drainage {
+  fill: rgba(170, 221, 109, 1);
+}
+.Recharge {
+  fill: rgba(113, 178, 201, 1);
+}
+.Artesian {
+  fill: rgba(230, 211, 149, 1);
+}
+
 /* Line Graph */
+.graph-bounds {
+  font-size: .7rem;
+}
 .chart {
   font-size: .7rem;
   /*border: 1px solid #999;*/
@@ -64,47 +114,11 @@
   fill: none;
   stroke-width: 2px;
 }
+
 .chart-subtext {
   margin-top: 1rem;
   margin-left: 3rem;
   color: #000;
   font-size: .65rem;
   font-style: italic;
-}
-.chart-legend {
-  cursor: default;
-  font-size: 0.7rem;
-}
-
-.subunit {
-  stroke: rgba(0,0,0,1);
-  stroke-width: 0.5px;
-  fill: #440099;
-}
-
-.subunit-label {
-  fill: #777;
-  fill-opacity: .5;
-  font-size: 20px;
-  font-weight: 300;
-  text-anchor: middle;
-}
-
-.map-label {
-  /*z-index: 100;*/
-/*  position:absolute;
-  left:100px;
-  top:150px;*/
-}
-
-.Drainage {
-  fill: rgba(170, 221, 109, 1);
-}
-
-.Recharge {
-  fill: rgba(113, 178, 201, 1);
-}
-
-.Artesian {
-  fill: rgba(230, 211, 149, 1);
 }

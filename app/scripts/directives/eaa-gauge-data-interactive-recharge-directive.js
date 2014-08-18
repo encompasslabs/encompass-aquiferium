@@ -31,7 +31,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var e = d.documentElement;
       var g = d.getElementsByTagName('body')[0];
       var width = w.innerWidth || e.clientWidth || g.clientWidth;
-      var height = width * 0.9; // w.innerHeight || e.clientHeight || g.clientHeight; // width * 0.75;
+      var height = width * 0.9; // w.innerHeight || e.clientHeight || g.clientHeight;
 
       var vizMargin = {top: 0, right: 0, bottom: 0, left: 0};
       var vizWidth = width - vizMargin.left - vizMargin.right;
@@ -41,14 +41,11 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var dataDisplayHeight = vizHeight * 0.4;
 
       var mapWidth = vizWidth;
-      var mapHeight = vizHeight * 0.4;
+      var mapHeight = vizHeight * 0.35;
 
       var graphWidth = vizWidth;
       var graphHeight = vizHeight * 0.4;
-      var graphLeftOffset = vizWidth * 0.05; //0; //graphWidth*0.1;
-
-      var legendWidth = vizWidth * 0.35;
-      // var legendHeight = vizHeight * 0.25;
+      var graphLeftOffset = vizWidth * 0.05;
 
       var boundariesSource = '../../data/geojson/eaa-aquifer-zones-2014.geo.json';
       var dataSource = '../../data/recharge-annualAvg-byDate.csv';
@@ -58,10 +55,13 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var mapLabels = [];
       var mapLabelsLength = mapLabels.length;
 
+      var legendBoxDimensions = 20;
+      var legendVertSpacingFactor = 1;
+      var legendVertOffset = legendBoxDimensions * 0.8;
+
       var color = d3.scale.category10().domain(['Barton Springs', 'Comal Springs', 'Hueco Springs', 'J17', 'J27', 'Las Moras Springs', 'Leona Springs', 'San Antonio Springs', 'San Marcos Springs', 'San Pedro Springs']);
       var dataKey = d3.scale.ordinal();
       var parseDate = d3.time.format('%Y');
-      var bisectDate = d3.bisector(function (d) { return d.Date; }).left;
 
       var x = d3.time.scale().range([graphLeftOffset, graphWidth*0.95]);
       var y = d3.scale.linear().range([graphHeight-50, 50]);
@@ -76,8 +76,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var xMaxDate = 0;
       var dateDelta = 0;
       var posYear = 0;
-
-      // var xPosRange, xNumericRange, xMinDate, xMaxDate, dateDelta, posYear;
 
       // METHODS.
       Array.prototype.max = function() {
@@ -123,16 +121,26 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         setDisplayDate(xMaxDate);
       };
 
-      var setDisplayData = function(targetIndex) {
-        console.log(targetIndex);
-        // console.log(ingestedData);
-        var dataSet = ingestedData[targetIndex];
-        // console.log(dataSet);
+      var setDisplayData = function(targetIndex) {        
+        var dataSet = ingestedData[targetIndex];        
         var vals = Object.keys(dataSet).map(function (key) {
           return dataSet[key];
         });
-        // console.log(vals[1]);
-        d3.select('.data-value').text(vals[1]); // select(viz).select(dataDisplay).select(legend).
+
+        // Need to loop through all text elements with class data-value-# under the svg element with class legend-item.
+        var dataLabelArray = d3.select('.legend').selectAll('.legend-item').selectAll('text');
+
+        // console.log(targetIndex);
+        // console.log(ingestedData);
+        // console.log(dataSet);
+        // console.log(vals);
+        // console.log(dataLabelArray[0][1]); // THIS ONE!!!
+
+        // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
+        for (var j=0; j < dataLabelArray.length; j++) {
+          var dataIndexOffset = j + 1;
+          d3.select(dataLabelArray[j][1]).text(vals[dataIndexOffset]);
+        }
       };
 
       var setDisplayDate = function(targetDate) {
@@ -181,7 +189,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       viz.on('mousemove', mouseOverGraph);
 
       var dataDisplay = viz.append('div').attr('class','data-display');
-      dataDisplay.append('text').attr('class','year-display').text(''); // xMaxDate
+      dataDisplay.append('text').attr('class','year-display').text('');
 
       var geoBounds = viz.append('svg').attr('class', 'geo-bounds')
         .attr('width', mapWidth)
@@ -198,7 +206,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         .y(function (d) { return y(d.gindex); })
         .defined(function (d) { return d.gindex; });
 
-      // VIZ - MAP.
+      // MAP.
       d3.json(boundariesSource, function (error, boundariesData) {
         if (error) {
           return console.error(error);
@@ -211,12 +219,12 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
         var path = d3.geo.path().projection(projection);
         var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-        geoBoundaries.append('path').attr('d', path).attr('class', function(d) { return "subunit " + d.properties.Name; }).attr('stroke', '#000').on('click', onTargetClick);
-        geoBoundaries.append("text")
-          .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
-          .attr("dy", ".35em")
-          .attr("class", "map-label")
-          .text(function(d) {      
+        geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', '#000').on('click', onTargetClick);
+        geoBoundaries.append('text')
+          .attr('transform', function (d) { return 'translate(' + path.centroid(d) + ')'; })
+          .attr('dy', '.35em')
+          .attr('class', 'map-label')
+          .text(function (d) {      
             var thisName = d.properties.Name;
             var nameExists = false;
 
@@ -242,10 +250,10 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           });
       });
 
-      // VIZ - CHART.
-      d3.csv(dataSource, function(error, data) {
+      // CHART.
+      d3.csv(dataSource, function (error, data) {
 
-        data.forEach(function(d) {
+        data.forEach(function (d) {
           dateRange.push(parseInt(d.Date));
           d.Date = parseDate.parse(d.Date);          
           d['Station ID: AY 68-37-203'] = +d['Station ID: AY 68-37-203'];
@@ -255,10 +263,10 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
         dataKey.domain(d3.keys(data[0]).filter(function (key) { return key !== 'Date'; }));
 
-        var gauges = dataKey.domain().map(function(name) {
+        var gauges = dataKey.domain().map(function (name) {
           return {
             name: name,
-            values: data.map(function(d) {
+            values: data.map(function (d) {
               return { date: d.Date, gindex: +d[name] };
             })
           };
@@ -300,55 +308,50 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
             return line(d.values);
           })
           .style('stroke', function (d) { return color(d.name); })
-          // .on('mouseover', overGauge)
-          // .on('mouseout', outGauge)
-          .attr('id', function(d) { return d.name; });
+          .attr('id', function (d) { return d.name; });
 
         // Filter data points by gauge.
-        var filtered = gauge.filter(function(d){
+        var filtered = gauge.filter(function (d) {
             // console.log(d.name);
             // return d.name == 'J27';
             // return d.values.gindex !== NaN;
             // return d.name === 'Barton Springs' || 'Comal Springs' || 'Hueco Springs' || 'J17' || 'J27' || 'Las Moras Springs' || 'Leona Springs' || 'San Antonio Springs' || 'San Marcos Springs' || 'San Pedro Springs';
           })
           .selectAll('circle')
-          .data(function (d){ return d.values; })
+          .data(function (d) { return d.values; })
           .enter().append('circle')
-          .attr({ cx: function (d) { return x(d.date); }, cy: function (d){ return y(d.gindex); }, r: 2 })
+          .attr({ cx: function (d) { return x(d.date); }, cy: function (d) { return y(d.gindex); }, r: 2 })
           .style('fill', '#555');
 
-        var legend = dataDisplay.append('svg').attr('class','legend')
-          .attr('width', legendWidth)
-          // .attr('height', legendHeight)
-          .selectAll('.svg').data(gauges).enter().append('g');
+        // LEGEND.
+        var legend = dataDisplay.append('div').attr('class','legend legend-wells').attr('transform', 'translate(-180,30)');
+        var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item');
           
-        var box = legend.append('rect')
+        var box = legendItem.append('rect')
           .attr('x', 0)
-          .attr('y', function(d, i){ return i *  20;})
-          .attr('width', 18)
-          .attr('height', 18)
+          .attr('y', function (d, i) { return i *  legendVertSpacingFactor;})
+          .attr('width', legendBoxDimensions)
+          .attr('height', legendBoxDimensions)
           .attr('class', 'legend-box')
-          .style('fill', function(d) {
+          .style('fill', function (d) {
             return color(d.name);
           });
             
-        var label = legend.append('text')
+        var label = legendItem.append('text')
           .attr('x', 30)
-          .attr('y', function (d, i) { return (i *  20) + 16;})
+          .attr('y', function (d, i) { return (i *  legendVertSpacingFactor) + legendVertOffset;})
           .text(function (d) { return d.name; });
 
-        var dataValue = legend.append('text')
+        var dataValue = legendItem.append('text')
           .attr('x', 280)
-          .attr('y', function (d, i){ return (i *  20) + 16;})
+          .attr('y', function (d, i) { return (i *  legendVertSpacingFactor) + legendVertOffset;})
           .text('')
           .attr('class','data-value');
 
+        // NOTE.
         var notes = viz.append('div').attr('class','graph-notes')
-          // .attr('x', 200)
-          // .attr('y', 400)
           .append('text')          
-          .text('Note: Any gaps in the data lines represent gaps in the collected data for that time period.');
-          // .attr('class',);
+          .text('Note: Any gaps in the data lines represent gaps in the collected data for that time period.');          
 
         defineInteractionRange();
       });     

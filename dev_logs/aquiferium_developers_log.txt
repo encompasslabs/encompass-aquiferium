@@ -302,19 +302,25 @@ NAME.html
 HASH.main.css
 HASH.scripts.js
 
-Path changes by type.
+Path changes by asset type.
 
-HTML
+VIDEO
 Dev paths:        '../videos/video.mp4'
 Build path:       '../videos/video.mp4'   <-- verify this.
 Corrected path:   './videos/video.mp4'
 
-CSS
+IMAGES
 Dev paths:        '../images/image.jpg'
 Build path:       '/images/image.jpg'     <-- verify this.
 Corrected path:   '../images/image.jpg'
 
-Scripts
+DATA
 Dev paths:        '../../data/script.js'
 Build path:       '../../data/script.js'  <-- verify this.
 Corrected path:   './data/script.js'
+
+Fixes needed by file type:
+
+HTML      :   video, images
+CSS       :   nothing
+SCRIPTS   :   data

@@ -152,7 +152,7 @@ module.exports = function (grunt) {
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
-        relativeAssets: true, //false,  // testing true - no effect.
+        relativeAssets: true, // false
         assetCacheBuster: false,
         raw: 'Sass::Script::Number.precision = 10\n'
       },
@@ -274,11 +274,12 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/**/*.html',
-            'images/**/*.{png,jpg,gif,webp,svg}',
-            'videos/**/*.{mp4,webm,ogg,mpg,mov,avi,flv}',
-            'scripts/**/*.js',  // Added in.
-            'data/**/*.{json,csv,tsv,xml,txt}',
+            // replacing all subsequtn paths of type: 'path/**/*.{filetype}'' with new path of: 'path/*.{filetype}'.
+            'views/*.html',
+            'images/*.{png,jpg,gif,webp,svg}',
+            'videos/720p/*.{mp4,webm,ogg,mpg,mov,avi,flv}',
+            'scripts/*.js',  // Added in.
+            'data/*.{json,csv,tsv,xml,txt}',
             'fonts/*'
           ]
         }, {
@@ -305,13 +306,25 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.app %>/data',
         dest: '<%= yeoman.dist %>/data',
-        src: '**'
+        // src: '**'
+        src:  ['./data/*']
       },
       videos: {
         expand: true,
         cwd: '<%= yeoman.app %>/videos',
         dest: '<%= yeoman.dist %>/videos',
-        src: '**'
+        src: './videos/720p/*'
+        // TEST 1.
+        // src:  ['/videos/*']
+        // TEST 2.
+        // files : [
+        //   {
+        //     expand  : true,
+        //     dest    : '<%= yeoman.dist %>/videos',
+        //     cwd     : '<%= yeoman.app %>/videos',
+        //     src     : [ 'videos/720p/*' ]
+        //   }
+        // ]
       }
     },
     concurrent: { // Run some tasks in parallel to speed up the build process

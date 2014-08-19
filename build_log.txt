@@ -1,0 +1,802 @@
+[4mRunning "clean:dist" (clean) task[24m
+Cleaning dist/images...[32mOK[39m
+Cleaning dist/videos...[32mOK[39m
+
+[4mRunning "bowerInstall:app" (bowerInstall) task[24m
+
+[4mRunning "bowerInstall:sass" (bowerInstall) task[24m
+
+[4mRunning "useminPrepare:html" (useminPrepare) task[24m
+Going through [36mapp/index.html[39m to update the config
+Looking for build script HTML comment blocks
+
+[1mConfiguration is now:[22m
+
+[1m  concat:[22m
+  { generated: 
+   { files: 
+      [ { dest: [32m'.tmp\\concat\\scripts\\vendor.js'[39m,
+          src: 
+           [ [32m'app\\bower_components\\modernizr\\modernizr.js'[39m,
+             [32m'app\\bower_components\\jquery\\dist\\jquery.js'[39m,
+             [32m'app\\bower_components\\d3\\d3.js'[39m,
+             [32m'app\\bower_components\\gsap\\src\\uncompressed\\TweenMax.js'[39m,
+             [32m'app\\bower_components\\angular\\angular.js'[39m,
+             [32m'app\\bower_components\\angular-animate\\angular-animate.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\affix.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\alert.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\button.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\carousel.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\collapse.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\dropdown.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\tab.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\transition.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\scrollspy.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\modal.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\tooltip.js'[39m,
+             [32m'app\\bower_components\\bootstrap-sass-official\\vendor\\assets\\javascripts\\bootstrap\\popover.js'[39m,
+             [32m'app\\bower_components\\angular-resource\\angular-resource.js'[39m,
+             [32m'app\\bower_components\\angular-cookies\\angular-cookies.js'[39m,
+             [32m'app\\bower_components\\angular-sanitize\\angular-sanitize.js'[39m,
+             [32m'app\\bower_components\\angular-route\\angular-route.js'[39m,
+             [32m'app\\bower_components\\angular-mocks\\angular-mocks.js'[39m,
+             [32m'app\\bower_components\\angular-scenario\\angular-scenario.js'[39m,
+             [32m'app\\bower_components\\jquery.easing\\js\\jquery.easing.min.js'[39m,
+             [32m'app\\bower_components\\jquery-waypoints\\waypoints.js'[39m,
+             [32m'app\\bower_components\\angular-touch\\angular-touch.js'[39m,
+             [32m'app\\bower_components\\angular-carousel\\dist\\angular-carousel.js'[39m,
+             [32m'app\\bower_components\\angular-parallax\\scripts\\angular-parallax.js'[39m,
+             [32m'app\\bower_components\\ng-videosharing-embed\\build\\ng-videosharing-embed.min.js'[39m ] },
+        { dest: [32m'.tmp\\concat\\scripts\\scripts.js'[39m,
+          src: 
+           [ [32m'{.tmp,app}\\scripts\\app.js'[39m,
+             [32m'{.tmp,app}\\scripts\\controllers\\navigation-controller.js'[39m,
+             [32m'{.tmp,app}\\scripts\\controllers\\explore-controller.js'[39m,
+             [32m'{.tmp,app}\\scripts\\controllers\\caves-karsts-controller.js'[39m,
+             [32m'{.tmp,app}\\scripts\\controllers\\conservation-controller.js'[39m,
+             [32m'{.tmp,app}\\scripts\\controllers\\springs-controller.js'[39m,
+             [32m'{.tmp,app}\\scripts\\controllers\\about-controller.js'[39m,
+             [32m'{.tmp,app}\\scripts\\controllers\\contact-controller.js'[39m,
+             [32m'{.tmp,app}\\scripts\\directives\\eaa-aquifers-map-directive.js'[39m,
+             [32m'{.tmp,app}\\scripts\\directives\\eaa-gauge-data-interactive-recharge-directive.js'[39m,
+             [32m'{.tmp,app}\\scripts\\directives\\eaa-gauge-data-interactive-wells-directive.js'[39m,
+             [32m'{.tmp,app}\\scripts\\directives\\eaa-gauge-data-interactive-springs-directive.js'[39m ] } ] } }
+
+[1m  uglify:[22m
+  { generated: 
+   { files: 
+      [ { dest: [32m'dist\\scripts\\vendor.js'[39m,
+          src: [ [32m'.tmp\\concat\\scripts\\vendor.js'[39m ] },
+        { dest: [32m'dist\\scripts\\scripts.js'[39m,
+          src: [ [32m'.tmp\\concat\\scripts\\scripts.js'[39m ] } ] } }
+
+[1m  cssmin:[22m
+  { options: {},
+  generated: 
+   { files: 
+      [ { dest: [32m'dist\\styles\\vendor.css'[39m,
+          src: 
+           [ [32m'app\\bower_components\\font-awesome\\css\\font-awesome.css'[39m,
+             [32m'app\\bower_components\\angular-carousel\\dist\\angular-carousel.css'[39m ] },
+        { dest: [32m'dist\\styles\\main.css'[39m,
+          src: 
+           [ [32m'{.tmp,app}\\http:\\fonts.googleapis.com\\css?family=Open+Sans'[39m,
+             [32m'{.tmp,app}\\styles\\main.css'[39m,
+             [32m'{.tmp,app}\\styles\\baseline.css'[39m,
+             [32m'{.tmp,app}\\styles\\general.css'[39m,
+             [32m'{.tmp,app}\\styles\\nav.css'[39m,
+             [32m'{.tmp,app}\\styles\\transitions.css'[39m,
+             [32m'{.tmp,app}\\styles\\parallax.css'[39m,
+             [32m'{.tmp,app}\\styles\\interactives.css'[39m,
+             [32m'{.tmp,app}\\styles\\explore.css'[39m,
+             [32m'{.tmp,app}\\styles\\caves-karsts.css'[39m,
+             [32m'{.tmp,app}\\styles\\conservation.css'[39m,
+             [32m'{.tmp,app}\\styles\\springs.css'[39m,
+             [32m'{.tmp,app}\\styles\\about.css'[39m,
+             [32m'{.tmp,app}\\styles\\contact.css'[39m,
+             [32m'{.tmp,app}\\styles\\mq-small.css'[39m,
+             [32m'{.tmp,app}\\styles\\mq-medium.css'[39m,
+             [32m'{.tmp,app}\\styles\\mq-large.css'[39m,
+             [32m'{.tmp,app}\\styles\\mq-xlarge.css'[39m,
+             [32m'{.tmp,app}\\styles\\mq-hd.css'[39m ] } ] } }
+
+[4mRunning "concurrent:dist" (concurrent) task[24m
+    
+[4mRunning "svgmin:dist" (svgmin) task[24m
+
+[32mDone, without errors.[39m
+    
+[4mRunning "imagemin:dist" (imagemin) task[24m
+✔ app/images/about/concept-01-opt.jpg (saved 4.12 kb)
+✔ app/images/about/concept-02-opt.jpg (saved 4.25 kb)
+✔ app/images/caves_karsts/CaveEntrance.jpg (saved 56.83 kB)
+✔ app/images/caves_karsts/DSC_0318_web_hd.jpg (saved 8.49 kB)
+✔ app/images/caves_karsts/DSC_0318_web_lg.jpg (saved 5.53 kB)
+✔ app/images/caves_karsts/DSC_0318_web_md.jpg (saved 4.37 kB)
+✔ app/images/caves_karsts/DSC_0318_web_sm.jpg (saved 3.34 kB)
+✔ app/images/caves_karsts/DSC_0318_web_xlg.jpg (saved 6.45 kB)
+✔ app/images/caves_karsts/DrainageArea.jpg (saved 54.10 kB)
+✔ app/images/caves_karsts/For-Doty1_1280x979_web_hd.jpg (saved 3.55 kB)
+✔ app/images/caves_karsts/For-Doty1_1280x979_web_lg.jpg (saved 2.86 kB)
+✔ app/images/caves_karsts/For-Doty1_1280x979_web_md.jpg (saved 2.33 kB)
+✔ app/images/caves_karsts/For-Doty1_1280x979_web_sm.jpg (saved 1.85 kB)
+✔ app/images/caves_karsts/For-Doty1_1280x979_web_xlg.jpg (saved 3.52 kB)
+✔ app/images/caves_karsts/SecoSinkhole.jpg (saved 30.60 kB)
+✔ app/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_hd.jpg (saved 7.67 kb)
+✔ app/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_lg.jpg (saved 1.04 kB)
+✔ app/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_md.jpg (saved 1.08 kB)
+✔ app/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_sm.jpg (saved 1.04 kB)
+✔ app/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_xlg.jpg (saved 1.24 kB)
+✔ app/images/caves_karsts/edwards-limestone_web_hd.jpg (saved 8.92 kB)
+✔ app/images/caves_karsts/edwards-limestone_web_lg.jpg (saved 5.74 kB)
+✔ app/images/caves_karsts/edwards-limestone_web_md.jpg (saved 4.52 kB)
+✔ app/images/caves_karsts/edwards-limestone_web_sm.jpg (saved 3.30 kB)
+✔ app/images/caves_karsts/edwards-limestone_web_xlg.jpg (saved 7.53 kB)
+✔ app/images/caves_karsts/valdina_8r_web_hd.jpg (saved 8.86 kB)
+✔ app/images/caves_karsts/valdina_8r_web_lg.jpg (saved 8.86 kB)
+✔ app/images/caves_karsts/valdina_8r_web_md.jpg (saved 7.79 kB)
+✔ app/images/caves_karsts/valdina_8r_web_sm.jpg (saved 5.29 kB)
+✔ app/images/caves_karsts/valdina_8r_web_xlg.jpg (saved 8.86 kB)
+✔ app/images/conservation/01Jan_Tull_800x.jpg (saved 1.63 kB)
+✔ app/images/conservation/05May_MartinMarietta_CMYK_web_hd.jpg (saved 2.56 kB)
+✔ app/images/conservation/05May_MartinMarietta_CMYK_web_lg.jpg (saved 2.26 kB)
+✔ app/images/conservation/05May_MartinMarietta_CMYK_web_md.jpg (saved 2.01 kB)
+✔ app/images/conservation/05May_MartinMarietta_CMYK_web_sm.jpg (saved 1.44 kB)
+✔ app/images/conservation/05May_MartinMarietta_CMYK_web_xlg.jpg (saved 2.56 kB)
+✔ app/images/conservation/07Jul_PumpStation_CMYK_web_hd.jpg (saved 2.47 kB)
+✔ app/images/conservation/07Jul_PumpStation_CMYK_web_lg.jpg (saved 2.53 kB)
+✔ app/images/conservation/07Jul_PumpStation_CMYK_web_md.jpg (saved 2.25 kB)
+✔ app/images/conservation/07Jul_PumpStation_CMYK_web_sm.jpg (saved 1.88 kB)
+✔ app/images/conservation/07Jul_PumpStation_CMYK_web_xlg.jpg (saved 2.47 kB)
+✔ app/images/conservation/08Aug_Landa_800x.jpg (saved 1.08 kB)
+✔ app/images/conservation/12Dec_Bishops_800x.jpg (saved 3.14 kB)
+✔ app/images/conservation/Antique-Rose-Emporium_800x.jpg (saved 5.92 kB)
+✔ app/images/conservation/Board-Room-corner_Panorama1-P_web_hd.jpg (saved 4.05 kB)
+✔ app/images/conservation/Board-Room-corner_Panorama1-P_web_lg.jpg (saved 2.85 kB)
+✔ app/images/conservation/Board-Room-corner_Panorama1-P_web_md.jpg (saved 2.50 kB)
+✔ app/images/conservation/Board-Room-corner_Panorama1-P_web_sm.jpg (saved 2.17 kB)
+✔ app/images/conservation/Board-Room-corner_Panorama1-P_web_xlg.jpg (saved 3.29 kB)
+✔ app/images/conservation/D3T3276_original_800x.jpg (saved 5.24 kb)
+✔ app/images/conservation/DSC4705_hd.jpg (saved 13.36 kB)
+✔ app/images/conservation/DSC4705_lg.jpg (saved 8.34 kB)
+✔ app/images/conservation/DSC4705_md.jpg (saved 6.42 kB)
+✔ app/images/conservation/DSC4705_sm.jpg (saved 4.81 kB)
+✔ app/images/conservation/DSC4705_xlg.jpg (saved 9.70 kB)
+✔ app/images/conservation/EAA-rainGauge_web_hd.jpg (saved 6.96 kB)
+✔ app/images/conservation/EAA-rainGauge_web_lg.jpg (saved 3.51 kB)
+✔ app/images/conservation/EAA-rainGauge_web_md.jpg (saved 2.77 kB)
+✔ app/images/conservation/EAA-rainGauge_web_sm.jpg (saved 1.91 kB)
+✔ app/images/conservation/EAA-rainGauge_web_xlg.jpg (saved 4.63 kB)
+✔ app/images/conservation/EAAOborny20120710_hd.jpg (saved 9.81 kB)
+✔ app/images/conservation/EAAOborny20120710_lg.jpg (saved 6.88 kB)
+✔ app/images/conservation/EAAOborny20120710_md.jpg (saved 5.40 kB)
+✔ app/images/conservation/EAAOborny20120710_sm.jpg (saved 4.03 kB)
+✔ app/images/conservation/EAAOborny20120710_xlg.jpg (saved 7.62 kB)
+✔ app/images/conservation/EAAOsaws20120720_800x.jpg (saved 4.16 kB)
+✔ app/images/conservation/EAA_brucealexander-041212_800x.jpg (saved 7.80 kb)
+✔ app/images/conservation/EAA_salamander20120502_800x.jpg (saved 2.71 kB)
+✔ app/images/conservation/EAAgilleland_web_hd.jpg (saved 6.52 kB)
+✔ app/images/conservation/EAAgilleland_web_lg.jpg (saved 4.52 kB)
+✔ app/images/conservation/EAAgilleland_web_md.jpg (saved 3.89 kB)
+✔ app/images/conservation/EAAgilleland_web_sm.jpg (saved 3.05 kB)
+✔ app/images/conservation/EAAgilleland_web_xlg.jpg (saved 5.54 kB)
+✔ app/images/conservation/Esperanza_garden-children_800x.jpg (saved 2.28 kB)
+✔ app/images/conservation/GBRA_20121017_6763_web_hd.jpg (saved 6.95 kB)
+✔ app/images/conservation/GBRA_20121017_6763_web_lg.jpg (saved 4.42 kB)
+✔ app/images/conservation/GBRA_20121017_6763_web_md.jpg (saved 3.62 kB)
+✔ app/images/conservation/GBRA_20121017_6763_web_sm.jpg (saved 2.68 kB)
+✔ app/images/conservation/GBRA_20121017_6763_web_xlg.jpg (saved 5.36 kB)
+✔ app/images/conservation/GBRA_20121017_800x.jpg (saved 2.86 kB)
+✔ app/images/conservation/HCPSanMarcos.jpg (saved 66.54 kB)
+✔ app/images/conservation/HCPSpringLake.jpg (saved 55.45 kB)
+✔ app/images/conservation/HIGH-RESOLUTION-BOARD_hd.jpg (saved 5.71 kB)
+✔ app/images/conservation/HIGH-RESOLUTION-BOARD_lg.jpg (saved 3.93 kB)
+✔ app/images/conservation/HIGH-RESOLUTION-BOARD_md.jpg (saved 3.28 kB)
+✔ app/images/conservation/HIGH-RESOLUTION-BOARD_sm.jpg (saved 2.60 kB)
+✔ app/images/conservation/HIGH-RESOLUTION-BOARD_xlg.jpg (saved 4.22 kB)
+✔ app/images/conservation/Melani-Howard20120502_hd.jpg (saved 7.33 kB)
+✔ app/images/conservation/Melani-Howard20120502_lg.jpg (saved 5.29 kB)
+✔ app/images/conservation/Melani-Howard20120502_md.jpg (saved 4.46 kB)
+✔ app/images/conservation/Melani-Howard20120502_sm.jpg (saved 3.46 kB)
+✔ app/images/conservation/Melani-Howard20120502_xlg.jpg (saved 6.05 kB)
+✔ app/images/conservation/SM_salamander_800x.jpg (saved 1.41 kB)
+✔ app/images/conservation/SM_salamander_XO5J9266_web_hd.jpg (saved -1.80 kb)
+✔ app/images/conservation/SM_salamander_XO5J9266_web_lg.jpg (saved 6.50 kb)
+✔ app/images/conservation/SM_salamander_XO5J9266_web_md.jpg (saved 1.26 kB)
+✔ app/images/conservation/SM_salamander_XO5J9266_web_sm.jpg (saved 1.24 kB)
+✔ app/images/conservation/SM_salamander_XO5J9266_web_xlg.jpg (saved 3.40 kb)
+✔ app/images/conservation/XO5J7652_web_hd.jpg (saved 7.18 kB)
+✔ app/images/conservation/XO5J7652_web_lg.jpg (saved 4.47 kB)
+✔ app/images/conservation/XO5J7652_web_md.jpg (saved 3.62 kB)
+✔ app/images/conservation/XO5J7652_web_sm.jpg (saved 2.75 kB)
+✔ app/images/conservation/XO5J7652_web_xlg.jpg (saved 5.54 kB)
+✔ app/images/conservation/brickmaker_800x.jpg (saved 4.02 kb)
+✔ app/images/conservation/child-playing-in-water_800x.jpg (saved 1.86 kB)
+✔ app/images/conservation/children-playing-in-water_800x.jpg (saved 4.04 kb)
+✔ app/images/conservation/fountain-darter_800x.jpg (saved 7.90 kb)
+✔ app/images/conservation/sunflowers_800x.jpg (saved 1.64 kB)
+✔ app/images/eaa_branding/eaa-logo-bw.png (saved 1.01 kB)
+✔ app/images/eaa_branding/eaa-logo-color.png (saved 6.87 kb)
+✔ app/images/eaa_branding/eahcp-logo-color.png (saved 7.18 kb)
+✔ app/images/explore/HCPSanMarcosRiver-loop3.jpg (saved 61.86 kB)
+✔ app/images/springs/Boat_0054_web_hd.jpg (saved 13.29 kB)
+✔ app/images/springs/Boat_0054_web_lg.jpg (saved 8.03 kB)
+✔ app/images/springs/Boat_0054_web_md.jpg (saved 6.19 kB)
+✔ app/images/springs/Boat_0054_web_sm.jpg (saved 4.50 kB)
+✔ app/images/springs/Boat_0054_web_xlg.jpg (saved 9.72 kB)
+✔ app/images/springs/ComalSpringsRun.jpg (saved 46.92 kB)
+✔ app/images/springs/EAAOriparianrandy20120801_0404_web_hd.jpg (saved 7.25 kB)
+✔ app/images/springs/EAAOriparianrandy20120801_0404_web_lg.jpg (saved 4.64 kB)
+✔ app/images/springs/EAAOriparianrandy20120801_0404_web_md.jpg (saved 3.78 kB)
+✔ app/images/springs/EAAOriparianrandy20120801_0404_web_sm.jpg (saved 2.92 kB)
+✔ app/images/springs/EAAOriparianrandy20120801_0404_web_xlg.jpg (saved 5.62 kB)
+✔ app/images/springs/EAAaquarena20120702_8316_web_hd.jpg (saved 4.25 kB)
+✔ app/images/springs/EAAaquarena20120702_8316_web_lg.jpg (saved 2.88 kB)
+✔ app/images/springs/EAAaquarena20120702_8316_web_md.jpg (saved 2.30 kB)
+✔ app/images/springs/EAAaquarena20120702_8316_web_sm.jpg (saved 1.72 kB)
+✔ app/images/springs/EAAaquarena20120702_8316_web_xlg.jpg (saved 3.41 kB)
+✔ app/images/springs/EAArice20120503_3620_web_hd.jpg (saved 10.29 kB)
+✔ app/images/springs/EAArice20120503_3620_web_lg.jpg (saved 6.11 kB)
+✔ app/images/springs/EAArice20120503_3620_web_md.jpg (saved 4.75 kB)
+✔ app/images/springs/EAArice20120503_3620_web_sm.jpg (saved 3.39 kB)
+✔ app/images/springs/EAArice20120503_3620_web_xlg.jpg (saved 7.60 kB)
+✔ app/images/springs/Looking-Underwater_0017_web_hd.jpg (saved 9.79 kB)
+✔ app/images/springs/Looking-Underwater_0017_web_lg.jpg (saved 6.28 kB)
+✔ app/images/springs/Looking-Underwater_0017_web_md.jpg (saved 4.96 kB)
+✔ app/images/springs/Looking-Underwater_0017_web_sm.jpg (saved 3.72 kB)
+✔ app/images/springs/Looking-Underwater_0017_web_xlg.jpg (saved 7.63 kB)
+✔ app/images/springs/Looking-Underwater_0020_web_hd.jpg (saved 7.66 kB)
+✔ app/images/springs/Looking-Underwater_0020_web_lg.jpg (saved 4.81 kB)
+✔ app/images/springs/Looking-Underwater_0020_web_md.jpg (saved 3.68 kB)
+✔ app/images/springs/Looking-Underwater_0020_web_sm.jpg (saved 2.72 kB)
+✔ app/images/springs/Looking-Underwater_0020_web_xlg.jpg (saved 6.02 kB)
+✔ app/images/springs/SanMarcosSprings.jpg (saved 56.36 kB)
+✔ app/images/springs/SpringFlow.jpg (saved 29.59 kB)
+✔ app/images/springs/SpringRun.jpg (saved 66.05 kB)
+✔ app/images/springs/aerial_view_web_hd.jpg (saved 5.35 kB)
+✔ app/images/springs/aerial_view_web_lg.jpg (saved 5.35 kB)
+✔ app/images/springs/aerial_view_web_md.jpg (saved 4.72 kB)
+✔ app/images/springs/aerial_view_web_sm.jpg (saved 3.74 kB)
+✔ app/images/springs/aerial_view_web_xlg.jpg (saved 5.35 kB)
+✔ app/images/springs/com-springs2-800x.jpg (saved 2.93 kB)
+✔ app/images/springs/com-springs2_web_hd.jpg (saved 10.12 kB)
+✔ app/images/springs/com-springs2_web_lg.jpg (saved 6.26 kB)
+✔ app/images/springs/com-springs2_web_md.jpg (saved 4.98 kB)
+✔ app/images/springs/com-springs2_web_sm.jpg (saved 3.62 kB)
+✔ app/images/springs/com-springs2_web_xlg.jpg (saved 7.34 kB)
+✔ app/images/springs/comal-springs3-800x.jpg (saved 2.66 kB)
+✔ app/images/springs/waterfall_web_hd.jpg (saved 6.27 kB)
+✔ app/images/springs/waterfall_web_lg.jpg (saved 4.00 kB)
+✔ app/images/springs/waterfall_web_md.jpg (saved 3.50 kB)
+✔ app/images/springs/waterfall_web_sm.jpg (saved 2.72 kB)
+✔ app/images/springs/waterfall_web_xlg.jpg (saved 4.85 kB)
+Minified 163 images (saved 1.18 MB)
+
+[32mDone, without errors.[39m
+    
+[4mRunning "compass:dist" (compass) task[24m
+directory .tmp/styles/ 
+       create .tmp/styles/main.css (2.762s)
+    Compilation took 2.784s
+    
+[32mDone, without errors.[39m
+
+[4mRunning "autoprefixer:dist" (autoprefixer) task[24m
+Prefixed file ".tmp/styles/main.css" created.
+
+[4mRunning "concat:generated" (concat) task[24m
+File ".tmp\concat\scripts\vendor.js" created.
+File ".tmp\concat\scripts\scripts.js" created.
+
+[4mRunning "ngmin:dist" (ngmin) task[24m
+ngminifying [36m.tmp/concat/scripts/scripts.js[39m, [36m.tmp/concat/scripts/vendor.js[39m
+
+[4mRunning "copy:dist" (copy) task[24m
+Copied [36m46[39m files
+
+[4mRunning "copy:data" (copy) task[24m
+
+
+[4mRunning "copy:videos" (copy) task[24m
+
+
+[4mRunning "cdnify:dist" (cdnify) task[24m
+Going through [36mdist/404.html[39m, [36mdist/index.html[39m to update script refs
+
+[4mRunning "cssmin:generated" (cssmin) task[24m
+File dist\styles\vendor.css created.
+File dist\styles\main.css created.
+
+[4mRunning "uglify:generated" (uglify) task[24m
+File "dist\scripts\vendor.js" created.
+File "dist\scripts\scripts.js" created.
+
+[4mRunning "rev:dist" (rev) task[24m
+dist/scripts/app.js [32m>> [39m502bfeca.app.js
+dist/scripts/scripts.js [32m>> [39m1bf41259.scripts.js
+dist/scripts/vendor.js [32m>> [39m5a7fecf2.vendor.js
+dist/styles/main.css [32m>> [39m18408589.main.css
+dist/styles/vendor.css [32m>> [39mbdd7c016.vendor.css
+dist/images/about/concept-01-opt.jpg [32m>> [39m189af711.concept-01-opt.jpg
+dist/images/about/concept-02-opt.jpg [32m>> [39m5d361a7f.concept-02-opt.jpg
+dist/images/caves_karsts/CaveEntrance.jpg [32m>> [39m0ca961ea.CaveEntrance.jpg
+dist/images/caves_karsts/DSC_0318_web_hd.jpg [32m>> [39m1209b98b.DSC_0318_web_hd.jpg
+dist/images/caves_karsts/DSC_0318_web_lg.jpg [32m>> [39m3f5e7b71.DSC_0318_web_lg.jpg
+dist/images/caves_karsts/DSC_0318_web_md.jpg [32m>> [39m809b79da.DSC_0318_web_md.jpg
+dist/images/caves_karsts/DSC_0318_web_sm.jpg [32m>> [39mbde54c42.DSC_0318_web_sm.jpg
+dist/images/caves_karsts/DSC_0318_web_xlg.jpg [32m>> [39maa596eb9.DSC_0318_web_xlg.jpg
+dist/images/caves_karsts/DrainageArea.jpg [32m>> [39m494637a5.DrainageArea.jpg
+dist/images/caves_karsts/For-Doty1_1280x979_web_hd.jpg [32m>> [39m9adaed8f.For-Doty1_1280x979_web_hd.jpg
+dist/images/caves_karsts/For-Doty1_1280x979_web_lg.jpg [32m>> [39m27f00b4f.For-Doty1_1280x979_web_lg.jpg
+dist/images/caves_karsts/For-Doty1_1280x979_web_md.jpg [32m>> [39me10f29aa.For-Doty1_1280x979_web_md.jpg
+dist/images/caves_karsts/For-Doty1_1280x979_web_sm.jpg [32m>> [39m6a80a9eb.For-Doty1_1280x979_web_sm.jpg
+dist/images/caves_karsts/For-Doty1_1280x979_web_xlg.jpg [32m>> [39mde69e371.For-Doty1_1280x979_web_xlg.jpg
+dist/images/caves_karsts/SecoSinkhole.jpg [32m>> [39m60fbdaf4.SecoSinkhole.jpg
+dist/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_hd.jpg [32m>> [39ma8324a9a.Valdina_Farms_Cave_IMG0017_web_hd.jpg
+dist/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_lg.jpg [32m>> [39mfe4bbfa4.Valdina_Farms_Cave_IMG0017_web_lg.jpg
+dist/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_md.jpg [32m>> [39me82eb04e.Valdina_Farms_Cave_IMG0017_web_md.jpg
+dist/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_sm.jpg [32m>> [39mc852cb83.Valdina_Farms_Cave_IMG0017_web_sm.jpg
+dist/images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_xlg.jpg [32m>> [39md869a0a2.Valdina_Farms_Cave_IMG0017_web_xlg.jpg
+dist/images/caves_karsts/edwards-limestone_web_hd.jpg [32m>> [39m3b0b3805.edwards-limestone_web_hd.jpg
+dist/images/caves_karsts/edwards-limestone_web_lg.jpg [32m>> [39m89df2d89.edwards-limestone_web_lg.jpg
+dist/images/caves_karsts/edwards-limestone_web_md.jpg [32m>> [39m75a6c5fd.edwards-limestone_web_md.jpg
+dist/images/caves_karsts/edwards-limestone_web_sm.jpg [32m>> [39m57e34b72.edwards-limestone_web_sm.jpg
+dist/images/caves_karsts/edwards-limestone_web_xlg.jpg [32m>> [39mbf5defe9.edwards-limestone_web_xlg.jpg
+dist/images/caves_karsts/valdina_8r_web_hd.jpg [32m>> [39m27d04801.valdina_8r_web_hd.jpg
+dist/images/caves_karsts/valdina_8r_web_lg.jpg [32m>> [39m27d04801.valdina_8r_web_lg.jpg
+dist/images/caves_karsts/valdina_8r_web_md.jpg [32m>> [39mee6e6a6c.valdina_8r_web_md.jpg
+dist/images/caves_karsts/valdina_8r_web_sm.jpg [32m>> [39ma1264697.valdina_8r_web_sm.jpg
+dist/images/caves_karsts/valdina_8r_web_xlg.jpg [32m>> [39m27d04801.valdina_8r_web_xlg.jpg
+dist/images/conservation/01Jan_Tull_800x.jpg [32m>> [39mc16023e5.01Jan_Tull_800x.jpg
+dist/images/conservation/05May_MartinMarietta_CMYK_web_hd.jpg [32m>> [39mf7e80666.05May_MartinMarietta_CMYK_web_hd.jpg
+dist/images/conservation/05May_MartinMarietta_CMYK_web_lg.jpg [32m>> [39mdd0c2682.05May_MartinMarietta_CMYK_web_lg.jpg
+dist/images/conservation/05May_MartinMarietta_CMYK_web_md.jpg [32m>> [39m52c94de5.05May_MartinMarietta_CMYK_web_md.jpg
+dist/images/conservation/05May_MartinMarietta_CMYK_web_sm.jpg [32m>> [39m08776d8a.05May_MartinMarietta_CMYK_web_sm.jpg
+dist/images/conservation/05May_MartinMarietta_CMYK_web_xlg.jpg [32m>> [39mf7e80666.05May_MartinMarietta_CMYK_web_xlg.jpg
+dist/images/conservation/07Jul_PumpStation_CMYK_web_hd.jpg [32m>> [39me6e48819.07Jul_PumpStation_CMYK_web_hd.jpg
+dist/images/conservation/07Jul_PumpStation_CMYK_web_lg.jpg [32m>> [39ma4238414.07Jul_PumpStation_CMYK_web_lg.jpg
+dist/images/conservation/07Jul_PumpStation_CMYK_web_md.jpg [32m>> [39m362c1157.07Jul_PumpStation_CMYK_web_md.jpg
+dist/images/conservation/07Jul_PumpStation_CMYK_web_sm.jpg [32m>> [39m71a0d8a6.07Jul_PumpStation_CMYK_web_sm.jpg
+dist/images/conservation/07Jul_PumpStation_CMYK_web_xlg.jpg [32m>> [39me6e48819.07Jul_PumpStation_CMYK_web_xlg.jpg
+dist/images/conservation/08Aug_Landa_800x.jpg [32m>> [39m6f9a8139.08Aug_Landa_800x.jpg
+dist/images/conservation/12Dec_Bishops_800x.jpg [32m>> [39m982ec06f.12Dec_Bishops_800x.jpg
+dist/images/conservation/Antique-Rose-Emporium_800x.jpg [32m>> [39m41ec2bf9.Antique-Rose-Emporium_800x.jpg
+dist/images/conservation/Board-Room-corner_Panorama1-P_web_hd.jpg [32m>> [39m2abb7c6d.Board-Room-corner_Panorama1-P_web_hd.jpg
+dist/images/conservation/Board-Room-corner_Panorama1-P_web_lg.jpg [32m>> [39m7cff61ce.Board-Room-corner_Panorama1-P_web_lg.jpg
+dist/images/conservation/Board-Room-corner_Panorama1-P_web_md.jpg [32m>> [39mfc860f3b.Board-Room-corner_Panorama1-P_web_md.jpg
+dist/images/conservation/Board-Room-corner_Panorama1-P_web_sm.jpg [32m>> [39mf6061ddf.Board-Room-corner_Panorama1-P_web_sm.jpg
+dist/images/conservation/Board-Room-corner_Panorama1-P_web_xlg.jpg [32m>> [39mdb9f3147.Board-Room-corner_Panorama1-P_web_xlg.jpg
+dist/images/conservation/D3T3276_original_800x.jpg [32m>> [39m81619492.D3T3276_original_800x.jpg
+dist/images/conservation/DSC4705_hd.jpg [32m>> [39m9da7109c.DSC4705_hd.jpg
+dist/images/conservation/DSC4705_lg.jpg [32m>> [39m03cdee19.DSC4705_lg.jpg
+dist/images/conservation/DSC4705_md.jpg [32m>> [39m316b6149.DSC4705_md.jpg
+dist/images/conservation/DSC4705_sm.jpg [32m>> [39ma36bb551.DSC4705_sm.jpg
+dist/images/conservation/DSC4705_xlg.jpg [32m>> [39m259e9791.DSC4705_xlg.jpg
+dist/images/conservation/EAA-rainGauge_web_hd.jpg [32m>> [39mfe3ce6d2.EAA-rainGauge_web_hd.jpg
+dist/images/conservation/EAA-rainGauge_web_lg.jpg [32m>> [39mbeaa7db9.EAA-rainGauge_web_lg.jpg
+dist/images/conservation/EAA-rainGauge_web_md.jpg [32m>> [39m1e82a670.EAA-rainGauge_web_md.jpg
+dist/images/conservation/EAA-rainGauge_web_sm.jpg [32m>> [39mb14f899c.EAA-rainGauge_web_sm.jpg
+dist/images/conservation/EAA-rainGauge_web_xlg.jpg [32m>> [39m700fa34a.EAA-rainGauge_web_xlg.jpg
+dist/images/conservation/EAAOborny20120710_hd.jpg [32m>> [39m084d4435.EAAOborny20120710_hd.jpg
+dist/images/conservation/EAAOborny20120710_lg.jpg [32m>> [39m7f33a877.EAAOborny20120710_lg.jpg
+dist/images/conservation/EAAOborny20120710_md.jpg [32m>> [39m89c272dc.EAAOborny20120710_md.jpg
+dist/images/conservation/EAAOborny20120710_sm.jpg [32m>> [39m08b3c7c5.EAAOborny20120710_sm.jpg
+dist/images/conservation/EAAOborny20120710_xlg.jpg [32m>> [39md0391c52.EAAOborny20120710_xlg.jpg
+dist/images/conservation/EAAOsaws20120720_800x.jpg [32m>> [39mad22cdc8.EAAOsaws20120720_800x.jpg
+dist/images/conservation/EAA_brucealexander-041212_800x.jpg [32m>> [39m112339e1.EAA_brucealexander-041212_800x.jpg
+dist/images/conservation/EAA_salamander20120502_800x.jpg [32m>> [39mb399f778.EAA_salamander20120502_800x.jpg
+dist/images/conservation/EAAgilleland_web_hd.jpg [32m>> [39m2a9423c6.EAAgilleland_web_hd.jpg
+dist/images/conservation/EAAgilleland_web_lg.jpg [32m>> [39m45b86238.EAAgilleland_web_lg.jpg
+dist/images/conservation/EAAgilleland_web_md.jpg [32m>> [39m1301a7be.EAAgilleland_web_md.jpg
+dist/images/conservation/EAAgilleland_web_sm.jpg [32m>> [39med2dbde5.EAAgilleland_web_sm.jpg
+dist/images/conservation/EAAgilleland_web_xlg.jpg [32m>> [39m52895f8b.EAAgilleland_web_xlg.jpg
+dist/images/conservation/Esperanza_garden-children_800x.jpg [32m>> [39m802fc216.Esperanza_garden-children_800x.jpg
+dist/images/conservation/GBRA_20121017_6763_web_hd.jpg [32m>> [39mac88f1c8.GBRA_20121017_6763_web_hd.jpg
+dist/images/conservation/GBRA_20121017_6763_web_lg.jpg [32m>> [39m8876cce1.GBRA_20121017_6763_web_lg.jpg
+dist/images/conservation/GBRA_20121017_6763_web_md.jpg [32m>> [39m2e06b731.GBRA_20121017_6763_web_md.jpg
+dist/images/conservation/GBRA_20121017_6763_web_sm.jpg [32m>> [39m2c0f26d1.GBRA_20121017_6763_web_sm.jpg
+dist/images/conservation/GBRA_20121017_6763_web_xlg.jpg [32m>> [39mac88fc79.GBRA_20121017_6763_web_xlg.jpg
+dist/images/conservation/GBRA_20121017_800x.jpg [32m>> [39me98090a6.GBRA_20121017_800x.jpg
+dist/images/conservation/HCPSanMarcos.jpg [32m>> [39m49ce7945.HCPSanMarcos.jpg
+dist/images/conservation/HCPSpringLake.jpg [32m>> [39m8ee08b28.HCPSpringLake.jpg
+dist/images/conservation/HIGH-RESOLUTION-BOARD_hd.jpg [32m>> [39mc61e2e9d.HIGH-RESOLUTION-BOARD_hd.jpg
+dist/images/conservation/HIGH-RESOLUTION-BOARD_lg.jpg [32m>> [39m5e27cee0.HIGH-RESOLUTION-BOARD_lg.jpg
+dist/images/conservation/HIGH-RESOLUTION-BOARD_md.jpg [32m>> [39mb05d82c7.HIGH-RESOLUTION-BOARD_md.jpg
+dist/images/conservation/HIGH-RESOLUTION-BOARD_sm.jpg [32m>> [39m83da2c7b.HIGH-RESOLUTION-BOARD_sm.jpg
+dist/images/conservation/HIGH-RESOLUTION-BOARD_xlg.jpg [32m>> [39macbd4906.HIGH-RESOLUTION-BOARD_xlg.jpg
+dist/images/conservation/Melani-Howard20120502_hd.jpg [32m>> [39m7408b3ce.Melani-Howard20120502_hd.jpg
+dist/images/conservation/Melani-Howard20120502_lg.jpg [32m>> [39m38292b80.Melani-Howard20120502_lg.jpg
+dist/images/conservation/Melani-Howard20120502_md.jpg [32m>> [39m5c79b423.Melani-Howard20120502_md.jpg
+dist/images/conservation/Melani-Howard20120502_sm.jpg [32m>> [39m95aa1ad5.Melani-Howard20120502_sm.jpg
+dist/images/conservation/Melani-Howard20120502_xlg.jpg [32m>> [39m20e80f2c.Melani-Howard20120502_xlg.jpg
+dist/images/conservation/SM_salamander_800x.jpg [32m>> [39m13eef429.SM_salamander_800x.jpg
+dist/images/conservation/SM_salamander_XO5J9266_web_hd.jpg [32m>> [39mb2ba2ea9.SM_salamander_XO5J9266_web_hd.jpg
+dist/images/conservation/SM_salamander_XO5J9266_web_lg.jpg [32m>> [39m6fb963c5.SM_salamander_XO5J9266_web_lg.jpg
+dist/images/conservation/SM_salamander_XO5J9266_web_md.jpg [32m>> [39mf9aa1a6d.SM_salamander_XO5J9266_web_md.jpg
+dist/images/conservation/SM_salamander_XO5J9266_web_sm.jpg [32m>> [39m2fffe1e7.SM_salamander_XO5J9266_web_sm.jpg
+dist/images/conservation/SM_salamander_XO5J9266_web_xlg.jpg [32m>> [39me00e7e99.SM_salamander_XO5J9266_web_xlg.jpg
+dist/images/conservation/XO5J7652_web_hd.jpg [32m>> [39m1d07e167.XO5J7652_web_hd.jpg
+dist/images/conservation/XO5J7652_web_lg.jpg [32m>> [39m0eb9889d.XO5J7652_web_lg.jpg
+dist/images/conservation/XO5J7652_web_md.jpg [32m>> [39m9447eedb.XO5J7652_web_md.jpg
+dist/images/conservation/XO5J7652_web_sm.jpg [32m>> [39mb31d3685.XO5J7652_web_sm.jpg
+dist/images/conservation/XO5J7652_web_xlg.jpg [32m>> [39m41fcadd5.XO5J7652_web_xlg.jpg
+dist/images/conservation/brickmaker_800x.jpg [32m>> [39me638215d.brickmaker_800x.jpg
+dist/images/conservation/child-playing-in-water_800x.jpg [32m>> [39m88934e60.child-playing-in-water_800x.jpg
+dist/images/conservation/children-playing-in-water_800x.jpg [32m>> [39m220e760b.children-playing-in-water_800x.jpg
+dist/images/conservation/fountain-darter_800x.jpg [32m>> [39mb1d595cc.fountain-darter_800x.jpg
+dist/images/conservation/sunflowers_800x.jpg [32m>> [39m75da8a1c.sunflowers_800x.jpg
+dist/images/eaa_branding/eaa-logo-bw.png [32m>> [39mfdcbb5a8.eaa-logo-bw.png
+dist/images/eaa_branding/eaa-logo-color.png [32m>> [39me8d7db3f.eaa-logo-color.png
+dist/images/eaa_branding/eahcp-logo-color.png [32m>> [39mc5c65eec.eahcp-logo-color.png
+dist/images/explore/HCPSanMarcosRiver-loop3.jpg [32m>> [39m93aa0698.HCPSanMarcosRiver-loop3.jpg
+dist/images/springs/Boat_0054_web_hd.jpg [32m>> [39m1bc651eb.Boat_0054_web_hd.jpg
+dist/images/springs/Boat_0054_web_lg.jpg [32m>> [39mc17089fc.Boat_0054_web_lg.jpg
+dist/images/springs/Boat_0054_web_md.jpg [32m>> [39m7ba713bb.Boat_0054_web_md.jpg
+dist/images/springs/Boat_0054_web_sm.jpg [32m>> [39m8a47b876.Boat_0054_web_sm.jpg
+dist/images/springs/Boat_0054_web_xlg.jpg [32m>> [39ma94d082c.Boat_0054_web_xlg.jpg
+dist/images/springs/ComalSpringsRun.jpg [32m>> [39m2a681756.ComalSpringsRun.jpg
+dist/images/springs/EAAOriparianrandy20120801_0404_web_hd.jpg [32m>> [39m582c8d22.EAAOriparianrandy20120801_0404_web_hd.jpg
+dist/images/springs/EAAOriparianrandy20120801_0404_web_lg.jpg [32m>> [39m879f460e.EAAOriparianrandy20120801_0404_web_lg.jpg
+dist/images/springs/EAAOriparianrandy20120801_0404_web_md.jpg [32m>> [39mf6b79d3a.EAAOriparianrandy20120801_0404_web_md.jpg
+dist/images/springs/EAAOriparianrandy20120801_0404_web_sm.jpg [32m>> [39m26375e06.EAAOriparianrandy20120801_0404_web_sm.jpg
+dist/images/springs/EAAOriparianrandy20120801_0404_web_xlg.jpg [32m>> [39m6b5b958d.EAAOriparianrandy20120801_0404_web_xlg.jpg
+dist/images/springs/EAAaquarena20120702_8316_web_hd.jpg [32m>> [39m4c779d21.EAAaquarena20120702_8316_web_hd.jpg
+dist/images/springs/EAAaquarena20120702_8316_web_lg.jpg [32m>> [39m43b110d7.EAAaquarena20120702_8316_web_lg.jpg
+dist/images/springs/EAAaquarena20120702_8316_web_md.jpg [32m>> [39m22aa0899.EAAaquarena20120702_8316_web_md.jpg
+dist/images/springs/EAAaquarena20120702_8316_web_sm.jpg [32m>> [39mddcc69bb.EAAaquarena20120702_8316_web_sm.jpg
+dist/images/springs/EAAaquarena20120702_8316_web_xlg.jpg [32m>> [39mb0e7161a.EAAaquarena20120702_8316_web_xlg.jpg
+dist/images/springs/EAArice20120503_3620_web_hd.jpg [32m>> [39m04269202.EAArice20120503_3620_web_hd.jpg
+dist/images/springs/EAArice20120503_3620_web_lg.jpg [32m>> [39mcaf6b3dd.EAArice20120503_3620_web_lg.jpg
+dist/images/springs/EAArice20120503_3620_web_md.jpg [32m>> [39m320feee2.EAArice20120503_3620_web_md.jpg
+dist/images/springs/EAArice20120503_3620_web_sm.jpg [32m>> [39mae796251.EAArice20120503_3620_web_sm.jpg
+dist/images/springs/EAArice20120503_3620_web_xlg.jpg [32m>> [39m638c8458.EAArice20120503_3620_web_xlg.jpg
+dist/images/springs/Looking-Underwater_0017_web_hd.jpg [32m>> [39mb651a005.Looking-Underwater_0017_web_hd.jpg
+dist/images/springs/Looking-Underwater_0017_web_lg.jpg [32m>> [39m638e1dc7.Looking-Underwater_0017_web_lg.jpg
+dist/images/springs/Looking-Underwater_0017_web_md.jpg [32m>> [39mbbdc63e6.Looking-Underwater_0017_web_md.jpg
+dist/images/springs/Looking-Underwater_0017_web_sm.jpg [32m>> [39mb5f700c2.Looking-Underwater_0017_web_sm.jpg
+dist/images/springs/Looking-Underwater_0017_web_xlg.jpg [32m>> [39mc566cb62.Looking-Underwater_0017_web_xlg.jpg
+dist/images/springs/Looking-Underwater_0020_web_hd.jpg [32m>> [39mc3fe2849.Looking-Underwater_0020_web_hd.jpg
+dist/images/springs/Looking-Underwater_0020_web_lg.jpg [32m>> [39m4f382468.Looking-Underwater_0020_web_lg.jpg
+dist/images/springs/Looking-Underwater_0020_web_md.jpg [32m>> [39m66fe08c4.Looking-Underwater_0020_web_md.jpg
+dist/images/springs/Looking-Underwater_0020_web_sm.jpg [32m>> [39mcc04c228.Looking-Underwater_0020_web_sm.jpg
+dist/images/springs/Looking-Underwater_0020_web_xlg.jpg [32m>> [39mce92bd22.Looking-Underwater_0020_web_xlg.jpg
+dist/images/springs/SanMarcosSprings.jpg [32m>> [39m334b198e.SanMarcosSprings.jpg
+dist/images/springs/SpringFlow.jpg [32m>> [39m65b7ca75.SpringFlow.jpg
+dist/images/springs/SpringRun.jpg [32m>> [39m5a7a27f9.SpringRun.jpg
+dist/images/springs/aerial_view_web_hd.jpg [32m>> [39mee5e3643.aerial_view_web_hd.jpg
+dist/images/springs/aerial_view_web_lg.jpg [32m>> [39mee5e3643.aerial_view_web_lg.jpg
+dist/images/springs/aerial_view_web_md.jpg [32m>> [39maf60de2c.aerial_view_web_md.jpg
+dist/images/springs/aerial_view_web_sm.jpg [32m>> [39m431ded84.aerial_view_web_sm.jpg
+dist/images/springs/aerial_view_web_xlg.jpg [32m>> [39mee5e3643.aerial_view_web_xlg.jpg
+dist/images/springs/com-springs2-800x.jpg [32m>> [39m1ee7cdf0.com-springs2-800x.jpg
+dist/images/springs/com-springs2_web_hd.jpg [32m>> [39mb9ea2e4d.com-springs2_web_hd.jpg
+dist/images/springs/com-springs2_web_lg.jpg [32m>> [39m8fa5c3c1.com-springs2_web_lg.jpg
+dist/images/springs/com-springs2_web_md.jpg [32m>> [39m96f7cfe4.com-springs2_web_md.jpg
+dist/images/springs/com-springs2_web_sm.jpg [32m>> [39m40479ae5.com-springs2_web_sm.jpg
+dist/images/springs/com-springs2_web_xlg.jpg [32m>> [39m55340fc1.com-springs2_web_xlg.jpg
+dist/images/springs/comal-springs3-800x.jpg [32m>> [39m13ac9ab0.comal-springs3-800x.jpg
+dist/images/springs/waterfall_web_hd.jpg [32m>> [39me2999808.waterfall_web_hd.jpg
+dist/images/springs/waterfall_web_lg.jpg [32m>> [39m19a1dabd.waterfall_web_lg.jpg
+dist/images/springs/waterfall_web_md.jpg [32m>> [39m2465abd5.waterfall_web_md.jpg
+dist/images/springs/waterfall_web_sm.jpg [32m>> [39mae6d0b61.waterfall_web_sm.jpg
+dist/images/springs/waterfall_web_xlg.jpg [32m>> [39mfe815894.waterfall_web_xlg.jpg
+dist/videos/720p/CaveEntrance.mp4 [32m>> [39m31622275.CaveEntrance.mp4
+dist/videos/720p/CaveEntrance.webm [32m>> [39md1b0d66a.CaveEntrance.webm
+dist/videos/720p/ComalSpringRun.mp4 [32m>> [39m7c662883.ComalSpringRun.mp4
+dist/videos/720p/ComalSpringsRun.webm [32m>> [39m0ab15d44.ComalSpringsRun.webm
+dist/videos/720p/DrainageArea.mp4 [32m>> [39m83c5e8b4.DrainageArea.mp4
+dist/videos/720p/DrainageArea.webm [32m>> [39m7ece879b.DrainageArea.webm
+dist/videos/720p/HCPSanMarcos.mp4 [32m>> [39m3f655252.HCPSanMarcos.mp4
+dist/videos/720p/HCPSanMarcos.webm [32m>> [39mdb0e83c7.HCPSanMarcos.webm
+dist/videos/720p/HCPSanMarcosRiver-loop.mp4 [32m>> [39m0e8eb917.HCPSanMarcosRiver-loop.mp4
+dist/videos/720p/HCPSanMarcosRiver-loop3.mp4 [32m>> [39me30d5156.HCPSanMarcosRiver-loop3.mp4
+dist/videos/720p/HCPSanMarcosRiver-loop3.webm [32m>> [39m201f2bab.HCPSanMarcosRiver-loop3.webm
+dist/videos/720p/HCPSanMarcosRiver.mp4 [32m>> [39m597d5fa1.HCPSanMarcosRiver.mp4
+dist/videos/720p/HCPSanMarcosRiver.webm [32m>> [39mb8a98b3a.HCPSanMarcosRiver.webm
+dist/videos/720p/HCPSpringLake.mp4 [32m>> [39mf725a3f5.HCPSpringLake.mp4
+dist/videos/720p/HCPSpringLake.webm [32m>> [39m98a2dad2.HCPSpringLake.webm
+dist/videos/720p/HCPWheatfield.mp4 [32m>> [39meb6aa3c2.HCPWheatfield.mp4
+dist/videos/720p/HCPWheatfield.webm [32m>> [39mc61309e7.HCPWheatfield.webm
+dist/videos/720p/SanMarcosSprings.mp4 [32m>> [39m861bd252.SanMarcosSprings.mp4
+dist/videos/720p/SanMarcosSprings.webm [32m>> [39m4c5c62b7.SanMarcosSprings.webm
+dist/videos/720p/SecoSinkhole.mp4 [32m>> [39m5def0d9a.SecoSinkhole.mp4
+dist/videos/720p/SecoSinkhole.webm [32m>> [39m34d5d82a.SecoSinkhole.webm
+dist/videos/720p/SpringFlow.mp4 [32m>> [39m2bb4d4a4.SpringFlow.mp4
+dist/videos/720p/SpringFlow.webm [32m>> [39m7e877e80.SpringFlow.webm
+dist/videos/720p/SpringRun.mp4 [32m>> [39m0e0ac7bf.SpringRun.mp4
+dist/videos/720p/SpringRun.webm [32m>> [39m753e4818.SpringRun.webm
+dist/videos/720p/TexasBlindSalamander.mp4 [32m>> [39m5fb0d92a.TexasBlindSalamander.mp4
+dist/videos/720p/TexasBlindSalamander.webm [32m>> [39mdb75a58f.TexasBlindSalamander.webm
+
+[4mRunning "usemin:html" (usemin) task[24m
+
+[1mProcessing as HTML - dist/404.html[22m
+Update the HTML to reference our concat/min/revved script files
+Update the HTML with the new css filenames
+Update the HTML with the new img filenames
+Update the HTML with the new video filenames
+Update the HTML with the new poster filenames
+Update the HTML with the new source filenames
+Update the HTML with data-main tags
+Update the HTML with data-* tags
+Update the HTML with background imgs, case there is some inline style
+Update the HTML with anchors images
+Update the HTML with reference in input
+Update the HTML with the new img filenames in meta tags
+
+[1mProcessing as HTML - dist/index.html[22m
+Update the HTML to reference our concat/min/revved script files
+<script src="scripts/vendor.js" changed to <script src="scripts/5a7fecf2.vendor.js"
+<script src="scripts/scripts.js" changed to <script src="scripts/1bf41259.scripts.js"
+Update the HTML with the new css filenames
+<link rel="stylesheet" href="styles/vendor.css" changed to <link rel="stylesheet" href="styles/bdd7c016.vendor.css"
+<link rel="stylesheet" href="styles/main.css" changed to <link rel="stylesheet" href="styles/18408589.main.css"
+Update the HTML with the new img filenames
+<img class="img-responsive pull-left eaa-logo" src="./images/eaa_branding/eaa-logo-color.png" changed to <img class="img-responsive pull-left eaa-logo" src="./images/eaa_branding/e8d7db3f.eaa-logo-color.png"
+Update the HTML with the new video filenames
+Update the HTML with the new poster filenames
+Update the HTML with the new source filenames
+Update the HTML with data-main tags
+Update the HTML with data-* tags
+Update the HTML with background imgs, case there is some inline style
+Update the HTML with anchors images
+Update the HTML with reference in input
+Update the HTML with the new img filenames in meta tags
+
+[1mProcessing as HTML - dist/views/about.html[22m
+Update the HTML to reference our concat/min/revved script files
+Update the HTML with the new css filenames
+Update the HTML with the new img filenames
+Update the HTML with the new video filenames
+Update the HTML with the new poster filenames
+Update the HTML with the new source filenames
+Update the HTML with data-main tags
+Update the HTML with data-* tags
+Update the HTML with background imgs, case there is some inline style
+Update the HTML with anchors images
+Update the HTML with reference in input
+Update the HTML with the new img filenames in meta tags
+
+[1mProcessing as HTML - dist/views/caves-karsts.html[22m
+Update the HTML to reference our concat/min/revved script files
+Update the HTML with the new css filenames
+Update the HTML with the new img filenames
+Update the HTML with the new video filenames
+Update the HTML with the new poster filenames
+<video class="plxbgvideo bgv-ck-slide1" poster="../images/caves_karsts/SecoSinkhole.jpg" changed to <video class="plxbgvideo bgv-ck-slide1" poster="../images/caves_karsts/60fbdaf4.SecoSinkhole.jpg"
+<video class="plxbgvideo bgv-ck-slide3" poster="../images/caves_karsts/DrainageArea.jpg" changed to <video class="plxbgvideo bgv-ck-slide3" poster="../images/caves_karsts/494637a5.DrainageArea.jpg"
+<video class="plxbgvideo bgv-ck-slide5" poster="../images/caves_karsts/CaveEntrance.jpg" changed to <video class="plxbgvideo bgv-ck-slide5" poster="../images/caves_karsts/0ca961ea.CaveEntrance.jpg"
+Update the HTML with the new source filenames
+<source src="../videos/720p/SecoSinkhole.webm" changed to <source src="../videos/720p/34d5d82a.SecoSinkhole.webm"
+<source src="../videos/720p/SecoSinkhole.mp4" changed to <source src="../videos/720p/5def0d9a.SecoSinkhole.mp4"
+<source src="../videos/720p/DrainageArea.webm" changed to <source src="../videos/720p/7ece879b.DrainageArea.webm"
+<source src="../videos/720p/DrainageArea.mp4" changed to <source src="../videos/720p/83c5e8b4.DrainageArea.mp4"
+<source src="../videos/720p/CaveEntrance.webm" changed to <source src="../videos/720p/d1b0d66a.CaveEntrance.webm"
+<source src="../videos/720p/CaveEntrance.mp4" changed to <source src="../videos/720p/31622275.CaveEntrance.mp4"
+Update the HTML with data-main tags
+Update the HTML with data-* tags
+Update the HTML with background imgs, case there is some inline style
+Update the HTML with anchors images
+Update the HTML with reference in input
+Update the HTML with the new img filenames in meta tags
+
+[1mProcessing as HTML - dist/views/conservation.html[22m
+Update the HTML to reference our concat/min/revved script files
+Update the HTML with the new css filenames
+Update the HTML with the new img filenames
+<img class="overlay overlay-left" src="../images/conservation/08Aug_Landa_800x.jpg" changed to <img class="overlay overlay-left" src="../images/conservation/6f9a8139.08Aug_Landa_800x.jpg"
+<img class="overlay overlay-center" src="../images/conservation/12Dec_Bishops_800x.jpg" changed to <img class="overlay overlay-center" src="../images/conservation/982ec06f.12Dec_Bishops_800x.jpg"
+<img class="overlay overlay-right" src="../images/conservation/Esperanza_garden-children_800x.jpg" changed to <img class="overlay overlay-right" src="../images/conservation/802fc216.Esperanza_garden-children_800x.jpg"
+<img class="overlay overlay-left" src="../images/conservation/01Jan_Tull_800x.jpg" changed to <img class="overlay overlay-left" src="../images/conservation/c16023e5.01Jan_Tull_800x.jpg"
+<img class="overlay overlay-right" src="../images/conservation/sunflowers_800x.jpg" changed to <img class="overlay overlay-right" src="../images/conservation/75da8a1c.sunflowers_800x.jpg"
+<img class="overlay overlay-center" src="../images/conservation/Antique-Rose-Emporium_800x.jpg" changed to <img class="overlay overlay-center" src="../images/conservation/41ec2bf9.Antique-Rose-Emporium_800x.jpg"
+<img class="overlay overlay-right" src="../images/conservation/brickmaker_800x.jpg" changed to <img class="overlay overlay-right" src="../images/conservation/e638215d.brickmaker_800x.jpg"
+<img class="overlay overlay-left" src="../images/conservation/child-playing-in-water_800x.jpg" changed to <img class="overlay overlay-left" src="../images/conservation/88934e60.child-playing-in-water_800x.jpg"
+<img class="overlay overlay-right" src="../images/conservation/children-playing-in-water_800x.jpg" changed to <img class="overlay overlay-right" src="../images/conservation/220e760b.children-playing-in-water_800x.jpg"
+<img class="overlay overlay-left" src="../images/conservation/fountain-darter_800x.jpg" changed to <img class="overlay overlay-left" src="../images/conservation/b1d595cc.fountain-darter_800x.jpg"
+<img class="overlay overlay-center" src="../images/conservation/SM_salamander_800x.jpg" changed to <img class="overlay overlay-center" src="../images/conservation/13eef429.SM_salamander_800x.jpg"
+<img class="overlay overlay-right" src="../images/conservation/EAA_salamander20120502_800x.jpg" changed to <img class="overlay overlay-right" src="../images/conservation/b399f778.EAA_salamander20120502_800x.jpg"
+<img class="overlay overlay-left" src="../images/conservation/EAA_brucealexander-041212_800x.jpg" changed to <img class="overlay overlay-left" src="../images/conservation/112339e1.EAA_brucealexander-041212_800x.jpg"
+<img class="overlay overlay-right" src="../images/conservation/D3T3276_original_800x.jpg" changed to <img class="overlay overlay-right" src="../images/conservation/81619492.D3T3276_original_800x.jpg"
+<img class="overlay overlay-left" src="../images/conservation/GBRA_20121017_800x.jpg" changed to <img class="overlay overlay-left" src="../images/conservation/e98090a6.GBRA_20121017_800x.jpg"
+<img class="overlay overlay-right" src="../images/conservation/EAAOsaws20120720_800x.jpg" changed to <img class="overlay overlay-right" src="../images/conservation/ad22cdc8.EAAOsaws20120720_800x.jpg"
+Update the HTML with the new video filenames
+Update the HTML with the new poster filenames
+<video class="plxbgvideo bgv-cons-slide0" poster="../images/conservation/HCPSanMarcos.jpg" changed to <video class="plxbgvideo bgv-cons-slide0" poster="../images/conservation/49ce7945.HCPSanMarcos.jpg"
+<video class="plxbgvideo bgv-cons-slide7" poster="../images/conservation/HCPSpringLake.jpg" changed to <video class="plxbgvideo bgv-cons-slide7" poster="../images/conservation/8ee08b28.HCPSpringLake.jpg"
+Update the HTML with the new source filenames
+<source src="../videos/720p/HCPSanMarcos.webm" changed to <source src="../videos/720p/db0e83c7.HCPSanMarcos.webm"
+<source src="../videos/720p/HCPSanMarcos.mp4" changed to <source src="../videos/720p/3f655252.HCPSanMarcos.mp4"
+<source src="../videos/720p/HCPSpringLake.webm" changed to <source src="../videos/720p/98a2dad2.HCPSpringLake.webm"
+<source src="../videos/720p/HCPSpringLake.mp4" changed to <source src="../videos/720p/f725a3f5.HCPSpringLake.mp4"
+Update the HTML with data-main tags
+Update the HTML with data-* tags
+Update the HTML with background imgs, case there is some inline style
+Update the HTML with anchors images
+Update the HTML with reference in input
+Update the HTML with the new img filenames in meta tags
+
+[1mProcessing as HTML - dist/views/contact.html[22m
+Update the HTML to reference our concat/min/revved script files
+Update the HTML with the new css filenames
+Update the HTML with the new img filenames
+Update the HTML with the new video filenames
+Update the HTML with the new poster filenames
+Update the HTML with the new source filenames
+Update the HTML with data-main tags
+Update the HTML with data-* tags
+Update the HTML with background imgs, case there is some inline style
+Update the HTML with anchors images
+Update the HTML with reference in input
+Update the HTML with the new img filenames in meta tags
+
+[1mProcessing as HTML - dist/views/explore.html[22m
+Update the HTML to reference our concat/min/revved script files
+Update the HTML with the new css filenames
+Update the HTML with the new img filenames
+Update the HTML with the new video filenames
+Update the HTML with the new poster filenames
+Update the HTML with the new source filenames
+<source src="../videos/720p/HCPSanMarcosRiver-loop3.webm" changed to <source src="../videos/720p/201f2bab.HCPSanMarcosRiver-loop3.webm"
+<source src="../videos/720p/HCPSanMarcosRiver-loop3.mp4" changed to <source src="../videos/720p/e30d5156.HCPSanMarcosRiver-loop3.mp4"
+Update the HTML with data-main tags
+Update the HTML with data-* tags
+Update the HTML with background imgs, case there is some inline style
+Update the HTML with anchors images
+Update the HTML with reference in input
+Update the HTML with the new img filenames in meta tags
+
+[1mProcessing as HTML - dist/views/springs.html[22m
+Update the HTML to reference our concat/min/revved script files
+Update the HTML with the new css filenames
+Update the HTML with the new img filenames
+<img class="overlay overlay-left" src="../images/springs/com-springs2-800x.jpg" changed to <img class="overlay overlay-left" src="../images/springs/1ee7cdf0.com-springs2-800x.jpg"
+<img class="overlay overlay-center" src="../images/springs/comal-springs3-800x.jpg" changed to <img class="overlay overlay-center" src="../images/springs/13ac9ab0.comal-springs3-800x.jpg"
+<img class="overlay overlay-right" src="../images/springs/comal-springs3-800x.jpg" changed to <img class="overlay overlay-right" src="../images/springs/13ac9ab0.comal-springs3-800x.jpg"
+Update the HTML with the new video filenames
+Update the HTML with the new poster filenames
+<video class="plxbgvideo bgv-springs-slide0" poster="../images/springs/SpringFlow.jpg" changed to <video class="plxbgvideo bgv-springs-slide0" poster="../images/springs/65b7ca75.SpringFlow.jpg"
+<video class="plxbgvideo bgv-springs-slide1" poster="../images/springs/ComalSpringsRun.jpg" changed to <video class="plxbgvideo bgv-springs-slide1" poster="../images/springs/2a681756.ComalSpringsRun.jpg"
+<video class="plxbgvideo bgv-springs-slide2" poster="../images/springs/SpringRun.jpg" changed to <video class="plxbgvideo bgv-springs-slide2" poster="../images/springs/5a7a27f9.SpringRun.jpg"
+<video class="plxbgvideo bgv-springs-slide4" poster="../images/springs/SanMarcosSprings.jpg" changed to <video class="plxbgvideo bgv-springs-slide4" poster="../images/springs/334b198e.SanMarcosSprings.jpg"
+Update the HTML with the new source filenames
+<source src="../videos/720p/SpringFlow.webm" changed to <source src="../videos/720p/7e877e80.SpringFlow.webm"
+<source src="../videos/720p/SpringFlow.mp4" changed to <source src="../videos/720p/2bb4d4a4.SpringFlow.mp4"
+<source src="../videos/720p/ComalSpringsRun.webm" changed to <source src="../videos/720p/0ab15d44.ComalSpringsRun.webm"
+<source src="../videos/720p/SpringRun.webm" changed to <source src="../videos/720p/753e4818.SpringRun.webm"
+<source src="../videos/720p/SpringRun.mp4" changed to <source src="../videos/720p/0e0ac7bf.SpringRun.mp4"
+<source src="../videos/720p/SanMarcosSprings.webm" changed to <source src="../videos/720p/4c5c62b7.SanMarcosSprings.webm"
+<source src="../videos/720p/SanMarcosSprings.mp4" changed to <source src="../videos/720p/861bd252.SanMarcosSprings.mp4"
+Update the HTML with data-main tags
+Update the HTML with data-* tags
+Update the HTML with background imgs, case there is some inline style
+Update the HTML with anchors images
+Update the HTML with reference in input
+Update the HTML with the new img filenames in meta tags
+
+[4mRunning "usemin:css" (usemin) task[24m
+
+[1mProcessing as CSS - dist/styles/18408589.main.css[22m
+Update the CSS to reference our revved images
+url(../images/explore/HCPSanMarcosRiver-loop3.jpg) changed to url(../images/explore/93aa0698.HCPSanMarcosRiver-loop3.jpg)
+url(../images/caves_karsts/SecoSinkhole.jpg) changed to url(../images/caves_karsts/60fbdaf4.SecoSinkhole.jpg)
+url(../images/caves_karsts/DrainageArea.jpg) changed to url(../images/caves_karsts/494637a5.DrainageArea.jpg)
+url(../images/caves_karsts/CaveEntrance.jpg) changed to url(../images/caves_karsts/0ca961ea.CaveEntrance.jpg)
+url(../images/conservation/HCPSanMarcos.jpg) changed to url(../images/conservation/49ce7945.HCPSanMarcos.jpg)
+url(../images/conservation/HCPSpringLake.jpg) changed to url(../images/conservation/8ee08b28.HCPSpringLake.jpg)
+url(../images/springs/SpringFlow.jpg) changed to url(../images/springs/65b7ca75.SpringFlow.jpg)
+url(../images/springs/ComalSpringsRun.jpg) changed to url(../images/springs/2a681756.ComalSpringsRun.jpg)
+url(../images/springs/SpringRun.jpg) changed to url(../images/springs/5a7a27f9.SpringRun.jpg)
+url(../images/springs/SanMarcosSprings.jpg) changed to url(../images/springs/334b198e.SanMarcosSprings.jpg)
+url(../images/about/concept-01-opt.jpg) changed to url(../images/about/189af711.concept-01-opt.jpg)
+url(../images/about/concept-02-opt.jpg) changed to url(../images/about/5d361a7f.concept-02-opt.jpg)
+url(../images/caves_karsts/DSC_0318_web_sm.jpg) changed to url(../images/caves_karsts/bde54c42.DSC_0318_web_sm.jpg)
+url(../images/caves_karsts/For-Doty1_1280x979_web_sm.jpg) changed to url(../images/caves_karsts/6a80a9eb.For-Doty1_1280x979_web_sm.jpg)
+url(../images/caves_karsts/edwards-limestone_web_sm.jpg) changed to url(../images/caves_karsts/57e34b72.edwards-limestone_web_sm.jpg)
+url(../images/caves_karsts/valdina_8r_web_sm.jpg) changed to url(../images/caves_karsts/a1264697.valdina_8r_web_sm.jpg)
+url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_sm.jpg) changed to url(../images/caves_karsts/c852cb83.Valdina_Farms_Cave_IMG0017_web_sm.jpg)
+url(../images/conservation/07Jul_PumpStation_CMYK_web_sm.jpg) changed to url(../images/conservation/71a0d8a6.07Jul_PumpStation_CMYK_web_sm.jpg)
+url(../images/conservation/EAAgilleland_web_sm.jpg) changed to url(../images/conservation/ed2dbde5.EAAgilleland_web_sm.jpg)
+url(../images/conservation/05May_MartinMarietta_CMYK_web_sm.jpg) changed to url(../images/conservation/08776d8a.05May_MartinMarietta_CMYK_web_sm.jpg)
+url(../images/conservation/DSC4705_sm.jpg) changed to url(../images/conservation/a36bb551.DSC4705_sm.jpg)
+url(../images/conservation/EAAOborny20120710_sm.jpg) changed to url(../images/conservation/08b3c7c5.EAAOborny20120710_sm.jpg)
+url(../images/conservation/HIGH-RESOLUTION-BOARD_sm.jpg) changed to url(../images/conservation/83da2c7b.HIGH-RESOLUTION-BOARD_sm.jpg)
+url(../images/conservation/Melani-Howard20120502_sm.jpg) changed to url(../images/conservation/95aa1ad5.Melani-Howard20120502_sm.jpg)
+url(../images/springs/aerial_view_web_sm.jpg) changed to url(../images/springs/431ded84.aerial_view_web_sm.jpg)
+url(../images/springs/EAAaquarena20120702_8316_web_sm.jpg) changed to url(../images/springs/ddcc69bb.EAAaquarena20120702_8316_web_sm.jpg)
+url(../images/springs/EAArice20120503_3620_web_sm.jpg) changed to url(../images/springs/ae796251.EAArice20120503_3620_web_sm.jpg)
+url(../images/springs/EAAOriparianrandy20120801_0404_web_sm.jpg) changed to url(../images/springs/26375e06.EAAOriparianrandy20120801_0404_web_sm.jpg)
+url(../images/springs/Looking-Underwater_0020_web_sm.jpg) changed to url(../images/springs/cc04c228.Looking-Underwater_0020_web_sm.jpg)
+url(../images/caves_karsts/DSC_0318_web_md.jpg) changed to url(../images/caves_karsts/809b79da.DSC_0318_web_md.jpg)
+url(../images/caves_karsts/For-Doty1_1280x979_web_md.jpg) changed to url(../images/caves_karsts/e10f29aa.For-Doty1_1280x979_web_md.jpg)
+url(../images/caves_karsts/edwards-limestone_web_md.jpg) changed to url(../images/caves_karsts/75a6c5fd.edwards-limestone_web_md.jpg)
+url(../images/caves_karsts/valdina_8r_web_md.jpg) changed to url(../images/caves_karsts/ee6e6a6c.valdina_8r_web_md.jpg)
+url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_md.jpg) changed to url(../images/caves_karsts/e82eb04e.Valdina_Farms_Cave_IMG0017_web_md.jpg)
+url(../images/conservation/07Jul_PumpStation_CMYK_web_md.jpg) changed to url(../images/conservation/362c1157.07Jul_PumpStation_CMYK_web_md.jpg)
+url(../images/conservation/EAAgilleland_web_md.jpg) changed to url(../images/conservation/1301a7be.EAAgilleland_web_md.jpg)
+url(../images/conservation/05May_MartinMarietta_CMYK_web_md.jpg) changed to url(../images/conservation/52c94de5.05May_MartinMarietta_CMYK_web_md.jpg)
+url(../images/conservation/DSC4705_md.jpg) changed to url(../images/conservation/316b6149.DSC4705_md.jpg)
+url(../images/conservation/EAAOborny20120710_md.jpg) changed to url(../images/conservation/89c272dc.EAAOborny20120710_md.jpg)
+url(../images/conservation/HIGH-RESOLUTION-BOARD_md.jpg) changed to url(../images/conservation/b05d82c7.HIGH-RESOLUTION-BOARD_md.jpg)
+url(../images/conservation/Melani-Howard20120502_md.jpg) changed to url(../images/conservation/5c79b423.Melani-Howard20120502_md.jpg)
+url(../images/springs/aerial_view_web_md.jpg) changed to url(../images/springs/af60de2c.aerial_view_web_md.jpg)
+url(../images/springs/EAAaquarena20120702_8316_web_md.jpg) changed to url(../images/springs/22aa0899.EAAaquarena20120702_8316_web_md.jpg)
+url(../images/springs/EAArice20120503_3620_web_md.jpg) changed to url(../images/springs/320feee2.EAArice20120503_3620_web_md.jpg)
+url(../images/springs/EAAOriparianrandy20120801_0404_web_md.jpg) changed to url(../images/springs/f6b79d3a.EAAOriparianrandy20120801_0404_web_md.jpg)
+url(../images/springs/Looking-Underwater_0020_web_md.jpg) changed to url(../images/springs/66fe08c4.Looking-Underwater_0020_web_md.jpg)
+url(../images/caves_karsts/DSC_0318_web_lg.jpg) changed to url(../images/caves_karsts/3f5e7b71.DSC_0318_web_lg.jpg)
+url(../images/caves_karsts/For-Doty1_1280x979_web_lg.jpg) changed to url(../images/caves_karsts/27f00b4f.For-Doty1_1280x979_web_lg.jpg)
+url(../images/caves_karsts/edwards-limestone_web_lg.jpg) changed to url(../images/caves_karsts/89df2d89.edwards-limestone_web_lg.jpg)
+url(../images/caves_karsts/valdina_8r_web_lg.jpg) changed to url(../images/caves_karsts/27d04801.valdina_8r_web_lg.jpg)
+url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_lg.jpg) changed to url(../images/caves_karsts/fe4bbfa4.Valdina_Farms_Cave_IMG0017_web_lg.jpg)
+url(../images/conservation/07Jul_PumpStation_CMYK_web_lg.jpg) changed to url(../images/conservation/a4238414.07Jul_PumpStation_CMYK_web_lg.jpg)
+url(../images/conservation/EAAgilleland_web_lg.jpg) changed to url(../images/conservation/45b86238.EAAgilleland_web_lg.jpg)
+url(../images/conservation/05May_MartinMarietta_CMYK_web_lg.jpg) changed to url(../images/conservation/dd0c2682.05May_MartinMarietta_CMYK_web_lg.jpg)
+url(../images/conservation/DSC4705_lg.jpg) changed to url(../images/conservation/03cdee19.DSC4705_lg.jpg)
+url(../images/conservation/EAAOborny20120710_lg.jpg) changed to url(../images/conservation/7f33a877.EAAOborny20120710_lg.jpg)
+url(../images/conservation/HIGH-RESOLUTION-BOARD_lg.jpg) changed to url(../images/conservation/5e27cee0.HIGH-RESOLUTION-BOARD_lg.jpg)
+url(../images/conservation/Melani-Howard20120502_lg.jpg) changed to url(../images/conservation/38292b80.Melani-Howard20120502_lg.jpg)
+url(../images/springs/aerial_view_web_lg.jpg) changed to url(../images/springs/ee5e3643.aerial_view_web_lg.jpg)
+url(../images/springs/EAAaquarena20120702_8316_web_lg.jpg) changed to url(../images/springs/43b110d7.EAAaquarena20120702_8316_web_lg.jpg)
+url(../images/springs/EAArice20120503_3620_web_lg.jpg) changed to url(../images/springs/caf6b3dd.EAArice20120503_3620_web_lg.jpg)
+url(../images/springs/EAAOriparianrandy20120801_0404_web_lg.jpg) changed to url(../images/springs/879f460e.EAAOriparianrandy20120801_0404_web_lg.jpg)
+url(../images/springs/Looking-Underwater_0020_web_lg.jpg) changed to url(../images/springs/4f382468.Looking-Underwater_0020_web_lg.jpg)
+url(../images/caves_karsts/DSC_0318_web_xlg.jpg) changed to url(../images/caves_karsts/aa596eb9.DSC_0318_web_xlg.jpg)
+url(../images/caves_karsts/For-Doty1_1280x979_web_xlg.jpg) changed to url(../images/caves_karsts/de69e371.For-Doty1_1280x979_web_xlg.jpg)
+url(../images/caves_karsts/edwards-limestone_web_xlg.jpg) changed to url(../images/caves_karsts/bf5defe9.edwards-limestone_web_xlg.jpg)
+url(../images/caves_karsts/valdina_8r_web_xlg.jpg) changed to url(../images/caves_karsts/27d04801.valdina_8r_web_xlg.jpg)
+url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_xlg.jpg) changed to url(../images/caves_karsts/d869a0a2.Valdina_Farms_Cave_IMG0017_web_xlg.jpg)
+url(../images/conservation/07Jul_PumpStation_CMYK_web_xlg.jpg) changed to url(../images/conservation/e6e48819.07Jul_PumpStation_CMYK_web_xlg.jpg)
+url(../images/conservation/EAAgilleland_web_xlg.jpg) changed to url(../images/conservation/52895f8b.EAAgilleland_web_xlg.jpg)
+url(../images/conservation/05May_MartinMarietta_CMYK_web_xlg.jpg) changed to url(../images/conservation/f7e80666.05May_MartinMarietta_CMYK_web_xlg.jpg)
+url(../images/conservation/DSC4705_xlg.jpg) changed to url(../images/conservation/259e9791.DSC4705_xlg.jpg)
+url(../images/conservation/EAAOborny20120710_xlg.jpg) changed to url(../images/conservation/d0391c52.EAAOborny20120710_xlg.jpg)
+url(../images/conservation/HIGH-RESOLUTION-BOARD_xlg.jpg) changed to url(../images/conservation/acbd4906.HIGH-RESOLUTION-BOARD_xlg.jpg)
+url(../images/conservation/Melani-Howard20120502_xlg.jpg) changed to url(../images/conservation/20e80f2c.Melani-Howard20120502_xlg.jpg)
+url(../images/springs/aerial_view_web_xlg.jpg) changed to url(../images/springs/ee5e3643.aerial_view_web_xlg.jpg)
+url(../images/springs/EAAaquarena20120702_8316_web_xlg.jpg) changed to url(../images/springs/b0e7161a.EAAaquarena20120702_8316_web_xlg.jpg)
+url(../images/springs/EAArice20120503_3620_web_xlg.jpg) changed to url(../images/springs/638c8458.EAArice20120503_3620_web_xlg.jpg)
+url(../images/springs/EAAOriparianrandy20120801_0404_web_xlg.jpg) changed to url(../images/springs/6b5b958d.EAAOriparianrandy20120801_0404_web_xlg.jpg)
+url(../images/springs/Looking-Underwater_0020_web_xlg.jpg) changed to url(../images/springs/ce92bd22.Looking-Underwater_0020_web_xlg.jpg)
+url(../images/caves_karsts/DSC_0318_web_hd.jpg) changed to url(../images/caves_karsts/1209b98b.DSC_0318_web_hd.jpg)
+url(../images/caves_karsts/For-Doty1_1280x979_web_hd.jpg) changed to url(../images/caves_karsts/9adaed8f.For-Doty1_1280x979_web_hd.jpg)
+url(../images/caves_karsts/edwards-limestone_web_hd.jpg) changed to url(../images/caves_karsts/3b0b3805.edwards-limestone_web_hd.jpg)
+url(../images/caves_karsts/valdina_8r_web_hd.jpg) changed to url(../images/caves_karsts/27d04801.valdina_8r_web_hd.jpg)
+url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_hd.jpg) changed to url(../images/caves_karsts/a8324a9a.Valdina_Farms_Cave_IMG0017_web_hd.jpg)
+url(../images/conservation/07Jul_PumpStation_CMYK_web_hd.jpg) changed to url(../images/conservation/e6e48819.07Jul_PumpStation_CMYK_web_hd.jpg)
+url(../images/conservation/EAAgilleland_web_hd.jpg) changed to url(../images/conservation/2a9423c6.EAAgilleland_web_hd.jpg)
+url(../images/conservation/05May_MartinMarietta_CMYK_web_hd.jpg) changed to url(../images/conservation/f7e80666.05May_MartinMarietta_CMYK_web_hd.jpg)
+url(../images/conservation/DSC4705_hd.jpg) changed to url(../images/conservation/9da7109c.DSC4705_hd.jpg)
+url(../images/conservation/EAAOborny20120710_hd.jpg) changed to url(../images/conservation/084d4435.EAAOborny20120710_hd.jpg)
+url(../images/conservation/HIGH-RESOLUTION-BOARD_hd.jpg) changed to url(../images/conservation/c61e2e9d.HIGH-RESOLUTION-BOARD_hd.jpg)
+url(../images/conservation/Melani-Howard20120502_hd.jpg) changed to url(../images/conservation/7408b3ce.Melani-Howard20120502_hd.jpg)
+url(../images/springs/aerial_view_web_hd.jpg) changed to url(../images/springs/ee5e3643.aerial_view_web_hd.jpg)
+url(../images/springs/EAAaquarena20120702_8316_web_hd.jpg) changed to url(../images/springs/4c779d21.EAAaquarena20120702_8316_web_hd.jpg)
+url(../images/springs/EAArice20120503_3620_web_hd.jpg) changed to url(../images/springs/04269202.EAArice20120503_3620_web_hd.jpg)
+url(../images/springs/EAAOriparianrandy20120801_0404_web_hd.jpg) changed to url(../images/springs/582c8d22.EAAOriparianrandy20120801_0404_web_hd.jpg)
+url(../images/springs/Looking-Underwater_0020_web_hd.jpg) changed to url(../images/springs/c3fe2849.Looking-Underwater_0020_web_hd.jpg)
+
+[1mProcessing as CSS - dist/styles/bdd7c016.vendor.css[22m
+Update the CSS to reference our revved images
+
+[4mRunning "htmlmin:dist" (htmlmin) task[24m
+File dist/404.html created.
+File dist/index.html created.
+File dist/views/about.html created.
+File dist/views/caves-karsts.html created.
+File dist/views/conservation.html created.
+File dist/views/contact.html created.
+File dist/views/explore.html created.
+File dist/views/springs.html created.
+
+[32mDone, without errors.[39m
+
+
+Execution Time (2014-08-19 23:17:41 UTC)
+concurrent:dist   12.2s  ■■■■■■■■ 17%
+ngmin:dist          39s  ■■■■■■■■■■■■■■■■■■■■■■■■ 54%
+uglify:generated  10.6s  ■■■■■■■ 15%
+rev:dist           5.6s  ■■■■ 8%
+usemin:html        1.7s  ■■ 2%
+usemin:css        969ms  ■ 1%
+Total 72.2s

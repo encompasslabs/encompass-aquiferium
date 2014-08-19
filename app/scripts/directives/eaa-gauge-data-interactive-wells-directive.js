@@ -43,7 +43,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
 
       var graphWidth = vizWidth;
       var graphHeight = vizHeight * 0.4;
-      var graphLeftOffset = graphWidth*0.05;
+      var graphLeftOffset = vizWidth * 0.05;
 
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var markersSource = '../../data/wells-markerData.csv';
@@ -106,17 +106,13 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         });
       };
 
-      var defineInteractionRange = function() {
+      var defineInteractionRange = function () {
         xPosRange = [graphLeftOffset, graphWidth*0.95];
-        // console.log(xPosRange);
         xNumericRange = xPosRange[1] - xPosRange[0];
-        // console.log('the numeric range is: ' + xNumericRange);
         xMinDate = dateRange.min();
         xMaxDate = dateRange.max();
         dateDelta = xMaxDate - xMinDate;
-        // console.log(dateDelta);
         posYear = xNumericRange / dateDelta;
-        // console.log(posYear);
         setDisplayDate(xMaxDate);
       };
 
@@ -125,20 +121,21 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         var vals = Object.keys(dataSet).map(function (key) {
           return dataSet[key];
         });
-
-        // Need to loop through all text elements with class data-value-# under the svg element with class legend-item.
+        // Loop through all elements with class legend-item under the legend element.
         var dataLabelArray = d3.select('.legend').selectAll('.legend-item').selectAll('text');
-
-        // console.log(targetIndex);
-        // console.log(ingestedData);
-        // console.log(dataSet);
-        // console.log(vals);
         // console.log(dataLabelArray[0][1]); // THIS ONE!!!
-
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
           var dataIndexOffset = j + 1;
-          d3.select(dataLabelArray[j][1]).text(vals[dataIndexOffset]);
+          d3.select(dataLabelArray[j][1]).text( function() {
+            var thisValue = vals[dataIndexOffset].toString();
+
+            if (thisValue == 'NaN') {
+              return 'Data Missing';
+            } else {
+              return thisValue;
+            }
+          });
         }
       };
 
@@ -152,35 +149,37 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       };
 
       var deriveDate = function (xPos) {
-        // console.log('deriveDate using: ' + xPos);
+        var indicatorLine = d3.select('.indicator-line');
+
         if (xPos < xPosRange[0]) {
           setDisplayDate(xMinDate);
-        } else if (xPos > xPosRange[1]) {
+          indicatorLine.style('visibility', 'hidden');
+        } else if (xPos > xPosRange[1]) { 
           setDisplayDate(xMaxDate);
+          indicatorLine.style('visibility', 'hidden');
         } else {
           var normalizedX = xPos - xPosRange[0];
           var yearIndex = normalizedX / posYear;
-          // console.log(Math.round(yearIndex));
           var currentDate = xMinDate + yearIndex;
           setDisplayDate(currentDate);
           setDisplayData(Math.round(yearIndex));
+          indicatorLine.style('visibility', 'visible');
+          updateIndicatorLine(xPos);
         }
       };
 
-      function overGauge (d) {
-        // console.log('over gauge: ', d.name);
-        this.parentNode.parentNode.appendChild(this.parentNode);
-        d3.select(this).style('stroke-width', '6px');
-      }
+      var updateIndicatorLine = function (xPos) {
+        var indicatorLine = d3.select('.indicator-line');
+        var gBounds = d3.select('.graph-bounds');
+        var y1Pos = gBounds[0][0].clientHeight * 0.1;
+        var y2Pos = gBounds[0][0].clientHeight * 0.885;
 
-      function outGauge (d) {
-        // console.log('out gauge: ', d.name);
-        d3.select(this).style('stroke-width', '2px');
-      }
+        indicatorLine.attr('x1', xPos).attr('y1', y1Pos).attr('x2', xPos).attr('y2', y2Pos);
+      };
 
-      function onTargetClick (target) {
+      var onTargetClick = function (target) {
         console.log(target.properties.Name);
-      }
+      };
 
       // VIZ - BASE.
       var el = element[0];
@@ -292,7 +291,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         var gauge = graphBounds.selectAll('.gauge')
           .data(gauges)
           .enter().append('g')
-          .attr('class', function (gauges) { return gauges.name; });
+          .attr('class', 'gauge-data');
             
         gauge.append('path')
           .attr('class', 'line')
@@ -314,6 +313,8 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           .enter().append('circle')
           .attr({ cx: function (d) { return x(d.date); }, cy: function (d) { return y(d.gindex); }, r: 2 })
           .style('fill', '#555');
+
+        var indicatorLine = graphBounds.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 0).attr('stroke-width', 1).attr('stroke', 'rgba(50,50,50,0.9)').attr('class', 'indicator-line');
         
         // LEGEND.
         var legend = dataDisplay.append('div').attr('class','legend legend-wells').attr('transform', 'translate(-180,30)');
@@ -336,7 +337,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
 
         var dataValue = legendItem.append('text')
           .attr('x', 280)
-          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset;})
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('')
           .attr('class', 'data-value');
 

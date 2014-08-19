@@ -38,12 +38,12 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       var dataDisplayWidth = vizWidth * 0.4;
       var dataDisplayHeight = vizHeight * 0.4;
 
-      var mapWidth = vizWidth; //vizWidth * 0.9;
-      var mapHeight = vizHeight * 0.4;
+      var mapWidth = vizWidth;
+      var mapHeight = vizHeight * 0.35;
 
-      var graphWidth = vizWidth; //vizWidth * 0.9;
+      var graphWidth = vizWidth;
       var graphHeight = vizHeight * 0.4;
-      var graphLeftOffset = graphWidth*0.05;
+      var graphLeftOffset = vizWidth * 0.05;
 
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var markersSource = '../../data/springs-markerData.csv';
@@ -62,7 +62,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       var dataKey = d3.scale.ordinal();
       var parseDate = d3.time.format('%Y');
 
-      var x = d3.time.scale().range([graphLeftOffset, graphWidth*0.85]);
+      var x = d3.time.scale().range([graphLeftOffset, graphWidth*0.95]);
       var y = d3.scale.linear().range([graphHeight-50, 50]);
 
       var xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(20);
@@ -106,17 +106,13 @@ angular.module('eaa.directives.d3.interactive.springs', [])
         });
       };
 
-      var defineInteractionRange = function() {
+      var defineInteractionRange = function () {
         xPosRange = [graphLeftOffset, graphWidth*0.95];
-        // console.log(xPosRange);
         xNumericRange = xPosRange[1] - xPosRange[0];
-        // console.log('the numeric range is: ' + xNumericRange);
         xMinDate = dateRange.min();
         xMaxDate = dateRange.max();
         dateDelta = xMaxDate - xMinDate;
-        // console.log(dateDelta);
         posYear = xNumericRange / dateDelta;
-        // console.log(posYear);
         setDisplayDate(xMaxDate);
       };
 
@@ -125,20 +121,21 @@ angular.module('eaa.directives.d3.interactive.springs', [])
         var vals = Object.keys(dataSet).map(function (key) {
           return dataSet[key];
         });
-
-        // Need to loop through all text elements with class data-value-# under the svg element with class legend-item.
+        // Loop through all elements with class legend-item under the legend element.
         var dataLabelArray = d3.select('.legend').selectAll('.legend-item').selectAll('text');
-
-        // console.log(targetIndex);
-        // console.log(ingestedData);
-        // console.log(dataSet);
-        // console.log(vals);
         // console.log(dataLabelArray[0][1]); // THIS ONE!!!
-
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
           var dataIndexOffset = j + 1;
-          d3.select(dataLabelArray[j][1]).text(vals[dataIndexOffset]);
+          d3.select(dataLabelArray[j][1]).text( function() {
+            var thisValue = vals[dataIndexOffset].toString();
+
+            if (thisValue == 'NaN') {
+              return 'Data Missing';
+            } else {
+              return thisValue;
+            }
+          });
         }
       };
 
@@ -152,35 +149,37 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       };
 
       var deriveDate = function (xPos) {
-        // console.log('deriveDate using: ' + xPos);
+        var indicatorLine = d3.select('.indicator-line');
+
         if (xPos < xPosRange[0]) {
           setDisplayDate(xMinDate);
-        } else if (xPos > xPosRange[1]) {
+          indicatorLine.style('visibility', 'hidden');
+        } else if (xPos > xPosRange[1]) { 
           setDisplayDate(xMaxDate);
+          indicatorLine.style('visibility', 'hidden');
         } else {
           var normalizedX = xPos - xPosRange[0];
           var yearIndex = normalizedX / posYear;
-          // console.log(Math.round(yearIndex));
           var currentDate = xMinDate + yearIndex;
           setDisplayDate(currentDate);
           setDisplayData(Math.round(yearIndex));
+          indicatorLine.style('visibility', 'visible');
+          updateIndicatorLine(xPos);
         }
       };
 
-      function overGauge (d) {
-        // console.log('over gauge: ', d.name);
-        this.parentNode.parentNode.appendChild(this.parentNode);
-        d3.select(this).style('stroke-width', '6px');
-      }
+      var updateIndicatorLine = function (xPos) {
+        var indicatorLine = d3.select('.indicator-line');
+        var gBounds = d3.select('.graph-bounds');
+        var y1Pos = gBounds[0][0].clientHeight * 0.15;
+        var y2Pos = gBounds[0][0].clientHeight * 0.885;
 
-      function outGauge (d) {
-        // console.log('out gauge: ', d.name);
-        d3.select(this).style('stroke-width', '2px');
-      }
+        indicatorLine.attr('x1', xPos).attr('y1', y1Pos).attr('x2', xPos).attr('y2', y2Pos);
+      };
 
-      function onTargetClick (target) {
+      var onTargetClick = function (target) {
         console.log(target.properties.Name);
-      }
+      };
 
       // VIZ - BASE.
       var el = element[0];
@@ -242,9 +241,9 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       });
 
       // CHART.
-      d3.csv(dataSource, function(error, data) {
+      d3.csv(dataSource, function (error, data) {
 
-        data.forEach(function(d) {
+        data.forEach(function (d) {
           dateRange.push(parseInt(d.Date));
           d.Date = parseDate.parse(d.Date);
           d['Barton Springs'] = +d['Barton Springs'];
@@ -261,10 +260,10 @@ angular.module('eaa.directives.d3.interactive.springs', [])
 
         dataKey.domain(d3.keys(data[0]).filter(function (key) { return key !== 'Date'; }));
 
-        var gauges = dataKey.domain().map(function(name) {
+        var gauges = dataKey.domain().map(function (name) {
           return {
             name: name,
-            values: data.map(function(d) {
+            values: data.map(function (d) {
               return { date: d.Date, gindex: +d[name] };
             })
           };
@@ -298,7 +297,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
         var gauge = graphBounds.selectAll('.gauge')
           .data(gauges)
           .enter().append('g')
-          .attr('class', function (gauges) { return gauges.name; });
+          .attr('class', 'gauge-data');
             
         gauge.append('path')
           .attr('class', 'line')
@@ -306,11 +305,10 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             return line(d.values);
           })
           .style('stroke', function (d) { return color(d.name); })
-          .attr('id', function(d) { return d.name; });
+          .attr('id', function (d) { return d.name; });
 
         // Filter data points by gauge.
-        var filtered = gauge
-          .filter(function(d){
+        var filtered = gauge.filter(function (d) {
             // console.log(d.name);
             // return d.name == 'J27';
             // return d.values.gindex !== NaN;
@@ -322,27 +320,30 @@ angular.module('eaa.directives.d3.interactive.springs', [])
           .attr({ cx: function (d) { return x(d.date); }, cy: function (d) { return y(d.gindex); }, r: 2 })
           .style('fill', '#555');
 
+        var indicatorLine = graphBounds.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 0).attr('stroke-width', 1).attr('stroke', 'rgba(50,50,50,0.9)').attr('class', 'indicator-line');
+
         // LEGEND.
-        var legend = dataDisplay.append('g').attr('class','legend legend-springs').attr('transform', 'translate(-180,30)');
+        var legend = dataDisplay.append('div').attr('class','legend legend-springs').attr('transform', 'translate(-180,30)');
         var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item');
           
         var box = legendItem.append('rect')
           .attr('x', 0)
-          .attr('y', function (d, i) { return i *  legendVertSpacingFactor; })
+          .attr('y', function (d, i) { return i * legendVertSpacingFactor; })
           .attr('width', legendBoxDimensions)
           .attr('height', legendBoxDimensions)
+          .attr('class', 'legend-box')
           .style('fill', function (d) {
             return color(d.name);
           });
             
         var label = legendItem.append('text')
           .attr('x', 30)
-          .attr('y', function (d, i) { return (i *  legendVertSpacingFactor) + legendVertOffset; })
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text(function (d) { return d.name; });
         
         var dataValue = legendItem.append('text')
           .attr('x', 280)
-          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset;})
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('')
           .attr('class', 'data-value');
 

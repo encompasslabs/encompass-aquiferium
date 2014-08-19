@@ -4,7 +4,9 @@
 }
 .viz {
   margin-left, margin-right: auto;
+  cursor: default;
 }
+
 /* Data Display */
 .data-display {
   z-index: 100;
@@ -22,7 +24,7 @@
 .legend {
   z-index: 200;
   position: absolute;
-  cursor: default;
+  width: 26rem;
   left:1rem;
   top: 11rem;
   margin-top: 1rem;
@@ -31,7 +33,7 @@
   background-color: rgba(100, 100, 100, 0.2);
   /*border-top-right-radius: 4em;*/
   /*border-bottom-left-radius: 4em;*/
-  /*border-radius: 2em;*/
+  border-radius: 8px;
   border: 1px solid #000;
   padding: 1rem;
 }
@@ -43,31 +45,25 @@
   border: 1px solid #000;
 }
 .legend-recharge {
-  width: 26rem;
   height: 1rem;
 }
 .legend-wells {
-  width: 26rem;
   height: 5.5rem;
 }
 .legend-springs {
-  width: 26rem;
   height: 17.5rem;
 }
 
 /* Map */
 .geo-bounds {
-  margin-left: 8rem;
+  margin-left: 12rem;
   margin-top: 2rem;
 }
 .geo-bounds.recharge {
-
 }
 .geo-bounds.wells {
-  
 }
 .geo-bounds.springs {
-  margin-left: 12rem;
 }
 .subunit {
   stroke: rgba(0,0,0,1);
@@ -100,10 +96,14 @@
 
 /* Line Graph */
 .graph-bounds {
+  position: absolute;
+  bottom: 1em;
   font-size: .7rem;
 }
 .chart {
   font-size: .7rem;
+}
+.axis {
 }
 .axis path,
 .axis line {
@@ -121,6 +121,10 @@
   fill: none;
   stroke-width: 2px;
 }
+.indicator-line {
+  z-index: 50;
+  visibility: hidden;
+}
 .chart-subtext {
   margin-top: 1rem;
   margin-left: 3rem;
@@ -131,8 +135,8 @@
 .graph-notes {
   z-index: 200;
   position: absolute;
-  bottom: 3em;
-  left: 5em;
+  bottom: 1.2em;
+  right: 5em;
   color: #555;
   font-size: 0.6rem;
   font-style: italic;

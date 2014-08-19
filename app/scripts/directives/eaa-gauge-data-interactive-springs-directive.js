@@ -2,8 +2,6 @@
 
 angular.module('eaa.directives.d3.interactive.springs', [])
   .directive('eaaGaugeDataInteractiveSprings', [function() {
-    // console.log('eaaAquifersBoundaryMap directive initialized.');
-    // generic directiveDefinitionObject config.
     var directiveDefinitionObject = {
       compile: false,
       controller: function($scope) {
@@ -31,11 +29,14 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       var e = d.documentElement;
       var g = d.getElementsByTagName('body')[0];
       var width = w.innerWidth || e.clientWidth || g.clientWidth;
-      var height = w.innerHeight || e.clientHeight || g.clientHeight;
+      var height = width * 0.9; // w.innerHeight || e.clientHeight || g.clientHeight;
 
-      var vizMargin = {top: 0, right: 20, bottom: 0, left: 20};
+      var vizMargin = {top: 0, right: 0, bottom: 0, left: 0};
       var vizWidth = width - vizMargin.left - vizMargin.right;
       var vizHeight = height - vizMargin.top - vizMargin.bottom;
+
+      var dataDisplayWidth = vizWidth * 0.4;
+      var dataDisplayHeight = vizHeight * 0.4;
 
       var mapWidth = vizWidth; //vizWidth * 0.9;
       var mapHeight = vizHeight * 0.4;
@@ -47,16 +48,15 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var markersSource = '../../data/springs-markerData.csv';
       var dataSource = '../../data/springs-annualAvg-byDate.csv';
+      var ingestedData = {};
 
-      // var tooltipHorOffset = 20;
-      // var tooltipVertOffset = 190;
       var markerRadius = 5;
-      // var markerRadiusSelected = 20;
-      // var markerStrokeAnimationSpeed = 250;
+      var mapLabels = [];
+      var mapLabelsLength = mapLabels.length;
 
-      // var lastClickTarget = {};
-      // var newSelection = {};
-      // var oldSelection = {};
+      var legendBoxDimensions = 20;
+      var legendVertSpacingFactor = 1;
+      var legendVertOffset = legendBoxDimensions * 0.8;
 
       var color = d3.scale.category10().domain(['Barton Springs', 'Comal Springs', 'Hueco Springs', 'J17', 'J27', 'Las Moras Springs', 'Leona Springs', 'San Antonio Springs', 'San Marcos Springs', 'San Pedro Springs']);
       var dataKey = d3.scale.ordinal();
@@ -68,51 +68,29 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       var xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(20);
       var yAxis = d3.svg.axis().scale(y).orient('left').ticks(10);
 
-      var el = element[0];
-      var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
-
-      var dataDisplay = viz.append('div').attr('class','data-display');
-      dataDisplay.append('text').attr('class','year-display').text('YYYY');
-      dataDisplay.append('br');
-      dataDisplay.append('text').attr('class','springs-value-display').text('value: TBD');
-      dataDisplay.append('br');
-      dataDisplay.append('text').attr('class','springs-value-display').text('value: TBD');
-      dataDisplay.append('br');
-      dataDisplay.append('text').attr('class','springs-value-display').text('value: TBD');
-      dataDisplay.append('br');
-      dataDisplay.append('text').attr('class','springs-value-display').text('value: TBD');
-      dataDisplay.append('br');
-      dataDisplay.append('text').attr('class','springs-value-display').text('value: TBD');
-      dataDisplay.append('br');
-      dataDisplay.append('text').attr('class','springs-value-display').text('value: TBD');
-      dataDisplay.append('br');
-      dataDisplay.append('text').attr('class','springs-value-display').text('value: TBD');
-      dataDisplay.append('br');
-      dataDisplay.append('text').attr('class','springs-value-display').text('value: TBD');
-
-      var map = viz.append('div').attr('class', 'map');
-      var mapSvg = map.append('svg').attr('class', 'mapSvg')
-        .attr('width', mapWidth)
-        .attr('height', mapHeight);
-
-      var geoBounds = mapSvg.append('g').attr('class', 'geoBounds');
-      geoBounds.attr('transform', 'translate(200,40)');
-
-      var chart = viz.append('div').attr('class', 'chart');
-      var chartSvg = chart.append('svg').attr('class', 'chartSvg')
-        .attr('width', graphWidth)
-        .attr('height', graphHeight);
-
-      var graphBounds = chartSvg.append('g').attr('class', 'graphbounds');
-      graphBounds.attr('transform', 'translate(0,0)');
-
-      var line = d3.svg.line()
-        .interpolate('monotone') // basis, basis-open, basis-closed, linear, step, step-before, step-after, bundle, cardinal, cardinal-open, cardinal-closed, monotone 
-        .x(function (d) { return x(d.date); })
-        .y(function (d) { return y(d.gindex); })
-        .defined(function (d) { return d.gindex; });
+      var xPosRange = [];
+      var xNumericRange = 0;
+      var dateRange = [];
+      var xMinDate = 0;
+      var xMaxDate = 0;
+      var dateDelta = 0;
+      var posYear = 0;
 
       // METHODS.
+      Array.prototype.max = function() {
+        var max = this[0];
+        var len = this.length;
+        for (var i = 1; i < len; i++) if (this[i] > max) max = this[i];
+        return max;
+      }
+
+      Array.prototype.min = function() {
+        var min = this[0];
+        var len = this.length;
+        for (var i = 1; i < len; i++) if (this[i] < min) min = this[i];
+        return min;
+      }
+
       d3.selection.prototype.moveToFront = function () {
         return this.each(function () {
           this.parentNode.appendChild(this);
@@ -128,22 +106,106 @@ angular.module('eaa.directives.d3.interactive.springs', [])
         });
       };
 
+      var defineInteractionRange = function() {
+        xPosRange = [graphLeftOffset, graphWidth*0.95];
+        // console.log(xPosRange);
+        xNumericRange = xPosRange[1] - xPosRange[0];
+        // console.log('the numeric range is: ' + xNumericRange);
+        xMinDate = dateRange.min();
+        xMaxDate = dateRange.max();
+        dateDelta = xMaxDate - xMinDate;
+        // console.log(dateDelta);
+        posYear = xNumericRange / dateDelta;
+        // console.log(posYear);
+        setDisplayDate(xMaxDate);
+      };
+
+      var setDisplayData = function (targetIndex) {
+        var dataSet = ingestedData[targetIndex];        
+        var vals = Object.keys(dataSet).map(function (key) {
+          return dataSet[key];
+        });
+
+        // Need to loop through all text elements with class data-value-# under the svg element with class legend-item.
+        var dataLabelArray = d3.select('.legend').selectAll('.legend-item').selectAll('text');
+
+        // console.log(targetIndex);
+        // console.log(ingestedData);
+        // console.log(dataSet);
+        // console.log(vals);
+        // console.log(dataLabelArray[0][1]); // THIS ONE!!!
+
+        // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
+        for (var j=0; j < dataLabelArray.length; j++) {
+          var dataIndexOffset = j + 1;
+          d3.select(dataLabelArray[j][1]).text(vals[dataIndexOffset]);
+        }
+      };
+
+      var setDisplayDate = function (targetDate) {
+        d3.select('.year-display').text(Math.round(targetDate));
+      };
+
+      var mouseOverGraph = function (event) {
+        var position = d3.mouse(this);
+        deriveDate(position[0]);
+      };
+
+      var deriveDate = function (xPos) {
+        // console.log('deriveDate using: ' + xPos);
+        if (xPos < xPosRange[0]) {
+          setDisplayDate(xMinDate);
+        } else if (xPos > xPosRange[1]) {
+          setDisplayDate(xMaxDate);
+        } else {
+          var normalizedX = xPos - xPosRange[0];
+          var yearIndex = normalizedX / posYear;
+          // console.log(Math.round(yearIndex));
+          var currentDate = xMinDate + yearIndex;
+          setDisplayDate(currentDate);
+          setDisplayData(Math.round(yearIndex));
+        }
+      };
+
       function overGauge (d) {
-        console.log('over gauge: ', d.name);
+        // console.log('over gauge: ', d.name);
         this.parentNode.parentNode.appendChild(this.parentNode);
         d3.select(this).style('stroke-width', '6px');
       }
 
       function outGauge (d) {
-        console.log('out gauge: ', d.name);
+        // console.log('out gauge: ', d.name);
         d3.select(this).style('stroke-width', '2px');
       }
 
       function onTargetClick (target) {
-        console.log(d3.select(target)[0][0].Location);
+        console.log(target.properties.Name);
       }
 
-      // VIZ - MAP.
+      // VIZ - BASE.
+      var el = element[0];
+      var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
+      viz.on('mousemove', mouseOverGraph);
+
+      var dataDisplay = viz.append('div').attr('class','data-display');
+      dataDisplay.append('text').attr('class','year-display').text('');
+      
+      var geoBounds = viz.append('svg').attr('class', 'geo-bounds springs')
+        .attr('width', mapWidth)
+        .attr('height', mapHeight);
+
+      var graphBounds = viz.append('svg').attr('class', 'graph-bounds')
+        .attr('width', graphWidth)
+        .attr('height', graphHeight);
+
+      // interpolate options: basis, basis-open, basis-closed, linear, step, step-before, step-after, bundle, cardinal, cardinal-open, cardinal-closed, monotone;
+      var line = d3.svg.line()
+        .interpolate('monotone')
+        .x(function (d) { return x(d.date); })
+        .y(function (d) { return y(d.gindex); })
+        .defined(function (d) { return d.gindex; });
+
+      // MAP.
       d3.json(boundariesSource, function (error, boundariesData) {
         if (error) {
           return console.error(error);
@@ -164,7 +226,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             return console.error(error);
           }
           eaaMarkers.selectAll('circle').data(data).enter().append('circle')
-            .attr('class', function (d) { /*console.log(d['Location']);*/ return d.Location; })
+            .attr('class', function (d) { return d.Location; })
             .attr('cx', function (d) {
               return projection([d.lon_ddd, d.lat_ddd])[0];
             })
@@ -179,10 +241,11 @@ angular.module('eaa.directives.d3.interactive.springs', [])
         });
       });
 
-      // VIZ - CHART.
+      // CHART.
       d3.csv(dataSource, function(error, data) {
 
         data.forEach(function(d) {
+          dateRange.push(parseInt(d.Date));
           d.Date = parseDate.parse(d.Date);
           d['Barton Springs'] = +d['Barton Springs'];
           d['Comal Springs'] = +d['Comal Springs'];
@@ -193,6 +256,8 @@ angular.module('eaa.directives.d3.interactive.springs', [])
           d['San Marcos Springs'] = +d['San Marcos Springs'];
           d['San Pedro Springs'] = +d['San Pedro Springs'];
         });
+
+        ingestedData = data;
 
         dataKey.domain(d3.keys(data[0]).filter(function (key) { return key !== 'Date'; }));
 
@@ -206,6 +271,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
         });
 
         x.domain(d3.extent(data, function (d) { return d.Date; }));
+
         y.domain([
           d3.min(gauges, function (c) { return d3.min(c.values, function (v) { return v.gindex; }); }),
           d3.max(gauges, function (c) { return d3.max(c.values, function (v) { return v.gindex; }); })
@@ -213,11 +279,13 @@ angular.module('eaa.directives.d3.interactive.springs', [])
 
         graphBounds.append('g')
           .attr('class', 'x axis')
+          .attr('id', 'xAxis')
           .attr('transform', 'translate(0,' + (graphHeight - 50) + ')')
           .call(xAxis);
 
         graphBounds.append('g')
           .attr('class', 'y axis')
+          .attr('id', 'yAxis')
           .attr('transform', 'translate(' + graphLeftOffset + ',0)')
           .call(yAxis)
           .append('text')
@@ -238,12 +306,10 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             return line(d.values);
           })
           .style('stroke', function (d) { return color(d.name); })
-          .on('mouseover', overGauge)
-          .on('mouseout', outGauge)
           .attr('id', function(d) { return d.name; });
 
+        // Filter data points by gauge.
         var filtered = gauge
-          // Filter data points by gauge.
           .filter(function(d){
             // console.log(d.name);
             // return d.name == 'J27';
@@ -251,59 +317,41 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             // return d.name === 'Barton Springs' || 'Comal Springs' || 'Hueco Springs' || 'J17' || 'J27' || 'Las Moras Springs' || 'Leona Springs' || 'San Antonio Springs' || 'San Marcos Springs' || 'San Pedro Springs';
           })
           .selectAll('circle')
-          .data(function (d){ return d.values; })
+          .data(function (d) { return d.values; })
           .enter().append('circle')
-          .attr({ cx: function (d) { return x(d.date); }, cy: function (d){ return y(d.gindex); }, r: 2 })
+          .attr({ cx: function (d) { return x(d.date); }, cy: function (d) { return y(d.gindex); }, r: 2 })
           .style('fill', '#555');
 
-        filtered.on('mouseover', function (d) {
-          console.log(d);
-          filtered.append('text')
-            .attr({
-              x: function (d){
-                return x(d.date);
-              },
-              y: function (d){
-                return y(d.gindex);
-              },
-              dx:-3,
-              dy:'.35em',
-              'text-anchor':'end'
-            })
-            .style('fill', 'black')
-            .text( function (d) {
-              var formatDate = d3.time.format('%d-%B-%Y');
-              return 'Date:' + formatDate(d.date) + ',index:' + d.gindex;
-            }
-          );
-        })
-          .on('mouseout', function (d) {
-            console.log('mouse out: ', d);
-            d3.select(this.parentElement)
-              .selectAll('text').remove();
-          });
-
-        var legend = graphBounds.append('g').attr('class','chart-legend').attr('transform', 'translate(-180,30)')
-          .selectAll('.svg').data(gauges).enter().append('g');
+        // LEGEND.
+        var legend = dataDisplay.append('g').attr('class','legend legend-springs').attr('transform', 'translate(-180,30)');
+        var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item');
           
-        legend.append('rect')
-          .attr('x', vizWidth + 20)
-          .attr('y', function(d, i){ return i *  20;})
-          // Can reposition legend laong bottom or top of viz but will take a lot of effort to layout cleanly.
-          // .attr('x', function(d, i){ return i *  50;})
-          // .attr('y', vizHeight + 40)
-          .attr('width', 10)
-          .attr('height', 10)
-          .style('fill', function(d) {
+        var box = legendItem.append('rect')
+          .attr('x', 0)
+          .attr('y', function (d, i) { return i *  legendVertSpacingFactor; })
+          .attr('width', legendBoxDimensions)
+          .attr('height', legendBoxDimensions)
+          .style('fill', function (d) {
             return color(d.name);
           });
             
-        legend.append('text')
-          .attr('x', vizWidth + 34)
-          .attr('y', function (d, i){ return (i *  20) + 9;})
-          .text(function (d){ return d.name; })
-          .attr('color', '#000')
-          .attr('class', function (d) { return d.name/* + ' legend'*/; });
+        var label = legendItem.append('text')
+          .attr('x', 30)
+          .attr('y', function (d, i) { return (i *  legendVertSpacingFactor) + legendVertOffset; })
+          .text(function (d) { return d.name; });
+        
+        var dataValue = legendItem.append('text')
+          .attr('x', 280)
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset;})
+          .text('')
+          .attr('class', 'data-value');
+
+        // NOTE.
+        var notes = viz.append('div').attr('class','graph-notes')
+          .append('text')          
+          .text('Note: Any gaps in the data lines represent gaps in the collected data for that time period.');          
+
+        defineInteractionRange();
       });
     };
 

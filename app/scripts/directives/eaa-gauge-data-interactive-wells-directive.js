@@ -2,8 +2,6 @@
 
 angular.module('eaa.directives.d3.interactive.wells', [])
   .directive('eaaGaugeDataInteractiveWells', [function() {
-    // console.log('eaaAquifersBoundaryMap directive initialized.');
-    // generic directiveDefinitionObject config.
     var directiveDefinitionObject = {
       compile: false,
       controller: function($scope) {
@@ -192,7 +190,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var dataDisplay = viz.append('div').attr('class','data-display');
       dataDisplay.append('text').attr('class','year-display').text('');
 
-      var geoBounds = viz.append('svg').attr('class', 'geo-bounds')
+      var geoBounds = viz.append('svg').attr('class', 'geo-bounds wells')
         .attr('width', mapWidth)
         .attr('height', mapHeight);
 
@@ -228,7 +226,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
             return console.error(error);
           }
           eaaMarkers.selectAll('circle').data(data).enter().append('circle')
-            .attr('class', function (d) { /*console.log(d['Location']);*/ return d.Location; })
+            .attr('class', function (d) { return d.Location; })
             .attr('cx', function (d) {
               return projection([d.lon_ddd, d.lat_ddd])[0];
             })
@@ -314,7 +312,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           .selectAll('circle')
           .data(function (d) { return d.values; })
           .enter().append('circle')
-          .attr({ cx: function (d) { return x(d.date); }, cy: function (d){ return y(d.gindex); }, r: 2 })
+          .attr({ cx: function (d) { return x(d.date); }, cy: function (d) { return y(d.gindex); }, r: 2 })
           .style('fill', '#555');
         
         // LEGEND.
@@ -323,7 +321,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           
         var box = legendItem.append('rect')
           .attr('x', 0)
-          .attr('y', function (d, i) { return i * legendVertSpacingFactor;})
+          .attr('y', function (d, i) { return i * legendVertSpacingFactor; })
           .attr('width', legendBoxDimensions)
           .attr('height', legendBoxDimensions)
           .attr('class', 'legend-box')
@@ -333,12 +331,12 @@ angular.module('eaa.directives.d3.interactive.wells', [])
             
         var label = legendItem.append('text')
           .attr('x', 30)
-          .attr('y', function (d, i) { return (i *  legendVertSpacingFactor) + legendVertOffset;})
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text(function (d) { return d.name; });
 
         var dataValue = legendItem.append('text')
           .attr('x', 280)
-          .attr('y', function (d, i) { return (i *  legendVertSpacingFactor) + legendVertOffset;})
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset;})
           .text('')
           .attr('class', 'data-value');
 

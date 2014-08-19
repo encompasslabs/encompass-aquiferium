@@ -2,8 +2,6 @@
 
 angular.module('eaa.directives.d3.interactive.recharge', [])
   .directive('eaaGaugeDataInteractiveRecharge', [function() {
-    // console.log('eaaAquifersBoundaryMap directive initialized.');
-    // generic directiveDefinitionObject config.
     var directiveDefinitionObject = {
       compile: false,
       controller: function($scope) {
@@ -121,7 +119,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         setDisplayDate(xMaxDate);
       };
 
-      var setDisplayData = function(targetIndex) {        
+      var setDisplayData = function (targetIndex) {        
         var dataSet = ingestedData[targetIndex];        
         var vals = Object.keys(dataSet).map(function (key) {
           return dataSet[key];
@@ -143,16 +141,16 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         }
       };
 
-      var setDisplayDate = function(targetDate) {
+      var setDisplayDate = function (targetDate) {
         d3.select('.year-display').text(Math.round(targetDate));
       };
 
-      var mouseOverGraph = function(event) {
+      var mouseOverGraph = function (event) {
         var position = d3.mouse(this);
         deriveDate(position[0]);
       };
 
-      var deriveDate = function(xPos) {
+      var deriveDate = function (xPos) {
         // console.log('deriveDate using: ' + xPos);
         if (xPos < xPosRange[0]) {
           setDisplayDate(xMinDate);
@@ -191,7 +189,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var dataDisplay = viz.append('div').attr('class','data-display');
       dataDisplay.append('text').attr('class','year-display').text('');
 
-      var geoBounds = viz.append('svg').attr('class', 'geo-bounds')
+      var geoBounds = viz.append('svg').attr('class', 'geo-bounds recharge')
         .attr('width', mapWidth)
         .attr('height', mapHeight);
 
@@ -329,7 +327,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           
         var box = legendItem.append('rect')
           .attr('x', 0)
-          .attr('y', function (d, i) { return i *  legendVertSpacingFactor;})
+          .attr('y', function (d, i) { return i * legendVertSpacingFactor;})
           .attr('width', legendBoxDimensions)
           .attr('height', legendBoxDimensions)
           .attr('class', 'legend-box')
@@ -339,14 +337,14 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
             
         var label = legendItem.append('text')
           .attr('x', 30)
-          .attr('y', function (d, i) { return (i *  legendVertSpacingFactor) + legendVertOffset;})
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset;})
           .text(function (d) { return d.name; });
 
         var dataValue = legendItem.append('text')
           .attr('x', 280)
-          .attr('y', function (d, i) { return (i *  legendVertSpacingFactor) + legendVertOffset;})
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset;})
           .text('')
-          .attr('class','data-value');
+          .attr('class', 'data-value');
 
         // NOTE.
         var notes = viz.append('div').attr('class','graph-notes')

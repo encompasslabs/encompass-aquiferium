@@ -24,7 +24,7 @@
   position: absolute;
   cursor: default;
   left:1rem;
-  top: 12rem;
+  top: 11rem;
   margin-top: 1rem;
   line-height: 0.1rem;
   font-size: 1rem;
@@ -52,31 +52,22 @@
 }
 .legend-springs {
   width: 26rem;
-  height: 18rem;
+  height: 17.5rem;
 }
-/*.recharge-value-display {
-  position: relative;
-  top: -2em;
-  padding-left: 2rem;
-  color: rgba(0,0,0,0.8);
-}
-.wells-value-display {
-  position: relative;
-  top: -2em;
-  padding-left: 2rem;
-  color: rgba(0,0,0,0.8);
-}
-.springs-value-display {
-  position: relative;
-  top: -2em;
-  padding-left: 2rem;
-  color: rgba(0,0,0,0.8);
-}*/
 
 /* Map */
 .geo-bounds {
   margin-left: 8rem;
   margin-top: 2rem;
+}
+.geo-bounds.recharge {
+
+}
+.geo-bounds.wells {
+  
+}
+.geo-bounds.springs {
+  margin-left: 12rem;
 }
 .subunit {
   stroke: rgba(0,0,0,1);
@@ -91,10 +82,10 @@
   text-anchor: middle;
 }
 .map-label {
-  /*z-index: 100;*/
-/*  position:absolute;
+  /* z-index: 100; */
+  /* position:absolute;
   left:100px;
-  top:150px;*/
+  top:150px; */
   color: #f00;
 }
 .Drainage {
@@ -113,8 +104,6 @@
 }
 .chart {
   font-size: .7rem;
-  /*border: 1px solid #999;*/
-  /*padding: 1em;*/
 }
 .axis path,
 .axis line {
@@ -132,7 +121,6 @@
   fill: none;
   stroke-width: 2px;
 }
-
 .chart-subtext {
   margin-top: 1rem;
   margin-left: 3rem;
@@ -143,7 +131,7 @@
 .graph-notes {
   z-index: 200;
   position: absolute;
-  bottom: 5em;
+  bottom: 3em;
   left: 5em;
   color: #555;
   font-size: 0.6rem;

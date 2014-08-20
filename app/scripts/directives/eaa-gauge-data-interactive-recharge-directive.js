@@ -46,7 +46,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var graphLeftOffset = vizWidth * 0.05;
 
       var boundariesSource = '../../data/geojson/eaa-aquifer-zones-2014.geo.json';
-      var dataSource = '../../data/recharge-annualAvg-byDate.csv';
+      var dataSource = '../../data/recharge-annualAvg-byDate2.csv';
       var ingestedData = {};
 
       var markerRadius = 5;
@@ -252,7 +252,8 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         data.forEach(function (d) {
           dateRange.push(parseInt(d.Date));
           d.Date = parseDate.parse(d.Date);          
-          d['Station ID: AY 68-37-203'] = +d['Station ID: AY 68-37-203'];
+          // d['Station ID: AY 68-37-203'] = +d['Station ID: AY 68-37-203'];
+          d['Total Recharge'] = +d['Total Recharge'];
         });
 
         ingestedData = data;
@@ -291,7 +292,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .attr('x', -50)
           .attr('dy', '1em')
           .style('text-anchor', 'end')
-          .text('ft above msl');
+          .text('thousands of acre-feet');
 
         var gauge = graphBounds.selectAll('.gauge')
           .data(gauges)

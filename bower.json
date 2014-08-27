@@ -22,7 +22,10 @@
     "font-awesome": "~4.1.0",
     "angular-carousel": "~0.2.3",
     "angular-parallax": "*",
-    "ng-videosharing-embed": "~0.2.1"
+    "ng-videosharing-embed": "~0.2.1",
+    "skrollr": "~0.6.26",
+    "skrollr-menu": "~0.1.12"
   },
-  "devDependencies": {}
+  "devDependencies": {
+  }
 }

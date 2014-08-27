@@ -1,0 +1,165 @@
+/* Skrollr specific css */
+.div-fixed { position: fixed; }
+.div-relative { position: relative; }
+.div-absolute { position: absolute; }
+
+.z-0 {
+  /* requires position */
+  z-index: 0;
+}
+.z-50 {
+  /* requires position */
+  z-index: 50;
+}
+.z-100 {
+  /* requires position */
+  z-index: 100;
+}
+.z-150 {
+  /* requires position */
+  z-index: 150;
+}
+.z-200 {
+  /* requires position */
+  z-index: 200;
+}
+.z-250 {
+  /* requires position */
+  z-index: 250;
+}
+.z-300 {
+  /* requires position */
+  z-index: 300;
+}
+.z-350 {
+  /* requires position */
+  z-index: 350;
+}
+.z-400 {
+  /* requires position */
+  z-index: 400;
+}
+.z-500 {
+  /* requires position */
+  z-index: 500;
+}
+
+.scroll-index {
+  position: fixed;
+  top: 0.4rem;
+  left: 0.4rem;
+  width: 18rem;
+  /*height: auto;*/
+  padding: 0.5rem;
+  background-color:#111;
+  border: 0.08rem solid rgba(228,0,256,0.9);
+  /*border-radius: 1rem;*/
+  text-align: center;
+}
+
+.quicknav-hor { 
+  position: fixed; 
+  left: 1.625rem;
+  top: 5rem;
+  height: 3.8rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #111; 
+  border: 0.1rem solid rgba(78,38,127,0.6); 
+  border-radius: 0.5rem; 
+  text-align: left; 
+}
+.quicknav-hor > div {
+  padding: 0.5rem;
+}
+
+.nav-circle-container {
+  width: 2.75em;
+  height: 2.75em;
+}
+.nav-circle {
+  fill: #000;
+  stroke: #777;
+}
+
+.background {
+  /*background-position: center center;*/
+  /*background-repeat: no-repeat;*/
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  height: 156.25rem;
+  width: 100%;
+  /*box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);*/
+}
+
+/* May need to seperate the -frame classes top and left positions into seperate classes for better granular placement in app. */
+.text-frame {
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  width: 32rem;
+  color: #fff;
+  background-color: #111;
+  /*box-shadow: 0 0 1rem #000;*/
+  border: 2px solid #fff;
+  -webkit-border-radius: 0 4rem 0;
+  -moz-border-radius: 0 4rem 0;
+  border-radius: 0 4rem 0;
+  padding: 1rem 3rem 1rem 3rem;
+  opacity: 0.85;
+  /*text-shadow: 1px 1px 1px #000;*/
+  text-align: justify;
+}
+.image-frame {
+  width: 60rem;
+  height: 33.75rem;
+  background-size: cover;
+  border-radius: 2rem;
+  border: 0.1rem solid rgba(255,0,0,0.7);
+}
+.video-frame {
+  width: 60rem;
+  background: #000;
+  background-size: cover;
+  border: 0.1rem solid rgba(255,0,0,0.7);
+}
+.interactive-frame {
+  width: 60rem;
+  background: #000;
+  background-size: cover;
+  border: 0.1rem solid rgba(255,0,0,0.7);
+}
+
+.image-bg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  /*box-shadow: inset 0rem 0.625rem 0.625rem rgba(0, 0, 0, 0.3);*/
+}
+.video-bg {;*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  background-size: cover;
+}
+
+/* Images */
+#explosion { background-image:url('../images/explore/kleur-explosion-1080x1920.jpg')}
+#skull { background-image:url('../images/explore/psychedelic-skull-artistic-hd-wallpaper-1920x1080-4333.jpg')}
+#tripper { background-image:url('../images/explore/Psychedelic-Videos-Feature.jpg')}
+#space { background-image:url('../img/9nc2h.jpg'); }
+#planet { background-image:url('../img/Cocoon_Concept_Artwork.jpg'); }
+#water-1 { background-image:url('../images/explore/water-fall.png'); }
+#water-2 { background-image:url('../img/water-2.png'); }
+#water-3 { background-image:url('../img/water-3.png'); }
+#water-4 { background-image:url('../img/water-scatter.png'); }
+#water-5 { background-image:url('../img/droplet-cluster.png'); }
+#water-6 { background-image:url('../img/water.png'); }
+
+/* Videos */
+#san-marcos-river { background: url(./img/HCPSanMarcosRiver-loop3.mp4) no-repeat; }
+

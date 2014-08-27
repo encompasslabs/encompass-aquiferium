@@ -1,10 +1,14 @@
 'use strict';
 
 angular.module('eaa.directives.skrollr', [])
-  .directive('skrollr', function() {
+  .directive('skrollr', [function() {
     var directiveDefinitionObject = {
       link: function() {
         // skrollr.init();
+        var s;
+        var scrollScale = 1;  // Do not adjust - throws off all data- values by scale multiplier.
+        var scrollRateModifier = 0.4; // smaller value == faster scroll.
+
         s = skrollr.init(
           {
             render: function(data) {
@@ -22,29 +26,29 @@ angular.module('eaa.directives.skrollr', [])
           }
         );
         
-        // Init Skrollr Menu.
-        skrollr.menu.init(s, {
-          smoothScrolling: true,
-          smoothScrollingDuration: 250,
-          constants: {},
-          scale: scrollScale,
-          forceHeight: true,
-          // mobileCheck: function() { // will overwrite default function. },
-          mobileDeceleration: 0.004,
-          edgeStrategy: 'ease', // set*, ease, reset.
-          // beforerender: {},
-          // render: {},
-          // keyframe: function(element, name, direction) { // name will be one of data500, dataTopBottom, data_offsetCenter },
-          easing: 'linear', // 'swing*', 'outCubic', 'quadratic', 'linear', 'cubic', 'sqrt', 'bounce'.        
-          duration: function(currentTop, targetTop) { return Math.abs(currentTop - targetTop) * scrollRateModifier; }, // return 500;
-          //If you pass a handleLink function you'll disable `data-menu-top` and `data-menu-offset`.
-          handleLink: function(link) {
-            console.log(link.getAttribute( "data-menu-top" ));
-            return link.getAttribute( "data-menu-top" );
-          }
-        });
+        // // Init Skrollr Menu.
+        // skrollr.menu.init(s, {
+        //   smoothScrolling: true,
+        //   smoothScrollingDuration: 250,
+        //   constants: {},
+        //   scale: scrollScale,
+        //   forceHeight: true,
+        //   // mobileCheck: function() { // will overwrite default function. },
+        //   mobileDeceleration: 0.004,
+        //   edgeStrategy: 'ease', // set*, ease, reset.
+        //   // beforerender: {},
+        //   // render: {},
+        //   // keyframe: function(element, name, direction) { // name will be one of data500, dataTopBottom, data_offsetCenter },
+        //   easing: 'linear', // 'swing*', 'outCubic', 'quadratic', 'linear', 'cubic', 'sqrt', 'bounce'.        
+        //   duration: function(currentTop, targetTop) { return Math.abs(currentTop - targetTop) * scrollRateModifier; }, // return 500;
+        //   //If you pass a handleLink function you'll disable `data-menu-top` and `data-menu-offset`.
+        //   handleLink: function(link) {
+        //     console.log(link.getAttribute( "data-menu-top" ));
+        //     return link.getAttribute( "data-menu-top" );
+        //   }
+        // });
       }
     };
 
     return directiveDefinitionObject;
-  });
+  }]);

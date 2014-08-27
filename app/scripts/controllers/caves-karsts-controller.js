@@ -32,4 +32,9 @@ angular.module('aquiferiumApp')
       var dataslide = angular.element(e.target).attr('data-slide');
       $scope.goToByScroll(dataslide);
     };
+
+    $scope.skrollrNavClick = function (e) {
+      console.log('firing click event from controller $scope with e == ' + e.valueOf());
+      e.preventDefault();
+    };
   }]);

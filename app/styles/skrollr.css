@@ -57,7 +57,7 @@
   text-align: center;
 }
 
-.quicknav-hor { 
+/*.quicknav-hor { 
   position: fixed; 
   left: 1.625rem;
   top: 5rem;
@@ -80,6 +80,31 @@
 .nav-circle {
   fill: #000;
   stroke: #777;
+}*/
+
+.quicknav-hor { 
+  position: fixed; 
+  left: 1.625rem;
+  top: 5rem;
+  height: 1.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #111; 
+  border: 0.1rem solid rgba(78,38,127,0.6); 
+  border-radius: 0.5rem; 
+  text-align: left; 
+}
+.quicknav-hor > div {
+  /*padding: 0.25em;*/
+}
+
+.nav-circle-container {
+  width: 1em;
+  height: 1em;
+}
+.nav-circle {
+  fill: #000;
+  stroke: #777;
 }
 
 .background {
@@ -92,9 +117,16 @@
   /*box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);*/
 }
 
+.section-bg {
+  /*background-size: cover;*/
+  /*height: 100%;*/
+  /*width: 100%;*/
+  background-color: rgb(0,0,255);
+}
+
+
 /* May need to seperate the -frame classes top and left positions into seperate classes for better granular placement in app. */
 .text-frame {
-  position: absolute;
   top: 2rem;
   left: 3rem;
   width: 32rem;
@@ -148,17 +180,24 @@
 }
 
 /* Images */
-#explosion { background-image:url('../images/explore/kleur-explosion-1080x1920.jpg')}
-#skull { background-image:url('../images/explore/psychedelic-skull-artistic-hd-wallpaper-1920x1080-4333.jpg')}
-#tripper { background-image:url('../images/explore/Psychedelic-Videos-Feature.jpg')}
-#space { background-image:url('../img/9nc2h.jpg'); }
-#planet { background-image:url('../img/Cocoon_Concept_Artwork.jpg'); }
+
+/* Backgrounds */
 #water-1 { background-image:url('../images/explore/water-fall.png'); }
 #water-2 { background-image:url('../img/water-2.png'); }
 #water-3 { background-image:url('../img/water-3.png'); }
 #water-4 { background-image:url('../img/water-scatter.png'); }
 #water-5 { background-image:url('../img/droplet-cluster.png'); }
 #water-6 { background-image:url('../img/water.png'); }
+
+/* Caves & Karst */
+#ck-image-00 { background-image: url(../images/caves_karsts/DSC_0318_web_hd.jpg); }
+
+/* Testing */
+#explosion { background-image:url('../images/explore/kleur-explosion-1080x1920.jpg')}
+#skull { background-image:url('../images/explore/psychedelic-skull-artistic-hd-wallpaper-1920x1080-4333.jpg')}
+#tripper { background-image:url('../images/explore/Psychedelic-Videos-Feature.jpg')}
+#space { background-image:url('../img/9nc2h.jpg'); }
+#planet { background-image:url('../img/Cocoon_Concept_Artwork.jpg'); }
 
 /* Videos */
 #san-marcos-river { background: url(./img/HCPSanMarcosRiver-loop3.mp4) no-repeat; }

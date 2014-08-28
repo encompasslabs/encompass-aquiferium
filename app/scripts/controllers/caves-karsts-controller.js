@@ -27,14 +27,14 @@ angular.module('aquiferiumApp')
     };
 
     $scope.buttonClick = function (e) {
-      // console.log('firing click event from controller $scope with e == ' + e.valueOf());
+      console.log('buttonClick firing click event from controller $scope with e == ' + e.valueOf());
       e.preventDefault();
       var dataslide = angular.element(e.target).attr('data-slide');
       $scope.goToByScroll(dataslide);
     };
 
     $scope.skrollrNavClick = function (e) {
-      console.log('firing click event from controller $scope with e == ' + e.valueOf());
+      console.log('skrollrNavClick firing click event from controller $scope with e == ' + e[0]);
       e.preventDefault();
     };
   }]);

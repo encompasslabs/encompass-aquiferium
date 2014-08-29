@@ -24,16 +24,18 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
     directiveDefinitionObject.link = function postLink(scope, element) {
 
       // VARS.
-      var w = window;
-      var d = document;
-      var e = d.documentElement;
-      var g = d.getElementsByTagName('body')[0];
-      var width = w.innerWidth || e.clientWidth || g.clientWidth;
-      var height = width * 0.9; // w.innerHeight || e.clientHeight || g.clientHeight;
+      var container = $('#recharge');
+      var containerWidth = container.width();
+
+      var width = containerWidth;
+      var height = width * 0.75;
 
       var vizMargin = {top: 0, right: 0, bottom: 0, left: 0};
       var vizWidth = width - vizMargin.left - vizMargin.right;
       var vizHeight = height - vizMargin.top - vizMargin.bottom;
+
+      // console.log(vizWidth);
+      // console.log(vizHeight);
 
       var dataDisplayWidth = vizWidth * 0.4;
       var dataDisplayHeight = vizHeight * 0.4;
@@ -42,7 +44,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var mapHeight = vizHeight * 0.35;
 
       var graphWidth = vizWidth;
-      var graphHeight = vizHeight * 0.4;
+      var graphHeight = vizHeight * 0.45;
       var graphLeftOffset = vizWidth * 0.05;
 
       var boundariesSource = '../../data/geojson/eaa-aquifer-zones-2014.geo.json';
@@ -106,8 +108,11 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       };
 
       var defineInteractionRange = function () {
+        console.log(graphWidth);
         xPosRange = [graphLeftOffset, graphWidth*0.95];
+        console.log(xPosRange);
         xNumericRange = xPosRange[1] - xPosRange[0];
+        console.log(xNumericRange);
         xMinDate = dateRange.min();
         xMaxDate = dateRange.max();
         dateDelta = xMaxDate - xMinDate;
@@ -144,6 +149,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       var mouseOverGraph = function (event) {
         var position = d3.mouse(this);
+        console.log(position);
         deriveDate(position[0]);
       };
 
@@ -217,33 +223,33 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var path = d3.geo.path().projection(projection);
         var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
         geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', '#000').on('click', onTargetClick);
-        geoBoundaries.append('text')
-          .attr('transform', function (d) { return 'translate(' + path.centroid(d) + ')'; })
-          .attr('dy', '.35em')
-          .attr('class', 'map-label')
-          .text(function (d) {      
-            var thisName = d.properties.Name;
-            var nameExists = false;
+        // geoBoundaries.append('text')
+        //   .attr('transform', function (d) { return 'translate(' + path.centroid(d) + ')'; })
+        //   .attr('dy', '.35em')
+        //   .attr('class', 'map-label')
+        //   .text(function (d) {      
+        //     var thisName = d.properties.Name;
+        //     var nameExists = false;
 
-            if (mapLabelsLength === 0) {
-              mapLabels.push(thisName);
-              mapLabelsLength = mapLabels.length;
-              return thisName;
-            }
+        //     if (mapLabelsLength === 0) {
+        //       mapLabels.push(thisName);
+        //       mapLabelsLength = mapLabels.length;
+        //       return thisName;
+        //     }
 
-            for (var i = 0; i < mapLabelsLength; ++i) {
-              if (thisName == mapLabels[i]) {
-                nameExists = true;
-              }
-            }
+        //     for (var i = 0; i < mapLabelsLength; ++i) {
+        //       if (thisName == mapLabels[i]) {
+        //         nameExists = true;
+        //       }
+        //     }
 
-            if (!nameExists) {
-              mapLabels.push(thisName);
-              mapLabelsLength = mapLabels.length;
-              return thisName;
-            }
-            // console.log('mapLabels: ' + mapLabels);
-          });
+        //     if (!nameExists) {
+        //       mapLabels.push(thisName);
+        //       mapLabelsLength = mapLabels.length;
+        //       return thisName;
+        //     }
+        //     // console.log('mapLabels: ' + mapLabels);
+        //   });
       });
 
       // CHART.
@@ -252,7 +258,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         data.forEach(function (d) {
           dateRange.push(parseInt(d.Date));
           d.Date = parseDate.parse(d.Date);          
-          // d['Station ID: AY 68-37-203'] = +d['Station ID: AY 68-37-203'];
           d['Total Recharge'] = +d['Total Recharge'];
         });
 
@@ -323,7 +328,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var indicatorLine = graphBounds.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 0).attr('stroke-width', 1).attr('stroke', 'rgba(50,50,50,0.9)').attr('class', 'indicator-line');
 
         // LEGEND.
-        var legend = dataDisplay.append('div').attr('class','legend legend-wells').attr('transform', 'translate(-180,30)');
+        var legend = dataDisplay.append('div').attr('class','legend legend-recharge').attr('transform', 'translate(-180,30)');
         var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item');
           
         var box = legendItem.append('rect')
@@ -334,7 +339,8 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .attr('class', 'legend-box')
           .style('fill', function (d) {
             return color(d.name);
-          });
+          })
+          .style('stroke', '#000');
             
         var label = legendItem.append('text')
           .attr('x', 30)

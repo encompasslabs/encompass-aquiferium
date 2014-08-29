@@ -1,3 +1,21 @@
+/* Best not to overwrite the users presets if at all possible. Can adjust size by percent in MQ. */ 
+/* 100% = 1 em ~= 16px ~= 14pt */
+/*html { 
+  font-size: 100%; 
+}
+body { 
+  background-color: #cef; 
+  font-size: 1rem; 
+  font-family: 'Exo 2', sans-serif; 
+  -webkit-text-size-adjust:none;
+  -moz-text-size-adjust:none;
+  -ms-text-size-adjust:none;
+  -webkit-text-size-adjust:100%;
+  -moz-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
+}
+*/
+
 /* Skrollr specific css */
 .div-fixed { position: fixed; }
 .div-relative { position: relative; }
@@ -48,9 +66,9 @@
   position: fixed; 
   top: 4.2rem;
   left: 50%;
-  margin-left: -15rem;
+  margin-left: -20rem;
   height: 1.2rem;
-  width: 30rem;
+  width: 40rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   /*background-color: #000; */
@@ -72,7 +90,6 @@
   width: 100%;
   /*box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);*/
 }
-
 .section-bg {
   /*background-size: cover;*/
   /*height: 100%;*/
@@ -83,7 +100,7 @@
 /* May need to seperate the -frame classes top and left positions into seperate classes for better granular placement in app. */
 /* Same goes for border colors.*/
 .text-frame {
-  width: 60rem;
+  width: 64rem;
   color: #fff;
   background-color: #111;
   border: 2px solid #fff;
@@ -95,35 +112,36 @@
   text-align: justify;
 }
 .text-label {
-  width: 50rem;
+  width: 30rem;
   color: rgba(255, 255, 255, 0.6);
   font-size: 3rem;
+  text-align: right;
 }
 .image-frame {
-  width: 60rem;
-  height: 33.75rem;
+  width: 64rem;
+  height: 36rem; /*33.75rem;*/
   background-size: cover;
   background-position: center center;
   border-radius: 2rem;
   border: 0.1rem solid rgba(0,0,0,0.7);
 }
 .image-frame-tall {
-  width: 60rem;
-  height: 90.25rem;
+  width: 64rem;
+  height: 90rem;
   background-size: cover;
   background-position: center center;
   border-radius: 2rem;
   border: 0.1rem solid rgba(0,0,0,0.7);
 }
 .video-frame {
-  width: 60rem;
+  width: 64rem;
   background: #000;
   background-size: cover;
   border: 0.1rem solid rgba(0,0,0,0.7);
 }
 .interactive-frame {
-  width: 60rem;
-  height: 33.75rem;
+  width: 64rem;
+  height: 36rem;
   background: #ccc;
   background-size: cover;
   border-radius: 2rem;
@@ -149,7 +167,6 @@
   width: 30rem;
   font-size: 1rem;
 }
-
 .end-link > a:hover {
   color: rgba(209,91,5,1);
 }
@@ -257,6 +274,30 @@
 #ck-image-03 { background-image:url(../images/caves_karsts/valdina_8r_web_hd.jpg); }
 #ck-image-04 { background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_hd.jpg); }
 
+.address-lookup {
+  line-height: 2rem;
+  padding-left: 1.5rem;
+  /*font-weight: 700;*/
+}
+.address-lookup a {
+  padding-left: 1rem;
+}
+.address-lookup-color {
+  color: #C6930A;
+}
+.nav-link-address-lookup:hover, .nav-link-address-lookup:visited, .nav-link-address-lookup:link, .nav-link-address-lookup:active
+{
+  text-decoration: none;
+  color: #AADD6D;
+}
+.nav-link-address-lookup:hover {
+  color: #71B2C9;
+}
+
+/* Conservation */
+
+
+/* Springs */
 
 
 /* Testing */

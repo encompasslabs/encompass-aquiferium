@@ -44,67 +44,23 @@
   z-index: 500;
 }
 
-.scroll-index {
-  position: fixed;
-  top: 0.4rem;
-  left: 0.4rem;
-  width: 18rem;
-  /*height: auto;*/
-  padding: 0.5rem;
-  background-color:#111;
-  border: 0.08rem solid rgba(228,0,256,0.9);
-  /*border-radius: 1rem;*/
-  text-align: center;
-}
-
-/*.quicknav-hor { 
-  position: fixed; 
-  left: 1.625rem;
-  top: 5rem;
-  height: 3.8rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  background-color: #111; 
-  border: 0.1rem solid rgba(78,38,127,0.6); 
-  border-radius: 0.5rem; 
-  text-align: left; 
-}
-.quicknav-hor > div {
-  padding: 0.5rem;
-}
-
-.nav-circle-container {
-  width: 2.75em;
-  height: 2.75em;
-}
-.nav-circle {
-  fill: #000;
-  stroke: #777;
-}*/
-
 .quicknav-hor { 
   position: fixed; 
-  left: 1.625rem;
-  top: 5rem;
+  top: 4.2rem;
+  left: 50%;
+  margin-left: -15rem;
   height: 1.2rem;
+  width: 30rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  background-color: #111; 
-  border: 0.1rem solid rgba(78,38,127,0.6); 
-  border-radius: 0.5rem; 
-  text-align: left; 
+  /*background-color: #000; */
+  /*border: 0.1rem solid rgba(255,255,255,0.6); */
+  /*border-radius: 0.25rem; */
+  /*text-align: left; */
 }
-.quicknav-hor > div {
-  /*padding: 0.25em;*/
-}
-
 .nav-circle-container {
-  width: 1em;
-  height: 1em;
-}
-.nav-circle {
-  fill: #000;
-  stroke: #777;
+  width: 3rem;
+  height: 3rem;
 }
 
 .background {
@@ -124,44 +80,55 @@
   background-color: rgb(0,0,255);
 }
 
-
 /* May need to seperate the -frame classes top and left positions into seperate classes for better granular placement in app. */
+/* Same goes for border colors.*/
 .text-frame {
-  top: 2rem;
-  left: 3rem;
-  width: 32rem;
+  width: 60rem;
   color: #fff;
   background-color: #111;
-  /*box-shadow: 0 0 1rem #000;*/
   border: 2px solid #fff;
   -webkit-border-radius: 0 4rem 0;
   -moz-border-radius: 0 4rem 0;
   border-radius: 0 4rem 0;
   padding: 1rem 3rem 1rem 3rem;
   opacity: 0.85;
-  /*text-shadow: 1px 1px 1px #000;*/
   text-align: justify;
+}
+.text-label {
+  width: 50rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 3rem;
 }
 .image-frame {
   width: 60rem;
   height: 33.75rem;
   background-size: cover;
+  background-position: center center;
   border-radius: 2rem;
-  border: 0.1rem solid rgba(255,0,0,0.7);
+  border: 0.1rem solid rgba(0,0,0,0.7);
+}
+.image-frame-tall {
+  width: 60rem;
+  height: 90.25rem;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 2rem;
+  border: 0.1rem solid rgba(0,0,0,0.7);
 }
 .video-frame {
   width: 60rem;
   background: #000;
   background-size: cover;
-  border: 0.1rem solid rgba(255,0,0,0.7);
+  border: 0.1rem solid rgba(0,0,0,0.7);
 }
 .interactive-frame {
   width: 60rem;
-  background: #000;
+  height: 33.75rem;
+  background: #ccc;
   background-size: cover;
-  border: 0.1rem solid rgba(255,0,0,0.7);
+  border-radius: 2rem;
+  border: 0.1rem solid rgba(0,0,0,0.7);
 }
-
 .image-bg {
   background-position: center center;
   background-repeat: no-repeat;
@@ -169,7 +136,6 @@
   background-size: cover;
   height: 100%;
   width: 100%;
-  /*box-shadow: inset 0rem 0.625rem 0.625rem rgba(0, 0, 0, 0.3);*/
 }
 .video-bg {;*/
   top: 0;
@@ -177,6 +143,101 @@
   width: 100%;
   background: #000;
   background-size: cover;
+}
+
+.end-link {
+  width: 30rem;
+  font-size: 1rem;
+}
+
+.end-link > a:hover {
+  color: rgba(209,91,5,1);
+}
+
+#holder {
+  top: -0.6rem;
+  left: -2.2rem;
+  /*margin: 3.125rem auto;*/
+  width: 3.125rem;
+  height: 3.125rem;
+  position: absolute;
+}
+.pulse {
+  width: 0.625rem;
+  height: 0.625rem;
+  border: 0.rem solid rgba(113,178,201,1);
+  -webkit-border-radius: 1.875rem;
+  -moz-border-radius: 1.875rem;
+  border-radius: 1.875rem;
+  background-color: rgba(113,178,201,1);
+  z-index: 10;
+  position: absolute;
+  left: 0.9375rem;
+  top: 0.9375rem;
+}
+.dot {
+  border: 1rem solid rgba(113,178,201,1);
+  background: transparent;
+  -webkit-border-radius: 3.75rem;
+  -moz-border-radius: 3.75rem;
+  border-radius: 3.75rem;
+  height: 3.125rem;
+  width: 3.125rem;
+  -webkit-animation: pulse 3s ease-out;
+  -moz-animation: pulse 3s ease-out;
+  animation: pulse 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  position: absolute;
+  top: -0.3125rem;
+  left: -0.3125rem;
+  z-index: 1;
+  opacity: 0;
+}
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(0);
+    opacity: 0.0;
+  }
+  25% {
+    -moz-transform: scale(0);
+    opacity: 0.1;
+  }
+  50% {
+    -moz-transform: scale(0.1);
+    opacity: 0.3;
+  }
+  75% {
+    -moz-transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    -moz-transform: scale(1);
+    opacity: 0.0;
+  }
+}
+@-webkit-keyframes "pulse" {
+  0% {
+    -webkit-transform: scale(0);
+    opacity: 0.0;
+  }
+  25% {
+    -webkit-transform: scale(0);
+    opacity: 0.1;
+  }
+  50% {
+    -webkit-transform: scale(0.1);
+    opacity: 0.3;
+  }
+  75% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0.0;
+  }
 }
 
 /* Images */
@@ -190,15 +251,30 @@
 #water-6 { background-image:url('../img/water.png'); }
 
 /* Caves & Karst */
-#ck-image-00 { background-image: url(../images/caves_karsts/DSC_0318_web_hd.jpg); }
+#ck-image-00 { background-image:url(../images/caves_karsts/DSC_0318_web_hd.jpg); }
+#ck-image-01 { background-image:url(../images/caves_karsts/For-Doty1_1280x979_web_hd.jpg); }
+#ck-image-02 { background-image:url(../images/caves_karsts/edwards-limestone_web_hd.jpg); }
+#ck-image-03 { background-image:url(../images/caves_karsts/valdina_8r_web_hd.jpg); }
+#ck-image-04 { background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_hd.jpg); }
+
+
 
 /* Testing */
+.scroll-index {
+  position: fixed;
+  top: 0.4rem;
+  left: 0.4rem;
+  width: 18rem;
+  /*height: auto;*/
+  padding: 0.5rem;
+  background-color:#111;
+  border: 0.08rem solid rgba(228,0,256,0.9);
+  /*border-radius: 1rem;*/
+  text-align: center;
+}
+
 #explosion { background-image:url('../images/explore/kleur-explosion-1080x1920.jpg')}
 #skull { background-image:url('../images/explore/psychedelic-skull-artistic-hd-wallpaper-1920x1080-4333.jpg')}
 #tripper { background-image:url('../images/explore/Psychedelic-Videos-Feature.jpg')}
 #space { background-image:url('../img/9nc2h.jpg'); }
 #planet { background-image:url('../img/Cocoon_Concept_Artwork.jpg'); }
-
-/* Videos */
-#san-marcos-river { background: url(./img/HCPSanMarcosRiver-loop3.mp4) no-repeat; }
-

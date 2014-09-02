@@ -79,9 +79,12 @@
   margin-left: 15rem;
 }
 .subunit {
-  stroke: rgba(0,0,0,1);
-  stroke-width: 0.5px;
-  fill: #440099;
+  /*stroke: rgba(0,0,0,1);*/
+  /*stroke: rgba(0,0,0,0.5);*/
+  stroke: rgba(66, 152, 181, 0.8);
+  stroke-width: 0.01rem;
+  /*fill: #440099;*/
+  fill: rgba(113, 178, 201, 0.8);
 }
 .subunit-label {
   fill: #777;

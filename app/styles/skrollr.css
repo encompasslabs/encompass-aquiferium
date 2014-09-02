@@ -99,6 +99,24 @@ body {
 
 /* May need to seperate the -frame classes top and left positions into seperate classes for better granular placement in app. */
 /* Same goes for border colors.*/
+.text-title {
+  margin-top: -1.5rem;
+  color: rgba(170, 221, 109, 1);
+}
+.text-title h1 {
+  /*color: rgba(170, 221, 109, 1); *//*#AADD6D;*/ /*#71B2C9;*/ /*#C6930A;*/ /*#AADD6D;*/ /*#AB650D;*/
+  font-size: 3rem;
+  font-weight: 700;
+}
+.text-title h2 {
+  /*color: #AADD6D;*/ /*#71B2C9;*/ /*#C6930A;*/ /*#AADD6D;*/ /*#AB650D;*/
+  /*font-size: 1rem;*/
+}
+.text-select {
+  color: rgba(170, 221, 109, 1);
+  font-size: 1.4rem;
+  /*font-weight: 700;*/
+}
 .text-frame {
   width: 64rem;
   color: #fff;
@@ -113,7 +131,7 @@ body {
 }
 .text-label {
   width: 30rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 3rem;
   text-align: right;
 }
@@ -123,7 +141,8 @@ body {
   background-size: cover;
   background-position: center center;
   border-radius: 2rem;
-  border: 0.1rem solid rgba(0,0,0,0.7);
+  /*border: 0.1rem solid rgba(0,0,0,0.7);*/
+  border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .image-frame-tall {
   width: 64rem;
@@ -131,13 +150,15 @@ body {
   background-size: cover;
   background-position: center center;
   border-radius: 2rem;
-  border: 0.1rem solid rgba(0,0,0,0.7);
+  /*border: 0.1rem solid rgba(0,0,0,0.7);*/
+  border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .video-frame {
   width: 64rem;
   background: #000;
   background-size: cover;
-  border: 0.1rem solid rgba(0,0,0,0.7);
+  /*border: 0.1rem solid rgba(0,0,0,0.7);*/
+  border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .interactive-frame {
   width: 64rem;
@@ -145,10 +166,16 @@ body {
   background: #dedede;
   background-size: cover;
   border-radius: 2rem;
-  border: 0.1rem solid rgba(0,0,0,0.7);
+  /*border: 0.1rem solid rgba(0,0,0,0.7);*/
+  border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .interactive-frame.aquifers {
-  background: rgba(0,0,0,0.5);
+  /*background: rgba(0,0,0,0.5);*/ /*rgba(222,222,222,0.9);*/
+  background: rgba(17,17,17,0.8);
+  /*background: rgba(109, 79, 71, 0.9); */
+  /*background: rgba(255,255,255,0.9);*/
+  /*background: rgba(230,211,149,0.9);*/
+  /*background: rgba(69, 61, 33, 0.9);*/
 }
 .image-bg {
   background-position: center center;
@@ -275,6 +302,8 @@ body {
 #water-4 { background-image:url('../img/water-scatter.png'); }
 #water-5 { background-image:url('../img/droplet-cluster.png'); }
 #water-6 { background-image:url('../img/water.png'); }
+
+#ripple-1 { background-image:url('../images/explore/ripples.png'); }
 
 /* Caves & Karst */
 #ck-image-00 { background-image:url(../images/caves_karsts/DSC_0318_web_hd.jpg); }

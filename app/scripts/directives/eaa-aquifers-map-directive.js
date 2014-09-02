@@ -92,7 +92,7 @@ angular.module('eaa.directives.d3.maps', [])
         var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
         var path = d3.geo.path().projection(projection);
         var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-        geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', '#000').attr('fill', '#987').on('click', onTargetClick);
+        geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', '#000').attr('fill', '#f00').on('click', onTargetClick);
       });
 
     };

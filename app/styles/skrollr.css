@@ -135,6 +135,11 @@ body {
   font-size: 3rem;
   text-align: right;
 }
+.text-suggestion {
+  width: 30rem;
+  font-size: 1rem;
+  color: rgba(198, 147, 10, 1);
+}
 .image-frame {
   width: 64rem;
   height: 36rem; /*33.75rem;*/
@@ -191,12 +196,6 @@ body {
   width: 100%;
   background: #000;
   background-size: cover;
-}
-
-.scroll-link {
-  width: 30rem;
-  font-size: 1rem;
-  color: rgba(198, 147, 10, 1);
 }
 
 .end-link {

@@ -62,13 +62,13 @@ body {
   z-index: 500;
 }
 
-.quicknav-hor { 
-  position: fixed; 
-  top: 4.2rem;
+.progress-hor { 
+  position: fixed;
+  top: 5rem;
   left: 50%;
   margin-left: -20rem;
-  height: 1.2rem;
   width: 40rem;
+  height: 1.2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   /*background-color: #000; */
@@ -76,7 +76,7 @@ body {
   /*border-radius: 0.25rem; */
   /*text-align: left; */
 }
-.nav-circle-container {
+.progress-circle-container {
   width: 3rem;
   height: 3rem;
 }
@@ -86,7 +86,8 @@ body {
   /*background-repeat: no-repeat;*/
   /*background-attachment: fixed;*/
   background-size: cover;
-  height: 156.25rem;
+  height: 200%;
+  /*height: 156.25rem;*/
   width: 100%;
   /*box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);*/
 }
@@ -99,13 +100,16 @@ body {
 
 /* May need to seperate the -frame classes top and left positions into seperate classes for better granular placement in app. */
 /* Same goes for border colors.*/
+.text-spacer-left {
+  margin-left: 3rem;
+}
 .text-title {
-  margin-top: -1.5rem;
+  margin-top: -1rem;
   color: rgba(170, 221, 109, 1);
 }
 .text-title h1 {
   /*color: rgba(170, 221, 109, 1); *//*#AADD6D;*/ /*#71B2C9;*/ /*#C6930A;*/ /*#AADD6D;*/ /*#AB650D;*/
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
 }
 .text-title h2 {
@@ -115,7 +119,6 @@ body {
 .text-select {
   color: rgba(170, 221, 109, 1);
   font-size: 1.4rem;
-  /*font-weight: 700;*/
 }
 .text-frame {
   width: 64rem;
@@ -130,7 +133,7 @@ body {
   text-align: justify;
 }
 .text-label {
-  width: 30rem;
+  width: 50rem;
   color: rgba(255, 255, 255, 0.9);
   font-size: 3rem;
   text-align: right;
@@ -142,11 +145,10 @@ body {
 }
 .image-frame {
   width: 64rem;
-  height: 36rem; /*33.75rem;*/
+  height: 36rem;
   background-size: cover;
   background-position: center center;
   border-radius: 2rem;
-  /*border: 0.1rem solid rgba(0,0,0,0.7);*/
   border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .image-frame-tall {
@@ -155,7 +157,36 @@ body {
   background-size: cover;
   background-position: center center;
   border-radius: 2rem;
-  /*border: 0.1rem solid rgba(0,0,0,0.7);*/
+  border: 0.15rem solid rgba(255,255,255,0.7);
+}
+.image-small {
+  background-size: cover;
+  background-position: center center;
+  border-radius: 1rem;
+  border: 0.15rem solid rgba(255,255,255,0.7);
+}
+.image-small.tall {
+  width: 16rem;
+  height: 30rem;
+}
+.image-small.wide {
+  width: 30rem;
+  height: 16rem;
+}
+.image-small.wide-tiny {
+  width: 16rem;
+  height: 9rem;
+}
+.image-small.square {
+  width: 24rem;
+  height: 24rem;
+}
+.image-logo {
+  width: 13rem;
+  height: 4.8rem;
+  background-size: cover;
+  background-position: center center;
+  /*border-radius: 1rem;*/
   border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .video-frame {
@@ -196,6 +227,14 @@ body {
   width: 100%;
   background: #000;
   background-size: cover;
+}
+.flip-image-hor {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
 }
 
 .end-link {
@@ -292,26 +331,6 @@ body {
   }
 }
 
-/* Images */
-
-/* Backgrounds */
-#water-1 { background-image:url('../images/explore/water-fall.png'); }
-#water-2 { background-image:url('../img/water-2.png'); }
-#water-3 { background-image:url('../img/water-3.png'); }
-#water-4 { background-image:url('../img/water-scatter.png'); }
-#water-5 { background-image:url('../img/droplet-cluster.png'); }
-#water-6 { background-image:url('../img/water.png'); }
-
-#ripple-1 { background-image:url('../images/explore/ripples.png'); }
-#ripple-2 { background-image:url('../images/explore/ripples-2.jpg'); }
-
-/* Caves & Karst */
-#ck-image-00 { background-image:url(../images/caves_karsts/DSC_0318_web_hd.jpg); }
-#ck-image-01 { background-image:url(../images/caves_karsts/For-Doty1_1280x979_web_hd.jpg); }
-#ck-image-02 { background-image:url(../images/caves_karsts/edwards-limestone_web_hd.jpg); }
-#ck-image-03 { background-image:url(../images/caves_karsts/valdina_8r_web_hd.jpg); }
-#ck-image-04 { background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_hd.jpg); }
-
 .address-lookup {
   line-height: 2rem;
   padding-left: 1.5rem;
@@ -323,6 +342,7 @@ body {
 .address-lookup-color {
   color: #C6930A;
 }
+
 .nav-link-address-lookup:hover, .nav-link-address-lookup:visited, .nav-link-address-lookup:link, .nav-link-address-lookup:active
 {
   text-decoration: none;
@@ -332,11 +352,70 @@ body {
   color: #71B2C9;
 }
 
-/* Conservation */
+/* Images */
 
+/* Branding */
+#branding-hfh { background-image: url(../images/eaa_branding/eahcp-logo-color.png); }
+
+/* Backgrounds */
+#water-1 { background-image:url('../images/explore/water-fall.png'); }
+#water-2 { background-image:url('../img/water-2.png'); }
+#water-3 { background-image:url('../img/water-3.png'); }
+#water-4 { background-image:url('../img/water-scatter.png'); }
+#water-5 { background-image:url('../img/droplet-cluster.png'); }
+#water-6 { background-image:url('../img/water.png'); }
+
+#ripple-1 { background-image:url('../images/explore/ripples.png'); }
+#ripple-2 { background-image:url('../images/explore/ripples-2.jpg'); }
+#wall-1 { background-image:url('../images/caves_karsts/cavewall.png'); }
+#watersteps-1 { background-image:url('../images/conservation/watersteps.jpg'); }
+#waterway-1 { background-image:url('../images/springs/waterway-1.png'); }
+#waterway-2 { background-image:url('../images/springs/waterway-2.jpg'); }
+
+/* Caves & Karst */
+#ck-image-00 { background-image:url(../images/caves_karsts/DSC_0318_web_hd.jpg); }
+#ck-image-01 { background-image:url(../images/caves_karsts/For-Doty1_1280x979_web_hd.jpg); }
+#ck-image-02 { background-image:url(../images/caves_karsts/edwards-limestone_web_hd.jpg); }
+#ck-image-03 { background-image:url(../images/caves_karsts/valdina_8r_web_hd.jpg); }
+#ck-image-04 { background-image:url(../images/caves_karsts/Valdina_Farms_Cave_IMG0017_web_hd.jpg); }
+
+/* Conservation */
+#cons-image-00 { background-image: url(../images/conservation/07Jul_PumpStation_CMYK_web_hd.jpg); }
+#cons-image-01 { background-image: url(../images/conservation/08Aug_Landa_800x.jpg); }
+#cons-image-02 { background-image: url(../images/conservation/12Dec_Bishops_800x.jpg); }
+#cons-image-03 { background-image: url(../images/conservation/Esperanza_garden-children_800x.jpg); }
+#cons-image-04 { background-image: url(../images/conservation/EAAgilleland_web_hd.jpg); }
+#cons-image-05 { background-image: url(../images/conservation/01Jan_Tull_800x.jpg); }
+#cons-image-06 { background-image: url(../images/conservation/sunflowers_800x.jpg); }
+#cons-image-07 { background-image: url(../images/conservation/05May_MartinMarietta_CMYK_web_hd.jpg); }
+#cons-image-08 { background-image: url(../images/conservation/Antique-Rose-Emporium_800x.jpg); }
+#cons-image-09 { background-image: url(../images/conservation/brickmaker_800x.jpg); }
+#cons-image-10 { background-image: url(../images/conservation/DSC4705_hd.jpg); }
+#cons-image-11 { background-image: url(../images/conservation/child-playing-in-water_800x.jpg); }
+#cons-image-12 { background-image: url(../images/conservation/children-playing-in-water_800x.jpg); }
+#cons-image-13 { background-image: url(../images/conservation/EAAOborny20120710_hd.jpg); }
+#cons-image-14 { background-image: url(../images/conservation/fountain-darter_800x.jpg); }
+#cons-image-15 { background-image: url(../images/conservation/SM_salamander_800x.jpg); }
+#cons-image-16 { background-image: url(../images/conservation/EAA_salamander20120502_800x.jpg); }
+#cons-image-17 { background-image: url(../images/conservation/HIGH-RESOLUTION-BOARD_hd.jpg); }
+#cons-image-18 { background-image: url(../images/conservation/EAA_brucealexander-041212_800x.jpg); }
+#cons-image-19 { background-image: url(../images/conservation/D3T3276_original_800x.jpg); }
+#cons-image-20 { background-image: url(../images/conservation/Melani-Howard20120502_hd.jpg); }
+#cons-image-21 { background-image: url(../images/conservation/GBRA_20121017_800x.jpg); }
+#cons-image-22 { background-image: url(../images/conservation/EAAOsaws20120720_800x.jpg); }
 
 /* Springs */
-
+#springs-image-00 { background-image: url(../images/springs/XXX); }
+#springs-image-01 { background-image: url(../images/springs/XXX); }
+#springs-image-02 { background-image: url(../images/springs/XXX); }
+#springs-image-03 { background-image: url(../images/springs/XXX); }
+#springs-image-04 { background-image: url(../images/springs/XXX); }
+#springs-image-05 { background-image: url(../images/springs/XXX); }
+#springs-image-06 { background-image: url(../images/springs/XXX); }
+#springs-image-07 { background-image: url(../images/springs/XXX); }
+#springs-image-08 { background-image: url(../images/springs/XXX); }
+#springs-image-09 { background-image: url(../images/springs/XXX); }
+#springs-image-10 { background-image: url(../images/springs/XXX); }
 
 /* Testing */
 .scroll-index {
@@ -351,9 +430,3 @@ body {
   /*border-radius: 1rem;*/
   text-align: center;
 }
-
-#explosion { background-image:url('../images/explore/kleur-explosion-1080x1920.jpg')}
-#skull { background-image:url('../images/explore/psychedelic-skull-artistic-hd-wallpaper-1920x1080-4333.jpg')}
-#tripper { background-image:url('../images/explore/Psychedelic-Videos-Feature.jpg')}
-#space { background-image:url('../img/9nc2h.jpg'); }
-#planet { background-image:url('../img/Cocoon_Concept_Artwork.jpg'); }

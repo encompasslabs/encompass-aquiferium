@@ -1,9 +1,19 @@
 @charset "utf-8";
+.about {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+/*.about > h1 small {
+  color: rgba(170, 221, 109, 1);
+}*/
+.imagine {
+  color: rgba(170, 221, 109, 1);
+}
 .embededVideo {
-  /*border: 1px solid #fff;*/
   margin: 1rem auto 1rem auto;
   width: 45rem;
   height: 30rem;
+  border: 0.15rem solid rgba(255,255,255,0.7);
 }
 #imageLeft {
   background-image: url(../images/about/concept-01-opt.jpg);
@@ -11,7 +21,7 @@
   margin: 1rem 2rem 1rem 1rem; /*auto 1rem auto;*/
   height: 276px; 
   width: 342px; 
-  border: 1px solid black;
+  border: 0.15rem solid rgba(255,255,255,0.7);
 }
 #imageRight {
   background-image: url(../images/about/concept-02-opt.jpg);
@@ -19,11 +29,12 @@
   margin: 1rem 1rem 1rem 2rem; /*auto 1rem auto;*/
   height: 276px; 
   width: 342px; 
-  border: 1px solid black;
+  border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .quotebox {
   margin-top: 1rem;
-  border: 1px solid #8F8100; /* #AB650D; */
+  background-color: rgba(0,0,0,0.6);
+  border: 0.15rem solid rgba(170,221,109,0.7); /* #8F8100; #AB650D; */
   -webkit-border-radius: 0 4rem 0;
   -moz-border-radius: 0 4rem 0;
   border-radius: 0 4rem 0;

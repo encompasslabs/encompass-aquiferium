@@ -27,7 +27,8 @@ body {
 }
 
 h1 small {
-  color: #8F8100; /*#AADD6D;*/ /*#71B2C9;*/ /*#4298B5;*/ /*#AB650D;*/ /*#8F8100;*/
+  /*color: #8F8100;*/ /*#AADD6D;*/ /*#71B2C9;*/ /*#4298B5;*/ /*#AB650D;*/ /*#8F8100;*/
+  color: rgba(170, 221, 109, 1);
 }
 a:hover, a:visited, a:link, a:active
 {

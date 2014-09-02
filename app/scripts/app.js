@@ -6,6 +6,7 @@ angular.module('aquiferiumApp', [
   'ngSanitize',
   'ngRoute',
   'ngAnimate',
+  // 'eaa.factories.preloader.images',
   'angular-carousel',
   'angular-parallax',
   'videosharing-embed',

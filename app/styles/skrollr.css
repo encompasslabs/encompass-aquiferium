@@ -142,10 +142,13 @@ body {
 .interactive-frame {
   width: 64rem;
   height: 36rem;
-  background: #ccc;
+  background: #dedede;
   background-size: cover;
   border-radius: 2rem;
   border: 0.1rem solid rgba(0,0,0,0.7);
+}
+.interactive-frame.aquifers {
+  background: rgba(0,0,0,0.5);
 }
 .image-bg {
   background-position: center center;
@@ -161,6 +164,12 @@ body {
   width: 100%;
   background: #000;
   background-size: cover;
+}
+
+.scroll-link {
+  width: 30rem;
+  font-size: 1rem;
+  color: rgba(198, 147, 10, 1);
 }
 
 .end-link {

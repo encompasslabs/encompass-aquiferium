@@ -4,46 +4,73 @@
 /* portrait phone (< 640px) */
 @media screen and (max-width:39.9999em) {
   html { font-size:0.500em; }
+  body { margin-top: 0rem; margin-left: -2rem; }
 }
 
 /* landscape phone and portrait tablet (>= 640px < 768px) */
 @media screen and (min-width:40em) and (max-width:47.9999em) {
-  html { font-size:0.625em; }
+  html { font-size:0.550em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
 }
 
-/* landscape tablet and small monitor  (>= 768px < 960px) */
-@media screen and (min-width:48em) and (max-width:59.9999em) {
-  html { font-size:0.750em; }
+/* landscape tablet and small monitor  (>= 768px < 820px) */
+@media screen and (min-width:48em) and (max-width:51.2499em) {
+  html { font-size:0.660em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
 }
 
-/* small monitor (>= 960px < 1152px) */
-@media screen and (min-width:60em) and (max-width:71.9999em) {
-  html { font-size:0.950em; }
+/* small monitor (>= 820px < 96px) */
+@media screen and (min-width:51.25em) and (max-width:59.9999em) {
+  html { font-size:0.720em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
+}
+
+/* small monitor (>= 960px < 1060px) */
+@media screen and (min-width:60em) and (max-width:66.2499em) {
+  html { font-size:0.84em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
+}
+
+/* small monitor (>= 1060px < 1152px) */
+@media screen and (min-width:66.25em) and (max-width:71.9999em) {
+  html { font-size:0.930em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
 }
 
 /* normal monitor (>= 1152px < 1280px) */
 @media screen and (min-width:72em) and (max-width:79.9999em) {
-  html { font-size:1.125em; }
+  html { font-size:1.000em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
 }
 
 /* large monitor (>= 1280px < 1360px) */
 @media screen and (min-width:80em) and (max-width:84.9999em) {
-  html { font-size:1.250em; }
+  html { font-size:1.125em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
 }
 
 /* xlarge monitor (>= 1360px < 1440px) */
 @media screen and (min-width:85em) and (max-width:89.9999em) {
-  html { font-size:1.325em; }
+  html { font-size:1.2em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
 }
 
 /* xxlarge monitor (>= 1440px < 1600px) */
 @media screen and (min-width:90em) and (max-width:99.9999em) {
-  html { font-size:1.425em; }
+  html { font-size:1.28em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
 }
 
 /* HD screen (>= 1600px ) */
 @media screen and (min-width:100em) {
-  html { font-size:1.575em; }
+  html { font-size:1.42em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
+}
+
+/* HD 1080p screen (>= 1920px ) */
+@media screen and (min-width:120em) {
+  html { font-size:1.635em; }
+  body { margin-top: 0rem; margin-left: 0rem; }
 }
 
 

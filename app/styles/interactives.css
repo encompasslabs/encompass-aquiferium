@@ -66,17 +66,17 @@
 .geo-bounds {
   position: absolute;
   width: 46rem;
-  /*left: 10rem;*/
-  margin-left: 15rem;
+  margin-left: 0rem;
   margin-top: 0rem;
-  /*margin-left: auto;*/
-  /*margin-right: 1rem;*/
 }
 .geo-bounds.recharge {
+  margin-left: 15rem;
 }
 .geo-bounds.wells {
+  margin-left: 15rem;
 }
 .geo-bounds.springs {
+  margin-left: 15rem;
 }
 .subunit {
   stroke: rgba(0,0,0,1);
@@ -105,6 +105,10 @@
 }
 .Artesian {
   fill: rgba(230, 211, 149, 1);
+}
+.map-region {
+  fill: #f00;
+  stroke: #0f0;
 }
 
 /* Line Graph */

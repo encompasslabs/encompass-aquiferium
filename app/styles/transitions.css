@@ -2,6 +2,8 @@
 .view-animate-container {
   position: relative;
   height: 100%!important;
+/*  margin-left: auto;
+  margin-right: auto;*/
 }
 .view-animate {
 }

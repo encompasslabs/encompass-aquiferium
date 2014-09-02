@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('eaa.directives.d3.interactive.recharge', [])
-  .directive('eaaGaugeDataInteractiveRecharge', [function() {
+  .directive('eaaGaugeDataInteractiveRecharge', [ function () {
     var directiveDefinitionObject = {
       compile: false,
-      controller: function($scope) {
+      controller: function ($scope) {
         // console.log('controller for:', $scope.pageClass);
       }, /*false,*/
       controllerAs: false,
@@ -21,7 +21,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       type: false
     };
 
-    directiveDefinitionObject.link = function postLink(scope, element) {
+    directiveDefinitionObject.link = function postLink (scope, element) {
 
       // VARS.
       var container = $('#recharge');
@@ -46,6 +46,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var graphWidth = vizWidth;
       var graphHeight = vizHeight * 0.45;
       var graphLeftOffset = vizWidth * 0.05;
+      var graphWidthOffset = 0.98;
 
       var boundariesSource = '../../data/geojson/eaa-aquifer-zones-2014.geo.json';
       var dataSource = '../../data/recharge-annualAvg-byDate2.csv';
@@ -63,7 +64,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var dataKey = d3.scale.ordinal();
       var parseDate = d3.time.format('%Y');
 
-      var x = d3.time.scale().range([graphLeftOffset, graphWidth*0.95]);
+      var x = d3.time.scale().range([graphLeftOffset, graphWidth*graphWidthOffset]);
       var y = d3.scale.linear().range([graphHeight-50, 50]);
 
       var xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(20);
@@ -109,7 +110,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       var defineInteractionRange = function () {
         console.log(graphWidth);
-        xPosRange = [graphLeftOffset, graphWidth*0.95];
+        xPosRange = [graphLeftOffset, graphWidth*graphWidthOffset];
         console.log(xPosRange);
         xNumericRange = xPosRange[1] - xPosRange[0];
         console.log(xNumericRange);
@@ -188,7 +189,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       // VIZ - BASE.
       var el = element[0];
-      var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
+      var viz = d3.select(el).append('div').attr('class', 'viz z-400').attr('width', vizWidth).attr('height', vizHeight);
       viz.on('mousemove', mouseOverGraph);
 
       var dataDisplay = viz.append('div').attr('class','data-display');

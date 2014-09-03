@@ -4,7 +4,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
   .directive('eaaGaugeDataInteractiveWells', [function() {
     var directiveDefinitionObject = {
       compile: false,
-      controller: function($scope) {
+      controller: function ($scope) {
         // console.log('controller for:', $scope.pageClass);
       }, /*false,*/
       controllerAs: false,
@@ -21,15 +21,14 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       type: false
     };
 
-    directiveDefinitionObject.link = function postLink(scope, element) {
+    directiveDefinitionObject.link = function postLink (scope, element) {
 
       // VARS.
-      var w = window;
-      var d = document;
-      var e = d.documentElement;
-      var g = d.getElementsByTagName('body')[0];
-      var width = w.innerWidth || e.clientWidth || g.clientWidth;
-      var height = width * 0.9; // w.innerHeight || e.clientHeight || g.clientHeight;
+      var container = $('#interactive');
+      var containerWidth = container.width();
+
+      var width = containerWidth;
+      var height = width * 0.75;
 
       var vizMargin = {top: 0, right: 0, bottom: 0, left: 0};
       var vizWidth = width - vizMargin.left - vizMargin.right;
@@ -42,8 +41,9 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var mapHeight = vizHeight * 0.35;
 
       var graphWidth = vizWidth;
-      var graphHeight = vizHeight * 0.4;
+      var graphHeight = vizHeight * 0.45;
       var graphLeftOffset = vizWidth * 0.05;
+      var graphWidthOffset = 0.98;
 
       var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var markersSource = '../../data/wells-markerData.csv';
@@ -62,7 +62,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var dataKey = d3.scale.ordinal();
       var parseDate = d3.time.format('%Y');
 
-      var x = d3.time.scale().range([graphLeftOffset, graphWidth*0.95]);
+      var x = d3.time.scale().range([graphLeftOffset, graphWidth*graphWidthOffset]);
       var y = d3.scale.linear().range([graphHeight-50, 50]);
 
       var xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(20);
@@ -107,7 +107,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       };
 
       var defineInteractionRange = function () {
-        xPosRange = [graphLeftOffset, graphWidth*0.95];
+        xPosRange = [graphLeftOffset, graphWidth*graphWidthOffset];
         xNumericRange = xPosRange[1] - xPosRange[0];
         xMinDate = dateRange.min();
         xMaxDate = dateRange.max();
@@ -209,7 +209,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         if (error) {
           return console.error(error);
         }
-        var scale = mapHeight * 28; // geojson display.
+        var scale = mapHeight * 30; // geojson display.
         var offset = [mapWidth / 2, mapHeight / 2];
         var center = d3.geo.centroid(boundariesData);
         // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 

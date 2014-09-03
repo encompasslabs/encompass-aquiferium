@@ -24,7 +24,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
     directiveDefinitionObject.link = function postLink (scope, element) {
 
       // VARS.
-      var container = $('#recharge');
+      var container = $('#interactive');
       var containerWidth = container.width();
 
       var width = containerWidth;
@@ -33,9 +33,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var vizMargin = {top: 0, right: 0, bottom: 0, left: 0};
       var vizWidth = width - vizMargin.left - vizMargin.right;
       var vizHeight = height - vizMargin.top - vizMargin.bottom;
-
-      // console.log(vizWidth);
-      // console.log(vizHeight);
 
       var dataDisplayWidth = vizWidth * 0.4;
       var dataDisplayHeight = vizHeight * 0.4;
@@ -150,7 +147,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       var mouseOverGraph = function (event) {
         var position = d3.mouse(this);
-        console.log(position);
         deriveDate(position[0]);
       };
 
@@ -189,7 +185,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       // VIZ - BASE.
       var el = element[0];
-      var viz = d3.select(el).append('div').attr('class', 'viz z-400').attr('width', vizWidth).attr('height', vizHeight);
+      var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
       viz.on('mousemove', mouseOverGraph);
 
       var dataDisplay = viz.append('div').attr('class','data-display');

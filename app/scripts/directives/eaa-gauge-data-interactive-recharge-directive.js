@@ -106,11 +106,8 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       };
 
       var defineInteractionRange = function () {
-        console.log(graphWidth);
         xPosRange = [graphLeftOffset, graphWidth*graphWidthOffset];
-        console.log(xPosRange);
         xNumericRange = xPosRange[1] - xPosRange[0];
-        console.log(xNumericRange);
         xMinDate = dateRange.min();
         xMaxDate = dateRange.max();
         dateDelta = xMaxDate - xMinDate;
@@ -133,7 +130,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
             var thisValue = vals[dataIndexOffset].toString();
 
             if (thisValue == 'NaN') {
-              return 'Data Missing';
+              return 'No Data';
             } else {
               return thisValue;
             }
@@ -173,7 +170,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var updateIndicatorLine = function (xPos) {
         var indicatorLine = d3.select('.indicator-line');
         var gBounds = d3.select('.graph-bounds');
-        var y1Pos = gBounds[0][0].clientHeight * 0.1;
+        var y1Pos = gBounds[0][0].clientHeight * 0.15;
         var y2Pos = gBounds[0][0].clientHeight * 0.845;
 
         indicatorLine.attr('x1', xPos).attr('y1', y1Pos).attr('x2', xPos).attr('y2', y2Pos);
@@ -187,9 +184,9 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var el = element[0];
       var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
       viz.on('mousemove', mouseOverGraph);
+      viz.append('text').attr('class','year-display').text('');
 
       var dataDisplay = viz.append('div').attr('class','data-display');
-      dataDisplay.append('text').attr('class','year-display').text('');
 
       var geoBounds = viz.append('svg').attr('class', 'geo-bounds recharge')
         .attr('width', mapWidth)
@@ -345,7 +342,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .text(function (d) { return d.name; });
 
         var dataValue = legendItem.append('text')
-          .attr('x', 280)
+          .attr('x', 250)
           .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('')
           .attr('class', 'data-value');

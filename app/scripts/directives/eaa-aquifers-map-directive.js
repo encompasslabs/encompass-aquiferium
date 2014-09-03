@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eaa.directives.d3.maps', [])
-  .directive('eaaAquifersMap', [ function () {
+  .directive('eaaAquifersMap', ['$window', '$location', function ($window, $location) {
     var directiveDefinitionObject = {
       compile: false,
       controller: function ($scope) {
@@ -59,20 +59,20 @@ angular.module('eaa.directives.d3.maps', [])
         });
       };
 
-      var mouseOverGraph = function (event) {
-        var position = d3.mouse(this);
-        // console.log(position);
-      };
-
       var onTargetClick = function (target) {
-        console.log(target);
-        // console.log(target.properties.Name);
+        if (target['Location'] === 'Leona Springs') {
+          location.hash = '#/caves-karsts';          
+        } else if (target['Location'] === 'J17') {
+          location.hash = '#/conservation';
+        } else if (target['Location'] === 'San Marcos Springs') {
+          location.hash = '#/springs';
+        }
+        location.reload();
       };
 
       // VIZ - BASE.
       var el = element[0];
-      var viz = d3.select(el).append('div').attr('class', 'viz z-400').attr('width', vizWidth).attr('height', vizHeight);
-      viz.on('mousemove', mouseOverGraph);
+      var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
 
       var geoBounds = viz.append('svg').attr('class', 'geo-bounds major-aquifers')
         .attr('width', mapWidth)
@@ -91,7 +91,7 @@ angular.module('eaa.directives.d3.maps', [])
         var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
         var path = d3.geo.path().projection(projection);
         var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-        geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', '#000').attr('fill', '#f00').on('click', onTargetClick);
+        geoBoundaries.append('path').attr('d', path).attr('class', function(d, i) { return i % 2 ? 'area1' : 'area2'; }).on('click', onTargetClick);
         var eaaMarkers = geoBoundaries.append('g');
 
         d3.csv(markersSource, function (error, data) {

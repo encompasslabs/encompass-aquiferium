@@ -1,10 +1,11 @@
 @charset "utf-8";
 
-#recharge {
+/* General */
+
+#interactive {
   width: 64rem;
   height: 36rem;
 }
-
 .interactive {
   /*margin: 0rem 0rem 0rem 0rem;*/
 }
@@ -14,52 +15,50 @@
   margin-left, margin-right: auto;
   cursor: default;
 }
+.year-display {
+  position: absolute;
+  margin-top: 11rem;
+  margin-left: 11rem;
+  font-size: 18em;
+  font-weight: 700;
+  color: rgba(0,0,0,0.1);
+}
 
 /* Data Display */
 .data-display {
   position: absolute;
-  top: 0rem;
+  top: 1rem;
   left: 1rem;
-  margin-top: -2rem;
-}
-.year-display {
-  font-size: 9em;
-  color: rgba(0,0,0,0.9);
 }
 .data-value {
-  font-weight: 900;
+  font-weight: 700;
 }
 .legend {
   z-index: 200;
-  /*position: absolute;*/
   width: 26rem;
-  /*left: 1rem;*/
-  /*top: 0rem;*/
-  margin-top: -1rem;
   line-height: 0.1rem;
   font-size: 1rem;
   background-color: rgba(100, 100, 100, 0.2);
-  /*border-top-right-radius: 4em;*/
-  /*border-bottom-left-radius: 4em;*/
-  border-radius: 8px;
   border: 1px solid #000;
-  padding: 0.5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 1rem;
 }
 .legend-item {
-  width: 24rem;
-  height: 2rem;
+  width: 25rem;
+  height: 1.8rem;
 }
 .legend-box {
-  border: 1px solid #000;
+  border: 0.05rem; solid #000;
 }
 .legend-recharge {
-  height: 2.5rem;
+  height: 3.6rem;
 }
 .legend-wells {
   height: 5.5rem;
 }
 .legend-springs {
-  height: 17.5rem;
+  height: 16rem;
 }
 
 /* Map */
@@ -70,20 +69,23 @@
   margin-top: 0rem;
 }
 .geo-bounds.recharge {
-  margin-left: 15rem;
+  margin-left: 14rem;
 }
 .geo-bounds.wells {
-  margin-left: 15rem;
+  margin-left: 14rem;
 }
 .geo-bounds.springs {
-  margin-left: 15rem;
+  margin-top: 1rem;
+  margin-left: 14rem;
 }
-.subunit {
-  /*stroke: rgba(0,0,0,1);*/
-  /*stroke: rgba(0,0,0,0.5);*/
+.area1 {
   stroke: rgba(66, 152, 181, 0.8);
   stroke-width: 0.01rem;
-  /*fill: #440099;*/
+  fill: rgba(66, 89, 104, 0.8);
+}
+.area2 {
+  stroke: rgba(66, 152, 181, 0.8);
+  stroke-width: 0.01rem;
   fill: rgba(113, 178, 201, 0.8);
 }
 .subunit-label {
@@ -94,11 +96,7 @@
   text-anchor: middle;
 }
 .map-label {
-  /* z-index: 100; */
-  /* position:absolute;
-  left:100px;
-  top:150px; */
-  color: #f00;
+  color: #000;
 }
 .Drainage {
   fill: rgba(170, 221, 109, 1);

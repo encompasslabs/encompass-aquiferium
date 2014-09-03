@@ -131,7 +131,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             var thisValue = vals[dataIndexOffset].toString();
 
             if (thisValue == 'NaN') {
-              return 'Data Missing';
+              return 'No Data';
             } else {
               return thisValue;
             }
@@ -171,7 +171,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       var updateIndicatorLine = function (xPos) {
         var indicatorLine = d3.select('.indicator-line');
         var gBounds = d3.select('.graph-bounds');
-        var y1Pos = gBounds[0][0].clientHeight * 0.1;
+        var y1Pos = gBounds[0][0].clientHeight * 0.15;
         var y2Pos = gBounds[0][0].clientHeight * 0.845;
 
         indicatorLine.attr('x1', xPos).attr('y1', y1Pos).attr('x2', xPos).attr('y2', y2Pos);
@@ -185,9 +185,9 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       var el = element[0];
       var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
       viz.on('mousemove', mouseOverGraph);
+      viz.append('text').attr('class','year-display').text('');
 
       var dataDisplay = viz.append('div').attr('class','data-display');
-      dataDisplay.append('text').attr('class','year-display').text('');
       
       var geoBounds = viz.append('svg').attr('class', 'geo-bounds springs')
         .attr('width', mapWidth)
@@ -195,7 +195,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
 
       var graphBounds = viz.append('svg').attr('class', 'graph-bounds')
         .attr('width', graphWidth)
-        .attr('height', graphHeight);
+        .attr('height', graphHeight);      
 
       // interpolate options: basis, basis-open, basis-closed, linear, step, step-before, step-after, bundle, cardinal, cardinal-open, cardinal-closed, monotone;
       var line = d3.svg.line()
@@ -209,7 +209,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
         if (error) {
           return console.error(error);
         }
-        var scale = mapHeight * 30; // geojson display.
+        var scale = mapHeight * 28; // geojson display.
         var offset = [mapWidth / 2, mapHeight / 2];
         var center = d3.geo.centroid(boundariesData);
         // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
@@ -342,7 +342,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
           .text(function (d) { return d.name; });
         
         var dataValue = legendItem.append('text')
-          .attr('x', 280)
+          .attr('x', 250)
           .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('')
           .attr('class', 'data-value');

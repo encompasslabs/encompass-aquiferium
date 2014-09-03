@@ -1,54 +1,39 @@
 @charset "utf-8";
 .about {
-  margin-top: 5rem;
-  margin-bottom: 3rem;
+  /*margin-top: 5rem;*/
+  /*margin-bottom: 3rem;*/
 }
-/*.about > h1 small {
-  color: rgba(170, 221, 109, 1);
-}*/
+.about > h1 small {
+  rgba(171, 101, 13, 1);
+}
 .imagine {
-  color: rgba(170, 221, 109, 1);
+  color: rgba(66, 152, 181, 1);
 }
 .embededVideo {
   margin: 1rem auto 1rem auto;
-  width: 45rem;
-  height: 30rem;
-  border: 0.15rem solid rgba(255,255,255,0.7);
-}
-#imageLeft {
-  background-image: url(../images/about/concept-01-opt.jpg);
-  display: inline-block;
-  margin: 1rem 2rem 1rem 1rem; /*auto 1rem auto;*/
-  height: 276px; 
-  width: 342px; 
-  border: 0.15rem solid rgba(255,255,255,0.7);
-}
-#imageRight {
-  background-image: url(../images/about/concept-02-opt.jpg);
-  display: inline-block;
-  margin: 1rem 1rem 1rem 2rem; /*auto 1rem auto;*/
-  height: 276px; 
-  width: 342px; 
+  width: 64rem;
+  height: 36rem;
   border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .quotebox {
-  margin-top: 1rem;
+  width: 56rem;
   background-color: rgba(0,0,0,0.6);
-  border: 0.15rem solid rgba(170,221,109,0.7); /* #8F8100; #AB650D; */
-  -webkit-border-radius: 0 4rem 0;
-  -moz-border-radius: 0 4rem 0;
-  border-radius: 0 4rem 0;
+  border: 0.15rem solid rgba(66, 152, 181, 1);
+  /*-webkit-border-radius: 0 4rem 0;*/
+  /*-moz-border-radius: 0 4rem 0;*/
+  /*border-radius: 0 4rem 0;*/
   padding: 1rem;
 }
 .quoted {
-  margin: 0 4rem 0 3rem;
+  margin: 0 3rem 0 3rem;
+  font-size: 1.2rem;
   font-style: italic;
-  color: #71B2C9; /*#71B2C9; #4298B5;*/
+  color: #fff;
   text-align: justify;
 }
 .quotedby {
-  margin-left: 65%;
+  width: 30rem;
   padding-top: 1rem;
-  font-size: .8rem;
-  color: #aaa;
+  font-size: .9rem;
+  color: #ccc;
 }

@@ -100,9 +100,7 @@ body {
 
 /* May need to seperate the -frame classes top and left positions into seperate classes for better granular placement in app. */
 /* Same goes for border colors.*/
-.text-spacer-left {
-  margin-left: 3rem;
-}
+
 .text-title {
   margin-top: -1rem;
   color: rgba(170, 221, 109, 1);
@@ -158,6 +156,16 @@ body {
   background-position: center center;
   border-radius: 2rem;
   border: 0.15rem solid rgba(255,255,255,0.7);
+}
+.image-medium {
+  background-size: cover;
+  background-position: center center;
+  border-radius: 1rem;
+  border: 0.15rem solid rgba(255,255,255,0.7);
+}
+.image-medium.concept {
+  width: 30rem;
+  height: 24rem;
 }
 .image-small {
   background-size: cover;
@@ -412,6 +420,10 @@ body {
 #springs-image-04 { background-image: url(../images/springs/EAArice20120503_3620_web_hd.jpg); }
 #springs-image-05 { background-image: url(../images/springs/EAAOriparianrandy20120801_0404_web_hd.jpg); }
 #springs-image-06 { background-image: url(../images/springs/Looking-Underwater_0020_web_hd.jpg); }
+
+/* About */
+#about-image-00 { background-image: url(../images/about/concept-01-opt.jpg); }
+#about-image-01 { background-image: url(../images/about/concept-02-opt.jpg); }
 
 /* Testing */
 .scroll-index {

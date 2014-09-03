@@ -19,16 +19,11 @@ body {
   -webkit-text-size-adjust:100%;
   -moz-text-size-adjust:100%;
   -ms-text-size-adjust:100%;
-  /*background-color: #000;*/
-  /*background-color: #cef;*/
-  /*background-color: rgba(66, 89, 104, 1);*/ /* Causes breadcrumb indicators yto be hidden */
   background-color: #222D35;
   color: #fff;
 }
-
 h1 small {
-  /*color: #8F8100;*/ /*#AADD6D;*/ /*#71B2C9;*/ /*#4298B5;*/ /*#AB650D;*/ /*#8F8100;*/
-  color: rgba(170, 221, 109, 1);
+  color: rgba(198, 147, 10, 1);
 }
 a:hover, a:visited, a:link, a:active
 {

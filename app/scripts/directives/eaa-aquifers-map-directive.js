@@ -37,13 +37,11 @@ angular.module('eaa.directives.d3.maps', [])
       var mapWidth = vizWidth;
       var mapHeight = vizHeight * 0.75;
 
-      // var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
       var boundariesSource = '../../data/geojson/NEW_major_aquifers_dd_reduced100.geo.json';
-      // var markerLocations = '../../data/eaaAquiferium-allSprings-markerData.csv';
+      var markersSource = '../../data/explore-markerData.csv';
 
-      // var markerRadius = 5;
-      // var mapLabels = [];
-      // var mapLabelsLength = mapLabels.length;
+      var markerRadius = 5;
+      var color = d3.scale.category10().domain(['Barton Springs', 'Comal Springs', 'Hueco Springs', 'J17', 'J27', 'Las Moras Springs', 'Leona Springs', 'San Antonio Springs', 'San Marcos Springs', 'San Pedro Springs']);
 
       // METHODS.
       d3.selection.prototype.moveToFront = function () {
@@ -63,11 +61,12 @@ angular.module('eaa.directives.d3.maps', [])
 
       var mouseOverGraph = function (event) {
         var position = d3.mouse(this);
-        console.log(position);
+        // console.log(position);
       };
 
       var onTargetClick = function (target) {
-        console.log(target.properties.Name);
+        console.log(target);
+        // console.log(target.properties.Name);
       };
 
       // VIZ - BASE.
@@ -93,8 +92,27 @@ angular.module('eaa.directives.d3.maps', [])
         var path = d3.geo.path().projection(projection);
         var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
         geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', '#000').attr('fill', '#f00').on('click', onTargetClick);
-      });
+        var eaaMarkers = geoBoundaries.append('g');
 
+        d3.csv(markersSource, function (error, data) {
+          if (error) {
+            return console.error(error);
+          }
+          eaaMarkers.selectAll('circle').data(data).enter().append('circle')
+            .attr('class', function (d) { return d.Location; })
+            .attr('cx', function (d) {
+              return projection([d.lon_ddd, d.lat_ddd])[0];
+            })
+            .attr('cy', function (d) {
+              return projection([d.lon_ddd, d.lat_ddd])[1];
+            })
+            .attr('r', markerRadius)
+            .attr('z-index', 0)
+            .style('fill', function (d) { return color(d.Location); })
+            .style('stroke', '#000')
+            .on('click', onTargetClick);
+          });
+      });
     };
 
     return directiveDefinitionObject;

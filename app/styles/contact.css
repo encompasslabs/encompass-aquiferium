@@ -1,6 +1,11 @@
 .contact {
   margin-top: 5rem;
 }
+.contact-bg {
+  opacity:0.1; 
+  margin-left:-15rem; 
+  margin-top:-3rem;
+}
 .contact-heading {
   margin-left: 2rem;
 }
@@ -20,4 +25,10 @@
 .address-block-line2 {
   display: inline-block;
   margin-left: 1.7rem;
+}
+.glyph-spacing-right {
+  padding-right: 0.8rem;
+}
+.glyph-spacing-left {
+  padding-left: 0.8rem;
 }

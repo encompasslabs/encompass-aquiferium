@@ -1,26 +1,14 @@
-/* Best not to overwrite the users presets if at all possible. Can adjust size by percent in MQ. */ 
-/* 100% = 1 em ~= 16px ~= 14pt */
-/*html { 
-  font-size: 100%; 
-}
-body { 
-  background-color: #cef; 
-  font-size: 1rem; 
-  font-family: 'Exo 2', sans-serif; 
-  -webkit-text-size-adjust:none;
-  -moz-text-size-adjust:none;
-  -ms-text-size-adjust:none;
-  -webkit-text-size-adjust:100%;
-  -moz-text-size-adjust:100%;
-  -ms-text-size-adjust:100%;
-}
-*/
+@charset "utf-8";
+/* ASSUMPTIONS: 100% = 1 em ~= 16px ~= 14pt */
 
 /* Skrollr specific css */
+
+/* Position */
 .div-fixed { position: fixed; }
 .div-relative { position: relative; }
 .div-absolute { position: absolute; }
 
+/* Depth */
 .z-0 {
   /* requires position */
   z-index: 0;
@@ -102,6 +90,7 @@ body {
 /* Same goes for border colors.*/
 
 .text-title {
+  cursor: default;
   margin-top: -1rem;
   color: rgba(170, 221, 109, 1);
 }
@@ -119,6 +108,7 @@ body {
   font-size: 1.4rem;
 }
 .text-frame {
+  cursor: default;
   width: 64rem;
   color: #fff;
   background-color: #111;
@@ -135,11 +125,6 @@ body {
   color: rgba(255, 255, 255, 0.9);
   font-size: 3rem;
   text-align: right;
-}
-.text-suggestion {
-  width: 30rem;
-  font-size: 1rem;
-  color: rgba(198, 147, 10, 1);
 }
 .image-frame {
   width: 64rem;
@@ -194,14 +179,12 @@ body {
   height: 4.8rem;
   background-size: cover;
   background-position: center center;
-  /*border-radius: 1rem;*/
   border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .video-frame {
   width: 64rem;
   background: #000;
   background-size: cover;
-  /*border: 0.1rem solid rgba(0,0,0,0.7);*/
   border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .interactive-frame {
@@ -210,16 +193,10 @@ body {
   background: #dedede;
   background-size: cover;
   border-radius: 2rem;
-  /*border: 0.1rem solid rgba(0,0,0,0.7);*/
   border: 0.15rem solid rgba(255,255,255,0.7);
 }
 .interactive-frame.aquifers {
-  /*background: rgba(0,0,0,0.5);*/ /*rgba(222,222,222,0.9);*/
   background: rgba(17,17,17,0.8);
-  /*background: rgba(109, 79, 71, 0.9); */
-  /*background: rgba(255,255,255,0.9);*/
-  /*background: rgba(230,211,149,0.9);*/
-  /*background: rgba(69, 61, 33, 0.9);*/
 }
 .image-bg {
   background-position: center center;
@@ -245,7 +222,14 @@ body {
   -ms-filter: "FlipH";
 }
 
+.text-suggestion {
+  cursor: default;
+  width: 30rem;
+  font-size: 1rem;
+  color: rgba(198, 147, 10, 1);
+}
 .end-link {
+  cursor: default;
   width: 30rem;
   font-size: 1rem;
 }
@@ -256,7 +240,6 @@ body {
 #holder {
   top: -0.6rem;
   left: -2.2rem;
-  /*margin: 3.125rem auto;*/
   width: 3.125rem;
   height: 3.125rem;
   position: absolute;
@@ -342,7 +325,6 @@ body {
 .address-lookup {
   line-height: 2rem;
   padding-left: 1.5rem;
-  /*font-weight: 700;*/
 }
 .address-lookup a {
   padding-left: 1rem;

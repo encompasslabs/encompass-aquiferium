@@ -172,7 +172,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         var indicatorLine = d3.select('.indicator-line');
         var gBounds = d3.select('.graph-bounds');
         var y1Pos = gBounds[0][0].clientHeight * 0.1;
-        var y2Pos = gBounds[0][0].clientHeight * 0.885;
+        var y2Pos = gBounds[0][0].clientHeight * 0.845;
 
         indicatorLine.attr('x1', xPos).attr('y1', y1Pos).attr('x2', xPos).attr('y2', y2Pos);
       };

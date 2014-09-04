@@ -4,19 +4,19 @@
 /* portrait phone (< 640px) */
 @media screen and (max-width:39.9999em) {
   html { font-size:0.500em; }
-  body { margin-top: 0rem; margin-left: -2rem; }
+  /*body { margin-top: 0rem; margin-left: -2rem; }*/
 }
 
 /* landscape phone and portrait tablet (>= 640px < 768px) */
 @media screen and (min-width:40em) and (max-width:47.9999em) {
   html { font-size:0.550em; }
-  body { margin-top: 0rem; margin-left: 0rem; }
+  /*body { margin-top: 0rem; margin-left: 0rem; }*/
 }
 
 /* landscape tablet and small monitor  (>= 768px < 820px) */
 @media screen and (min-width:48em) and (max-width:51.2499em) {
   html { font-size:0.660em; }
-  body { margin-top: 0rem; margin-left: 0rem; }
+  /*body { margin-top: 0rem; margin-left: 0rem; }*/
 }
 
 /* small monitor (>= 820px < 960px) */
@@ -41,27 +41,32 @@
 
 /* large monitor (>= 1280px < 1360px) */
 @media screen and (min-width:80em) and (max-width:84.9999em) {
-  html { font-size:1.125em; }
+  /*html { font-size:1.125em; }*/
+  html { font-size:1.020em; }
 }
 
 /* xlarge monitor (>= 1360px < 1440px) */
 @media screen and (min-width:85em) and (max-width:89.9999em) {
-  html { font-size:1.2em; }
+  /*html { font-size:1.2em; }*/
+  html { font-size:1.030em; }
 }
 
 /* xxlarge monitor (>= 1440px < 1600px) */
 @media screen and (min-width:90em) and (max-width:99.9999em) {
-  html { font-size:1.28em; }
+  /*html { font-size:1.28em; }*/
+  html { font-size:1.040em; }
 }
 
 /* HD screen (>= 1600px ) */
 @media screen and (min-width:100em) {
-  html { font-size:1.42em; }
+  /*html { font-size:1.42em; }*/
+  html { font-size:1.050em; }
 }
 
 /* HD 1080p screen (>= 1920px ) */
 @media screen and (min-width:120em) {
-  html { font-size:1.635em; }
+  /*html { font-size:1.635em; }*/
+  html { font-size:1.060em; }
 }
 
 

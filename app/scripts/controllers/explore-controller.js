@@ -1,6 +1,13 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('ExploreCtrl', ['$scope', function ($scope, skrollr) {
+  .controller('ExploreCtrl', ['$scope', '$location', '$anchorScroll', function ($scope, $location, $anchorScroll) {
     $scope.pageClass = 'explore';
+
+    $scope.resetView = function () {
+      $location.hash('.explore');
+      $anchorScroll();
+    };
+
+    $scope.resetView();
   }]);

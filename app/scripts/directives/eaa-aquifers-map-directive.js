@@ -40,7 +40,8 @@ angular.module('eaa.directives.d3.maps', [])
       var boundariesSource = '../../data/geojson/NEW_major_aquifers_dd_reduced100.geo.json';
       var markersSource = '../../data/explore-markerData.csv';
 
-      var markerRadius = 5;
+      var markerRadius = 8;
+      var markerRadiusExpanded = 18;
       var color = d3.scale.category10().domain(['Barton Springs', 'Comal Springs', 'Hueco Springs', 'J17', 'J27', 'Las Moras Springs', 'Leona Springs', 'San Antonio Springs', 'San Marcos Springs', 'San Pedro Springs']);
 
       // METHODS.
@@ -59,6 +60,15 @@ angular.module('eaa.directives.d3.maps', [])
         });
       };
 
+      var onMarkerHover = function () {
+        d3.select(this).transition().duration(300).attr("r",markerRadiusExpanded);
+      }
+
+      var onMarkerExit = function () {
+        d3.select(this).transition().duration(300).attr("r",markerRadius);
+      }
+
+
       var onTargetClick = function (target) {
         if (target['Location'] === 'Leona Springs') {
           location.hash = '#/caves-karsts';          
@@ -74,7 +84,7 @@ angular.module('eaa.directives.d3.maps', [])
       var el = element[0];
       var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
 
-      var geoBounds = viz.append('svg').attr('class', 'geo-bounds major-aquifers')
+      var geoBounds = viz.append('svg').attr('class', 'geo-bounds')
         .attr('width', mapWidth)
         .attr('height', mapHeight);
 
@@ -91,7 +101,7 @@ angular.module('eaa.directives.d3.maps', [])
         var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
         var path = d3.geo.path().projection(projection);
         var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-        geoBoundaries.append('path').attr('d', path).attr('class', function(d, i) { return i % 2 ? 'area1' : 'area2'; }).on('click', onTargetClick);
+        geoBoundaries.append('path').attr('d', path).attr('class', function (d, i) { return i % 2 ? 'area1' : 'area2'; }).on('click', onTargetClick);
         var eaaMarkers = geoBoundaries.append('g');
 
         d3.csv(markersSource, function (error, data) {
@@ -99,7 +109,7 @@ angular.module('eaa.directives.d3.maps', [])
             return console.error(error);
           }
           eaaMarkers.selectAll('circle').data(data).enter().append('circle')
-            .attr('class', function (d) { return d.Location; })
+            // .attr('class', function (d) { return d.Location; })
             .attr('cx', function (d) {
               return projection([d.lon_ddd, d.lat_ddd])[0];
             })
@@ -107,12 +117,17 @@ angular.module('eaa.directives.d3.maps', [])
               return projection([d.lon_ddd, d.lat_ddd])[1];
             })
             .attr('r', markerRadius)
-            .attr('z-index', 0)
             .style('fill', function (d) { return color(d.Location); })
             .style('stroke', '#000')
+            .on('mouseover', onMarkerHover)
+            .on('mouseout', onMarkerExit)
             .on('click', onTargetClick);
           });
       });
+
+      var tipJ17 = viz.append('div').attr('class','info-panel').attr('id', 'j17').append('div').attr('class','marker-name').text('J17 Well');
+      var tipSanMarcos = viz.append('div').attr('class','info-panel').attr('id', 'san-marcos').append('div').attr('class','marker-name').text('San Marcos Springs');
+      var tipLeona = viz.append('div').attr('class','info-panel').attr('id', 'leona').append('div').attr('class','marker-name').text('Leona Springs');
     };
 
     return directiveDefinitionObject;

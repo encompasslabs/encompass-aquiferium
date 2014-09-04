@@ -81,12 +81,71 @@
 .area1 {
   stroke: rgba(66, 152, 181, 0.8);
   stroke-width: 0.01rem;
-  fill: rgba(66, 89, 104, 0.8);
+  /*fill: rgba(66, 89, 104, 0.8);*/
+  /*fill: rgba(181,202,210,0.8);*/
+  /*fill: rgba(128,177,193,0.8);*/
+  /*fill: rgba(76,254,216,0.8);*/
+  /*fill: rgba(10,189,201,0.8);*/
+  /*fill: rgba(60,180,200,0.8);*/
+  fill: rgba(175,235,222,0.8);
 }
 .area2 {
   stroke: rgba(66, 152, 181, 0.8);
   stroke-width: 0.01rem;
   fill: rgba(113, 178, 201, 0.8);
+}
+.info-panel {
+  width: 16rem;
+  height: 3rem;
+  color: #000;
+  border: 1px solid #000;
+  -moz-border-radius-topleft: 1rem;
+  -webkit-border-top-left-radius: 1rem;
+  -moz-border-radius-topright: 1rem;
+  -webkit-border-top-right-radius: 1rem;
+  -moz-border-radius-bottomleft: 1rem;
+  -webkit-border-bottom-left-radius: 1rem;
+  -moz-border-radius-bottomright: 1rem;
+  -webkit-border-bottom-right-radius: 1rem;
+}
+#j17 {
+  position: fixed;
+  top: 40.25rem;
+  left: 39rem;
+  width: 7rem;
+  background-color: #E64457;
+  /*border: 1px solid #991E2D;*/
+  -moz-border-radius-topleft: 0rem;
+  -webkit-border-top-left-radius: 0rem;
+}
+#leona {
+  position: fixed;
+  top: 41rem;
+  left: 22rem;
+  width: 12rem;
+  background-color: #E07CE6;
+  /*color: #000;*/
+  /*border: 1px solid #944399;*/
+  -moz-border-radius-topright: 0rem;
+  -webkit-border-top-right-radius: 0rem;
+}
+#san-marcos {
+  position: fixed;
+  top: 34rem;
+  left: 40.25rem;
+  width: 14rem;
+  background-color: #D6D371;
+  /*color: #000;*/
+  /*border: 1px solid #8A883B;*/
+  -moz-border-radius-bottomleft: 0rem;
+  -webkit-border-bottom-left-radius: 0rem;
+}
+.marker-name {
+  margin: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
 }
 .subunit-label {
   fill: #777;

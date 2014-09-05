@@ -139,8 +139,13 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         }
       };
 
+      var setMapFill = function (targetDate) {
+        console.log('setMapFill');
+      };
+
       var setDisplayDate = function (targetDate) {
         d3.select('.year-display').text(Math.round(targetDate));
+        setMapFill(targetDate);
       };
 
       var mouseOverGraph = function (event) {

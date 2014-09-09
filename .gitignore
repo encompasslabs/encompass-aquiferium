@@ -1,8 +1,5 @@
 .sass-cache
 .tmp
 app/bower_components
-large_media
 node_modules
-gource
-dev_logs/test-examples
 dist

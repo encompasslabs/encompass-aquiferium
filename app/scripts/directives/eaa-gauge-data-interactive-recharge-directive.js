@@ -75,6 +75,18 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var dateDelta = 0;
       var posYear = 0;
 
+      var dataRange = [];
+      var dataRangeMax = {};
+      var dataRangeMin = {};
+      var oldDataRange = {};
+      var newDataMax = 100;
+      var newDataMin = 0;
+      var newDataRange = newDataMax - newDataMin;
+      var newValue = {};
+      var decimalValue = {};
+      var new_shade = {};
+      var new_tint = {};
+
       // METHODS.
       Array.prototype.max = function() {
         var max = this[0];
@@ -105,6 +117,10 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         });
       };
 
+      var roundDecimals = function (value, decimals) {
+        return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+    }
+
       var defineInteractionRange = function () {
         xPosRange = [graphLeftOffset, graphWidth*graphWidthOffset];
         xNumericRange = xPosRange[1] - xPosRange[0];
@@ -113,6 +129,75 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         dateDelta = xMaxDate - xMinDate;
         posYear = xNumericRange / dateDelta;
         setDisplayDate(xMaxDate);
+      };
+
+      var defineDataRange = function () {
+        dataRangeMin = dataRange.min();
+        dataRangeMax = dataRange.max();
+        oldDataRange = dataRangeMax - dataRangeMin;
+      };
+
+      var setDataValuePercent = function (dataValue) {
+        if (dataValue === 0) {
+          newValue = newDataMin;
+        } else {
+          newValue = (((dataValue - dataRangeMin) * newDataRange) / oldDataRange) + newDataMin;
+        }
+
+        decimalValue = roundDecimals((newValue / 100), 2);
+      };
+
+      var setColorShade = function () {
+        var c_base = 255;
+        var r_val = 113;
+        var g_val = 178;
+        var b_val = 201;
+
+        var multiplier;
+
+        if (decimalValue < 0.5) {
+          if (decimalValue < 0.25) {
+            multiplier = 0.2;
+          } else {
+            multiplier = 0.4;
+          }
+        } else {
+          if (decimalValue > 0.75) {
+            multiplier = 0.8;
+          } else {
+            multiplier = 0.6;
+          }
+        }
+
+        var rs = r_val * multiplier;
+        var gs = r_val * multiplier;
+        var bs = r_val * multiplier;
+
+        var rt = r_val + ((c_base - r_val) * multiplier);
+        var gt = g_val + ((c_base - g_val) * multiplier);
+        var bt = b_val + ((c_base - b_val) * multiplier);
+
+        new_shade = 'rgb(' + rs + ',' + gs + ',' + bs + ')';  // Doesnt work correctly - just get Black mostly.
+        new_tint = 'rgb(' + rs + ',' + gs + ',' + bs + ')';   // Same issue.
+      };
+
+      var setMapFillValue = function () {
+        d3.selectAll('.Recharge.Zone').style('fill', 'rgba(113,178,201,' + decimalValue + ')');
+      };
+
+      var setMapFillShade = function () {
+        d3.selectAll('.Recharge.Zone').style('fill', new_tint);
+      };
+
+      var updateMapDisplay = function (dataValue) {
+        // setDataValuePercent(dataValue);
+        // setColorShade();
+        // setMapFillValue();      
+        // setMapFillShade();
+      };
+
+      var setDisplayDate = function (targetDate) {
+        d3.select('.year-display').text(Math.round(targetDate));
       };
 
       var setDisplayData = function (targetIndex) {        
@@ -125,26 +210,30 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         // console.log(dataLabelArray[0][1]); // THIS ONE!!!
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
+          var displayValue = '';
           var dataIndexOffset = j + 1;
           d3.select(dataLabelArray[j][1]).text( function() {
             var thisValue = vals[dataIndexOffset].toString();
 
             if (thisValue == 'NaN') {
-              return 'No Data';
+              displayValue = 'No Data';
             } else {
-              return thisValue;
+              displayValue = thisValue;
             }
+
+            updateMapDisplay(displayValue);
+            return displayValue;
           });
         }
       };
 
-      var setDisplayDate = function (targetDate) {
-        d3.select('.year-display').text(Math.round(targetDate));
-      };
+      var updateIndicatorLine = function (xPos) {
+        var indicatorLine = d3.select('.indicator-line');
+        var gBounds = d3.select('.graph-bounds');
+        var y1Pos = gBounds[0][0].clientHeight * 0.15;
+        var y2Pos = gBounds[0][0].clientHeight * 0.845;
 
-      var mouseOverGraph = function (event) {
-        var position = d3.mouse(this);
-        deriveDate(position[0]);
+        indicatorLine.attr('x1', xPos).attr('y1', y1Pos).attr('x2', xPos).attr('y2', y2Pos);
       };
 
       var deriveDate = function (xPos) {
@@ -167,13 +256,9 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         }
       };
 
-      var updateIndicatorLine = function (xPos) {
-        var indicatorLine = d3.select('.indicator-line');
-        var gBounds = d3.select('.graph-bounds');
-        var y1Pos = gBounds[0][0].clientHeight * 0.15;
-        var y2Pos = gBounds[0][0].clientHeight * 0.845;
-
-        indicatorLine.attr('x1', xPos).attr('y1', y1Pos).attr('x2', xPos).attr('y2', y2Pos);
+      var mouseOverGraph = function (event) {
+        var position = d3.mouse(this);
+        deriveDate(position[0]);
       };
 
       var onTargetClick = function (target) {
@@ -216,7 +301,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
         var path = d3.geo.path().projection(projection);
         var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-        geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', '#000').on('click', onTargetClick);
+        geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', 'rgba(0,0,0,0.5)').on('click', onTargetClick);
         // geoBoundaries.append('text')
         //   .attr('transform', function (d) { return 'translate(' + path.centroid(d) + ')'; })
         //   .attr('dy', '.35em')
@@ -251,7 +336,8 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
         data.forEach(function (d) {
           dateRange.push(parseInt(d.Date));
-          d.Date = parseDate.parse(d.Date);          
+          d.Date = parseDate.parse(d.Date);  
+          dataRange.push(parseFloat(d['Total Recharge']));        
           d['Total Recharge'] = +d['Total Recharge'];
         });
 
@@ -353,6 +439,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .text('Note: Any gaps in the data lines represent gaps in the collected data for that time period.');          
 
         defineInteractionRange();
+        defineDataRange();
       });     
     };
 

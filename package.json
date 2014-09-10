@@ -1,7 +1,9 @@
 {
   "name": "aquiferium",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-connect-proxy": "^0.1.11"
+  },
   "devDependencies": {
     "angular-animate": "0.0.2",
     "connect-livereload": "^0.4.0",

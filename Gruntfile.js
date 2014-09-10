@@ -40,7 +40,31 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          // livereload: '<%= connect.options.livereload %>'
+          open: true,
+          base: [
+            '.tmp',
+            '<%= yeoman.app %>'
+          ],
+          middleware: function (connect, options) {
+            if (!Array.isArray(options.base)) {
+              options.base = [options.base];
+            }
+
+            // Setup the proxy
+            var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
+
+            // Serve static files.
+            options.base.forEach(function(base) {
+              middlewares.push(connect.static(base));
+            });
+
+            // Make directory browse-able.
+            var directory = options.directory || options.base[options.base.length - 1];
+            middlewares.push(connect.directory(directory));
+
+            return middlewares;
+          }
         },
         files: [
           '<%= yeoman.app %>/**/*.html',
@@ -202,7 +226,7 @@ module.exports = function (grunt) {
     },
     usemin: { // Performs rewrites based on rev and the useminPrepare configuration.
       options: {
-        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images', '<%= yeoman.dist %>/videos', '<%= yeoman.dist %>/data'],
+        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images', '<%= yeoman.dist %>/videos/*', '<%= yeoman.dist %>/data/*'],
       },
       html: ['<%= yeoman.dist %>/**/*.html'], // Default:  /{,*/}*.html']
       css: ['<%= yeoman.dist %>/styles/**/*.css'] // Default:  {,*/}*.css']
@@ -274,18 +298,17 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            // replacing all subsequtn paths of type: 'path/**/*.{filetype}'' with new path of: 'path/*.{filetype}'.
-            'views/*.html',
-            'images/*.{png,jpg,gif,webp,svg}',
-            'videos/720p/*.{mp4,webm,ogg,mpg,mov,avi,flv}',
-            'scripts/*.js',  // Added in.
-            'data/*.{json,csv,tsv,xml,txt}',
+            'views/**/*.html',
+            'images/**/*.{png,jpg,gif,webp,svg}',
+            'videos/**/*.{mp4,webm,ogg,mpg,mov,avi,flv}',
+            'scripts/**/*.js',
+            'data/**/*.{json,csv,tsv,xml,txt}',
             'fonts/*'
           ]
         }, {
           expand: true,
-          cwd: '.tmp/*',  // * was images.
-          dest: '<%= yeoman.dist %>/*', // * was images.
+          cwd: '.tmp/*',
+          dest: '<%= yeoman.dist %>/*',
           src: ['generated/*']
         }]
       },
@@ -306,25 +329,13 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.app %>/data',
         dest: '<%= yeoman.dist %>/data',
-        // src: '**'
-        src:  ['./data/*']
+        src: '/data/*'
       },
       videos: {
         expand: true,
         cwd: '<%= yeoman.app %>/videos',
         dest: '<%= yeoman.dist %>/videos',
-        src: './videos/720p/*'
-        // TEST 1.
-        // src:  ['/videos/*']
-        // TEST 2.
-        // files : [
-        //   {
-        //     expand  : true,
-        //     dest    : '<%= yeoman.dist %>/videos',
-        //     cwd     : '<%= yeoman.app %>/videos',
-        //     src     : [ 'videos/720p/*' ]
-        //   }
-        // ]
+        src: '/videos/*'
       }
     },
     concurrent: { // Run some tasks in parallel to speed up the build process
@@ -389,6 +400,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'compass:bootstrap', // Tetsing sass-bootstrap-official.
       'autoprefixer',
+      'configureProxies', // Added for remote testing.
       'connect:livereload',
       'watch'
     ]);

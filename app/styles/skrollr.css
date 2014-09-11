@@ -126,6 +126,24 @@
   font-size: 3rem;
   text-align: right;
 }
+/*.bcg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);
+}*/
+.image-flyin {
+  background-position: center center;
+  background-repeat: no-repeat;
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  width: 150em;
+  height: 100em;
+  /*box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);*/
+}
 .image-frame {
   width: 64rem;
   height: 36rem;
@@ -361,6 +379,14 @@
 #watersteps-1 { background-image:url('../images/conservation/watersteps.jpg'); }
 #waterway-1 { background-image:url('../images/springs/waterway-1.png'); }
 #waterway-2 { background-image:url('../images/springs/waterway-2.jpg'); }
+
+/* Explore */
+#explore-image-00 { background-image:url(../images/explore/aquifer-images-aligned-usa-lrg.jpg); }
+#explore-image-01 { background-image:url(../images/explore/aquifer-images-aligned-texas-lrg.jpg); }
+#explore-image-02 { background-image:url(../images/explore/aquifer-images-aligned-base.jpg); }
+#explore-image-03 { background-image:url(../images/explore/aquifer-images-aligned-drainage.jpg); }
+#explore-image-04 { background-image:url(../images/explore/aquifer-images-aligned-recharge.jpg); }
+#explore-image-05 { background-image:url(../images/explore/aquifer-images-aligned-artesian.jpg); }
 
 /* Caves & Karst */
 #ck-image-00 { background-image:url(../images/caves_karsts/DSC_0318_web_hd.jpg); }

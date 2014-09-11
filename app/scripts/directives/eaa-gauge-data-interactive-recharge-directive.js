@@ -84,8 +84,11 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var newDataRange = newDataMax - newDataMin;
       var newValue = {};
       var decimalValue = {};
-      var new_shade = {};
-      var new_tint = {};
+
+      var criticalPeriodStage04 = 'rgba(150,0,0,1)';
+      var criticalPeriodStage03 = 'rgba(150,0,0,1)';
+      var criticalPeriodStage02 = 'rgba(150,100,0,1)';
+      var criticalPeriodStage01 = 'rgba(0,0,150,1)';
 
       // METHODS.
       Array.prototype.max = function() {
@@ -93,14 +96,14 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var len = this.length;
         for (var i = 1; i < len; i++) if (this[i] > max) max = this[i];
         return max;
-      }
+      };
 
       Array.prototype.min = function() {
         var min = this[0];
         var len = this.length;
         for (var i = 1; i < len; i++) if (this[i] < min) min = this[i];
         return min;
-      }
+      };
 
       d3.selection.prototype.moveToFront = function () {
         return this.each(function () {
@@ -119,7 +122,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       var roundDecimals = function (value, decimals) {
         return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
-    }
+      };
 
       var defineInteractionRange = function () {
         xPosRange = [graphLeftOffset, graphWidth*graphWidthOffset];
@@ -147,53 +150,34 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         decimalValue = roundDecimals((newValue / 100), 2);
       };
 
-      var setColorShade = function () {
-        var c_base = 255;
-        var r_val = 113;
-        var g_val = 178;
-        var b_val = 201;
-
-        var multiplier;
-
-        if (decimalValue < 0.5) {
-          if (decimalValue < 0.25) {
-            multiplier = 0.2;
-          } else {
-            multiplier = 0.4;
-          }
-        } else {
-          if (decimalValue > 0.75) {
-            multiplier = 0.8;
-          } else {
-            multiplier = 0.6;
-          }
-        }
-
-        var rs = r_val * multiplier;
-        var gs = r_val * multiplier;
-        var bs = r_val * multiplier;
-
-        var rt = r_val + ((c_base - r_val) * multiplier);
-        var gt = g_val + ((c_base - g_val) * multiplier);
-        var bt = b_val + ((c_base - b_val) * multiplier);
-
-        new_shade = 'rgb(' + rs + ',' + gs + ',' + bs + ')';  // Doesnt work correctly - just get Black mostly.
-        new_tint = 'rgb(' + rs + ',' + gs + ',' + bs + ')';   // Same issue.
-      };
-
       var setMapFillValue = function () {
-        d3.selectAll('.Recharge.Zone').style('fill', 'rgba(113,178,201,' + decimalValue + ')');
-      };
+        // simple approach - change opacity based on values.
+        d3.selectAll('.Recharge.Zone').transition().style('fill', 'rgba(113,178,201,' + decimalValue + ')').duration(100);
 
-      var setMapFillShade = function () {
-        d3.selectAll('.Recharge.Zone').style('fill', new_tint);
+        // complex approach - change color based on values. Use color series to map to values.
+        // switch (true) {
+        //   case decimalValue < 0.25:
+        //     console.log(decimalValue);
+        //     d3.selectAll('.Recharge.Zone').transition().style('fill', criticalPeriodStage04).duration(100);
+        //     break;
+        //   case decimalValue >= 0.25 && decimalValue < 0.5:
+        //     console.log(decimalValue);
+        //     d3.selectAll('.Recharge.Zone').transition().style('fill', criticalPeriodStage03).duration(100);
+        //     break;
+        //   case decimalValue >= 0.5 && decimalValue < 0.75:
+        //     console.log(decimalValue);
+        //     d3.selectAll('.Recharge.Zone').transition().style('fill', criticalPeriodStage02).duration(100);
+        //     break;
+        //   case decimalValue >= 0.75:
+        //     console.log(decimalValue);
+        //     d3.selectAll('.Recharge.Zone').transition().style('fill', criticalPeriodStage01).duration(100);
+        //     break;
+        // }
       };
 
       var updateMapDisplay = function (dataValue) {
-        // setDataValuePercent(dataValue);
-        // setColorShade();
-        // setMapFillValue();      
-        // setMapFillShade();
+        setDataValuePercent(dataValue);
+        setMapFillValue();      
       };
 
       var setDisplayDate = function (targetDate) {

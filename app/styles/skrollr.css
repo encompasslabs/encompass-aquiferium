@@ -45,6 +45,10 @@
   /* requires position */
   z-index: 400;
 }
+.z-450 {
+  /* requires position */
+  z-index: 450;
+}
 .z-500 {
   /* requires position */
   z-index: 500;
@@ -126,20 +130,36 @@
   font-size: 3rem;
   text-align: right;
 }
-/*.bcg {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);
-}*/
+.text-flyin {
+  -webkit-text-stroke: 1px rgba(45,22,74,0.8); /* (153,0,255,0.5) (0,0,0,0.2) */
+  text-shadow:
+    3px 3px 0 rgba(0,0,0,0.3),  
+    -1px -1px 0 rgba(0,0,0,0.3),  
+    1px -1px 0 rgba(0,0,0,0.3),
+    -1px 1px 0 rgba(0,0,0,0.3),
+    1px 1px 0 rgba(0,0,0,0.3);
+}
+.text-flyin h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.text-suggestion {
+  cursor: default;
+  width: 30rem;
+  font-size: 1rem;
+  color: rgba(198, 147, 10, 1);
+}
+.clip-flyin {
+  clip: rect(4em, 79em, 54em, -11em);
+  /*border: 4px solid #fff;*/
+  /*background-color: #000;*/
+}
 .image-flyin {
   background-position: center center;
   background-repeat: no-repeat;
   /*background-attachment: fixed;*/
   background-size: cover;
+  background-color: rgb(0,0,0);
   width: 150em;
   height: 100em;
   /*box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);*/
@@ -240,12 +260,6 @@
   -ms-filter: "FlipH";
 }
 
-.text-suggestion {
-  cursor: default;
-  width: 30rem;
-  font-size: 1rem;
-  color: rgba(198, 147, 10, 1);
-}
 .end-link {
   cursor: default;
   width: 30rem;
@@ -381,12 +395,45 @@
 #waterway-2 { background-image:url('../images/springs/waterway-2.jpg'); }
 
 /* Explore */
-#explore-image-00 { background-image:url(../images/explore/aquifer-images-aligned-usa-lrg.jpg); }
-#explore-image-01 { background-image:url(../images/explore/aquifer-images-aligned-texas-lrg.jpg); }
-#explore-image-02 { background-image:url(../images/explore/aquifer-images-aligned-base.jpg); }
-#explore-image-03 { background-image:url(../images/explore/aquifer-images-aligned-drainage.jpg); }
-#explore-image-04 { background-image:url(../images/explore/aquifer-images-aligned-recharge.jpg); }
-#explore-image-05 { background-image:url(../images/explore/aquifer-images-aligned-artesian.jpg); }
+.explore-link {
+  width: 6rem;
+  height: 6rem;
+  color: #fff; 
+  background-color: rgba(30,30,30,0.8);
+  border: 2px solid #fff;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  border-radius: 3rem;
+}
+.explore-videos { 
+  width: 12rem;
+  height: 6.75rem;
+  -webkit-clip-path: url(#svgPath);
+  clip-path: url(#svgPath);
+  stroke: 1px solid #fff;
+}
+
+#explore-image-backing { background-color: #000; }
+#explore-text-title { color: #fff; font-size: 4rem; font-weight: 700; }
+#explore-text-drainage { color: #AADD6D; }
+#explore-text-recharge { color: #71B2C9; }
+#explore-text-artesian { color: #E6D395; }
+#explore-text-select { 
+  color: #fff; 
+  background-color: rgba(30,30,30,0.7);
+  border: 2px solid #fff;
+  -webkit-border-radius: 0 4rem 0;
+  -moz-border-radius: 0 4rem 0;
+  border-radius: 0 4rem 0;
+  padding: 0rem 2rem 1rem 2rem; 
+  text-align: justify; 
+}
+#explore-image-00 { background-image:url(../images/explore/aquifer-images-aligned-usa-hd.jpg); }
+#explore-image-01 { background-image:url(../images/explore/aquifer-images-aligned-texas-hd.jpg); }
+#explore-image-02 { background-image:url(../images/explore/aquifer-images-aligned-base-hd.jpg); }
+#explore-image-03 { background-image:url(../images/explore/aquifer-images-aligned-drainage-hd.jpg); }
+#explore-image-04 { background-image:url(../images/explore/aquifer-images-aligned-recharge-hd.jpg); }
+#explore-image-05 { background-image:url(../images/explore/aquifer-images-aligned-artesian-hd.jpg); }
 
 /* Caves & Karst */
 #ck-image-00 { background-image:url(../images/caves_karsts/DSC_0318_web_hd.jpg); }

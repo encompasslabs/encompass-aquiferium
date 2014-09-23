@@ -47,6 +47,10 @@ angular.module('aquiferiumApp', [
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
       })
+      .when('/maps-data', {
+        templateUrl: 'views/maps-data.html',
+        controller: 'MapsDataCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

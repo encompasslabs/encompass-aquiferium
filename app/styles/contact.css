@@ -34,6 +34,7 @@
 }
 
 .leaflet-map {
+  margin-top: 1rem;
   margin-left: 0;
   margin-right: 0;
   width: 64rem;

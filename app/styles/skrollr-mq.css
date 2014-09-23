@@ -36,31 +36,31 @@
 
 /* normal monitor (>= 1152px < 1280px) */
 @media screen and (min-width:72em) and (max-width:79.9999em) {
-  html { font-size:1.000em; }
+  html { font-size:0.940em; }
 }
 
 /* large monitor (>= 1280px < 1360px) */
 @media screen and (min-width:80em) and (max-width:84.9999em) {
   /*html { font-size:1.125em; }*/
-  html { font-size:1.020em; }
+  html { font-size:0.950em; }
 }
 
 /* xlarge monitor (>= 1360px < 1440px) */
 @media screen and (min-width:85em) and (max-width:89.9999em) {
   /*html { font-size:1.2em; }*/
-  html { font-size:1.030em; }
+  html { font-size:0.960em; }
 }
 
 /* xxlarge monitor (>= 1440px < 1600px) */
 @media screen and (min-width:90em) and (max-width:99.9999em) {
   /*html { font-size:1.28em; }*/
-  html { font-size:1.040em; }
+  html { font-size:0.980em; }
 }
 
 /* HD screen (>= 1600px ) */
 @media screen and (min-width:100em) {
   /*html { font-size:1.42em; }*/
-  html { font-size:1.050em; }
+  html { font-size:1.000em; }
 }
 
 /* HD 1080p screen (>= 1920px ) */

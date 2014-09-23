@@ -72,11 +72,38 @@ a:hover {
   font-size: 0.9rem;
   padding-top: 0.8rem;
 }
-.centered {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
 .no-Ibar {
   cursor: default;
 }
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/*.centered2 {
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 1rem;
+  width: 100%;
+}
+.centered3 {
+  left: 50%;
+  margin-left: -50%;
+  width: 100%;
+}*/
+
+/*.container-centered { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  text-align: center;
+}
+.container-centered > div {
+  display: inline-block;
+  text-align: left;
+}*/

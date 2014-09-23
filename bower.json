@@ -24,8 +24,9 @@
     "skrollr-menu": "~0.1.12",
     "gsap": "1.11.7",
     "font-awesome": "~4.1.0",
-    "bootstrap-sass-official": "~3.1.0"
+    "bootstrap-sass-official": "~3.1.0",
+    "leaflet": "~0.7.3",
+    "angular-leaflet-directive": "~0.7.8"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

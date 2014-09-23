@@ -150,9 +150,7 @@
   color: rgba(198, 147, 10, 1);
 }
 .clip-flyin {
-  clip: rect(4em, 79em, 54em, -11em);
-  /*border: 4px solid #fff;*/
-  /*background-color: #000;*/
+  clip: rect(0em, 79em, 60em, -14em);
 }
 .image-flyin {
   background-position: center center;
@@ -414,7 +412,7 @@
 }
 
 #explore-image-backing { background-color: #000; }
-#explore-text-title { color: #fff; font-size: 4rem; font-weight: 700; }
+#explore-text-title { margin-left: 0; margin-right: 0; color: #fff; font-size: 4rem; font-weight: 700; }
 #explore-text-drainage { color: #AADD6D; }
 #explore-text-recharge { color: #71B2C9; }
 #explore-text-artesian { color: #E6D395; }

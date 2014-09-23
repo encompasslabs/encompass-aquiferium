@@ -10,6 +10,7 @@ angular.module('aquiferiumApp', [
   'angular-carousel',
   'angular-parallax',
   'videosharing-embed',
+  'leaflet-directive',
   'eaa.directives.skrollr',
   'eaa.directives.d3.maps',
   'eaa.directives.d3.interactive.recharge',

@@ -3,8 +3,8 @@
 }
 .contact-bg {
   opacity:0.1; 
-  margin-left:-15rem; 
-  margin-top:-3rem;
+  left: 0;
+  top: 0rem;
 }
 .contact-heading {
   margin-left: 2rem;
@@ -31,4 +31,12 @@
 }
 .glyph-spacing-left {
   padding-left: 0.8rem;
+}
+
+.leaflet-map {
+  margin-left: 0;
+  margin-right: 0;
+  width: 64rem;
+  height: 36rem;
+  border: 2px solid #ffffff;
 }

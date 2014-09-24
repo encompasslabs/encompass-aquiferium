@@ -38,7 +38,7 @@ angular.module('eaa.directives.skrollr', [])
             // console.log('skrollr position element not found.');
           }
           
-          console.log('scrollPos: ' + data.curTop);
+          // console.log('scrollPos: ' + data.curTop);
         }
       });
         

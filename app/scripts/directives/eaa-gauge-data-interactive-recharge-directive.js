@@ -4,16 +4,16 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
   .directive('eaaGaugeDataInteractiveRecharge', [ function () {
     var directiveDefinitionObject = {
       compile: false,
-      controller: function ($scope) {
+      controller: false, /* function ($scope) {
         // console.log('controller for:', $scope.pageClass);
-      }, /*false,*/
+      }, */
       controllerAs: false,
       link: false,
       priority: 0,
       // replace: false,  -deprecated.
       require: false,
       restrict: 'E',
-      scope: false,
+      scope: {},
       template: false,
       templateUrl: false,
       terminal: false,
@@ -181,7 +181,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       };
 
       var setDisplayDate = function (targetDate) {
-        d3.select('.year-display').text(Math.round(targetDate));
+        d3.select(el).select('.year-display').text(Math.round(targetDate));
       };
 
       var setDisplayData = function (targetIndex) {        
@@ -190,19 +190,19 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           return dataSet[key];
         });
         // Loop through all elements with class legend-item under the legend element.
-        var dataLabelArray = d3.select('.legend').selectAll('.legend-item').selectAll('text');
+        var dataLabelArray = d3.select(el).select('.legend').selectAll('.legend-item').selectAll('text');
         // console.log(dataLabelArray[0][1]); // THIS ONE!!!
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
           var displayValue = '';
           var dataIndexOffset = j + 1;
           d3.select(dataLabelArray[j][1]).text( function() {
-            var thisValue = vals[dataIndexOffset].toString();
+            var thisValue = roundDecimals(vals[dataIndexOffset], 2);
 
             if (thisValue == 'NaN') {
               displayValue = 'No Data';
             } else {
-              displayValue = thisValue;
+              displayValue = thisValue.toString();
             }
 
             updateMapDisplay(displayValue);
@@ -212,7 +212,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       };
 
       var updateIndicatorLine = function (xPos) {
-        var indicatorLine = d3.select('.indicator-line');
+        var indicatorLine = d3.select(el).select('.indicator-line');
         var gBounds = d3.select('.graph-bounds');
         var y1Pos = gBounds[0][0].clientHeight * 0.15;
         var y2Pos = gBounds[0][0].clientHeight * 0.845;
@@ -221,7 +221,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       };
 
       var deriveDate = function (xPos) {
-        var indicatorLine = d3.select('.indicator-line');
+        var indicatorLine = d3.select(el).select('.indicator-line');
 
         if (xPos < xPosRange[0]) {
           setDisplayDate(xMinDate);
@@ -411,7 +411,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text(function (d) { return d.name; });
 
-        var dataValue = legendItem.append('text')
+        var dataValueText = legendItem.append('text')
           .attr('x', 250)
           .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('')

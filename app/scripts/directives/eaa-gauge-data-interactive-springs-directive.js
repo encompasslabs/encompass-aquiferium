@@ -4,13 +4,10 @@ angular.module('eaa.directives.d3.interactive.springs', [])
   .directive('eaaGaugeDataInteractiveSprings', [function() {
     var directiveDefinitionObject = {
       compile: false,
-      controller: false, /*function ($scope) {
-        // console.log('controller for:', $scope.pageClass);
-      }, */
+      controller: false,
       controllerAs: false,
       link: false,
       priority: 0,
-      // replace: false,  -deprecated.
       require: false,
       restrict: 'E',
       scope: {},
@@ -322,12 +319,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
           .attr('id', function (d) { return d.name; });
 
         // Filter data points by gauge.
-        var filtered = gauge.filter(function (d) {
-            // console.log(d.name);
-            // return d.name == 'J27';
-            // return d.values.gindex !== NaN;
-            // return d.name === 'Barton Springs' || 'Comal Springs' || 'Hueco Springs' || 'J17' || 'J27' || 'Las Moras Springs' || 'Leona Springs' || 'San Antonio Springs' || 'San Marcos Springs' || 'San Pedro Springs';
-          })
+        var filtered = gauge.filter(function (d) {})
           .selectAll('circle')
           .data(function (d) { return d.values; })
           .enter().append('circle')

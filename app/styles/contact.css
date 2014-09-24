@@ -32,12 +32,3 @@
 .glyph-spacing-left {
   padding-left: 0.8rem;
 }
-
-.leaflet-map {
-  margin-top: 1rem;
-  margin-left: 0;
-  margin-right: 0;
-  width: 64rem;
-  height: 36rem;
-  border: 2px solid #ffffff;
-}

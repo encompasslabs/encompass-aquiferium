@@ -4,13 +4,10 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
   .directive('eaaGaugeDataInteractiveRecharge', [ function () {
     var directiveDefinitionObject = {
       compile: false,
-      controller: false, /* function ($scope) {
-        // console.log('controller for:', $scope.pageClass);
-      }, */
+      controller: false,
       controllerAs: false,
       link: false,
       priority: 0,
-      // replace: false,  -deprecated.
       require: false,
       restrict: 'E',
       scope: {},
@@ -151,28 +148,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       };
 
       var setMapFillValue = function () {
-        // simple approach - change opacity based on values.
         d3.selectAll('.Recharge.Zone').transition().style('fill', 'rgba(113,178,201,' + decimalValue + ')').duration(100);
-
-        // complex approach - change color based on values. Use color series to map to values.
-        // switch (true) {
-        //   case decimalValue < 0.25:
-        //     console.log(decimalValue);
-        //     d3.selectAll('.Recharge.Zone').transition().style('fill', criticalPeriodStage04).duration(100);
-        //     break;
-        //   case decimalValue >= 0.25 && decimalValue < 0.5:
-        //     console.log(decimalValue);
-        //     d3.selectAll('.Recharge.Zone').transition().style('fill', criticalPeriodStage03).duration(100);
-        //     break;
-        //   case decimalValue >= 0.5 && decimalValue < 0.75:
-        //     console.log(decimalValue);
-        //     d3.selectAll('.Recharge.Zone').transition().style('fill', criticalPeriodStage02).duration(100);
-        //     break;
-        //   case decimalValue >= 0.75:
-        //     console.log(decimalValue);
-        //     d3.selectAll('.Recharge.Zone').transition().style('fill', criticalPeriodStage01).duration(100);
-        //     break;
-        // }
       };
 
       var updateMapDisplay = function (dataValue) {
@@ -286,33 +262,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var path = d3.geo.path().projection(projection);
         var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
         geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', 'rgba(0,0,0,0.5)').on('click', onTargetClick);
-        // geoBoundaries.append('text')
-        //   .attr('transform', function (d) { return 'translate(' + path.centroid(d) + ')'; })
-        //   .attr('dy', '.35em')
-        //   .attr('class', 'map-label')
-        //   .text(function (d) {      
-        //     var thisName = d.properties.Name;
-        //     var nameExists = false;
-
-        //     if (mapLabelsLength === 0) {
-        //       mapLabels.push(thisName);
-        //       mapLabelsLength = mapLabels.length;
-        //       return thisName;
-        //     }
-
-        //     for (var i = 0; i < mapLabelsLength; ++i) {
-        //       if (thisName == mapLabels[i]) {
-        //         nameExists = true;
-        //       }
-        //     }
-
-        //     if (!nameExists) {
-        //       mapLabels.push(thisName);
-        //       mapLabelsLength = mapLabels.length;
-        //       return thisName;
-        //     }
-        //     // console.log('mapLabels: ' + mapLabels);
-        //   });
       });
 
       // CHART.
@@ -377,12 +326,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .attr('id', function (d) { return d.name; });
 
         // Filter data points by gauge.
-        var filtered = gauge.filter(function (d) {
-            // console.log(d.name);
-            // return d.name == 'J27';
-            // return d.values.gindex !== NaN;
-            // return d.name === 'Barton Springs' || 'Comal Springs' || 'Hueco Springs' || 'J17' || 'J27' || 'Las Moras Springs' || 'Leona Springs' || 'San Antonio Springs' || 'San Marcos Springs' || 'San Pedro Springs';
-          })
+        var filtered = gauge.filter(function (d) {})
           .selectAll('circle')
           .data(function (d) { return d.values; })
           .enter().append('circle')

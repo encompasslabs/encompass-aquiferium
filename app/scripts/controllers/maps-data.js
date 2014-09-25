@@ -18,29 +18,34 @@ angular.module('aquiferiumApp')
 
     $scope.resetView();
 
-    $http.get('../../data/geojson/TX.geo.json').success(function(data, status) {
-      // console.log('geojson loaded.');
-      // console.log(data);
-      // console.log(status);
-      angular.extend($scope, {
-        geojson: {
-          data: data,
-          style: {
-            fillColor: '#904',
-            weight: 2,
-            opacity: 1,
-            color: '#fff',
-            dashArray: '3',
-            fillOpacity: 0.6
+    // $http.get('../../data/geojson/USA.geo.json')
+    $http.get('../../data/geojson/TX.geo.json')
+    // $http.get('../../data/geojson/NEW_major_aquifers_dd_reduced100.geo.json')
+    // $http.get('../../data/geojson/eaa-aquifer-zones-2014.geo.json')
+    // $http.get('../../data/geojson/eaa_boundary_EPSG-3081.geo.json')
+      .success(function(data, status) {
+        // console.log('geojson loaded.');
+        // console.log(data);
+        // console.log(status);
+        angular.extend($scope, {
+          geojson: {
+            data: data,
+            style: {
+              fillColor: '#904',
+              weight: 2,
+              opacity: 1,
+              color: '#fff',
+              dashArray: '3',
+              fillOpacity: 0.6
+            }
           }
-        },
+        });
       });
-    });
 
     $scope.legend = {
       position: 'bottomleft',
       colors: [ '#904', '#ff0000', '#28c9ff', '#0000ff', '#ecf386' ],
-      labels: [ 'Texas', 'Authority Zone', 'Drainage', 'Recharge', 'Artesian' ]
+      labels: [ 'Texas', 'Drainage', 'Recharge', 'Artesian', 'Authority Zone' ]
     };
 
     $scope.layers = {
@@ -75,6 +80,27 @@ angular.module('aquiferiumApp')
         // }
       }
     };
+
+    // // Overlay approach is not yet fully functional for multiple geojson layers.
+    // $scope.overlays = {
+    //   texas: {
+    //     name:'Texas Major Aquifers',
+    //     type:'geoJSON',
+    //     url:'../../data/geojson/NEW_major_aquifers_dd_reduced100.geo.json',
+    //     layerOptions: {
+    //       style: {
+    //         'color': '#000',
+    //         'fillColor': '#409',
+    //         'weight': 1.0,
+    //         'opacity': 0.6,
+    //         'fillOpacity': 0.2
+    //       }
+    //     },
+    //     pluginOptions: {
+    //       cliptiles: true
+    //     }
+    //   }
+    // };
 
     $scope.markers = {
       eaa: {

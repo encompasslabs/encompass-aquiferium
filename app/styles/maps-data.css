@@ -30,7 +30,7 @@
   opacity: 0.6;
 }
 
-.legend .info-label {
+.legend > .info-label {
   /*font: 14px/16px Arial, Helvetica, sans-serif;*/
   vertical-align: middle;
   width: 10rem;

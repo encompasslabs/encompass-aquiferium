@@ -166,7 +166,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           return dataSet[key];
         });
         // Loop through all elements with class legend-item under the legend element.
-        var dataLabelArray = d3.select(el).select('.legend').selectAll('.legend-item').selectAll('text');
+        var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item').selectAll('text');
         // console.log(dataLabelArray[0][1]); // THIS ONE!!!
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
@@ -336,7 +336,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var indicatorLine = graphBounds.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 0).attr('stroke-width', 1).attr('stroke', 'rgba(50,50,50,0.9)').attr('class', 'indicator-line');
 
         // LEGEND.
-        var legend = dataDisplay.append('div').attr('class','legend legend-recharge').attr('transform', 'translate(-180,30)');
+        var legend = dataDisplay.append('div').attr('class','legend-box legend-recharge').attr('transform', 'translate(-180,30)');
         var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item');
           
         var box = legendItem.append('rect')

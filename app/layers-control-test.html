@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>layer control test</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <!-- <link rel="points" type="application/json" href="./NEW_major_aquifers_dd_reduced100.geo.json"> -->
+    <style>
+      html, body, #map {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <!-- <script src="./NEW_major_aquifers_dd_reduced100.geo.json"></script> -->
+    <script>      
+    // Loading external GeoJSON Layer.
+
+    var mqoTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+      maxZooom: 18,
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      id: 'examples.map-i875mjb7'
+    });
+
+    // Method 1.
+    // $.getJSON($('link[rel="points"]').attr("href"), function(data) {
+    //   var geojson = L.geoJson(data, {
+    //     onEachFeature: function (feature, layer) {
+    //       layer.bindPopup('Name: ' + feature.properties.AQ_NAME + '<br/> ' + 'Area: ' + feature.properties.AREA + '</br>' + 'Perimeter: ' + feature.properties.PERIMETER);
+    //     }
+    //   });
+    //   var map = L.map('map').fitBounds(geojson.getBounds());
+    //   mqoTiles.addTo(map);
+    //   geojson.addTo(map);
+    // });
+
+
+    // Method 2.
+    // No link in head required.
+    // $.getJSON('./NEW_major_aquifers_dd_reduced100.geo.json', function(data) {
+    //   var geojson = L.geoJson(data, {
+    //     style: function (feature) {
+    //       return { 'opacity' : '0.9', 'fillOpacity' : '0.5', 'fillColor': '#904', 'stroke-width': '1px', 'color': '#409' };
+    //     },
+    //     onEachFeature: function (feature, layer) {
+    //       layer.bindPopup('Name: ' + feature.properties.AQ_NAME + '<br/> ' + 'Area: ' + feature.properties.AREA + '</br>' + 'Perimeter: ' + feature.properties.PERIMETER);
+    //     }
+    //   });
+    //   var map = L.map('map').fitBounds(geojson.getBounds());
+    //   mqoTiles.addTo(map);
+    //   geojson.addTo(map);
+    // });
+
+
+    // Loading multiple external GeoJSON Layers.
+    // var coolPlaces = new L.LayerGroup();
+
+    // L.marker([-41.29042, 174.78219]).bindPopup('Te Papa').addTo(coolPlaces),
+    // L.marker([-41.29437, 174.78405]).bindPopup('Embassy Theatre').addTo(coolPlaces),
+    // L.marker([-41.2895, 174.77803]).bindPopup('Michael Fowler Centre').addTo(coolPlaces),
+    // L.marker([-41.28313, 174.77736]).bindPopup('Leuven Belgin Beer Cafe').addTo(coolPlaces),
+    // L.polyline([
+    //     [-41.28313, 174.77736],
+    //     [-41.2895, 174.77803],
+    //     [-41.29042, 174.78219],
+    //     [-41.29437, 174.78405]
+    //     ]
+    //     ).addTo(coolPlaces);
+
+    // var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
+    //         thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
+        
+    // var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    //     osmAttrib = '&copy; ' + osmLink + ' Contributors',
+    //     landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}\.png',
+    //     thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink;
+
+    // var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
+    //     landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
+
+    // var map = L.map('map', {
+    //   layers: [osmMap] // only add one!
+    // })
+    // .setView([-41.2858, 174.78682], 14);
+
+    // var baseLayers = {
+    //   "OSM Mapnik": osmMap,
+    //   "Landscape": landMap
+    // };
+
+    // var overlays = {
+    //   "Interesting places": coolPlaces
+    // };
+
+    // L.control.layers(baseLayers,overlays).addTo(map);
+
+    // Method 3.
+    // Integrating solutions.
+    var texas = new L.LayerGroup();
+    var majorAquifers = new L.LayerGroup();
+    var eaaBoundary = new L.LayerGroup();
+    var aquiferZones = new L.LayerGroup();
+
+    $.getJSON('./data/geojson/TX.geo.json', function(data) {
+      var geojson = L.geoJson(data, {
+        style: function (feature) {
+          return { 'opacity' : '0.9', 'fillOpacity' : '0.5', 'fillColor': '#904', 'stroke-width': '1px', 'color': '#409' };
+        },
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('Name: ' + feature.properties.name);
+        }
+      });
+      geojson.addTo(texas);
+    });
+
+    $.getJSON('./data/geojson/NEW_major_aquifers_dd_reduced100.geo.json', function(data) {
+      var geojson = L.geoJson(data, {
+        style: function (feature) {
+          return { 'opacity' : '0.9', 'fillOpacity' : '0.5', 'fillColor': '#09c', 'stroke-width': '1px', 'color': '#409' };
+        },
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('Name: ' + feature.properties.AQ_NAME + '<br/> ' + 'Area: ' + feature.properties.AREA + '</br>' + 'Perimeter: ' + feature.properties.PERIMETER);
+        }
+      });
+      geojson.addTo(majorAquifers);
+    });
+
+    $.getJSON('./data/geojson/eaa_boundary_EPSG-3081.geo.json', function(data) {
+      var geojson = L.geoJson(data, {
+        style: function (feature) {
+          return { 'opacity' : '0.9', 'fillOpacity' : '0.5', 'fillColor': '#f90', 'stroke-width': '1px', 'color': '#409' };
+        },
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('EAA Boundary Zone');
+        }
+      });
+      geojson.addTo(eaaBoundary);
+    });
+
+    $.getJSON('./data/geojson/eaa-aquifer-zones-2014.geo.json', function(data) {
+      var geojson = L.geoJson(data, {
+        style: function (feature) {
+          return { 'opacity' : '0.9', 'fillOpacity' : '0.5', 'fillColor': '#0f9', 'stroke-width': '1px', 'color': '#409' };
+        },
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('Name: ' + feature.properties.Name);
+        }
+      });
+      geojson.addTo(aquiferZones);
+    });
+
+
+    // var mqoLink = '<a href="http://www.mapquest.com/" target="_blank">MapQuest</a>';        
+    // var mqoUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg';
+    // var mqoAttrib = 'Tiles Courtesy of ' + mqoLink + '<img src="http://developer.mapquest.com/content/osm/mq_logo.png">';
+    // var mqoMap = L.tileLayer(mqoUrl, {attribution: mqoAttrib});
+
+    var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+    var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var osmAttrib = '&copy; ' + osmLink + ' Contributors';
+    var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib});
+
+    var thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
+    var landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}\.png';
+    var thunAttrib = '&copy; '+ osmLink +' Contributors & '+ thunLink;    
+    var landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
+
+    var map = L.map('map', {
+      layers: [osmMap] // only add one!
+    })
+    .setView([31.555502, -98.959761], 6);
+
+    var baseLayers = {
+      // "OMQ Tiles": mqoMap,
+      "OSM Mapnik": osmMap,
+      "Landscape": landMap
+    };
+
+    var overlays = {
+      "Texas": texas,
+      "Major Aquifers": majorAquifers,
+      "Aquifer Zones": aquiferZones,
+      "EAA Boundary Zone": eaaBoundary      
+    };
+
+    L.control.layers(baseLayers,overlays).addTo(map);
+
+    </script>
+  </body>
+</html>

@@ -144,7 +144,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           newValue = (((dataValue - dataRangeMin) * newDataRange) / oldDataRange) + newDataMin;
         }
 
-        decimalValue = roundDecimals((newValue / 100), 2);
+        decimalValue = roundDecimals((newValue / 100), 4);
       };
 
       var setMapFillValue = function () {

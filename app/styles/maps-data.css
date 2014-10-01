@@ -12,8 +12,6 @@
 }
 #map-nav > ul {
   margin: 0 auto;
-  /*left: auto;*/
-  /*right: auto;*/
 }
 #map-nav > ul > li {
   display: inline;
@@ -27,20 +25,6 @@
   height: 36rem;
   border: 2px solid #ffffff;
   color: #000;
-}
-
-#map {
-  /*padding: 0;*/
-  /*margin: 0;*/
-  /*top: 7rem;*/
-  /*left: 2rem;*/
-  /*height: 768px;*/
-  /*width: 1024px;*/
-  /*width: 100%;*/
-  /*height: 100%;*/
-  /*width: 64rem;*/
-  /*height: 36rem;*/
-  /*border: 1px, solid #fff;*/
 }
 
 .legend {

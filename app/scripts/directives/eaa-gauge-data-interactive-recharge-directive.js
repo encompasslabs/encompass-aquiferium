@@ -42,7 +42,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var graphLeftOffset = vizWidth * 0.05;
       var graphWidthOffset = 0.98;
 
-      var boundariesSource = '../../data/geojson/eaa-aquifer-zones-2014.geo.json';
+      var boundariesSource = '../../data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
       var dataSource = '../../data/recharge-annualAvg-byDate2.csv';
       var ingestedData = {};
 
@@ -165,24 +165,19 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var vals = Object.keys(dataSet).map(function (key) {
           return dataSet[key];
         });
-        // Loop through all elements with class legend-item under the legend element.
         var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item').selectAll('text');
         // console.log(dataLabelArray[0][1]); // THIS ONE!!!
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
-          var displayValue = '';
           var dataIndexOffset = j + 1;
           d3.select(dataLabelArray[j][1]).text( function() {
-            var thisValue = roundDecimals(vals[dataIndexOffset], 2);
-
-            if (thisValue == 'NaN') {
-              displayValue = 'No Data';
+            var thisValue = roundDecimals(vals[dataIndexOffset], 0);
+            updateMapDisplay(thisValue);
+            if (isNaN(thisValue)) {
+              return 'No Data';
             } else {
-              displayValue = thisValue.toString();
+              return thisValue.toString() + ' TAF';
             }
-
-            updateMapDisplay(displayValue);
-            return displayValue;
           });
         }
       };

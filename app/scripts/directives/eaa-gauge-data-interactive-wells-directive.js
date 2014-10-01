@@ -42,7 +42,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var graphLeftOffset = vizWidth * 0.05;
       var graphWidthOffset = 0.98;
 
-      var boundariesSource = '../../data/geojson/eaa_boundary_EPSG-3081.geo.json';
+      var boundariesSource = '../../data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
       var markersSource = '../../data/wells-markerData.csv';
       var dataSource = '../../data/wells-annualAvg-byDate.csv';
       var ingestedData = {};
@@ -132,19 +132,17 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         var vals = Object.keys(dataSet).map(function (key) {
           return dataSet[key];
         });
-        // Loop through all elements with class legend-item under the legend element.
         var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item').selectAll('text');
         // console.log(dataLabelArray[0][1]); // THIS ONE!!!
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
           var dataIndexOffset = j + 1;
           d3.select(dataLabelArray[j][1]).text( function() {
-            var thisValue = roundDecimals(vals[dataIndexOffset], 2);
-
-            if (thisValue == 'NaN') {
+            var thisValue = roundDecimals(vals[dataIndexOffset], 0);
+            if (isNaN(thisValue)) {
               return 'No Data';
             } else {
-              return thisValue.toString();
+              return thisValue.toString() + ' FAMSL';
             }
           });
         }

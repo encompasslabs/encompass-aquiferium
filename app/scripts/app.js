@@ -15,7 +15,8 @@ angular.module('aquiferiumApp', [
   'eaa.directives.d3.maps',
   'eaa.directives.d3.interactive.recharge',
   'eaa.directives.d3.interactive.wells',
-  'eaa.directives.d3.interactive.springs'
+  'eaa.directives.d3.interactive.springs',
+  'eaa.directives.maps.leaflet'
 ])
   .config(function ($routeProvider) {
     $routeProvider

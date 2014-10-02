@@ -17,11 +17,139 @@ angular.module('aquiferiumApp')
       $anchorScroll();
     };
 
-    $scope.resetView();
+    var dataPanelVisible = false;
+    var rechargeVisible = false;
+    var wellsVisible = false;
+    var springsVisible = false;
 
+    console.log(dataPanelVisible, rechargeVisible, wellsVisible, springsVisible);
+
+    var togglePanel = function(target) {
+      $(target).toggleClass('open-panel');
+    };
+
+    var toggleSlide = function(target) {
+      $(target).toggleClass('open');
+    };
+
+    var displayPanel = function() {
+      console.log('toggling panel');
+      if (dataPanelVisible) {
+        console.log('panel was open');
+        selectSlide('close');
+        togglePanel('#data-panel');
+        dataPanelVisible = false;
+        document.getElementById('toggle-data-panel').innerHTML = 'Show Data';
+      } else {
+        console.log('panel was closed');
+        togglePanel('#data-panel');
+        dataPanelVisible = true;
+        document.getElementById('toggle-data-panel').innerHTML = 'Hide Data';
+      }
+    };
+
+    var selectSlide = function(target) {
+      if (target === 'recharge') {
+        console.log('recharge');
+        if(wellsVisible) {
+          toggleSlide('#wells-backdrop');
+          wellsVisible = false;
+        }
+        if(springsVisible) {
+          toggleSlide('#springs-backdrop');
+          springsVisible = false;
+        }        
+        if(rechargeVisible) {
+          toggleSlide('#recharge-backdrop');
+          rechargeVisible = false;
+        } else {
+          toggleSlide('#recharge-backdrop');
+          rechargeVisible = true;
+        }
+      } else if (target === 'wells') {
+        console.log('wells');
+        if(rechargeVisible) {
+          toggleSlide('#recharge-backdrop');
+          rechargeVisible = false;
+        }
+        if(springsVisible) {
+          toggleSlide('#springs-backdrop');
+          springsVisible = false;
+        }        
+        if(wellsVisible) {
+          toggleSlide('#wells-backdrop');
+          wellsVisible = false;
+        } else {
+          toggleSlide('#wells-backdrop');
+          wellsVisible = true;
+        }
+      } else if (target === 'springs') {
+        console.log('springs');
+        if(rechargeVisible) {
+          toggleSlide('#recharge-backdrop');
+          rechargeVisible = false;
+        }
+        if(wellsVisible) {
+          toggleSlide('#wells-backdrop');
+          wellsVisible = false;
+        }        
+        if(springsVisible) {
+          toggleSlide('#springs-backdrop');
+          springsVisible = false;
+        } else {
+          toggleSlide('#springs-backdrop');
+          springsVisible = true;
+        }
+      } else if (target === 'close') {
+        console.log('close');
+        if(rechargeVisible) {
+          toggleSlide('#recharge-backdrop');
+          rechargeVisible = false;
+        }
+        if(wellsVisible) {
+          toggleSlide('#wells-backdrop');
+          wellsVisible = false;
+        }        
+        if(springsVisible) {
+          toggleSlide('#springs-backdrop');
+          springsVisible = false;
+        }
+      }
+      console.log(dataPanelVisible, rechargeVisible, wellsVisible, springsVisible);
+    };
+
+    $('#toggle-data-panel').on('click', function(){
+      displayPanel();
+    });
+
+    $('#toggle-recharge-data').on('click', function(){
+      selectSlide('recharge');
+    });
+
+    $('#toggle-wells-data').on('click', function(){
+      selectSlide('wells');
+    });
+
+    $('#toggle-springs-data').on('click', function(){
+      selectSlide('springs');
+    });
+
+    // Only populating on refresh.
+    // Rest of map disappears on refresh.
+    // WTF?!
+    $scope.legend = {
+      position: 'bottomleft',
+      colors: [ '#904', '#ff0000', '#28c9ff', '#0000ff', '#ecf386' ],
+      labels: [ 'Texas', 'Drainage', 'Recharge', 'Artesian', 'Authority Zone' ]
+    };
+
+    var usaGeojson = './data/geojson/USA.geo.json';
+    // var usaGeojson = './data/geojson/gz_2010_us_outline_20m.json';  // Outline only.
     var texasGeojson = './data/geojson/TX.geo.json';
-    var majorAquifersGeojson = './data/geojson/eaa/NEW_major_aquifers_dd_reduced100.geo.json';
-    var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
+    var majorAquifersGeojson = './data/geojson/eaa/NEW_major_aquifers_dd_reduced10.lco3.geo.json';
+    // var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
+    // var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa-boundary.json';   // Doe snot render - may be missing geoprojection.
+    var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary.geo.json';
     var aquiferZonesGeojson = './data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
     // var texasGeojson = '';
     // var texasGeojson = '';
@@ -31,18 +159,46 @@ angular.module('aquiferiumApp')
     // var texasGeojson = '';
     // var texasGeojson = '';
 
+    var usa = new L.LayerGroup();
     var texas = new L.LayerGroup();
     var majorAquifers = new L.LayerGroup();
     var eaaBoundary = new L.LayerGroup();
     var aquiferZones = new L.LayerGroup();
 
+   var majorAquiferStyle = {
+        "clickable": true,
+        "color": "#08D",
+        "fillColor": "#08D",
+        "weight": 1.0,
+        "opacity": 0.7,
+        "fillOpacity": 0.5
+    };
+
+    var majorAquiferStyleHover = {
+        "fillOpacity": 0.8
+    };
+
+    $.getJSON(usaGeojson, function(data) {
+      var geojson = L.geoJson(data, {
+        style: function (feature) {
+          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#99f', 'stroke-width': '1', 'color': '#000' };
+        },
+        onEachFeature: function (feature, layer) {
+          // layer.bindPopup('Name: ' + feature.properties.name);
+          
+        }
+      });
+      geojson.addTo(usa);
+    });
+
     $.getJSON(texasGeojson, function(data) {
       var geojson = L.geoJson(data, {
         style: function (feature) {
-          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#904', 'stroke-width': '1px', 'color': '#000' };
+          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#904', 'stroke-width': '1', 'color': '#000' };
         },
         onEachFeature: function (feature, layer) {
-          layer.bindPopup('Name: ' + feature.properties.name);
+          // layer.bindPopup('Name: ' + feature.properties.name);
+        
         }
       });
       geojson.addTo(texas);
@@ -50,11 +206,28 @@ angular.module('aquiferiumApp')
 
     $.getJSON(majorAquifersGeojson, function(data) {
       var geojson = L.geoJson(data, {
-        style: function (feature) {
-          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#09c', 'stroke-width': '1px', 'color': '#000' };
+        style: function (feature, layer) {
+          return majorAquiferStyle;
         },
         onEachFeature: function (feature, layer) {
-          layer.bindPopup('Name: ' + feature.properties.AQ_NAME + '<br/> ' + 'Area: ' + feature.properties.AREA + '</br>' + 'Perimeter: ' + feature.properties.PERIMETER);
+          if (feature.properties) {
+            var popupString = '<div class="popup">';
+            for (var k in feature.properties) {
+              var v = feature.properties[k];
+              popupString += k + ': ' + v + '<br />';
+            }
+            popupString += '</div>';
+            layer.bindPopup(popupString);
+            // layer.bindPopup('Name: ' + feature.properties.AQ_NAME + '<br/> ' + 'Area: ' + feature.properties.AREA + '</br>' + 'Perimeter: ' + feature.properties.PERIMETER);
+          }
+          if (!(layer instanceof L.Point)) {
+            layer.on('mouseover', function () {
+              layer.setStyle(majorAquiferStyleHover);
+            });
+            layer.on('mouseout', function () {
+              layer.setStyle(majorAquiferStyle);
+            });
+          }
         }
       });
       geojson.addTo(majorAquifers);
@@ -120,7 +293,7 @@ angular.module('aquiferiumApp')
     var map = L.map('map', {
       layers: [mqArialMap] // only add one!
     })
-    .setView([31.555502, -98.959761], 6);
+    .setView([31.555502, -98.959761], 5);
 
     var baseLayers = {
       "MapQuest Open Arial": mqArialMap,
@@ -134,6 +307,7 @@ angular.module('aquiferiumApp')
     };
 
     var overlays = {
+      "USA": usa,
       "Texas": texas,
       "Major Aquifers": majorAquifers,
       "Aquifer Zones": aquiferZones,
@@ -146,4 +320,45 @@ angular.module('aquiferiumApp')
 
     L.Browser.touch = true;
 
+    
+
+    
+    // L.legend.addTo(map);
+    // map.legendControl.addLegend(legend);
+
+    // L.control.add(legend);
+
+
+    // var info = L.control({position: 'bottomleft'});
+
+    // info.onAdd = function (map) {
+    //     this._div = L.DomUtil.create('div', 'legend'); // create a div with a class "info"
+    //     this.update();
+    //     return this._div;
+    // };
+
+    // var legend = L.control({position: 'topleft'});  
+    // legend.onAdd = function (map) {
+
+    // var div = L.DomUtil.create('div', 'info legend'),
+    //     grades = [50, 100, 150, 200, 250, 300],
+    //     labels = ['<strong> THE TITLE </strong>'],
+    //     from, to;
+
+    // for (var i = 0; i < grades.length; i++) {
+    //     from = grades [i];
+    //     to = grades[i+1]-1;
+
+    // labels.push(
+    //     '<i style="background:' + getColor(from + 1) + '"></i> ' +
+    //     from + (to ? '&ndash;' + to : '+'));
+    //     }
+    //     div.innerHTML = labels.join('<br>');
+    //     return div;
+    //     };
+
+
+
+
+    // $scope.resetView();
   }]);

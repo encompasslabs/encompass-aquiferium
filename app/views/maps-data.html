@@ -1,29 +1,48 @@
 <div class="container">
   <div class="maps-data">
-    
-    <div id="ripple-1" class="div-fixed z-50 background flip-image-hor contact-bg"></div>
 
-    <div id="maps" skrollr class="div-fixed z-300" data-0="opacity:1;" data-1500="opacity:1; top:6rem;" data-2000="opacity:0; top:60rem;">
-      <leaflet id="map" class="leaflet-map" layers="layers" geojson="geojson" center="texas" markers="markers" defaults="defaults"></leaflet><!-- legend="legend"  -->
+    <div id="map" class="div-fixed z-100"></div>
+
+    <div id="data-access" class="div-fixed z-500">
+      <button id="toggle-data-panel">Show Data</button>
     </div>
 
-    <div id="recharge" skrollr class="div-fixed z-300" data-1500="opacity:0; top:60rem;" data-2000="opacity:1; top:6rem;" data-3500="opacity:1; top:6rem;" data-4000="opacity:0; top:60rem;">
-      <div id="interactive" class="interactive interactive-frame">
-        <eaa-gauge-data-interactive-recharge></eaa-gauge-data-interactive-recharge>
+    <div id="data-panel" class="div-fixed z-400 backdrop offstage transition">
+
+      <button id="toggle-recharge-data">Recharge Data</button>
+      <button id="toggle-wells-data">Wells Data</button>
+      <button id="toggle-springs-data">Springs Data</button>
+
+      <div id="data-slides-container">
+
+        <div id="recharge-backdrop" class="div-absolute offstage transition">
+          <div class="slide-label">Recharge Data</div>
+          <div id="recharge-slide" class="div-relative data-slide">
+            <div id="interactive" class="interactive interactive-frame">
+              <eaa-gauge-data-interactive-recharge></eaa-gauge-data-interactive-recharge>
+            </div>
+          </div>
+        </div>
+
+        <div id="wells-backdrop" class="div-absolute offstage transition">
+          <div class="slide-label">Wells Data</div>
+          <div id="wells-slide" class="div-relative data-slide">
+            <div id="interactive" class="interactive interactive-frame">
+              <eaa-gauge-data-interactive-wells></eaa-gauge-data-interactive-wells>
+            </div>
+          </div>
+        </div>
+
+        <div id="springs-backdrop" class="div-absolute offstage transition">
+          <div class="slide-label">Springs Data</div>
+          <div id="springs-slide" class="div-relative data-slide">
+            <div id="interactive" class="interactive interactive-frame">
+              <eaa-gauge-data-interactive-springs></eaa-gauge-data-interactive-springs>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <div id="wells" skrollr class="div-fixed z-300" data-3500="opacity:0; top:60rem;" data-4000="opacity:1; top:6rem;" data-5500="opacity:1; top:6rem;" data-6000="opacity:0; top:60rem;">
-      <div id="interactive" class="interactive interactive-frame">
-        <eaa-gauge-data-interactive-wells></eaa-gauge-data-interactive-wells>
-      </div>
-    </div>
-
-    <div id="springs" skrollr class="div-fixed z-300" data-5500="opacity:0; top:60rem;" data-6000="opacity:1; top:6rem;" data-7500="opacity:1; top:6rem;">
-      <div id="interactive" class="interactive interactive-frame">
-        <eaa-gauge-data-interactive-springs></eaa-gauge-data-interactive-springs>
-      </div>
-    </div>
-
   </div>
 </div>

@@ -19,7 +19,12 @@
   </head>
 
   <body>
-    <div id="map"></div>
+    <div id="map" class="z-250">
+      <!-- <div id="toggleData" class="div-fixed z-450"> -->
+        <button class='toggleButton' value='play'>Play</button>
+      <!-- </div> -->
+    </div>
+
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
@@ -117,7 +122,7 @@
     $.getJSON('./data/geojson/TX.geo.json', function(data) {
       var geojson = L.geoJson(data, {
         style: function (feature) {
-          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#904', 'stroke-width': '1px', 'color': '#000' };
+          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#904', 'stroke': '1px', 'color': '#000' };
         },
         onEachFeature: function (feature, layer) {
           layer.bindPopup('Name: ' + feature.properties.name);
@@ -126,7 +131,7 @@
       geojson.addTo(texas);
     });
 
-    $.getJSON('./data/geojson/NEW_major_aquifers_dd_reduced100.geo.json', function(data) {
+    $.getJSON('./data/geojson/eaa/NEW_major_aquifers_dd_reduced100.geo.json', function(data) {
       var geojson = L.geoJson(data, {
         style: function (feature) {
           return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#09c', 'stroke-width': '1px', 'color': '#000' };
@@ -138,7 +143,7 @@
       geojson.addTo(majorAquifers);
     });
 
-    $.getJSON('./data/geojson/eaa_boundary_EPSG-3081.geo.json', function(data) {
+    $.getJSON('./data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json', function(data) {
       var geojson = L.geoJson(data, {
         style: function (feature) {
           return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#f90', 'stroke-width': '1px', 'color': '#000' };
@@ -150,7 +155,7 @@
       geojson.addTo(eaaBoundary);
     });
 
-    $.getJSON('./data/geojson/eaa-aquifer-zones-2014.geo.json', function(data) {
+    $.getJSON('./data/geojson/eaa/eaa-aquifer-zones-2014.geo.json', function(data) {
       var geojson = L.geoJson(data, {
         style: function (feature) {
           return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#0f9', 'stroke-width': '1px', 'color': '#000' };
@@ -228,6 +233,39 @@
     L.control.scale().addTo(map);
 
     L.Browser.touch = true;
+
+    // var legend = L.control({
+    //   position: 'bottomleft',
+    //   colors: [ '#904', '#ff0000', '#28c9ff', '#0000ff', '#ecf386' ],
+    //   labels: [ 'Texas', 'Drainage', 'Recharge', 'Artesian', 'Authority Zone' ]
+    // });
+    // L.legend.addTo(map);
+    // map.legendControl.addLegend(legend);
+    // L.control.add(legend);
+
+    // var info = L.control({ position: 'bottomleft' });
+    // info.addTo(map);
+
+    // var legend = L.control({position: 'bottomright'});
+
+    // legend.onAdd = function (map) {
+
+    //     var div = L.DomUtil.create('div', 'info legend'),
+    //         grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+    //         labels = [];
+
+    //     // loop through our density intervals and generate a label with a colored square for each interval
+    //     // for (var i = 0; i < grades.length; i++) {
+    //     //     div.innerHTML +=
+    //     //         '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+    //     //         grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    //     // }
+
+    //     return div;
+    // };
+
+    // legend.addTo(map);
+
 
     </script>
   </body>

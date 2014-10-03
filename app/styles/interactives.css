@@ -30,8 +30,12 @@
   top: 1rem;
   left: 1rem;
 }
+.data-item {
+  font-size: 1rem;
+  font-weight: 100;
+}
 .data-value {
-  font-weight: 700;
+  font-weight: 500;
 }
 .legend-box {
   z-index: 200;
@@ -45,6 +49,7 @@
   border-top-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   padding: 1rem;
+  stroke: #000;
 }
 .legend-item {
   width: 25rem;

@@ -14,7 +14,7 @@ angular.module('aquiferiumApp')
 
     $scope.resetView = function () {
       $location.hash('.maps-data');
-      $anchorScroll();
+      // $anchorScroll();
     };
 
     var dataPanelVisible = false;
@@ -360,5 +360,5 @@ angular.module('aquiferiumApp')
 
 
 
-    // $scope.resetView();
+    // $scope.resetView();  // Causes the page to hang. Why?
   }]);

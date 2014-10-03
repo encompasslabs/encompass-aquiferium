@@ -51,7 +51,7 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       var mapLabels = [];
       var mapLabelsLength = mapLabels.length;
 
-      var legendBoxDimensions = 20;
+      var legendBoxDimensions = width / 50;
       var legendVertSpacingFactor = 1;
       var legendVertOffset = legendBoxDimensions * 0.8;
 
@@ -341,12 +341,13 @@ angular.module('eaa.directives.d3.interactive.springs', [])
           });
             
         var label = legendItem.append('text')
-          .attr('x', 30)
+          .attr('x', '10%')
           .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-          .text(function (d) { return d.name; });
+          .text(function (d) { return d.name; })
+          .attr('class', 'data-item');
         
         var dataValueText = legendItem.append('text')
-          .attr('x', 250)
+          .attr('x', '65%')
           .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('')
           .attr('class', 'data-value');

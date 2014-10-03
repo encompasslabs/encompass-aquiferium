@@ -50,7 +50,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var mapLabels = [];
       var mapLabelsLength = mapLabels.length;
 
-      var legendBoxDimensions = 20;
+      var legendBoxDimensions = width / 50; //20
       var legendVertSpacingFactor = 1;
       var legendVertOffset = legendBoxDimensions * 0.8;
 
@@ -342,16 +342,16 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .attr('class', 'legend-box')
           .style('fill', function (d) {
             return color(d.name);
-          })
-          .style('stroke', '#000');
+          });
             
         var label = legendItem.append('text')
-          .attr('x', 30)
+          .attr('x', '10%') //30
           .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-          .text(function (d) { return d.name; });
+          .text(function (d) { return d.name; })
+          .attr('class', 'data-item');
 
         var dataValueText = legendItem.append('text')
-          .attr('x', 250)
+          .attr('x', '65%') //250
           .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('')
           .attr('class', 'data-value');

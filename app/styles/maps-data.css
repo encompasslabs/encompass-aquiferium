@@ -112,23 +112,17 @@ button:focus {
   100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
 }
 
-.open-panel {
-  left:0 !important;
-}
+.open-panel { left:0 !important; }
 
-.open {
-  left:12% !important;
-}
+.open { left:12% !important; }
+
+.offstage { left: -150%; }
 
 .transition { 
   -webkit-transition: left 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
   -moz-transition: left 0.3s ease-out;  /* Firefox 4-15 */
   -o-transition: left 0.3s ease-out;  /* Opera 10.50–12.00 */
   transition: left 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
-}
-
-.offstage {
-  left: -150%;
 }
 
 .backdrop {
@@ -147,14 +141,9 @@ button:focus {
   padding-left: 18rem;
 }
 
-#data-slides-container {
-  /*margin-left: 10%;*/
-  /*margin-top: 2%;*/
-}
+/*#data-slides-container {}*/
 
 .slide-label {
-  /*top: -100px;*/
-  /*left: 30%;*/
   font-size: 3rem;
   font-weight: 700;
   color: #ccc;
@@ -164,4 +153,3 @@ button:focus {
   top: 25%;
   left: 0;
 }
-

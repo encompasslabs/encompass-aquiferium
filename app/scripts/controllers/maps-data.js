@@ -17,12 +17,17 @@ angular.module('aquiferiumApp')
       // $anchorScroll();
     };
 
+    // Not populating.
+    $scope.legend = {
+      position: 'bottomleft',
+      colors: [ '#904', '#ff0000', '#28c9ff', '#0000ff', '#ecf386' ],
+      labels: [ 'Texas', 'Drainage', 'Recharge', 'Artesian', 'Authority Zone' ]
+    };
+
     var dataPanelVisible = false;
     var rechargeVisible = false;
     var wellsVisible = false;
     var springsVisible = false;
-
-    console.log(dataPanelVisible, rechargeVisible, wellsVisible, springsVisible);
 
     var togglePanel = function(target) {
       $(target).toggleClass('open-panel');
@@ -115,7 +120,7 @@ angular.module('aquiferiumApp')
           springsVisible = false;
         }
       }
-      console.log(dataPanelVisible, rechargeVisible, wellsVisible, springsVisible);
+      // console.log(dataPanelVisible, rechargeVisible, wellsVisible, springsVisible);
     };
 
     $('#toggle-data-panel').on('click', function(){
@@ -134,128 +139,7 @@ angular.module('aquiferiumApp')
       selectSlide('springs');
     });
 
-    // Only populating on refresh.
-    // Rest of map disappears on refresh.
-    // WTF?!
-    $scope.legend = {
-      position: 'bottomleft',
-      colors: [ '#904', '#ff0000', '#28c9ff', '#0000ff', '#ecf386' ],
-      labels: [ 'Texas', 'Drainage', 'Recharge', 'Artesian', 'Authority Zone' ]
-    };
-
-    var usaGeojson = './data/geojson/USA.geo.json';
-    // var usaGeojson = './data/geojson/gz_2010_us_outline_20m.json';  // Outline only.
-    var texasGeojson = './data/geojson/TX.geo.json';
-    var majorAquifersGeojson = './data/geojson/eaa/NEW_major_aquifers_dd_reduced10.lco3.geo.json';
-    // var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
-    // var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa-boundary.json';   // Doe snot render - may be missing geoprojection.
-    var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary.geo.json';
-    var aquiferZonesGeojson = './data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
-    // var texasGeojson = '';
-    // var texasGeojson = '';
-    // var texasGeojson = '';
-    // var texasGeojson = '';
-    // var texasGeojson = '';
-    // var texasGeojson = '';
-    // var texasGeojson = '';
-
-    var usa = new L.LayerGroup();
-    var texas = new L.LayerGroup();
-    var majorAquifers = new L.LayerGroup();
-    var eaaBoundary = new L.LayerGroup();
-    var aquiferZones = new L.LayerGroup();
-
-   var majorAquiferStyle = {
-        "clickable": true,
-        "color": "#08D",
-        "fillColor": "#08D",
-        "weight": 1.0,
-        "opacity": 0.7,
-        "fillOpacity": 0.5
-    };
-
-    var majorAquiferStyleHover = {
-        "fillOpacity": 0.8
-    };
-
-    $.getJSON(usaGeojson, function(data) {
-      var geojson = L.geoJson(data, {
-        style: function (feature) {
-          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#99f', 'stroke-width': '1', 'color': '#000' };
-        },
-        onEachFeature: function (feature, layer) {
-          // layer.bindPopup('Name: ' + feature.properties.name);
-          
-        }
-      });
-      geojson.addTo(usa);
-    });
-
-    $.getJSON(texasGeojson, function(data) {
-      var geojson = L.geoJson(data, {
-        style: function (feature) {
-          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#904', 'stroke-width': '1', 'color': '#000' };
-        },
-        onEachFeature: function (feature, layer) {
-          // layer.bindPopup('Name: ' + feature.properties.name);
-        
-        }
-      });
-      geojson.addTo(texas);
-    });
-
-    $.getJSON(majorAquifersGeojson, function(data) {
-      var geojson = L.geoJson(data, {
-        style: function (feature, layer) {
-          return majorAquiferStyle;
-        },
-        onEachFeature: function (feature, layer) {
-          if (feature.properties) {
-            var popupString = '<div class="popup">';
-            for (var k in feature.properties) {
-              var v = feature.properties[k];
-              popupString += k + ': ' + v + '<br />';
-            }
-            popupString += '</div>';
-            layer.bindPopup(popupString);
-            // layer.bindPopup('Name: ' + feature.properties.AQ_NAME + '<br/> ' + 'Area: ' + feature.properties.AREA + '</br>' + 'Perimeter: ' + feature.properties.PERIMETER);
-          }
-          if (!(layer instanceof L.Point)) {
-            layer.on('mouseover', function () {
-              layer.setStyle(majorAquiferStyleHover);
-            });
-            layer.on('mouseout', function () {
-              layer.setStyle(majorAquiferStyle);
-            });
-          }
-        }
-      });
-      geojson.addTo(majorAquifers);
-    });
-
-    $.getJSON(eaaBoundaryZonesGeojson, function(data) {
-      var geojson = L.geoJson(data, {
-        style: function (feature) {
-          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#f90', 'stroke-width': '1px', 'color': '#000' };
-        },
-        onEachFeature: function (feature, layer) {
-          layer.bindPopup('EAA Boundary Zone');
-        }
-      });
-      geojson.addTo(eaaBoundary);
-    });
-
-    $.getJSON(aquiferZonesGeojson, function(data) {
-      var geojson = L.geoJson(data, {
-        style: function (feature) {
-          return { 'opacity' : '0.9', 'fillOpacity' : '0.9', 'fillColor': '#0f9', 'stroke-width': '1px', 'color': '#000' };
-        },
-        onEachFeature: function (feature, layer) {
-          layer.bindPopup('Name: ' + feature.properties.Name);
-        }
-      });
-      geojson.addTo(aquiferZones);
-    });
+    // Map
 
     var mqArialUrl = 'http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg';
     var mqosmUrl = 'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg';
@@ -296,22 +180,234 @@ angular.module('aquiferiumApp')
     .setView([31.555502, -98.959761], 5);
 
     var baseLayers = {
-      "MapQuest Open Arial": mqArialMap,
-      "MapQuest-OSM": mqosmMap,
-      "Open Street Map OSM Mapnik": osmMap,
-      "Open Street Map OSM Black and White": osmBwMap,
-      "Thunderforest Landscape": thunLandscapeMap,
-      "Thunderforest Outdoors": thunOutdoorsMap,
-      "Stamen Watercolor": stamenMap,
-      "ESRI World Imagery": esriMap
+      'MapQuest Open Arial': mqArialMap,
+      'MapQuest-OSM': mqosmMap,
+      'Open Street Map OSM Mapnik': osmMap,
+      'Open Street Map OSM Black and White': osmBwMap,
+      'Thunderforest Landscape': thunLandscapeMap,
+      'Thunderforest Outdoors': thunOutdoorsMap,
+      'Stamen Watercolor': stamenMap,
+      'ESRI World Imagery': esriMap
     };
 
+    // Geojson to display.
+
+    var usaGeojson = './data/geojson/USA.geo.json';
+    // var usaGeojson = './data/geojson/gz_2010_us_outline_20m.json';  // Outline only.
+    var texasGeojson = './data/geojson/TX.geo.json';
+    // var majorAquifersGeojson = './data/geojson/eaa/NEW_major_aquifers_dd_reduced10.lco3.geo.json';
+    var majorAquifersGeojson = './data/geojson/eaa/NEW_major_aquifers_dd_reduced100.geo.json';
+    // var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary.geo.json';
+    var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
+    var aquiferZonesGeojson = './data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
+
+    // ALL of these render as the aquifer zones. Must have bad shp files or need to do something different to export for geojson.
+    // var hatchedAreaGeojson = './data/geojson/eaa/713-H_HatchedArea.geo.json';
+    // var directorDistrictsGeojson = './data/geojson/eaa/DirectorDistricts2014._optimized.EPSG4326.geo.json';
+    // var basinsGeojson = './data/geojson/eaa/basins_dd.geo.json';
+    // var precipitationGeojson = './data/geojson/eaa/precipitation_lin.geo.json';
+    // var hucddGeojson = './data/geojson/eaa/tx_hucdd.geo.json';
+    // var majorRiversGeojson = './data/geojson/eaa/MajorRivers_dd83.geo.json';
+    // var minorAquifersGeojson = './data/geojson/eaa/NEW_minor_aquifers_dd.geo.json';
+    // var reservoirsGeojson = './data/geojson/eaa/Existing_Reservoirs_2007_dd.geo.json';
+
+    // Styles for geojson layers.
+
+    var color_black = '#000000';
+    var color_grey = '#4D4B5B';
+    var color_white = '#FFFFFF';
+    var color_brown = '#C9985B';
+    var color_purple = '#91278D';
+    var color_blue = '#539CBE';
+    var color_green = '#018752';
+    var color_lime = '#C9FA58';
+    var color_yellow = '#F9E555';
+    var color_gold = '#FAA635';
+    var color_orange = '#F2572A';
+    var color_red = '#D21245';
+
+    var weight = 1.0;
+    var opacity = 1.0;
+    var fillOpacity = 0.7;
+    var fillOpacityHover = 1.0;
+
+    // Earlier objects override later objects.
+    var mergeObjects = function() {
+      var o = {}
+      for (var i = arguments.length - 1; i >= 0; i --) {
+        var s = arguments[i]
+        for (var k in s) o[k] = s[k]
+      }
+      return o
+    };
+
+    var baseStyle = {
+      'clickable': true,
+      'color': color_black,
+      'fillColor': color_grey,
+      'weight': weight,
+      'opacity': opacity,
+      'fillOpacity': fillOpacity
+    };
+
+    var baseStyleHover = {
+      'fillOpacity': fillOpacityHover
+    };
+
+    var usaStyle = { 'fillColor': color_blue };
+    var texasStyle = { 'fillColor': color_red };
+    var majorAquiferStyle = { 'fillColor': color_blue };
+    var eaaBoundaryZonesStyle = { 'fillColor': color_yellow };
+    var aquiferZonesStyle = { 'fillColor': color_green };
+    // var hatchedAreaStyle = { 'fillColor': color_grey };
+    // var directorDistrictsStyle = { 'fillColor': color_purple };
+    // var basinsStyle = { 'fillColor': color_orange };
+    // var precipitationStyle = { 'fillColor': color_green };
+    // var hucddStyle = { 'fillColor': color_green };
+    // var majorRiversStyle = { 'fillColor': color_gold };
+    // var minorAquifersStyle = { 'fillColor': color_blue };
+    // var reservoirsStyle = { 'fillColor': color_brown };
+
+    // Geojson interaction.
+
+    var geojsonHandler = function (feature, layer, style) {
+      if (feature.properties) {
+        var popupString = '<div class="popup">';
+        for (var k in feature.properties) {
+          var v = feature.properties[k];
+          popupString += k + ': ' + v + '<br />';
+        }
+        popupString += '</div>';
+        layer.bindPopup(popupString);
+      }
+      if (!(layer instanceof L.Point)) {
+        layer.on('mouseover', function () {
+          layer.setStyle(baseStyleHover);
+        });
+        layer.on('mouseout', function () {
+          var thisStyle = mergeObjects(style, baseStyle);
+          layer.setStyle(thisStyle);
+        });
+      }
+    };
+
+    // Load geojson.
+
+    var usaLayer = new L.LayerGroup();
+    var texasLayer = new L.LayerGroup();
+    var majorAquifersLayer = new L.LayerGroup();
+    var aquiferZonesLayer = new L.LayerGroup();
+    var eaaBoundaryLayer = new L.LayerGroup();
+    // var hatchedAreaLayer = new L.LayerGroup();
+    // var directorDistrictsLayer = new L.LayerGroup();
+    // var basinsLayer = new L.LayerGroup();
+    // var precipitationLayer = new L.LayerGroup();
+    // var hucddLayer = new L.LayerGroup();
+    // var majorRiversLayer = new L.LayerGroup();
+    // var minorAquifersLayer = new L.LayerGroup();
+    // var reservoirsLayer = new L.LayerGroup();
+
+    var processGeojson = function(data, layerStyle, layerGroup) {
+      var geojson = L.geoJson(data, {
+        style: function (feature, layer) {
+          var thisStyle = mergeObjects(layerStyle, baseStyle);
+          return thisStyle;
+        },
+        onEachFeature: function (feature, layer) {
+          geojsonHandler(feature, layer, layerStyle);
+        }
+      });
+      geojson.addTo(layerGroup);
+    };
+
+    $.getJSON(usaGeojson, function(data) {
+      processGeojson(data, usaStyle, usaLayer);
+    });
+
+    $.getJSON(texasGeojson, function(data) {
+      processGeojson(data, texasStyle, texasLayer);
+    });
+
+    $.getJSON(majorAquifersGeojson, function(data) {
+      processGeojson(data, majorAquiferStyle, majorAquifersLayer);
+    });
+
+    $.getJSON(aquiferZonesGeojson, function(data) {
+      processGeojson(data, aquiferZonesStyle, aquiferZonesLayer);
+    });
+
+    $.getJSON(eaaBoundaryZonesGeojson, function(data) {
+      var geojson = L.geoJson(data, {
+        style: function (feature, layer) {
+          var thisStyle = mergeObjects(eaaBoundaryZonesStyle, baseStyle);
+          return thisStyle;
+        },
+        onEachFeature: function (feature, layer) {
+          // geojsonHandler(feature, layer, eaaBoundaryZonesStyle, eaaBoundaryZonesStyleHover);
+
+          var popupString = '<div class="popup">Edwards Aquifer Association Boundary Zone</div>';
+          layer.bindPopup(popupString);
+
+          if (!(layer instanceof L.Point)) {
+            layer.on('mouseover', function () {
+              layer.setStyle(baseStyleHover);
+            });
+            layer.on('mouseout', function () {
+              var thisStyle = mergeObjects(eaaBoundaryZonesStyle, baseStyle);
+              layer.setStyle(thisStyle);
+            });
+          }          
+        }
+      });
+      geojson.addTo(eaaBoundaryLayer);
+    });
+
+    // $.getJSON(aquiferZonesGeojson, function(data) {
+    //   processGeojson(data, hatchedAreaStyle, hatchedAreaLayer);
+    // });
+
+    // $.getJSON(aquiferZonesGeojson, function(data) {
+    //   processGeojson(data, directorDistrictsStyle, directorDistrictsLayer);
+    // });
+
+    // $.getJSON(aquiferZonesGeojson, function(data) {
+    //   processGeojson(data, basinsStyle, basinsLayer);
+    // });
+
+    // $.getJSON(aquiferZonesGeojson, function(data) {
+    //   processGeojson(data, precipitationStyle, precipitationLayer);
+    // });
+
+    // $.getJSON(aquiferZonesGeojson, function(data) {
+    //   processGeojson(data, hucddStyle, hucddLayer);
+    // });
+
+    // $.getJSON(aquiferZonesGeojson, function(data) {
+    //   processGeojson(data, majorRiversStyle, majorRiversLayer);
+    // });
+
+    // $.getJSON(aquiferZonesGeojson, function(data) {
+    //   processGeojson(data, minorAquifersStyle, minorAquifersLayer);
+    // });
+
+    // $.getJSON(aquiferZonesGeojson, function(data) {
+    //   processGeojson(data, reservoirsStyle, reservoirsLayer);
+    // });
+
     var overlays = {
-      "USA": usa,
-      "Texas": texas,
-      "Major Aquifers": majorAquifers,
-      "Aquifer Zones": aquiferZones,
-      "EAA Boundary Zone": eaaBoundary      
+      'USA': usaLayer,
+      'Texas': texasLayer,
+      'Major Aquifers': majorAquifersLayer,
+      'Aquifer Zones': aquiferZonesLayer,
+      'EAA Boundary Zone': eaaBoundaryLayer,
+      // 'Hatched Area': hatchedAreaLayer,
+      // 'Director Districts': directorDistrictsLayer,
+      // 'Basins': basinsLayer,
+      // 'Precipitation': precipitationLayer,
+      // 'HUCDD': hucddLayer,
+      // 'Major Rivers': majorRiversLayer,
+      // 'Minor Aquifers': minorAquifersLayer,
+      // 'Reservoirs': reservoirsLayer
     };
 
     L.control.layers(baseLayers,overlays).addTo(map);

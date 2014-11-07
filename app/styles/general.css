@@ -67,6 +67,7 @@ a:hover {
   color: rgba(198, 147, 10, 1);
 }
 .footer {
+  color: #777;
   background-color: #111;
   border-top: 1px solid #333;
   font-size: 0.9rem;

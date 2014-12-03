@@ -19,7 +19,7 @@ angular.module('eaa.directives.maps.leaflet', [])
     };
 
     directiveDefinitionObject.link = function postLink (scope, element) {
-      var texas = new L.LayerGroup();
+    var texas = new L.LayerGroup();
     var majorAquifers = new L.LayerGroup();
     var eaaBoundary = new L.LayerGroup();
     var aquiferZones = new L.LayerGroup();

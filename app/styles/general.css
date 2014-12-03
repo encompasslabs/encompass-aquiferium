@@ -28,13 +28,22 @@ h1 small {
 a:hover, a:visited, a:link, a:active
 {
   text-decoration: none;
-  color: #71B2C9;
+  /*color: #71B2C9;*/
+  color: #aaa;
 }
 a:hover {
-  color: #AB650D;
+  /*color: #AB650D;*/
+  color: #71B2C9;
 }
 .nav, .pagination, .carousel, .panel-title a { 
   cursor: pointer; 
+}
+.aquiferium-title {
+  float: left;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 50px;
 }
 .eaa-logo {
   min-width: 80px;

@@ -20,17 +20,29 @@ angular.module('aquiferiumApp', [
 ])
   .config(function ($routeProvider) {
     $routeProvider
+      // .when('/', {
+      //   templateUrl: 'views/explore.html',
+      //   controller: 'ExploreCtrl'
+      // })
       .when('/', {
-        templateUrl: 'views/explore.html',
-        controller: 'ExploreCtrl'
+        templateUrl: 'views/geography.html',
+        controller: 'GeographyCtrl'
       })
-      .when('/explore', {
-        templateUrl: 'views/explore.html',
-        controller: 'ExploreCtrl'
+      // .when('/explore', {
+      //   templateUrl: 'views/explore.html',
+      //   controller: 'ExploreCtrl'
+      // })
+      .when('/geography', {
+        templateUrl: 'views/geography.html',
+        controller: 'GeographyCtrl'
       })
-      .when('/caves-karsts', {
-        templateUrl: 'views/caves-karsts.html',
-        controller: 'CavesKarstsCtrl'
+      // .when('/caves-karsts', {
+      //   templateUrl: 'views/caves-karsts.html',
+      //   controller: 'CavesKarstsCtrl'
+      // })
+      .when('/geology', {
+        templateUrl: 'views/geology.html',
+        controller: 'GeologyCtrl'
       })
       .when('/conservation', {
         templateUrl: 'views/conservation.html',
@@ -40,18 +52,18 @@ angular.module('aquiferiumApp', [
         templateUrl: 'views/springs.html',
         controller: 'SpringsCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/contact', {
-        templateUrl: 'views/contact.html',
-        controller: 'ContactCtrl'
-      })
-      .when('/maps-data', {
-        templateUrl: 'views/maps-data.html',
-        controller: 'MapsDataCtrl'
-      })
+      // .when('/about', {
+      //   templateUrl: 'views/about.html',
+      //   controller: 'AboutCtrl'
+      // })
+      // .when('/contact', {
+      //   templateUrl: 'views/contact.html',
+      //   controller: 'ContactCtrl'
+      // })
+      // .when('/maps-data', {
+      //   templateUrl: 'views/maps-data.html',
+      //   controller: 'MapsDataCtrl'
+      // })
       .otherwise({
         redirectTo: '/'
       });

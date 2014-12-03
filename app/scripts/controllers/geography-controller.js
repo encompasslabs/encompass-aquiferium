@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('GeographyCtrl', ['$scope', '$location', '$anchorScroll', function ($scope, $location, $anchorScroll) {
+  .controller('GeographyCtrl', ['$scope', '$http', '$location', '$anchorScroll', 'leafletData', function ($scope, $http, $location, $anchorScroll, leafletData) {
     $scope.pageClass = 'geography';
 
     $scope.resetView = function () {
@@ -9,7 +9,7 @@ angular.module('aquiferiumApp')
       $anchorScroll();
     };
 
-    $scope.resetView();
+    // $scope.resetView();
 
     // $scope.animateTo(10000, 15000, linear);
     // console.log($skrollr.data.curTop);

@@ -8,7 +8,7 @@ html {
 body {
   overflow-x: hidden;
   overflow-y: scroll; /*hidden;*/
-  position: absolute;
+  /*position: absolute;*/
   margin-bottom: 5rem;
   text-rendering: optimizeLegibility;
   /*font-family: 'Exo 2', sans-serif; */

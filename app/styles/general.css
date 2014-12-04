@@ -36,16 +36,30 @@ a:hover {
   /*color: #AB650D;*/
   color: #71B2C9;
 }
+.no-Ibar {
+  cursor: default;
+}
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 .nav, .pagination, .carousel, .panel-title a { 
   cursor: pointer; 
 }
-.aquiferium-title {
+.nav-spacing {
+  padding: 0 2rem;
+}
+.apptitle {
   float: left;
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
   height: 50px;
-  color: #71B2C9;
+  color: #AADD6D; /* Green: #AADD6D; Blue: #71B2C9;*/
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
 }
 .eaa-logo {
   min-width: 80px;
@@ -64,18 +78,13 @@ a:hover {
   -moz-border-radius: 0 4rem 0;
   border-radius: 0 4rem 0;
 }
-.apptitle {
-  /*position: relative;*/
-  /*top: 0.2rem;*/
-  /*bottom: 0;*/
-  font-weight: 700;
-  /*font-size: 30px;*/
-  font-size: 1.2rem;
-  /*color: #000;    */
-}
 .subtitle {
   font-size: 1.2rem;
   color: rgba(198, 147, 10, 1);
+}
+.information {
+  padding-top: 1rem;
+  padding-left: 1rem;
 }
 .footer {
   color: #777;
@@ -84,38 +93,3 @@ a:hover {
   font-size: 0.9rem;
   padding-top: 0.8rem;
 }
-.no-Ibar {
-  cursor: default;
-}
-.centered {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-/*.centered2 {
-  right: 0;
-  left: 0;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 1rem;
-  width: 100%;
-}
-.centered3 {
-  left: 50%;
-  margin-left: -50%;
-  width: 100%;
-}*/
-
-/*.container-centered { 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 0;
-  text-align: center;
-}
-.container-centered > div {
-  display: inline-block;
-  text-align: left;
-}*/

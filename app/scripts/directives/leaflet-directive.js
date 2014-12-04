@@ -299,7 +299,7 @@ angular.module('eaa.directives.maps.leaflet', [])
       layers: [mqArialMap] // only add one!
     }).setView(initialPosition, initialZoom);
 
-    L.control.layers(baseLayers,overlays,{position: 'topleft'}).addTo(map);
+    // L.control.layers(baseLayers,overlays,{position: 'topleft'}).addTo(map);
     L.control.scale().addTo(map);
     L.Browser.touch = true;
 

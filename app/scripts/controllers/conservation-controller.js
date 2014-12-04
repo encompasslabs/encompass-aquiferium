@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('ConservationCtrl', ['$scope', '$location', '$anchorScroll', function ($scope, $location, $anchorScroll) {
+  .controller('ConservationCtrl', ['$window', '$scope', '$location', '$anchorScroll', function ($window, $scope, $location, $anchorScroll) {
     $scope.pageClass = 'conservation';
 
     $scope.urlHcp = 'http://eahcp.org';

@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="styles/general.css">
     <link rel="stylesheet" type="text/css" href="styles/transitions.css">
     <link rel="stylesheet" type="text/css" href="styles/skrollr.css">
-    <link rel="stylesheet" type="text/css" href="styles/skrollr-mq.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styles/skrollr-mq.css"> -->
     <link rel="stylesheet" type="text/css" href="styles/interactives.css">
     <link rel="stylesheet" type="text/css" href="styles/maps-data.css">
     <link rel="stylesheet" type="text/css" href="styles/about.css">
@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="styles/mq-large.css">
     <link rel="stylesheet" type="text/css" href="styles/mq-xlarge.css">
     <link rel="stylesheet" type="text/css" href="styles/mq-hd.css">     -->
-    <link rel="stylesheet" href="bower_components/leaflet-easy-print/easyPrint.css" />
+    <!-- <link rel="stylesheet" href="bower_components/leaflet-easy-print/easyPrint.css" /> -->
     <!-- endbuild -->
 </head>
 <body data-ng-app="aquiferiumApp">
@@ -48,7 +48,7 @@
   <!-- Navbar -->
   <div id="navbar" class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" data-ng-controller="NavigationCtrl">
   <!-- Navbar -->
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
         <!-- <img class="img-responsive pull-left eaa-logo" src="./images/eaa_branding/eaa-logo-color.png" /> -->
         <div class="no-Ibar aquiferium-title apptitle">The Aquiferium</div> <!-- navbar-brand  -->       
@@ -70,6 +70,7 @@
           <!-- <li ng-class="getClass('/maps-data')"><a href="#/maps-data">Maps &amp; Data</a></li> -->
           <!-- <li ng-class="getClass('/about')"><a href="#/about">About</a></li> -->
           <!-- <li ng-class="getClass('/contact')"><a href="#/contact">Contact</a></li> -->
+          <li><span class="glyphicon glyphicon-info-sign"></span></li>
         </ul>
       </div>
     </div>
@@ -163,8 +164,9 @@
   <!-- endbower -->
   <!-- endbuild -->
 
-  <!-- non-bower 3rd party libraries. -->
+  <!-- grunt-no-likey 3rd party libraries. -->
   <script src="bower_components/skrollr-menu/dist/skrollr.menu.min.js"></script>
+  <script src="bower_components/skrollr-stylesheets/dist/skrollr.stylesheets.min.js"></script>
   <script src="bower_components/leaflet-tilelayer-geojson/TileLayer.GeoJSON.js"></script>
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->

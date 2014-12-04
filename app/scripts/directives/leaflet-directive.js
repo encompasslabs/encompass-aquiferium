@@ -294,12 +294,31 @@ angular.module('eaa.directives.maps.leaflet', [])
     var initialZoom = 5;
 
     var map = L.map('map', {
+      zoomControl: false,
+      attributionControl: true,
       layers: [mqArialMap] // only add one!
     }).setView(initialPosition, initialZoom);
 
-    L.control.layers(baseLayers,overlays).addTo(map);
+    L.control.layers(baseLayers,overlays,{position: 'topleft'}).addTo(map);
     L.control.scale().addTo(map);
     L.Browser.touch = true;
+
+    // var eaaBounds = [[22, 122], [48, 154]];
+    // var panOptions = {animate: true, duration: 3, easeLinearity: 0.25, noMoveStart: false };
+    // var theMap = document.getElementById('map');
+
+    // console.log(map);
+    // console.log(theMap);
+    // console.log(eaaBounds);
+    // console.log(panOptions);
+    // console.log(L.hasOwnProperty('panInsideBounds'));
+    // console.log(map.hasOwnProperty('panInsideBounds'));
+
+    // map.panInsideBounds(eaaBounds, panOptions);
+    // L.panInsideBounds(eaaBounds, panOptions);
+    // theMap.panInsideBounds(eaaBounds, panOptions);
+
+    // RANDOM PARTS...
 
     // // L.legend.addTo(map);
     // // map.legendControl.addLegend(legend);
@@ -335,21 +354,6 @@ angular.module('eaa.directives.maps.leaflet', [])
     // //     };
 
     // // $scope.resetView();  // Causes the page to hang. Why?
-
-
-    var eaaBounds = [[22, 122], [48, 154]];
-    var panOptions = {animate: true, duration: 3, easeLinearity: 0.25, noMoveStart: false };
-    // var theMap = document.getElementById('map');
-
-    // console.log(map);
-    // console.log(theMap);
-    // console.log(eaaBounds);
-    // console.log(panOptions);
-    // console.log(L.hasOwnProperty('panInsideBounds'));
-    // console.log(map.hasOwnProperty('panInsideBounds'));
-    // map.panInsideBounds(eaaBounds, panOptions);
-    // L.panInsideBounds(eaaBounds, panOptions);
-    // // theMap.panInsideBounds(eaaBounds, panOptions);
 
     };
 

@@ -290,8 +290,8 @@ angular.module('eaa.directives.maps.leaflet', [])
       // 'Reservoirs': reservoirsLayer
     };
 
-    var initialPosition = [31.555502, -98.959761];
-    var initialZoom = 5;
+    var initialPosition = [36, -90];
+    var initialZoom = 4;
 
     var map = L.map('map', {
       zoomControl: false,
@@ -299,7 +299,7 @@ angular.module('eaa.directives.maps.leaflet', [])
       layers: [mqArialMap] // only add one!
     }).setView(initialPosition, initialZoom);
 
-    // L.control.layers(baseLayers,overlays,{position: 'topleft'}).addTo(map);
+    L.control.layers(baseLayers,overlays,{position: 'topleft'}).addTo(map);
     L.control.scale().addTo(map);
     L.Browser.touch = true;
 

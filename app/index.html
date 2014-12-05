@@ -21,8 +21,15 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <!-- Web Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+
     <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Philosopher:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Marvel:400,700' rel='stylesheet' type='text/css'>    
+    <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" type="text/css" href="styles/general.css">
@@ -34,6 +41,7 @@
     <link rel="stylesheet" type="text/css" href="styles/about.css">
     <link rel="stylesheet" type="text/css" href="styles/contact.css">
     <!-- <link rel="stylesheet" href="bower_components/leaflet-easy-print/easyPrint.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="styles/final-edits.css"> -->
     <!-- endbuild -->
 </head>
 <body data-ng-app="aquiferiumApp">
@@ -44,10 +52,12 @@
   <!-- Navbar -->
   <div id="navbar" class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" data-ng-controller="NavigationCtrl">
   <!-- Navbar -->
-    <div class="container">
+    <div class="container z-400">
+      <!-- <div class="no-Ibar apptitle div-fixed z-500">The Aquiferium</div> -->
       <div class="navbar-header">
+        <div class="no-Ibar apptitle z-500">The Aquiferium</div>
         <!-- <img class="img-responsive pull-left eaa-logo" src="./images/eaa_branding/eaa-logo-color.png" /> -->
-        <div class="no-Ibar apptitle">The Aquiferium</div> <!-- navbar-brand  -->       
+        <!-- <div class="no-Ibar apptitle">The Aquiferium</div> --> <!-- navbar-brand  -->       
         <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
@@ -57,17 +67,38 @@
       </div>
       <div class="navbar-collapse centered" ng-class="isCollapsed ? 'collapse' : 'in'">
         <ul class="nav navbar-nav nav-spacing">
-          <!-- <li ng-class="getClass('/explore')"><a href="#/explore">Explore</a></li> -->
           <li ng-class="getClass('/geography')"><a href="#/geography">Geography</a></li>
-          <!-- <li ng-class="getClass('/caves-karsts')"><a href="#/caves-karsts">Caves &amp; Karst</a></li> -->
           <li ng-class="getClass('/geology')"><a href="#/geology">Geology</a></li>
           <li ng-class="getClass('/springs')"><a href="#/springs">Springs &amp; Species</a></li>
           <li ng-class="getClass('/conservation')"><a href="#/conservation">Governance &amp; Conservation</a></li>
-          <!-- <li ng-class="getClass('/maps-data')"><a href="#/maps-data">Maps &amp; Data</a></li> -->
-          <!-- <li ng-class="getClass('/about')"><a href="#/about">About</a></li> -->
-          <!-- <li ng-class="getClass('/contact')"><a href="#/contact">Contact</a></li> -->
-          <li><a id="information" class="information" ng-click="toggleInfo()"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+          <li><a id="toggle-info-panel" ng-click="toggleInfoPanel()"><span class="glyphicon glyphicon-info-sign"></span></a></li>
         </ul>
+      </div>
+      <div>
+        <div class="fullscreen div-absolute">
+          <a ng-click="toggleFullScreen()"><span class="glyphicon glyphicon-fullscreen"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="info-panel" class="div-fixed z-100 backdrop-info offstage-top transition-slide-down">
+      <div class="information">
+        <p>Contact the Edwards Aquifer Authority:</p>
+        <!-- <div class="contact-entry">
+          <p><span class="glyphicon glyphicon-envelope glyph-spacing-right"></span>Email: <a href="mailto:info@edwardsaquifer.org?Subject=Aquiferium%20Question" target="_blank">info@edwardsaquifer.org</a></p>
+          <p><span class="glyphicon glyphicon-earphone glyph-spacing-right"></span>Phone: <a href="tel://1-210-222-2204">(210) 222-2204</a> or <a href="tel://1-800-292-1047">1-800-292-1047</a></p>
+          <p><span class="glyphicon glyphicon-send glyph-spacing-right"></span>Fax: (210) 222-9869</p>
+          <p><span class="glyphicon glyphicon-home glyph-spacing-right"></span>Address: <span class="address-block-line1">900 E. Quincy, San Antonio, TX 78215</span></p>
+        </div> -->
+        <div class="contact-entry">
+          <p>Email: <a href="mailto:info@edwardsaquifer.org?Subject=Aquiferium%20Question" target="_blank">info@edwardsaquifer.org</a></p>
+          <p>Phone: <a href="tel://1-210-222-2204">(210) 222-2204</a> or <a href="tel://1-800-292-1047">1-800-292-1047</a></p>
+          <p>Fax: (210) 222-9869</p>
+          <p>Address: <a href="https://www.google.com/maps/place/900+East+Quincy+SanAntonio+TX+78215" target="_blank">900 E. Quincy, San Antonio, TX 78215</a></p>
+        </div>
+        <a href="http://www.edwardsaquifer.org/" target="_blank"><img class="img-responsive div-absolute eaa-logo-contact" src="./images/eaa_branding/eaa-logo-color.png" /></a>
+        <a href="http://www.encompassproject.org" target="_blank"><img class="img-responsive div-absolute encompass-logo-contact" src="./images/encompass_branding/logo.png" /></a>
+        <a href="http://www.utexas.edu" target="_blank"><img class="img-responsive div-absolute ut-logo-contact" src="./images/ut_branding/ribbon.png" /></a>
       </div>
     </div>
   </div>
@@ -83,19 +114,6 @@
       <p>&#169; 2014 <a data-ng-href="http://edwardsaquifer.org" title="Edwards Aquifer Authority" target="new">Edwards Aquifer Authority</a> | Developed by <a data-ng-href="http://www.encompassproject.org" title="Encompass Project" target="new">Encompass Labs</a></p>
     </div>
   </div> -->
-
-  <!-- Testing Media Queries - remove before deploying. -->
-  <!-- 
-  <div class="testing">
-    <div class="test-media-queries">
-      <br/>
-      <p>screen-type &#38; media query:
-        <br/>
-        <span></span>
-      </p>
-    </div>
-  </div>
-   -->
    
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <script>

@@ -1,0 +1,13 @@
+@media screen and (min-width:0px) and (max-width:1990px) {
+  #data-access-index {
+    top: 8.5%;
+    right: 2rem;
+  }
+}
+
+@media screen and (min-width:1991px) {
+  #data-access-index {
+    top: 4.25%;
+    right: 2rem;
+  }
+}

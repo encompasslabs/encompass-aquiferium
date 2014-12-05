@@ -1,6 +1,47 @@
-<!-- <div class="container"> -->
+<div class="container">
   <div class="geography">
-    <!-- <div id="map" class="div-fixed z-100"></div> -->
     <leaflet-map id="map" class="div-fixed z-100"></leaflet-map>
+
+    <div id="data-access-index" class="div-fixed z-500">
+      <button id="toggle-data-panel">Show Data</button>
+    </div>
+
+    <div id="data-panel" class="div-fixed z-400 backdrop offstage transition">
+
+      <button id="toggle-recharge-data">Recharge Data</button>
+      <button id="toggle-wells-data">Wells Data</button>
+      <button id="toggle-springs-data">Springs Data</button>
+
+      <div id="data-slides-container">
+
+        <div id="recharge-backdrop" class="div-absolute offstage transition">
+          <div class="slide-label">Recharge Data</div>
+          <div id="recharge-slide" class="div-relative data-slide">
+            <div id="interactive" class="interactive interactive-frame">
+              <eaa-gauge-data-interactive-recharge></eaa-gauge-data-interactive-recharge>
+            </div>
+          </div>
+        </div>
+
+        <div id="wells-backdrop" class="div-absolute offstage transition">
+          <div class="slide-label">Wells Data</div>
+          <div id="wells-slide" class="div-relative data-slide">
+            <div id="interactive" class="interactive interactive-frame">
+              <eaa-gauge-data-interactive-wells></eaa-gauge-data-interactive-wells>
+            </div>
+          </div>
+        </div>
+
+        <div id="springs-backdrop" class="div-absolute offstage transition">
+          <div class="slide-label">Springs Data</div>
+          <div id="springs-slide" class="div-relative data-slide">
+            <div id="interactive" class="interactive interactive-frame">
+              <eaa-gauge-data-interactive-springs></eaa-gauge-data-interactive-springs>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-<!-- </div> -->
+</div>

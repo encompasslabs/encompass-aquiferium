@@ -7,6 +7,7 @@
 .div-fixed { position: fixed; }
 .div-relative { position: relative; }
 .div-absolute { position: absolute; }
+/*.div-static { position: static; }*/
 
 /* Depth */
 .z-0 {
@@ -53,20 +54,20 @@
   /* requires position */
   z-index: 500;
 }
+.z-800 {
+  /* requires position */
+  z-index: 800;
+}
 
 .progress-hor { 
   position: fixed;
   top: 5rem;
-  left: 50%;
-  margin-left: -20rem;
+  left: 30%; /*50%;*/
+  /*margin-left: -20rem;*/
   width: 40rem;
   height: 1.2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  /*background-color: #000; */
-  /*border: 0.1rem solid rgba(255,255,255,0.6); */
-  /*border-radius: 0.25rem; */
-  /*text-align: left; */
 }
 .progress-circle-container {
   width: 3rem;
@@ -74,14 +75,10 @@
 }
 
 .background {
-  /*background-position: center center;*/
-  /*background-repeat: no-repeat;*/
-  /*background-attachment: fixed;*/
   background-size: cover;
   height: 200%;
   /*height: 156.25rem;*/
   width: 100%;
-  /*box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.3);*/
 }
 .section-bg {
   /*background-size: cover;*/
@@ -103,10 +100,6 @@
   font-size: 4rem;
   font-weight: 700;
 }
-.text-title h2 {
-  /*color: #AADD6D;*/ /*#71B2C9;*/ /*#C6930A;*/ /*#AADD6D;*/ /*#AB650D;*/
-  /*font-size: 1rem;*/
-}
 .text-select {
   color: rgba(170, 221, 109, 1);
   font-size: 1.4rem;
@@ -115,18 +108,19 @@
   cursor: default;
   width: 64rem;
   color: #fff;
-  background-color: #111;
-  border: 2px solid #fff;
+  background-color: rgba(10,10,10,0.6); /*rgba(0,0,0,0.6);*/ /*rgba(15,15,15,0.7);*/ /*#111;*/
+  border: 2px solid #444; /*#8E8C7A;*/
   -webkit-border-radius: 0 4rem 0;
   -moz-border-radius: 0 4rem 0;
   border-radius: 0 4rem 0;
-  padding: 1rem 3rem 1rem 3rem;
-  opacity: 0.85;
+  padding: 0.5rem 3rem 0 3rem;
   text-align: justify;
 }
 .text-label {
+  cursor: default;
   width: 50rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255,255,255,0.8); /*#8E8C7A;*/
+  font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 3rem;
   text-align: right;
 }
@@ -147,7 +141,8 @@
   cursor: default;
   width: 30rem;
   font-size: 1rem;
-  color: rgba(198, 147, 10, 1);
+  /*color: rgba(198, 147, 10, 1);*/
+  color: #bbb;
 }
 .clip-flyin {
   clip: rect(0em, 79em, 60em, -14em);
@@ -168,7 +163,7 @@
   background-size: cover;
   background-position: center center;
   border-radius: 2rem;
-  border: 0.15rem solid rgba(255,255,255,0.7);
+  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
 .image-frame-tall {
   width: 64rem;
@@ -176,13 +171,13 @@
   background-size: cover;
   background-position: center center;
   border-radius: 2rem;
-  border: 0.15rem solid rgba(255,255,255,0.7);
+  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
 .image-medium {
   background-size: cover;
   background-position: center center;
   border-radius: 1rem;
-  border: 0.15rem solid rgba(255,255,255,0.7);
+  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
 .image-medium.concept {
   width: 30rem;
@@ -192,7 +187,7 @@
   background-size: cover;
   background-position: center center;
   border-radius: 1rem;
-  border: 0.15rem solid rgba(255,255,255,0.7);
+  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
 .image-small.tall {
   width: 16rem;
@@ -215,13 +210,13 @@
   height: 4.8rem;
   background-size: cover;
   background-position: center center;
-  border: 0.15rem solid rgba(255,255,255,0.7);
+  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
 .video-frame {
   width: 64rem;
   background: #000;
   background-size: cover;
-  border: 0.15rem solid rgba(255,255,255,0.7);
+  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
 .interactive-frame {
   width: 64rem;
@@ -229,7 +224,7 @@
   background: #dedede;
   background-size: cover;
   border-radius: 2rem;
-  border: 0.15rem solid rgba(255,255,255,0.7);
+  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
 .interactive-frame.aquifers {
   background: rgba(17,17,17,0.8);
@@ -264,7 +259,10 @@
   font-size: 1rem;
 }
 .end-link > a:hover {
-  color: rgba(209,91,5,1);
+  /*color: rgba(209,91,5,1);*/
+  /*color: #8F8100;*/
+  color: #71B2C9;
+  /*color: #AB650D;*/
 }
 
 #holder {
@@ -360,7 +358,7 @@
   padding-left: 1rem;
 }
 .address-lookup-color {
-  color: #C6930A;
+  color: #C6930A; /*71B2C9*/
 }
 
 .nav-link-address-lookup:hover, .nav-link-address-lookup:visited, .nav-link-address-lookup:link, .nav-link-address-lookup:active

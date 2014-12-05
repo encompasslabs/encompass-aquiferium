@@ -33,12 +33,9 @@ angular.module('aquiferiumApp')
       $(target).toggleClass('open-panel-top-50');
       $scope.infoToggled = !$scope.infoToggled;
       // console.log('panel toggled.');
-      // console.log('infoToggled now set to: ' + $scope.infoToggled);
     };
 
     $scope.toggleInfoPanel = function() {
-      // console.log('=================================');
-      // console.log('toggling panel');
       if ($scope.infoToggled) {
         $scope.togglePanel('#info-panel');  
         // console.log('panel is now closed');      

@@ -4,6 +4,14 @@ angular.module('aquiferiumApp')
   .controller('NavigationCtrl', ['$scope', '$location', '$document', function ($scope, $location, $document) {
     $scope.isCollapsed = true;
     $scope.infoToggled = false;
+    $scope.code = 'SUhtSnl_ZRM';
+
+    $scope.$on('$routeChangeStart', function () {
+      if($scope.infoToggled) {
+        console.log('true');
+        $scope.togglePanel('#info-panel');
+      }
+    });
 
     $scope.$on('$routeChangeSuccess', function () {
       $scope.isCollapsed = true;
@@ -16,11 +24,13 @@ angular.module('aquiferiumApp')
     $scope.getClass = function (path) {
       if (path === '/') {
         if ($location.path() === '/') {
+          // console.log('if /: ' + $location.path());
           return 'active';
         }
       }
 
       if ($location.path().substr(0, path.length) === path) {
+        // console.log('if not /: ' + $location.path());        
         return 'active';
       }
     };
@@ -33,16 +43,6 @@ angular.module('aquiferiumApp')
       $(target).toggleClass('open-panel-top-50');
       $scope.infoToggled = !$scope.infoToggled;
       // console.log('panel toggled.');
-    };
-
-    $scope.toggleInfoPanel = function() {
-      if ($scope.infoToggled) {
-        $scope.togglePanel('#info-panel');  
-        // console.log('panel is now closed');      
-      } else {
-        $scope.togglePanel('#info-panel');
-        // console.log('panel is now open');
-      }
     };
 
     $scope.toggleFullScreen = function() {

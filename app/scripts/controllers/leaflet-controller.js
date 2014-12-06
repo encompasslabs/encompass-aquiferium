@@ -1,1 +1,0 @@
-console.log('leaflet-controller.js');

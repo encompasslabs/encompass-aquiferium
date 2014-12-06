@@ -3,14 +3,13 @@
 /* Assumptions: 100% = 1 em ~= 16px ~= 14pt */
 html {
   font-size: 100%; 
-  /*min-width: 640px;*/
-  /*max-width: 1280px;*/
+  min-width: 1280px;
+  max-width: 1280px;
   width: 1280px;
 }
 body {
   overflow-x: hidden;
   overflow-y: scroll; /*hidden;*/
-  /*position: absolute;*/
   margin-bottom: 5rem;
   text-rendering: optimizeLegibility;
   font-family: 'Open Sans', sans-serif;
@@ -31,14 +30,10 @@ h1 small {
 a, a:hover, a:visited, a:link, a:active
 {
   text-decoration: none;
-  /*color: #71B2C9;*/
   color: #aaa;
 }
 a:hover {
-  /*color: #AB650D;*/
   color: #71B2C9;
-  /*color: #8F8100;*/
-  /*color: #f00;*/
 }
 .no-Ibar {
   cursor: default;
@@ -53,6 +48,10 @@ a:hover {
 }
 .nav-spacing {
   padding: 0 2rem;
+}
+.fullscreen {
+  top: 1rem;
+  right: 1rem;
 }
 .apptitle {
   font-family: 'Ubuntu Condensed', sans-serif;
@@ -70,39 +69,83 @@ a:hover {
   margin-bottom: 0.3rem;
 }
 .eaa-logo-contact {
+  /*top: 27rem;*/
+  /*left: 34rem;*/
+  top: 68%;
+  left: 50%;
+  width: 12rem;
   padding: 1rem;
-  background-color: #fff;
-  border: 2px solid #000;
-  -webkit-border-radius: 0 1rem 0;
-  -moz-border-radius: 0 1rem 0;
-  border-radius: 0 1rem 0;
-  width: 10rem;
-  left: 38rem;
-  top: 2rem;
+  background-color: #000;
+  border: 2px solid rgba(0,0,0,0);
 }
 .encompass-logo-contact {
+  /*top: 28rem;*/
+  /*left: 47rem;*/
+  top: 70%;
+  left: 67%;
+  width: 13rem;
   padding: 0.5rem 1rem;
-  background-color: #111;
-  border: 2px solid rgba(113,178,201,0.7); /*#71B2C9;*/
-  width: 12rem;
-  left: 49rem;
-  top: 3rem;
+  background-color: #000;
+  border: 2px solid rgba(113,178,201,0.4); /*#71B2C9;*/  
 }
 .ut-logo-contact {
-  width: 9rem;
-  left: 62rem;
-  top: 1rem;
+  /*top: 28rem;*/
+  /*left: 61rem;*/
+  top: 70%;
+  left: 85%;
+  width: 8rem;
+  border: 2px solid rgba(0,0,0,0);
+}
+.eaa-logo-contact:hover , .encompass-logo-contact:hover, .ut-logo-contact:hover {
+  border: 2px solid #71B2C9;
 }
 .subtitle {
   font-size: 1.2rem;
   color: rgba(198, 147, 10, 1);
 }
-.information {
-  padding: 1rem;
+#information {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.fullscreen {
-  top: 1rem;
-  right: 1rem;
+.information {
+  cursor: default;
+  padding: 1rem 3rem 1rem 3rem;
+  font-size: 0.9rem;
+}
+.info-label {
+  cursor: default;
+  /*width: 50rem;*/
+  color: #AADD6D;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 1.5rem;
+  /*text-align: right;*/
+}
+.info-about {
+  color: #fff;
+}
+.info-video {
+  width: 352px;
+  height: 198px;
+  padding: 1rem 0 0 1rem;
+  border: 1px solid #333;
+}
+.info-quoted {
+  padding: 0 3rem 0 2rem;
+  color: #E6D395;
+}
+.info-quotedby {
+  float: right;
+  top: -1rem;
+  font-style: italic;
+  color: #ccc;
+}
+.info-contact {
+  padding-left: 1rem;
+}
+.info-footer {
+  bottom: 1rem;
+  /*font-style: italic;*/
 }
 .footer {
   color: #777;
@@ -117,13 +160,25 @@ a:hover {
   right: 2rem;
 }
 
+.backdrop {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.backdrop-info {
+  width: 100%;
+  height: 70%;
+  background-color: #000;
+}
+
+.offstage { left: -150%; }
+.offstage-top { top: -70%; }
+
 .open-panel { left:0 !important; }
 .open-panel-top-50 { top: 3rem !important; }
 
 .open { left:12% !important; }
-
-.offstage { left: -150%; }
-.offstage-top { bottom: -120%; }
 
 .transition { 
   -webkit-transition: left 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
@@ -133,20 +188,9 @@ a:hover {
 }
 
 .transition-slide-down { 
-  -webkit-transition: top 0.5s ease-out;  /* Chrome 1-25, Safari 3.2+ */
-  -moz-transition: top 0.5s ease-out;  /* Firefox 4-15 */
-  -o-transition: top 0.5s ease-out;  /* Opera 10.50–12.00 */
-  transition: top 0.5s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  -webkit-transition: top 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+  -moz-transition: top 0.3s ease-out;  /* Firefox 4-15 */
+  -o-transition: top 0.3s ease-out;  /* Opera 10.50–12.00 */
+  transition: top 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
 }
 
-.backdrop {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-}
-
-.backdrop-info {
-  width: 100%;
-  height: 20%;
-  background-color: #000;
-}

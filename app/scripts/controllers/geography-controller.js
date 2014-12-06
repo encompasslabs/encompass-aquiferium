@@ -28,15 +28,15 @@ angular.module('aquiferiumApp')
     };
 
     $scope.displayPanel = function() {
-      console.log('toggling panel');
+      // console.log('toggling panel');
       if ($scope.dataPanelVisible) {
-        console.log('panel was open');
+        // console.log('panel was open');
         $scope.selectSlide('close');
         $scope.togglePanel('#data-panel');
         $scope.dataPanelVisible = false;
         document.getElementById('toggle-data-panel').innerHTML = 'Show Data';
       } else {
-        console.log('panel was closed');
+        // console.log('panel was closed');
         $scope.togglePanel('#data-panel');
         $scope.dataPanelVisible = true;
         document.getElementById('toggle-data-panel').innerHTML = 'Hide Data';
@@ -45,7 +45,7 @@ angular.module('aquiferiumApp')
 
     $scope.selectSlide = function(target) {
       if (target === 'recharge') {
-        console.log('recharge');
+        // console.log('recharge');
         if($scope.wellsVisible) {
           $scope.toggleSlide('#wells-backdrop');
           $scope.wellsVisible = false;
@@ -62,7 +62,7 @@ angular.module('aquiferiumApp')
           $scope.rechargeVisible = true;
         }
       } else if (target === 'wells') {
-        console.log('wells');
+        // console.log('wells');
         if($scope.rechargeVisible) {
           $scope.toggleSlide('#recharge-backdrop');
           $scope.rechargeVisible = false;
@@ -79,7 +79,7 @@ angular.module('aquiferiumApp')
           $scope.wellsVisible = true;
         }
       } else if (target === 'springs') {
-        console.log('springs');
+        // console.log('springs');
         if($scope.rechargeVisible) {
           $scope.toggleSlide('#recharge-backdrop');
           $scope.rechargeVisible = false;
@@ -96,7 +96,7 @@ angular.module('aquiferiumApp')
           $scope.springsVisible = true;
         }
       } else if (target === 'close') {
-        console.log('close');
+        // console.log('close');
         if($scope.rechargeVisible) {
           $scope.toggleSlide('#recharge-backdrop');
           $scope.rechargeVisible = false;

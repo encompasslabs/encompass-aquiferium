@@ -1,4 +1,0 @@
-- cleanup positioning on classes and elements.
-Where possible offload positioning elements into CSS for MQ adjustments.
-For fixed position elements (skrollr) need to use relatives where fits all possible dimensions.
-

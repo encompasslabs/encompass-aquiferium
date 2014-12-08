@@ -143,6 +143,9 @@ a:hover {
 .info-contact {
   padding-left: 1rem;
 }
+.glyph-spacing-right {
+  margin-right: 0.5rem;
+}
 .info-footer {
   bottom: 1rem;
   /*font-style: italic;*/

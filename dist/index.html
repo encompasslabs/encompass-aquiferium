@@ -1,28 +1,133 @@
-<!doctype html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--><head><meta charset="utf-8"><title></title><meta name="description" content=""><meta name="viewport" content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel="stylesheet" href="styles/5c513a9a.vendor.css"><link rel="stylesheet" href="styles/e0ced576.main.css"><body data-ng-app="aquiferiumApp"><!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]--><!-- Navbar --><div id="navbar" class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" data-ng-controller="NavigationCtrl"><!-- Navbar --><div class="container z-400"><!-- <div class="no-Ibar apptitle div-fixed z-500">The Aquiferium</div> --><div class="navbar-header"><div class="no-Ibar apptitle z-500">The Aquiferium</div><!-- <img class="img-responsive pull-left eaa-logo" src="./images/eaa_branding/40976657.eaa-logo-color.png" /> --><!-- <div class="no-Ibar apptitle">The Aquiferium</div> --><!-- navbar-brand  --><button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button></div><div class="navbar-collapse centered" ng-class="isCollapsed ? 'collapse' : 'in'"><ul class="nav navbar-nav nav-spacing"><li ng-class="getClass('/geography')"><a href="#/geography">Geography</a></li><li ng-class="getClass('/geology')"><a href="#/geology">Geology</a></li><li ng-class="getClass('/springs')"><a href="#/springs">Springs &amp; Species</a></li><li ng-class="getClass('/conservation')"><a href="#/conservation">Governance &amp; Conservation</a></li><li><a id="toggle-info-panel" ng-click="toggleInfoPanel()"><span class="glyphicon glyphicon-info-sign"></span></a></li></ul></div><div><div class="fullscreen div-absolute"><a ng-click="toggleFullScreen()"><span class="glyphicon glyphicon-fullscreen"></span></a></div></div></div><div id="info-panel" class="div-fixed z-100 backdrop-info offstage-top transition-slide-down"><div class="information"><p>Contact the Edwards Aquifer Authority:</p><!-- <div class="contact-entry">
-          <p><span class="glyphicon glyphicon-envelope glyph-spacing-right"></span>Email: <a href="mailto:info@edwardsaquifer.org?Subject=Aquiferium%20Question" target="_blank">info@edwardsaquifer.org</a></p>
-          <p><span class="glyphicon glyphicon-earphone glyph-spacing-right"></span>Phone: <a href="tel://1-210-222-2204">(210) 222-2204</a> or <a href="tel://1-800-292-1047">1-800-292-1047</a></p>
-          <p><span class="glyphicon glyphicon-send glyph-spacing-right"></span>Fax: (210) 222-9869</p>
-          <p><span class="glyphicon glyphicon-home glyph-spacing-right"></span>Address: <span class="address-block-line1">900 E. Quincy, San Antonio, TX 78215</span></p>
-        </div> --><div class="contact-entry"><p>Email: <a href="mailto:info@edwardsaquifer.org?Subject=Aquiferium%20Question" target="_blank">info@edwardsaquifer.org</a></p><p>Phone: <a href="tel://1-210-222-2204">(210) 222-2204</a> or <a href="tel://1-800-292-1047">1-800-292-1047</a></p><p>Fax: (210) 222-9869</p><p>Address: <a href="https://www.google.com/maps/place/900+East+Quincy+SanAntonio+TX+78215" target="_blank">900 E. Quincy, San Antonio, TX 78215</a></p></div><a href="http://www.edwardsaquifer.org/" target="_blank"><img class="img-responsive div-absolute eaa-logo-contact" src="./images/eaa_branding/40976657.eaa-logo-color.png"></a> <a href="http://www.encompassproject.org" target="_blank"><img class="img-responsive div-absolute encompass-logo-contact" src="./images/encompass_branding/ec7118db.logo.png"></a> <a href="http://www.utexas.edu" target="_blank"><img class="img-responsive div-absolute ut-logo-contact" src="./images/ut_branding/136a0f08.ribbon.png"></a></div></div></div><!-- Views --><div class="view-animate-container"><div class="view-animate" data-ng-view=""></div></div><!-- Footer --><!-- <div class="navbar-inverse navbar-fixed-bottom footer centered">
-    <div class="container">
-      <p>&#169; 2014 <a data-ng-href="http://edwardsaquifer.org" title="Edwards Aquifer Authority" target="new">Edwards Aquifer Authority</a> | Developed by <a data-ng-href="http://www.encompassproject.org" title="Encompass Project" target="new">Encompass Labs</a></p>
-    </div>
-  </div> --><!-- Google Analytics: change UA-XXXXX-X to be your site's ID --><script>(function(i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-    m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-  ga('create', 'UA-XXXXX-X');
-  ga('send', 'pageview');</script><!--[if lt IE 9]>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="styles/5c513a9a.vendor.css">
+    <link rel="stylesheet" href="styles/aeb6bc6a.main.css">
+
+    <body data-ng-app="aquiferiumApp">
+        <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+        <!-- Navbar -->
+        <div id="navbar" class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" data-ng-controller="NavigationCtrl">
+            <div class="container z-1000">
+                <div class="navbar-header">
+                    <div class="no-Ibar apptitle">The Aquiferium</div>
+                    <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse centered" ng-class="isCollapsed ? 'collapse' : 'in'">
+                    <ul class="nav navbar-nav nav-spacing">
+                        <li ng-class="getClass('/geography')"><a href="#/geography">Geography</a>
+                        </li>
+                        <li ng-class="getClass('/geology')"><a href="#/geology">Geology</a>
+                        </li>
+                        <li ng-class="getClass('/springs')"><a href="#/springs">Springs &amp; Species</a>
+                        </li>
+                        <li ng-class="getClass('/conservation')"><a href="#/conservation">Governance &amp; Conservation</a>
+                        </li>
+                        <li><a id="toggle-info-panel" ng-click="togglePanel('#info-panel')"><span class="glyphicon glyphicon-info-sign"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="fullscreen div-absolute"><a ng-click="toggleFullScreen()"><span class="glyphicon glyphicon-fullscreen"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Info Panel -->
+        <div id="info-panel" class="div-fixed z-900 backdrop-info offstage-top transition-slide-down">
+            <div class="information">
+                <div id="about-section">
+                    <p class="info-label">About Aquiferium</p>
+                    <p class="info-about">Aquiferium began as a concept shortly after seeing a presentation by Dr. Suzanne Pierce (University of Texas at Austin) and viewing the MCSDSS application created by the Heat Seeker team for the <a data-ng-href="http://www.encompassproject.org" target="_blank">Encompass Project</a>.</p>
+                    <p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="embededVideo info-video">
+                                    <embed-video data-ng-href="http://www.youtube.com/watch?v=SUhtSnl_ZRM" controls="1" width="100%" height="100%"><a href="http://www.youtube.com/watch?v={{ code }}">Watch</a>
+                                    </embed-video>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="info-quoted">
+                                    <p>“I believe such an interactive module would not only immediately educate and inform people within our jurisdiction, but could potentially serve as a resource and tool for policy makers as well. The potential seems evident that such a device could be used to demonstrate complicated data (such as modeled outputs) in a manner that is easy to understand for the layperson – which could foster more meaningful discussion during the decision-making process. The Edwards Aquifer Authority looks forward to exploring the possibility of working collaboratively on such a valuable opportunity to motivate, educate, and inspire people about the vitality and fragility of our groundwater resources and the Edwards Aquifer.”</p>
+                                    <p class="div-relative info-quotedby">Marc Friberg
+                                        <br>Executive Director Public Policy &amp; External Affairs
+                                        <br>Edwards Aquifer Authority</p>
+                                </div>
+                            </div>
+                        </div>
+                    </p>
+                    <p>Aquiferium is designed to engage audiences within the Edwards Aquifer region, specifically the San Antonio (or Southern) segment of the Balcones Fault Zone Edwards Aquifer. Envisioned as a science education platform, Aquiferium is comprised of interactive and gesture-enabled applications with a focus on priority content defined by the EAA. Over time, resources from the EAA website and educational program will be incorporated, or linked, into the Aquiferium. Additional items such as Aquifer careers, Timeline, Photo and Video galleries will be created and housed on the EAA website for access through the touchscreen portal.</p>
+                </div>
+                <div id="contact-section">
+                    <p class="info-label">Contact Information</p>
+                    <p class="info-contact">
+                        <span class="glyphicon glyphicon-envelope glyph-spacing-right"></span> Email: <a data-ng-href="mailto:info@edwardsaquifer.org?Subject=Aquiferium%20Question" target="_blank">info@edwardsaquifer.org</a>
+                        <br><span class="glyphicon glyphicon-earphone glyph-spacing-right"></span> Phone: <a data-ng-href="tel://1-210-222-2204">(210) 222-2204</a> or <a data-ng-href="tel://1-800-292-1047">1-800-292-1047</a>
+                        <br><span class="glyphicon glyphicon-send glyph-spacing-right"></span> Fax: (210) 222-9869
+                        <br><span class="glyphicon glyphicon-home glyph-spacing-right"></span> Address: <a data-ng-href="https://www.google.com/maps/place/900+East+Quincy+SanAntonio+TX+78215" target="_blank">900 E. Quincy, San Antonio, TX 78215</a>
+                    </p>
+                </div>
+                <div class="div-absolute info-footer">
+                    <p>Best experienced at a 1280x1024 screen resolution or higher.
+                        <br>Developed by <a data-ng-href="http://www.encompassproject.org" title="Encompass Project" target="new">Encompass Labs</a> in collaboration with the <a data-ng-href="http://edwardsaquifer.org" title="Edwards Aquifer Authority" target="new">Edwards Aquifer Authority</a>.
+                        <br>&#169; Copyright 2014</p>
+                </div>
+            </div>
+            <a data-ng-href="http://www.edwardsaquifer.org/" target="_blank"><img class="img-responsive div-absolute eaa-logo-contact" src="./images/eaa_branding/3753af92.eaa-logo-bw-inverse.png">
+            </a>
+            <a data-ng-href="http://www.encompassproject.org" target="_blank"><img class="img-responsive div-absolute encompass-logo-contact" src="./images/encompass_branding/ec7118db.logo.png">
+            </a>
+            <a data-ng-href="http://www.utexas.edu" target="_blank"><img class="img-responsive div-absolute ut-logo-contact" src="./images/ut_branding/2014d2a5.ribbon-75per.png">
+            </a>
+        </div>
+        <!-- Views -->
+        <div class="view-animate-container">
+            <div class="view-animate" data-ng-view=""></div>
+        </div>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+        <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+        </script>
+        <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]--><script src="scripts/07b4f08c.vendor.js"></script><!-- grunt-no-likey 3rd party libraries. --><script src="bower_components/skrollr-menu/dist/skrollr.menu.min.js"></script><script src="bower_components/skrollr-stylesheets/dist/skrollr.stylesheets.min.js"></script><script src="bower_components/leaflet-tilelayer-geojson/TileLayer.GeoJSON.js"></script><script src="scripts/4dabbd6f.scripts.js"></script>
+    <![endif]-->
+        <script src="scripts/07b4f08c.vendor.js"></script>
+        <script src="scripts/194556e1.scripts.js"></script>

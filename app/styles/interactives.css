@@ -55,11 +55,16 @@
   width: 25rem;
   height: 1.8rem;
 }
+.legend-item-recharge {
+  width: 25rem;
+  height: 5rem;
+}
 .legend-box {
   border: 0.05rem; solid #000;
 }
 .legend-recharge {
-  height: 3.6rem;
+  /*height: 3.6rem;*/
+  height: 8rem;
 }
 .legend-wells {
   height: 5.5rem;

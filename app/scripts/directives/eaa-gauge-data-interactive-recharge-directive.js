@@ -332,25 +332,27 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
         // LEGEND.
         var legend = dataDisplay.append('div').attr('class','legend-box legend-recharge').attr('transform', 'translate(-180,30)');
-        var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item');
+        var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class','legend-item'); // 'legend-item-recharge');
           
-        var box = legendItem.append('rect')
-          .attr('x', 0)
-          .attr('y', function (d, i) { return i * legendVertSpacingFactor; })
-          .attr('width', legendBoxDimensions)
-          .attr('height', legendBoxDimensions)
-          .attr('class', 'legend-box')
-          .style('fill', function (d) {
-            return color(d.name);
-          });
+        // var box = legendItem.append('rect')
+        //   .attr('x', 0)
+        //   .attr('y', function (d, i) { return i * legendVertSpacingFactor; })
+        //   .attr('width', legendBoxDimensions)
+        //   .attr('height', legendBoxDimensions)
+        //   .attr('class', 'legend-box')
+        //   .style('fill', function (d) {
+        //     return color(d.name);
+        //   });
             
         var label = legendItem.append('text')
+        // var label = legend.append('text')
           .attr('x', '10%') //30
-          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
+          .attr('y', 17) //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; }) //16 or 17.
           .text(function (d) { return d.name; })
           .attr('class', 'data-item');
 
         var dataValueText = legendItem.append('text')
+        // var dataValueText = legend.append('text')
           .attr('x', '65%') //250
           .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('')

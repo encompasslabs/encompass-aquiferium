@@ -42,6 +42,14 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var graphLeftOffset = vizWidth * 0.05;
       var graphWidthOffset = 0.98;
 
+      var slideDescText = 'Water or rainfall entering the recharge zone of the Aquifer replenishes this valuable resource.';
+      var mapImageBaseSource = '../../images/directives/tr-panel01-map.png';
+      var mapImageAquiferSource00 = '../../images/directives/tr-panel02-range00.png';
+      var mapImageAquiferSource01 = '../../images/directives/tr-panel02-range01.png';
+      var mapImageAquiferSource02 = '../../images/directives/tr-panel02-range02.png';
+      var mapImageAquiferSource03 = '../../images/directives/tr-panel02-range03.png';
+      var mapImageAquiferSource04 = '../../images/directives/tr-panel02-range04.png';
+      var mapImageKeySource = '../../images/directives/tr-panel03-key.png';
       var boundariesSource = '../../data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
       var dataSource = '../../data/recharge-annualAvg-byDate2.csv';
       var ingestedData = {};
@@ -151,9 +159,34 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         d3.selectAll('.Recharge.Zone').transition().style('fill', 'rgba(113,178,201,' + decimalValue + ')').duration(100);
       };
 
+      var setMapGraphicImage = function (dataValue) {
+        // console.log(dataValue);
+        var newImage = d3.select('.map-image-aquifer-recharge');
+        var targetPath = newImage[0][0];
+        // console.log(targetPath.src);
+
+        if (dataValue < 150) {
+          // newImage.attr('src', mapImageAquiferSource00);
+          targetPath.src = mapImageAquiferSource00;
+        } else if (dataValue >= 150 && dataValue < 500) {
+          // newImage.attr('src', mapImageAquiferSource01);
+          targetPath.src = mapImageAquiferSource01;
+        } else if (dataValue >= 500 && dataValue < 1000) {
+          // newImage.attr('src', mapImageAquiferSource02);
+          targetPath.src = mapImageAquiferSource02;
+        } else if (dataValue >= 1000 && dataValue < 1500) {
+          // newImage.attr('src', mapImageAquiferSource03);
+          targetPath.src = mapImageAquiferSource03;
+        } else if (dataValue >= 1500) {
+          // newImage.attr('src', mapImageAquiferSource04);
+          targetPath.src = mapImageAquiferSource04;
+        }
+      };
+
       var updateMapDisplay = function (dataValue) {
         setDataValuePercent(dataValue);
-        setMapFillValue();      
+        // setMapFillValue();
+        setMapGraphicImage(dataValue);
       };
 
       var setDisplayDate = function (targetDate) {
@@ -165,7 +198,8 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var vals = Object.keys(dataSet).map(function (key) {
           return dataSet[key];
         });
-        var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item').selectAll('text');
+        // var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item').selectAll('text');
+        var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item-recharge').selectAll('text');
         // console.log(dataLabelArray[0][1]); // THIS ONE!!!
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
@@ -176,7 +210,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
             if (isNaN(thisValue)) {
               return 'No Data';
             } else {
-              return thisValue.toString() + ' TAF';
+              return thisValue.toString();// + ' TAF';
             }
           });
         }
@@ -223,14 +257,53 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       // VIZ - BASE.
       var el = element[0];
       var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
+
+      // Slide Banner.
+      var slideBanner = viz.append('div').attr('class','slide-banner-recharge');
+      var descriptionText = slideBanner.append('text')
+        .attr('x', '0%')
+        .attr('y', '0%')
+        .text('Total Aquifer Recharge')
+        .attr('class', 'banner-text-recharge');
+
+      // Slide Description.
+      var slideDescription = viz.append('div').attr('class','slide-desc-recharge');
+      var descriptionText = slideDescription.append('text')
+        .attr('x', '0%')
+        .attr('y', '20%')
+        .text(slideDescText)
+        .attr('class', 'desc-text-recharge');
+
+      // Map Image.
+      var slideMap = viz.append('div').attr('class','slide-map-recharge');
+      var mapImageBase = slideMap.append('img')
+        .attr('src', mapImageBaseSource)
+        .attr('x', '40%')
+        .attr('y', '30%')
+        .attr('class', 'map-image-base-recharge');
+      var mapImageAquifer = slideMap.append('img')
+        .attr('src', mapImageAquiferSource00)
+        .attr('x', function () {
+          return (Number(mapImageBase.x + mapImageBase.width) + 'px');
+        })
+        .attr('y', '30%')
+        .attr('class', 'map-image-aquifer-recharge');
+      var mapImageKey = slideMap.append('img')
+        .attr('src', mapImageKeySource)
+        .attr('x', function () {
+          return (Number(mapImageAquifer.x + mapImageAquifer.width) + 'px');
+        })
+        .attr('y', '30%')
+        .attr('class', 'map-image-key-recharge');
+
       viz.on('mousemove', mouseOverGraph);
       viz.append('text').attr('class','year-display').text('');
 
-      var dataDisplay = viz.append('div').attr('class','data-display');
+      var dataDisplay = viz.append('div').attr('class','data-display data-display-recharge');
 
-      var geoBounds = viz.append('svg').attr('class', 'geo-bounds recharge')
-        .attr('width', mapWidth)
-        .attr('height', mapHeight);
+      // var geoBounds = viz.append('svg').attr('class', 'geo-bounds recharge')
+      //   .attr('width', mapWidth)
+      //   .attr('height', mapHeight);
 
       var graphBounds = viz.append('svg').attr('class', 'graph-bounds')
         .attr('width', graphWidth)
@@ -244,20 +317,20 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         .defined(function (d) { return d.gindex; });
 
       // MAP.
-      d3.json(boundariesSource, function (error, boundariesData) {
-        if (error) {
-          return console.error(error);
-        }
-        var scale = mapHeight * 30; // geojson display.
-        var offset = [mapWidth / 2, mapHeight / 2];
-        var center = d3.geo.centroid(boundariesData);
-        // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
-        // Note: albersUsa() and transverseMercator() require additional configs.
-        var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
-        var path = d3.geo.path().projection(projection);
-        var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-        geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', 'rgba(0,0,0,0.5)').on('click', onTargetClick);
-      });
+      // d3.json(boundariesSource, function (error, boundariesData) {
+      //   if (error) {
+      //     return console.error(error);
+      //   }
+      //   var scale = mapHeight * 30; // geojson display.
+      //   var offset = [mapWidth / 2, mapHeight / 2];
+      //   var center = d3.geo.centroid(boundariesData);
+      //   // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
+      //   // Note: albersUsa() and transverseMercator() require additional configs.
+      //   var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
+      //   var path = d3.geo.path().projection(projection);
+      //   var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
+      //   geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', 'rgba(0,0,0,0.5)').on('click', onTargetClick);
+      // });
 
       // CHART.
       d3.csv(dataSource, function (error, data) {
@@ -331,32 +404,33 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var indicatorLine = graphBounds.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 0).attr('stroke-width', 1).attr('stroke', 'rgba(50,50,50,0.9)').attr('class', 'indicator-line');
 
         // LEGEND.
-        var legend = dataDisplay.append('div').attr('class','legend-box legend-recharge').attr('transform', 'translate(-180,30)');
-        var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class','legend-item'); // 'legend-item-recharge');
-          
-        // var box = legendItem.append('rect')
-        //   .attr('x', 0)
-        //   .attr('y', function (d, i) { return i * legendVertSpacingFactor; })
-        //   .attr('width', legendBoxDimensions)
-        //   .attr('height', legendBoxDimensions)
-        //   .attr('class', 'legend-box')
-        //   .style('fill', function (d) {
-        //     return color(d.name);
-        //   });
+        var legend = dataDisplay.append('div').attr('class','legend-box legend-box-recharge').attr('transform', 'translate(-180,30)');
+        var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class','legend-item-recharge');
             
         var label = legendItem.append('text')
-        // var label = legend.append('text')
-          .attr('x', '10%') //30
-          .attr('y', 17) //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; }) //16 or 17.
+          .attr('x', '0%') // '16px')
+          .attr('y', '22%') // '16px') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; }) //16 or 17.
           .text(function (d) { return d.name; })
-          .attr('class', 'data-item');
+          .attr('class', 'data-item-recharge');
 
         var dataValueText = legendItem.append('text')
-        // var dataValueText = legend.append('text')
-          .attr('x', '65%') //250
-          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-          .text('')
-          .attr('class', 'data-value');
+          .attr('x', '5%')
+          .attr('y', '98%') // '64px') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
+          .text('0')
+          .attr('class', 'data-value-recharge');
+
+        // var dataValueTextSuffix = legendItem.append('text')
+        //   .attr('x', '40%')// '80px')
+        //   .attr('y', '98%')// '64px')
+        //   .text('TAF')
+        //   .attr('class', 'data-value data-value-recharge');
+
+        var horBar = legendItem.append('text')
+          .attr('x', '0%')
+          .attr('y', '35%') // '64px') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
+          .text('___________________')
+          .attr('color', '#f00')
+          .attr('class', 'data-horbar-recharge');
 
         // NOTE.
         var notes = viz.append('div').attr('class','graph-notes')

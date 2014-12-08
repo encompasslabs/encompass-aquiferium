@@ -110,7 +110,7 @@ a:hover {
 }
 .information {
   cursor: default;
-  padding: 1rem 3rem 1rem 3rem;
+  padding: 2rem 3rem 1rem 3rem;
   font-size: 0.9rem;
 }
 .info-label {
@@ -136,7 +136,7 @@ a:hover {
 }
 .info-quotedby {
   float: right;
-  top: -1rem;
+  top: 0;
   font-style: italic;
   color: #ccc;
 }
@@ -175,8 +175,8 @@ a:hover {
   background-color: #000;
 }
 
-.offstage { left: -150%; }
-.offstage-top { top: -70%; }
+.offstage { left: -200%; }
+.offstage-top { top: -150%; }
 
 .open-panel { left:0 !important; }
 .open-panel-top-50 { top: 3rem !important; }

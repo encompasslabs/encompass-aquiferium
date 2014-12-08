@@ -17,14 +17,14 @@
 }
 .year-display {
   position: absolute;
-  margin-top: 11rem;
+  margin-top: -6rem;
   margin-left: 11rem;
   font-size: 18em;
   font-weight: 700;
   color: rgba(0,0,0,0.1);
 }
 
-/* Data Display */
+/* Data Display Baseline */
 .data-display {
   position: absolute;
   top: 1rem;
@@ -45,7 +45,8 @@
   /*background-color: rgba(100, 100, 100, 0.2);*/
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background: rgba(255,255,255, 0.7);
-  border: 1px solid #000;
+  /*border: 1px solid #000;*/
+  border: 0.05rem; solid #000;
   border-top-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   padding: 1rem;
@@ -55,20 +56,85 @@
   width: 25rem;
   height: 1.8rem;
 }
+
+/* Data Display Recharge */
+.slide-banner-recharge {
+  overflow: hidden;
+  background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
+  border: 0.05rem; solid #000;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.banner-text-recharge {
+  margin-left: 30%;
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #eee;
+}
+.slide-desc-recharge {
+  padding: 1rem 2rem 0 1rem;
+}
+.desc-text-recharge {
+  /*font-family: 'Ubuntu Condensed', sans-serif;*/
+  /*font-family: 'Open Sans', sans-serif;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}
+.slide-map-recharge {
+  /*position: absolute;*/
+  margin-top: -2rem;
+  margin-left: 12rem;
+  /*border: 1px solid #333;*/
+  width: auto;
+  /*height: auto;*/
+}
+.map-image-base-recharge {
+  width: 22rem;
+  height: auto;
+}
+.map-image-aquifer-recharge {
+  width: 22rem;
+  height: auto;
+}
+.map-image-key-recharge {
+  width: 5rem;
+  height: auto;
+}
+.data-display-recharge {
+  width: 5rem;
+  top: 7rem;
+}
+.legend-box-recharge {
+  width: 10.5rem;
+  height: 7rem;
+}
 .legend-item-recharge {
-  width: 25rem;
+  /*width: auto;*/
   height: 5rem;
 }
-.legend-box {
-  border: 0.05rem; solid #000;
+.data-item-recharge {
+  font-size: 1.2rem;
 }
-.legend-recharge {
-  /*height: 3.6rem;*/
-  height: 8rem;
+.data-value-recharge {
+  font-size: 3rem;
+  font-weight: 700;
+  /*width: 9rem;*/
+  /*text-align: center;*/
+  /*border: 1px solid #000;*/
 }
+.data-horbar-recharge {
+  color: #f00 !important;
+}
+
+/* Data Display Wells */
 .legend-wells {
   height: 5.5rem;
 }
+
+/* Data Display Springs */
 .legend-springs {
   height: 16rem;
 }

@@ -1,4 +1,4 @@
-var wordl = (function(d) {
+(function(d) {
     function e(d) {
         if (!(this instanceof e)) return new e(d);
         d || (d = {});
@@ -376,47 +376,24 @@ window.TagulDisplayCloud = function(d, e, s, M) {
         }
         L && L.request(U)
     }
-
     if (!e)
         if (d)
             if (e = document.createElement("canvas"),
                 e.getContext && e.getContext("2d")) {
                 for (var x = 0; document.getElementById(e = "tagul_embed_cloud_" + x);) x++;
-                // for (var x = 0; document.getElementById(e = "wordl");) x++;
-
-                    // console.log(e);
-
-                    // document.writeln('<a id="' + e + '" style="width: 100%; height: 100%">');
-                    // document.writeln('<canvas style="width: 100%; height: 100%"></canvas>');
-
-                    document.writeln('<a id="' + e + '" style="width: 90%; height: 90%">');
-                    document.writeln('<canvas style="width: 90%; height: 90%"></canvas>');
-
-                    // var wordWrap = document.getElementById("wordl");
-                    // console.log(wordWrap);
-                    // wordWrap.writeln('<a id="' + e + '" style="width: 90%; height: 90%">');
-                    // wordWrap.writeln('<canvas style="width: 90%; height: 90%"></canvas>');
-
-                    // document.writeln('<a id="' + e + '" style="width: 40%; height: 70%">');
-                    // document.writeln('<canvas style="width: 40%; height: 70%"></canvas>');
-
-                    document.writeln("</a>");
-                    var x = document.getElementsByTagName("head")[0],
-                        H = document.createElement("style"),
-                        V = document.createTextNode("#" + e + " {outline: 0; border: 0; background: none; margin: 0; padding: 0;}\n#" + e + ":hover {border: 0;}\n");
-                    H.type = "text/css";
-                    H.styleSheet ?
-                        H.styleSheet.cssText = V.nodeValue : H.appendChild(V);
-                    x.appendChild(H)
+                document.writeln('<a id="' + e + '" style="width: 40%; height: 70%">');
+                document.writeln('<canvas style="width: 40%; height: 70%"></canvas>');
+                document.writeln("</a>");
+                var x = document.getElementsByTagName("head")[0],
+                    H = document.createElement("style"),
+                    V = document.createTextNode("#" + e + " {outline: 0; border: 0; background: none; margin: 0; padding: 0;}\n#" + e + ":hover {border: 0;}\n");
+                H.type = "text/css";
+                H.styleSheet ?
+                    H.styleSheet.cssText = V.nodeValue : H.appendChild(V);
+                x.appendChild(H)
             } else {
-                // document.writeln('<a href="http://tagul.com/unsupported-browser" style="width: 100%; height: 100%">');
-                // document.writeln('<img src="http://tagul.com/static/please_update_browser.png" style="width: 100%; height: auto"/>');
-
-                document.writeln('<a href="http://tagul.com/unsupported-browser" style="width: 90%; height: 90%">');
-                document.writeln('<img src="http://tagul.com/static/please_update_browser.png" style="width: 90%; height: auto"/>');
-
-                // document.writeln('<a href="http://tagul.com/unsupported-browser" style="width: 40%; height: 70%">');
-                // document.writeln('<img src="http://tagul.com/static/please_update_browser.png" style="width: 40%; height: auto"/>');
+                document.writeln('<a href="http://tagul.com/unsupported-browser" style="width: 40%; height: 70%">');
+                document.writeln('<img src="http://tagul.com/static/please_update_browser.png" style="width: 40%; height: auto"/>');
                 document.writeln("</a>");
                 return
             } else {
@@ -535,7 +512,7 @@ TagulDisplayCloud({
         "height": 232.9147708623121
     },
     "styleOptions": {
-        "backgroundColor": 'ffffff',
+        "backgroundColor": 'eeeeee', //"ffffff",
         "backgroundColorAlpha": 1.0,
         "animationSpeed": 0.2,
         "textColor": "ffffff",
@@ -16395,4 +16372,4 @@ TagulDisplayCloud({
         ]
     }],
     "meta": "Tagul Generator Version 1.56; Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:33.0) Gecko/20100101 Firefox/33.0"
-})();
+});

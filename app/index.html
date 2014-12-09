@@ -81,7 +81,7 @@
         <div class="information">
             <div id="about-section">
                 <p class="info-label">About Aquiferium</p>
-                <p class="info-about">Aquiferium began as a concept shortly after seeing a presentation by Dr. Suzanne Pierce (University of Texas at Austin) and viewing the MCSDSS application created by the Heat Seeker team for the <a data-ng-href="http://www.encompassproject.org" target="_blank">Encompass Project</a>.</p>
+                <p class="info-about">The Aquiferium began as a concept shortly after seeing a presentation by Dr. Suzanne Pierce (University of Texas at Austin) and viewing the MCSDSS application created by the Heat Seeker team for the <a data-ng-href="http://www.encompassproject.org" target="_blank">Encompass Project</a>.</p>
                 <p>
                     <div class="row">
                         <div class="col-md-4">
@@ -100,7 +100,10 @@
                         </div>
                     </div>
                 </p>
-                <p>Aquiferium is designed to engage audiences within the Edwards Aquifer region, specifically the San Antonio (or Southern) segment of the Balcones Fault Zone Edwards Aquifer. Envisioned as a science education platform, Aquiferium is comprised of interactive and gesture-enabled applications with a focus on priority content defined by the EAA. Over time, resources from the EAA website and educational program will be incorporated, or linked, into the Aquiferium. Additional items such as Aquifer careers, Timeline, Photo and Video galleries will be created and housed on the EAA website for access through the touchscreen portal.</p>
+                <p>The Aquiferium is designed to engage audiences within the Edwards Aquifer region, specifically the San Antonio (or Southern) segment of the Balcones Fault Zone Edwards Aquifer. Envisioned as a science education platform, Aquiferium is comprised of interactive and gesture-enabled applications with a focus on priority content defined by the EAA. Over time, resources from the EAA website and educational program will be incorporated, or linked, into the Aquiferium. Additional items such as Aquifer careers, Timeline, Photo and Video galleries will be created and housed on the EAA website for access through the touchscreen portal.</p>
+                <p>The Aquiferium is best experienced at a 1280x1024 screen resolution or higher.</p>
+                <p>Developed by <a data-ng-href="http://www.encompassproject.org" title="Encompass Project" target="new">Encompass Labs</a> in collaboration with the <a data-ng-href="http://edwardsaquifer.org" title="Edwards Aquifer Authority" target="new">Edwards Aquifer Authority</a>.</p>
+                <p>&#169; Copyright 2014</p>                
             </div>
             <div id="contact-section">
                 <p class="info-label">Contact Information</p>
@@ -110,11 +113,6 @@
                     <br><span class="glyphicon glyphicon-send glyph-spacing-right"></span> Fax: (210) 222-9869
                     <br><span class="glyphicon glyphicon-home glyph-spacing-right"></span> Address: <a data-ng-href="https://www.google.com/maps/place/900+East+Quincy+SanAntonio+TX+78215" target="_blank">900 E. Quincy, San Antonio, TX 78215</a>
                 </p>
-            </div>
-            <div class="div-absolute info-footer">
-                <p>Best experienced at a 1280x1024 screen resolution or higher.
-                    <br/>Developed by <a data-ng-href="http://www.encompassproject.org" title="Encompass Project" target="new">Encompass Labs</a> in collaboration with the <a data-ng-href="http://edwardsaquifer.org" title="Edwards Aquifer Authority" target="new">Edwards Aquifer Authority</a>.
-                    <br/>&#169; Copyright 2014</p>
             </div>
         </div>
         <a data-ng-href="http://www.edwardsaquifer.org/" target="_blank"><img class="img-responsive div-absolute eaa-logo-contact" src="./images/eaa_branding/eaa-logo-bw-inverse.png" />
@@ -192,6 +190,7 @@
     <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
     <script src="bower_components/jQuery.print/jQuery.print.js"></script>
     <script src="bower_components/bootstrap-sass/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-modal-service/dst/angular-modal-service.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -204,6 +203,9 @@
     <!-- Angular App -->
     <script src="scripts/app.js"></script>
 
+    <!-- Partials -->
+    <!-- <script src="scripts/partials/modal.html"></script> -->
+
     <!-- Services -->
     <!-- <script src="scripts/services/preloader.js"></script> -->
 
@@ -213,6 +215,8 @@
     <script src="scripts/directives/eaa-gauge-data-interactive-recharge-directive.js"></script>
     <script src="scripts/directives/eaa-gauge-data-interactive-wells-directive.js"></script>
     <script src="scripts/directives/eaa-gauge-data-interactive-springs-directive.js"></script>
+    
+    <script src="scripts/directives/modal-dialog-directive.js"></script>
     <!-- <script src="bower_components/leaflet-easy-print/leaflet.easyPrint.js"></script> -->
 
     <!-- Controllers -->

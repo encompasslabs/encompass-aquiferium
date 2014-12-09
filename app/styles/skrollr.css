@@ -181,14 +181,6 @@
   border-radius: 2rem;
   border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
-.image-frame-wordl {
-  width: 48rem;
-  height: 52rem;
-  background-size: contain;
-  background-position: center center;
-  border-radius: 2rem;
-  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
-}
 .image-frame-tall {
   width: 64rem;
   height: 90rem;
@@ -382,6 +374,79 @@
   }
 }
 
+
+
+/* WORDL Modal */
+.tagulAttribution {
+  /*right: 0;*/
+  /*bottom: 0;*/
+}
+
+.image-frame-wordl {
+  width: 42rem;
+  height: 60rem;
+  /*background-color: #eee;*/
+  background-size: cover;
+  background-position: center center;
+  border-radius: 2rem;
+  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
+}
+
+.modalContent {
+  padding: 2rem 3rem;
+}
+
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:-20rem;
+  left:-25rem;
+  width:100rem;
+  height:100rem;
+  background-color:#000000;
+  opacity: 0.8;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50rem; /*80%;*/ /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  color: #fff;
+  background-color: #222;
+  box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+}
+
+/* Fix for Bootstrap 3 with Angular UI Bootstrap */
+.modal { 
+  display: block;
+}
+
+/* ADDRESS Lookup */
+
 .address-lookup {
   line-height: 2rem;
   padding-left: 1.5rem;
@@ -501,7 +566,10 @@
 #cons-image-23 { background-image: url(../images/conservation/district_eaa.jpg); }
 #cons-image-24 { background-image: url(../images/conservation/EAA-map-revamp-V1.png); }
 
-#cons-image-wordl { background-image: url(../images/conservation/wordl.png); }
+#cons-image-wordl-fff { background-image: url(../images/conservation/wordl_ffffff.png); }
+#cons-image-wordl-eee { background-image: url(../images/conservation/wordl_eeeeee.png); }
+#cons-image-wordl-111 { background-image: url(../images/conservation/wordl_111111.png); }
+#cons-image-wordl-000 { background-image: url(../images/conservation/wordl_000000.png); }
 
 /* Springs */
 #springs-image-00 { background-image: url(../images/springs/com-springs2-800x.jpg); }

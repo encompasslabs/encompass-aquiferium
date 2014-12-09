@@ -117,7 +117,6 @@
   height: 7rem;
 }
 .legend-item-recharge {
-  /*width: auto;*/
   height: 5rem;
 }
 .data-item-recharge {
@@ -126,9 +125,6 @@
 .data-value-recharge {
   font-size: 3rem;
   font-weight: 700;
-  /*width: 9rem;*/
-  /*text-align: center;*/
-  /*border: 1px solid #000;*/
 }
 
 /* Data Display Wells */
@@ -169,21 +165,92 @@
 .legend-item-wells {
   height: 5rem;
 }
-.legend-j17-title {
-  top:3rem;
-  color:#000;
-}
-.legend-j27-title {
-  top: 1rem;
-  color:#000;
-}
-
 .data-item-wells {
   font-size: 1rem;
 }
-.data-value-wells {
-  font-size: 3rem;
+
+
+.legend-title {
+  top: 0.5rem;
+  width: 8.5rem;
+  height: 2.5rem;
+  color:#000;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.3rem;
   font-weight: 700;
+  padding: 1rem 0.5rem 0 0.5rem;
+  border: 1px solid #111;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  stroke: #000;
+}
+.legend-j17-title {
+  left: 0.5rem;
+  background-color: #D62728;
+}
+.legend-j27-title {
+  left: 9.5rem;
+  background-color: #9467BD;
+}
+
+.data-label-wells {
+  top: 4.5rem;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.legend-j17-label {
+  left: 0.75rem;
+}
+.legend-j27-label {
+  left: 9.75rem;
+}
+
+.data-value-wells {
+  top: 4.5rem;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.legend-j17-value {
+  left: 4.5rem;
+}
+.legend-j27-value {
+  left: 13.5rem;
+}
+
+.stage-label-wells {
+  top: 6.5rem;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.stage-j17-label {
+  left: 0.75rem;
+}
+.stage-j27-label {
+  left: 9.75rem;
+}
+
+.stage-box {
+  width: 3.5rem;
+  height: 1.75rem;
+  border: 1px solid #000;
+}
+
+.stage-value-wells {
+  top: 5.75rem;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.stage-j17-value {
+  left: 5rem;
+  background-color: #dcc;
+}
+.stage-j27-value {
+  left: 14rem;
+  background-color: #ccd;
 }
 
 .legend-stages-wells {

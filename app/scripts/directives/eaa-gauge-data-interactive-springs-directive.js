@@ -42,6 +42,10 @@ angular.module('eaa.directives.d3.interactive.springs', [])
       var graphLeftOffset = vizWidth * 0.05;
       var graphWidthOffset = 0.98;
 
+      var slideDescText = 'Index wells in the region showcase water levels under the surface.';
+      var mapImageStagesSource = '../../images/directives/Stages-Key.png';
+      var mapImageBaseSource = '../../images/directives/J17-J27-Index-Wells-Map.png';
+
       var boundariesSource = '../../data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
       var markersSource = '../../data/springs-markerData.csv';
       var dataSource = '../../data/springs-annualAvg-byDate.csv';

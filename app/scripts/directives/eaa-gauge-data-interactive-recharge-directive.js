@@ -410,7 +410,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           .attr('class', 'data-item-recharge');
 
         var dataValueText = legendItem.append('text')
-          .attr('x', '5%')
+          .attr('x', '4%')
           .attr('y', '98%') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('0')
           .attr('class', 'data-value-recharge');

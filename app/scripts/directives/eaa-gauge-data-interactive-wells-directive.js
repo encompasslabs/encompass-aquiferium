@@ -146,60 +146,87 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var setMapMarkersJ17 = function (currentGaugeValue) {
         var newJ17Image = d3.select('.map-marker-j17-wells');
         var targetPathJ17 = newJ17Image[0][0];
+        var newJ17Stage = d3.select('.stage-j17-value');
+        var newj17Level = d3.select('.legend-j17-value');
+
+        if (isNaN(currentGaugeValue)) {
+          newj17Level.text('No Data');
+        } else {
+          newj17Level.text(roundDecimals(currentGaugeValue,2));
+        }
 
         if (currentGaugeValue < 625) {
-          console.log('stage V');
+          // console.log('stage V');
           targetPathJ17.src = mapMarkerJ17_stage5Purple;
+          newJ17Stage.style('background-color', '#6d2158');
         } else if (currentGaugeValue >= 625 && currentGaugeValue < 630) {
-          console.log('stage IV');
+          // console.log('stage IV');
           targetPathJ17.src = mapMarkerJ17_stage4Red;
+          newJ17Stage.style('background-color', '#da1f28');
         } else if (currentGaugeValue >= 630 && currentGaugeValue < 640) {
-          console.log('stageIII');
+          // console.log('stageIII');
           targetPathJ17.src = mapMarkerJ17_stage3Orange;
+          newJ17Stage.style('background-color', '#e08625');
         } else if (currentGaugeValue >= 640 && currentGaugeValue < 650) {
-          console.log('stageII');
+          // console.log('stageII');
           targetPathJ17.src = mapMarkerJ17_stage2Yellow;
+          newJ17Stage.style('background-color', '#e7b921');
         } else if (currentGaugeValue >= 650) {
-          console.log('stage I');
+          // console.log('stage I');
           targetPathJ17.src = mapMarkerJ17_stage1Green;
+          newJ17Stage.style('background-color', '#72a641');
         }
       };
 
       var setMapMarkersJ27 = function (currentGaugeValue) {
         var newJ27Image = d3.select('.map-marker-j27-wells');
         var targetPathJ27 = newJ27Image[0][0];
+        var newJ27Stage = d3.select('.stage-j27-value');
+        var newj27Level = d3.select('.legend-j27-value');
+
+        if (isNaN(currentGaugeValue)) {
+          newj27Level.text('No Data');
+        } else {
+          newj27Level.text(roundDecimals(currentGaugeValue,2));
+        }
 
         if (currentGaugeValue < 840) {
-          console.log('stage V');
+          // console.log('stage V');
           targetPathJ27.src = mapMarkerJ27_stage5Purple;
+          newJ27Stage.style('background-color', '#6d2158');
         } else if (currentGaugeValue >= 840 && currentGaugeValue < 842) {
-          console.log('stage IV');
+          // console.log('stage IV');
           targetPathJ27.src = mapMarkerJ27_stage4Red;
+          newJ27Stage.style('background-color', '#da1f28');
         } else if (currentGaugeValue >= 842 && currentGaugeValue < 845) {
-          console.log('stageIII');
+          // console.log('stageIII');
           targetPathJ27.src = mapMarkerJ27_stage3Orange;
+          newJ27Stage.style('background-color', '#e08625');
         } else if (currentGaugeValue >= 845 && currentGaugeValue < 850) {
-          console.log('stageII');
+          // console.log('stageII');
           targetPathJ27.src = mapMarkerJ27_stage2Yellow;
+          newJ27Stage.style('background-color', '#e7b921');
         } else if (currentGaugeValue >= 850) {
-          console.log('stage I');
+          // console.log('stage I');
           targetPathJ27.src = mapMarkerJ27_stage1Green;
+          newJ27Stage.style('background-color', '#72a641');
         } 
       };
 
       var setDisplayData = function (targetIndex) {
+        // console.log(targetIndex);
         var dataSet = ingestedData[targetIndex];        
         var vals = Object.keys(dataSet).map(function (key) {
           // console.log(key);
           return dataSet[key];
         });
+        // console.log(vals);
         var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item-wells').selectAll('text');
+        // console.log(dataLabelArray);
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
-          console.log('------------------------');
+          // console.log('------------------------');
           // console.log(j);
-          // console.log(targetIndex);
-          // console.log(dataLabelArray);
           // console.log(dataLabelArray[j]);
           // console.log(dataLabelArray[j]['parentNode']['__data__']);
           // console.log(dataLabelArray[j]['parentNode']['__data__']['name']);
@@ -208,36 +235,37 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           // console.log(' ');
 
           var currentGaugeValue = dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex'];
-          console.log(currentGaugeValue);
+          // console.log(currentGaugeValue);
 
           if (j === 0) {
-            console.log('J17');
+            // console.log('J17');
             setMapMarkersJ17(currentGaugeValue);
           } else if (j === 1) {
-            console.log('J27');
+            // console.log('J27');
             setMapMarkersJ27(currentGaugeValue);
           }
 
-          var dataIndexOffset = j + 1;
-          d3.select(dataLabelArray[j][1]).text( function() {
-            var thisValue = roundDecimals(vals[dataIndexOffset], 0);
-            console.log(thisValue);
-            if (isNaN(thisValue)) {
-              console.log('No Data');
-              return 'No Data';
-            } else {
-              console.log(thisValue);
-              return thisValue.toString(); // + ' FAMSL';
-            }
-          });
+          // var dataIndexOffset = j + 1;
+          // d3.select(dataLabelArray[j][1]).text( function() {
+          //   var thisValue = roundDecimals(vals[dataIndexOffset], 0);
+          //   // console.log(thisValue);
+          //   if (isNaN(thisValue)) {
+          //     // console.log('No Data');
+          //     return 'No Data';
+          //   } else {
+          //     // console.log(thisValue);
+          //     return thisValue.toString(); // + ' FAMSL';
+          //   }
+          // });
         }
       };
 
-      var setMapFill = function (targetDate) {
-        console.log('setMapFill');
-      };
+      // var setMapFill = function (targetDate) {
+      //   console.log('setMapFill');
+      // };
 
       var setDisplayDate = function (targetDate) {
+        // console.log(targetDate);
         d3.select(el).select('.year-display-wells').text(Math.round(targetDate));
         // setMapFill(targetDate);
       };
@@ -245,6 +273,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var mouseOverGraph = function (event) {
         var position = d3.mouse(this);
         deriveDate(position[0]);
+        // console.log(position);
       };
 
       var deriveDate = function (xPos) {
@@ -257,14 +286,18 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           setDisplayDate(xMaxDate);
           indicatorLine.style('visibility', 'hidden');
         } else {
+
           var normalizedX = xPos - xPosRange[0];
           var yearIndex = normalizedX / posYear;
           var currentDate = xMinDate + yearIndex;
+
           setDisplayDate(currentDate);
           setDisplayData(Math.round(yearIndex));
           indicatorLine.style('visibility', 'visible');
           updateIndicatorLine(xPos);
+          
           // console.log('================================');
+          // console.log(xPos);
           // console.log(currentDate);
           // console.log(yearIndex);
           // console.log(Math.round(yearIndex));   
@@ -488,62 +521,17 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         var legend = dataDisplay.append('div').attr('class','legend-box legend-box-wells').attr('transform', 'translate(-180,30)');
         var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item-wells');
 
-        // console.log(legendItem);
-        // console.log('=====================================');
+        var dataTitleJ17 = legend.append('div').attr('class', 'div-absolute legend-title legend-j17-title').text('J17 Index Well');
+        var dataLabelJ17 = legend.append('div').attr('class', 'div-absolute data-label-wells legend-j17-label').text('Level: ');
+        var dataValueJ17 = legend.append('div').attr('class', 'div-absolute data-value-wells legend-j17-value').text('TBD');
+        var stageLabelJ17 = legend.append('div').attr('class', 'div-absolute stage-label-wells stage-j17-label').text('Stage: ');
+        var stageValueJ17 = legend.append('div').attr('class', 'div-absolute stage-value-wells stage-j17-value stage-box');
 
-        
-
-
-
-        // Dynamic Item Generation.
-
-        // var box = legendItem.append('rect')
-        //   .attr('x', 0)
-        //   .attr('y', function (d, i) { return i * legendVertSpacingFactor; })
-        //   .attr('width', legendBoxDimensions)
-        //   .attr('height', legendBoxDimensions)
-        //   .attr('class', 'legend-box-wells')
-        //   .style('fill', function (d) {
-        //     return color(d.name);
-        //   });
-            
-        // var label = legendItem.append('text')
-        //   .attr('x', '10%')
-        //   .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-        //   .text(function (d) { return d.name; }) // + 'Index Well'; })
-        //   .attr('class', 'data-item-wells');
-
-        // var dataValueText = legendItem.append('text')
-        //   .attr('x', '65%')
-        //   .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-        //   .text('')
-        //   .attr('class', 'data-value-wells');
-
-        // J27.
-        
-        // var boxJ27 = legendItem.append('rect')
-        //   .attr('x', '50px')
-        //   .attr('y', '10px') //function (d, i) { return i * legendVertSpacingFactor; })
-        //   .attr('width', legendBoxDimensions)
-        //   .attr('height', legendBoxDimensions)
-        //   .attr('class', 'legend-box-wells')
-        //   .style('fill', function (d) {
-        //     return color(d.name);
-        //   });
-
-        // var labelJ27 = legendItem.append('text')
-        //   .attr('x', '10%')
-        //   .attr('y', '') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-        //   .text('') //function (d) { return d.name; }) // + 'Index Well'; })
-        //   .attr('class', 'data-item-wells');
-
-        // var dataValueTextJ27 = legendItem.append('text')
-        //   .attr('x', '65%')
-        //   .attr('y', '') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-        //   .text('')
-        //   .attr('class', 'data-value-wells');
-
-
+        var dataTitleJ27 = legend.append('div').attr('class', 'div-absolute legend-title legend-j27-title').text('J27 Index Well');
+        var dataLabelJ27 = legend.append('div').attr('class', 'div-absolute data-label-wells legend-j27-label').text('Level: ');
+        var dataValueJ27 = legend.append('div').attr('class', 'div-absolute data-value-wells legend-j27-value').text('TBD');
+        var stageLabelJ27 = legend.append('div').attr('class', 'div-absolute stage-label-wells stage-j27-label').text('Stage: ');
+        var stageValueJ27 = legend.append('div').attr('class', 'div-absolute stage-value-wells stage-j27-value stage-box');
 
         // NOTE.
         var notes = viz.append('div').attr('class','graph-notes')

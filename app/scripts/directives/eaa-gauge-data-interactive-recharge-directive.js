@@ -50,17 +50,18 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       var mapImageAquiferSource03 = '../../images/directives/tr-panel02-range03.png';
       var mapImageAquiferSource04 = '../../images/directives/tr-panel02-range04.png';
       var mapImageKeySource = '../../images/directives/tr-panel03-key.png';
+      
       var boundariesSource = '../../data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
       var dataSource = '../../data/recharge-annualAvg-byDate2.csv';
       var ingestedData = {};
 
-      var markerRadius = 5;
-      var mapLabels = [];
-      var mapLabelsLength = mapLabels.length;
+      // var markerRadius = 5;
+      // var mapLabels = [];
+      // var mapLabelsLength = mapLabels.length;
 
-      var legendBoxDimensions = width / 50; //20
-      var legendVertSpacingFactor = 1;
-      var legendVertOffset = legendBoxDimensions * 0.8;
+      // var legendBoxDimensions = width / 50;
+      // var legendVertSpacingFactor = 1;
+      // var legendVertOffset = legendBoxDimensions * 0.8;
 
       var color = d3.scale.category10().domain(['Barton Springs', 'Comal Springs', 'Hueco Springs', 'J17', 'J27', 'Las Moras Springs', 'Leona Springs', 'San Antonio Springs', 'San Marcos Springs', 'San Pedro Springs']);
       var dataKey = d3.scale.ordinal();
@@ -155,30 +156,23 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         decimalValue = roundDecimals((newValue / 100), 4);
       };
 
-      var setMapFillValue = function () {
-        d3.selectAll('.Recharge.Zone').transition().style('fill', 'rgba(113,178,201,' + decimalValue + ')').duration(100);
-      };
+      // var setMapFillValue = function () {
+      //   d3.selectAll('.Recharge.Zone').transition().style('fill', 'rgba(113,178,201,' + decimalValue + ')').duration(100);
+      // };
 
       var setMapGraphicImage = function (dataValue) {
-        // console.log(dataValue);
         var newImage = d3.select('.map-image-aquifer-recharge');
         var targetPath = newImage[0][0];
-        // console.log(targetPath.src);
 
         if (dataValue < 150) {
-          // newImage.attr('src', mapImageAquiferSource00);
           targetPath.src = mapImageAquiferSource00;
         } else if (dataValue >= 150 && dataValue < 500) {
-          // newImage.attr('src', mapImageAquiferSource01);
           targetPath.src = mapImageAquiferSource01;
         } else if (dataValue >= 500 && dataValue < 1000) {
-          // newImage.attr('src', mapImageAquiferSource02);
           targetPath.src = mapImageAquiferSource02;
         } else if (dataValue >= 1000 && dataValue < 1500) {
-          // newImage.attr('src', mapImageAquiferSource03);
           targetPath.src = mapImageAquiferSource03;
         } else if (dataValue >= 1500) {
-          // newImage.attr('src', mapImageAquiferSource04);
           targetPath.src = mapImageAquiferSource04;
         }
       };
@@ -190,7 +184,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
       };
 
       var setDisplayDate = function (targetDate) {
-        d3.select(el).select('.year-display').text(Math.round(targetDate));
+        d3.select(el).select('.year-display-recharge').text(Math.round(targetDate));
       };
 
       var setDisplayData = function (targetIndex) {        
@@ -198,7 +192,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var vals = Object.keys(dataSet).map(function (key) {
           return dataSet[key];
         });
-        // var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item').selectAll('text');
         var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item-recharge').selectAll('text');
         // console.log(dataLabelArray[0][1]); // THIS ONE!!!
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
@@ -276,11 +269,13 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       // Map Image.
       var slideMap = viz.append('div').attr('class','slide-map-recharge');
+      
       var mapImageBase = slideMap.append('img')
         .attr('src', mapImageBaseSource)
         .attr('x', '40%')
         .attr('y', '30%')
         .attr('class', 'map-image-base-recharge');
+      
       var mapImageAquifer = slideMap.append('img')
         .attr('src', mapImageAquiferSource00)
         .attr('x', function () {
@@ -288,6 +283,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         })
         .attr('y', '30%')
         .attr('class', 'map-image-aquifer-recharge');
+      
       var mapImageKey = slideMap.append('img')
         .attr('src', mapImageKeySource)
         .attr('x', function () {
@@ -297,7 +293,7 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         .attr('class', 'map-image-key-recharge');
 
       viz.on('mousemove', mouseOverGraph);
-      viz.append('text').attr('class','year-display').text('');
+      viz.append('text').attr('class','year-display-recharge').text('');
 
       var dataDisplay = viz.append('div').attr('class','data-display data-display-recharge');
 
@@ -408,14 +404,14 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class','legend-item-recharge');
             
         var label = legendItem.append('text')
-          .attr('x', '0%') // '16px')
-          .attr('y', '22%') // '16px') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; }) //16 or 17.
+          .attr('x', '0%')
+          .attr('y', '22%')//function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; }) //16 or 17.
           .text(function (d) { return d.name; })
           .attr('class', 'data-item-recharge');
 
         var dataValueText = legendItem.append('text')
           .attr('x', '5%')
-          .attr('y', '98%') // '64px') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
+          .attr('y', '98%') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
           .text('0')
           .attr('class', 'data-value-recharge');
 
@@ -427,10 +423,8 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
         var horBar = legendItem.append('text')
           .attr('x', '0%')
-          .attr('y', '35%') // '64px') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-          .text('___________________')
-          .attr('color', '#f00')
-          .attr('class', 'data-horbar-recharge');
+          .attr('y', '35%')
+          .text('___________________');
 
         // NOTE.
         var notes = viz.append('div').attr('class','graph-notes')

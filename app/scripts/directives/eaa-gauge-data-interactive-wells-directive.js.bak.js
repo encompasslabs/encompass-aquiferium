@@ -42,21 +42,14 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var graphLeftOffset = vizWidth * 0.05;
       var graphWidthOffset = 0.98;
 
-      var slideDescText = 'Index wells in the region showcase water levels under the surface.';
-      var mapImageStagesSource = '../../images/directives/Stages-Key.png';
-      var mapImageBaseSource = '../../images/directives/J17-J27-Index-Wells-Map.png';
-
-      var mapMarkerJ17_stage1Green = '../../images/directives/J17-Green-Callout.png';
-      var mapMarkerJ17_stage2Yellow = '../../images/directives/J17-Yellow-Callout.png';
-      var mapMarkerJ17_stage3Orange = '../../images/directives/J17-Orange-Callout.png';
-      var mapMarkerJ17_stage4Red = '../../images/directives/J17-Red-Callout.png';
-      var mapMarkerJ17_stage5Purple = '../../images/directives/J17-Purple-Callout.png';
-      
-      var mapMarkerJ27_stage1Green = '../../images/directives/J27-Green-Callout.png';
-      var mapMarkerJ27_stage2Yellow = '../../images/directives/J27-Yellow-Callout.png';
-      var mapMarkerJ27_stage3Orange = '../../images/directives/J27-Orange-Callout.png';
-      var mapMarkerJ27_stage4Red = '../../images/directives/J27-Red-Callout.png';
-      var mapMarkerJ27_stage5Purple = '../../images/directives/J27-Purple-Callout.png';      
+      var slideDescText = 'Water or rainfall entering the recharge zone of the Aquifer replenishes this valuable resource.';
+      var mapImageBaseSource = '../../images/directives/tr-panel01-map.png';
+      var mapImageAquiferSource00 = '../../images/directives/tr-panel02-range00.png';
+      var mapImageAquiferSource01 = '../../images/directives/tr-panel02-range01.png';
+      var mapImageAquiferSource02 = '../../images/directives/tr-panel02-range02.png';
+      var mapImageAquiferSource03 = '../../images/directives/tr-panel02-range03.png';
+      var mapImageAquiferSource04 = '../../images/directives/tr-panel02-range04.png';
+      var mapImageKeySource = '../../images/directives/tr-panel03-key.png';
       
       var boundariesSource = '../../data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
       var markersSource = '../../data/wells-markerData.csv';
@@ -143,91 +136,22 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         decimalValue = roundDecimals((newValue / 100), 2);
       };
 
-      var setMapMarkersJ17 = function (currentGaugeValue) {
-        var newJ17Image = d3.select('.map-marker-j17-wells');
-        var targetPathJ17 = newJ17Image[0][0];
-
-        if (currentGaugeValue < 625) {
-          console.log('stage V');
-          targetPathJ17.src = mapMarkerJ17_stage5Purple;
-        } else if (currentGaugeValue >= 625 && currentGaugeValue < 630) {
-          console.log('stage IV');
-          targetPathJ17.src = mapMarkerJ17_stage4Red;
-        } else if (currentGaugeValue >= 630 && currentGaugeValue < 640) {
-          console.log('stageIII');
-          targetPathJ17.src = mapMarkerJ17_stage3Orange;
-        } else if (currentGaugeValue >= 640 && currentGaugeValue < 650) {
-          console.log('stageII');
-          targetPathJ17.src = mapMarkerJ17_stage2Yellow;
-        } else if (currentGaugeValue >= 650) {
-          console.log('stage I');
-          targetPathJ17.src = mapMarkerJ17_stage1Green;
-        }
-      };
-
-      var setMapMarkersJ27 = function (currentGaugeValue) {
-        var newJ27Image = d3.select('.map-marker-j27-wells');
-        var targetPathJ27 = newJ27Image[0][0];
-
-        if (currentGaugeValue < 840) {
-          console.log('stage V');
-          targetPathJ27.src = mapMarkerJ27_stage5Purple;
-        } else if (currentGaugeValue >= 840 && currentGaugeValue < 842) {
-          console.log('stage IV');
-          targetPathJ27.src = mapMarkerJ27_stage4Red;
-        } else if (currentGaugeValue >= 842 && currentGaugeValue < 845) {
-          console.log('stageIII');
-          targetPathJ27.src = mapMarkerJ27_stage3Orange;
-        } else if (currentGaugeValue >= 845 && currentGaugeValue < 850) {
-          console.log('stageII');
-          targetPathJ27.src = mapMarkerJ27_stage2Yellow;
-        } else if (currentGaugeValue >= 850) {
-          console.log('stage I');
-          targetPathJ27.src = mapMarkerJ27_stage1Green;
-        } 
-      };
-
       var setDisplayData = function (targetIndex) {
         var dataSet = ingestedData[targetIndex];        
         var vals = Object.keys(dataSet).map(function (key) {
-          // console.log(key);
           return dataSet[key];
         });
-        var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item-wells').selectAll('text');
+        var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item').selectAll('text');
+        // console.log(dataLabelArray[0][1]); // THIS ONE!!!
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
-          console.log('------------------------');
-          // console.log(j);
-          // console.log(targetIndex);
-          // console.log(dataLabelArray);
-          // console.log(dataLabelArray[j]);
-          // console.log(dataLabelArray[j]['parentNode']['__data__']);
-          // console.log(dataLabelArray[j]['parentNode']['__data__']['name']);
-          // console.log(dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]);
-          // console.log(dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex']);
-          // console.log(' ');
-
-          var currentGaugeValue = dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex'];
-          console.log(currentGaugeValue);
-
-          if (j === 0) {
-            console.log('J17');
-            setMapMarkersJ17(currentGaugeValue);
-          } else if (j === 1) {
-            console.log('J27');
-            setMapMarkersJ27(currentGaugeValue);
-          }
-
           var dataIndexOffset = j + 1;
           d3.select(dataLabelArray[j][1]).text( function() {
             var thisValue = roundDecimals(vals[dataIndexOffset], 0);
-            console.log(thisValue);
             if (isNaN(thisValue)) {
-              console.log('No Data');
               return 'No Data';
             } else {
-              console.log(thisValue);
-              return thisValue.toString(); // + ' FAMSL';
+              return thisValue.toString() + ' FAMSL';
             }
           });
         }
@@ -238,7 +162,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       };
 
       var setDisplayDate = function (targetDate) {
-        d3.select(el).select('.year-display-wells').text(Math.round(targetDate));
+        d3.select(el).select('.year-display').text(Math.round(targetDate));
         // setMapFill(targetDate);
       };
 
@@ -264,11 +188,6 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           setDisplayData(Math.round(yearIndex));
           indicatorLine.style('visibility', 'visible');
           updateIndicatorLine(xPos);
-          // console.log('================================');
-          // console.log(currentDate);
-          // console.log(yearIndex);
-          // console.log(Math.round(yearIndex));   
-          // console.log(' ');       
         }
       };
 
@@ -288,83 +207,14 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       // VIZ - BASE.
       var el = element[0];
       var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
-      
-       // Slide Banner.
-      var slideBanner = viz.append('div').attr('class','slide-banner-wells');
-      var descriptionText = slideBanner.append('text')
-        .attr('x', '0%')
-        .attr('y', '0%')
-        .text('Historical Aquifer Levels')
-        .attr('class', 'banner-text-wells');
-
-      // Slide Description.
-      var slideDescription = viz.append('div').attr('class','slide-desc-wells');
-      var descriptionText = slideDescription.append('text')
-        .attr('x', '0%')
-        .attr('y', '20%')
-        .text(slideDescText)
-        .attr('class', 'desc-text-wells');
-
-      // Data 
-      var dataDisplay = viz.append('div').attr('class','div-absolute data-display-wells');
-
-      // Stages.
-      var slideStages = viz.append('div')
-        .attr('x', '40%')
-        .attr('y', '30%')
-        .attr('class', 'legend-stages-wells');
-
-      var stage1 = slideStages.append('div')
-        .attr('x', '0%')
-        .attr('y', '0%')
-        .text('CRITICAL PERIOD STAGE I')
-        .attr('class', 'wells-stage wells-stage-1');
-
-      var stage2 = slideStages.append('div')
-        .attr('x', '0%')
-        .attr('y', function () { return (Number(stage1.y + stage1.height + 5) + 'px').toString(); })
-        .text('CRITICAL PERIOD STAGE II')
-        .attr('class', 'wells-stage wells-stage-2');
-
-      var stage3 = slideStages.append('div')
-        .attr('x', '0%')
-        .attr('y', function () { return (Number(stage2.y + stage2.height + 5) + 'px').toString(); })
-        .text('CRITICAL PERIOD STAGE III')
-        .attr('class', 'wells-stage wells-stage-3');
-
-      var stage4 = slideStages.append('div')
-        .attr('x', '0%')
-        .attr('y', function () { return (Number(stage3.y + stage3.height + 5) + 'px').toString(); })
-        .text('CRITICAL PERIOD STAGE IV')
-        .attr('class', 'wells-stage wells-stage-4');
-
-      var stage5 = slideStages.append('div')
-        .attr('x', '0%')
-        .attr('y', function () { return (Number(stage4.y + stage4.height + 5) + 'px').toString(); })
-        .text('CRITICAL PERIOD STAGE V')
-        .attr('class', 'wells-stage wells-stage-5');
-
-      // Map Image.
-      var slideMap = viz.append('div').attr('class','div-absolute slide-map-wells');
-
-      var mapImageBase = slideMap.append('img')
-        .attr('src', mapImageBaseSource)
-        .attr('class', 'z-100 map-image-base-wells');
-
-      var mapMarkerJ17 = slideMap.append('img')
-        .attr('src', mapMarkerJ17_stage1Green)
-        .attr('class', 'div-absolute z-200 map-marker-j17-wells');
-
-      var mapMarkerJ27 = slideMap.append('img')
-        .attr('src', mapMarkerJ27_stage1Green)
-        .attr('class', 'div-absolute z-200 map-marker-j27-wells');
-
       viz.on('mousemove', mouseOverGraph);
-      viz.append('text').attr('class','year-display-wells').text('');
+      viz.append('text').attr('class','year-display').text('');
 
-      // var geoBounds = viz.append('svg').attr('class', 'geo-bounds wells')
-      //   .attr('width', mapWidth)
-      //   .attr('height', mapHeight);
+      var dataDisplay = viz.append('div').attr('class','data-display');
+
+      var geoBounds = viz.append('svg').attr('class', 'geo-bounds wells')
+        .attr('width', mapWidth)
+        .attr('height', mapHeight);
 
       var graphBounds = viz.append('svg').attr('class', 'graph-bounds')
         .attr('width', graphWidth)
@@ -485,65 +335,30 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         var indicatorLine = graphBounds.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 0).attr('stroke-width', 1).attr('stroke', 'rgba(50,50,50,0.9)').attr('class', 'indicator-line');
         
         // LEGEND.
-        var legend = dataDisplay.append('div').attr('class','legend-box legend-box-wells').attr('transform', 'translate(-180,30)');
-        var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item-wells');
-
-        // console.log(legendItem);
-        // console.log('=====================================');
-
-        
-
-
-
-        // Dynamic Item Generation.
-
-        // var box = legendItem.append('rect')
-        //   .attr('x', 0)
-        //   .attr('y', function (d, i) { return i * legendVertSpacingFactor; })
-        //   .attr('width', legendBoxDimensions)
-        //   .attr('height', legendBoxDimensions)
-        //   .attr('class', 'legend-box-wells')
-        //   .style('fill', function (d) {
-        //     return color(d.name);
-        //   });
+        var legend = dataDisplay.append('div').attr('class','legend-box legend-wells').attr('transform', 'translate(-180,30)');
+        var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item');
+          
+        var box = legendItem.append('rect')
+          .attr('x', 0)
+          .attr('y', function (d, i) { return i * legendVertSpacingFactor; })
+          .attr('width', legendBoxDimensions)
+          .attr('height', legendBoxDimensions)
+          .attr('class', 'legend-box')
+          .style('fill', function (d) {
+            return color(d.name);
+          });
             
-        // var label = legendItem.append('text')
-        //   .attr('x', '10%')
-        //   .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-        //   .text(function (d) { return d.name; }) // + 'Index Well'; })
-        //   .attr('class', 'data-item-wells');
+        var label = legendItem.append('text')
+          .attr('x', '10%')
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
+          .text(function (d) { return d.name; })
+          .attr('class', 'data-item');
 
-        // var dataValueText = legendItem.append('text')
-        //   .attr('x', '65%')
-        //   .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-        //   .text('')
-        //   .attr('class', 'data-value-wells');
-
-        // J27.
-        
-        // var boxJ27 = legendItem.append('rect')
-        //   .attr('x', '50px')
-        //   .attr('y', '10px') //function (d, i) { return i * legendVertSpacingFactor; })
-        //   .attr('width', legendBoxDimensions)
-        //   .attr('height', legendBoxDimensions)
-        //   .attr('class', 'legend-box-wells')
-        //   .style('fill', function (d) {
-        //     return color(d.name);
-        //   });
-
-        // var labelJ27 = legendItem.append('text')
-        //   .attr('x', '10%')
-        //   .attr('y', '') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-        //   .text('') //function (d) { return d.name; }) // + 'Index Well'; })
-        //   .attr('class', 'data-item-wells');
-
-        // var dataValueTextJ27 = legendItem.append('text')
-        //   .attr('x', '65%')
-        //   .attr('y', '') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
-        //   .text('')
-        //   .attr('class', 'data-value-wells');
-
-
+        var dataValueText = legendItem.append('text')
+          .attr('x', '65%')
+          .attr('y', function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
+          .text('')
+          .attr('class', 'data-value');
 
         // NOTE.
         var notes = viz.append('div').attr('class','graph-notes')

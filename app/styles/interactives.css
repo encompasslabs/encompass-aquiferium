@@ -19,6 +19,7 @@
   position: absolute;
   margin-top: -6rem;
   margin-left: 11rem;
+  padding: 0;
   font-size: 18em;
   font-weight: 700;
   color: rgba(0,0,0,0.1);
@@ -58,6 +59,15 @@
 }
 
 /* Data Display Recharge */
+.year-display-recharge {
+  position: absolute;
+  margin-top: -6rem;
+  margin-left: 11rem;
+  padding: 0;
+  font-size: 18em;
+  font-weight: 700;
+  color: rgba(0,0,0,0.1);
+}
 .slide-banner-recharge {
   overflow: hidden;
   background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
@@ -76,20 +86,15 @@
   padding: 1rem 2rem 0 1rem;
 }
 .desc-text-recharge {
-  /*font-family: 'Ubuntu Condensed', sans-serif;*/
-  /*font-family: 'Open Sans', sans-serif;*/
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #000;
 }
 .slide-map-recharge {
-  /*position: absolute;*/
   margin-top: -2rem;
   margin-left: 12rem;
-  /*border: 1px solid #333;*/
   width: auto;
-  /*height: auto;*/
 }
 .map-image-base-recharge {
   width: 22rem;
@@ -125,16 +130,137 @@
   /*text-align: center;*/
   /*border: 1px solid #000;*/
 }
-.data-horbar-recharge {
-  color: #f00 !important;
-}
 
 /* Data Display Wells */
-.legend-wells {
-  height: 5.5rem;
+
+.slide-banner-wells {
+  overflow: hidden;
+  background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
+  border: 0.05rem; solid #000;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.banner-text-wells {
+  margin-left: 30%;
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #eee;
 }
 
+.slide-desc-wells {
+  padding: 1rem 2rem 0 1rem;
+}
+.desc-text-wells {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.data-display-wells {
+  top: 7rem;
+  left: 1rem;
+}
+.legend-box-wells {
+  width: 18.5rem;
+  height: 8rem;
+}
+.legend-item-wells {
+  height: 5rem;
+}
+.legend-j17-title {
+  top:3rem;
+  color:#000;
+}
+.legend-j27-title {
+  top: 1rem;
+  color:#000;
+}
+
+.data-item-wells {
+  font-size: 1rem;
+}
+.data-value-wells {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.legend-stages-wells {
+  width: 13rem;
+  margin-left: 21rem;
+  margin-top: 1.5rem; /* 4rem;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  /*vertical-align: bottom;*/
+}
+.wells-stage {
+  height: 0;
+  padding-left: 1rem;
+  border-bottom: 40px solid #ddd;
+  border-right: 10px solid transparent;
+  /*border-width: 1.5rem;*/
+  margin-bottom: 0.25rem;
+}
+.wells-stage-1 {
+  border-bottom: 20px solid #72a641;
+  border-width: 1.5rem;
+}
+.wells-stage-2 {
+  border-bottom: 20px solid #e7b921;
+  border-width: 1.5rem;
+}
+.wells-stage-3 {
+  border-bottom: 20px solid #e08625;
+  border-width: 1.5rem;
+}
+.wells-stage-4 {
+  border-bottom: 20px solid #da1f28;
+  border-width: 1.5rem;
+}
+.wells-stage-5 {
+  color: #fff;
+  border-bottom: 20px solid #6d2158;
+  border-width: 1.5rem;
+}
+
+/*.map-image-stages-wells {
+  width: 10rem;
+  height: auto;
+}*/
+
+.slide-map-wells {
+  top: 4rem;
+  left: 35rem;
+  width: auto;
+}
+.map-image-base-wells {
+  width: 28rem;
+}
+.map-marker-j17-wells {
+  top: 5rem;
+  left: 14rem;
+}
+.map-marker-j27-wells {
+  top: 6.5rem;
+  left: 7.5rem;
+}
+
+.year-display-wells {
+  position: absolute;
+  margin-top: -3rem;
+  margin-left: 11rem;
+  padding: 0;
+  font-size: 18em;
+  font-weight: 700;
+  color: rgba(0,0,0,0.1);
+}
+
+
 /* Data Display Springs */
+
 .legend-springs {
   height: 16rem;
 }

@@ -181,6 +181,14 @@
   border-radius: 2rem;
   border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
+.image-frame-wordl {
+  width: 48rem;
+  height: 52rem;
+  background-size: contain;
+  background-position: center center;
+  border-radius: 2rem;
+  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
+}
 .image-frame-tall {
   width: 64rem;
   height: 90rem;
@@ -492,6 +500,8 @@
 
 #cons-image-23 { background-image: url(../images/conservation/district_eaa.jpg); }
 #cons-image-24 { background-image: url(../images/conservation/EAA-map-revamp-V1.png); }
+
+#cons-image-wordl { background-image: url(../images/conservation/wordl.png); }
 
 /* Springs */
 #springs-image-00 { background-image: url(../images/springs/com-springs2-800x.jpg); }

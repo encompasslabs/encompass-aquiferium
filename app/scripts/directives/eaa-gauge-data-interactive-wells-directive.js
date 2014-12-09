@@ -265,7 +265,6 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       // };
 
       var setDisplayDate = function (targetDate) {
-        // console.log(targetDate);
         d3.select(el).select('.year-display-wells').text(Math.round(targetDate));
         // setMapFill(targetDate);
       };
@@ -273,7 +272,6 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var mouseOverGraph = function (event) {
         var position = d3.mouse(this);
         deriveDate(position[0]);
-        // console.log(position);
       };
 
       var deriveDate = function (xPos) {
@@ -294,14 +292,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           setDisplayDate(currentDate);
           setDisplayData(Math.round(yearIndex));
           indicatorLine.style('visibility', 'visible');
-          updateIndicatorLine(xPos);
-          
-          // console.log('================================');
-          // console.log(xPos);
-          // console.log(currentDate);
-          // console.log(yearIndex);
-          // console.log(Math.round(yearIndex));   
-          // console.log(' ');       
+          updateIndicatorLine(xPos);     
         }
       };
 
@@ -322,7 +313,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var el = element[0];
       var viz = d3.select(el).append('div').attr('class', 'viz').attr('width', vizWidth).attr('height', vizHeight);
       
-       // Slide Banner.
+      // Slide Banner.
       var slideBanner = viz.append('div').attr('class','slide-banner-wells');
       var descriptionText = slideBanner.append('text')
         .attr('x', '0%')
@@ -456,6 +447,12 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           d['J27'] = +d['J27'];
         });
 
+
+
+
+
+
+
         ingestedData = data;
 
         dataKey.domain(d3.keys(data[0]).filter(function (key) { return key !== 'Date'; }));
@@ -532,6 +529,16 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         var dataValueJ27 = legend.append('div').attr('class', 'div-absolute data-value-wells legend-j27-value').text('TBD');
         var stageLabelJ27 = legend.append('div').attr('class', 'div-absolute stage-label-wells stage-j27-label').text('Stage: ');
         var stageValueJ27 = legend.append('div').attr('class', 'div-absolute stage-value-wells stage-j27-value stage-box');
+
+
+
+
+
+
+
+
+
+
 
         // NOTE.
         var notes = viz.append('div').attr('class','graph-notes')

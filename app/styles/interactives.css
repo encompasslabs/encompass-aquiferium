@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/*******************/
 /* General */
 
 #interactive {
@@ -25,6 +26,7 @@
   color: rgba(0,0,0,0.1);
 }
 
+/**************************/
 /* Data Display Baseline */
 .data-display {
   position: absolute;
@@ -58,6 +60,7 @@
   height: 1.8rem;
 }
 
+/**************************/
 /* Data Display Recharge */
 .year-display-recharge {
   position: absolute;
@@ -127,6 +130,7 @@
   font-weight: 700;
 }
 
+/*******************^^^^/
 /* Data Display Wells */
 
 .slide-banner-wells {
@@ -325,13 +329,148 @@
   color: rgba(0,0,0,0.1);
 }
 
-
+/*************************/
 /* Data Display Springs */
 
-.legend-springs {
-  height: 16rem;
+.slide-banner-springs {
+  overflow: hidden;
+  background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
+  border: 0.05rem; solid #000;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.banner-text-springs {
+  margin-left: 45%;
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #eee;
 }
 
+/*.slide-desc-springs {
+  padding: 1rem 2rem 0 1rem;
+}
+.desc-text-springs {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}*/
+
+.data-display-springs {
+  top: 4rem;
+  left: 1rem;
+}
+.legend-box-springs {
+  width: 18.5rem;
+  height: 8rem;
+}
+.legend-item-springs {
+  height: 5rem;
+}
+.data-item-springs {
+  font-size: 1rem;
+}
+
+.data-label-springs {
+  top: 4.5rem;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.data-value-springs {
+  top: 4.5rem;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.stage-label-springs {
+  top: 6.5rem;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.stage-box {
+  width: 3.5rem;
+  height: 1.75rem;
+  border: 1px solid #000;
+}
+
+.stage-value-springs {
+  top: 5.75rem;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.legend-stages-springs {
+  width: 13rem;
+  margin-left: 21rem;
+  margin-top: 1.5rem; /* 4rem;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  /*vertical-align: bottom;*/
+}
+.springs-stage {
+  height: 0;
+  padding-left: 1rem;
+  border-bottom: 40px solid #ddd;
+  border-right: 10px solid transparent;
+  /*border-width: 1.5rem;*/
+  margin-bottom: 0.25rem;
+}
+.springs-stage-1 {
+  border-bottom: 20px solid #72a641;
+  border-width: 1.5rem;
+}
+.springs-stage-2 {
+  border-bottom: 20px solid #e7b921;
+  border-width: 1.5rem;
+}
+.springs-stage-3 {
+  border-bottom: 20px solid #e08625;
+  border-width: 1.5rem;
+}
+.springs-stage-4 {
+  border-bottom: 20px solid #da1f28;
+  border-width: 1.5rem;
+}
+.springs-stage-5 {
+  color: #fff;
+  border-bottom: 20px solid #6d2158;
+  border-width: 1.5rem;
+}
+
+/*.map-image-stages-springs {
+  width: 10rem;
+  height: auto;
+}*/
+
+.slide-map-springs {
+  top: 2.5rem;
+  left: 30rem;
+}
+
+.map-image-base-springs {
+  width: 34rem;
+}
+
+.year-display-springs {
+  position: absolute;
+  margin-top: 9.4rem;
+  margin-left: 11rem;
+  padding: 0;
+  font-size: 18em;
+  font-weight: 700;
+  color: rgba(0,0,0,0.1);
+}
+
+/*******************/
 /* Map */
 .geo-bounds {
   position: absolute;
@@ -442,6 +581,7 @@
   stroke: #0f0;
 }
 
+/*******************/
 /* Line Graph */
 .graph-bounds {
   position: absolute;
@@ -489,3 +629,5 @@
   font-size: 0.6rem;
   font-style: italic;
 }
+
+/*******************/

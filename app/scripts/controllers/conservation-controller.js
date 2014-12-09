@@ -6,8 +6,9 @@ angular.module('aquiferiumApp')
     $scope.pageClass = 'conservation';
     $scope.urlHcp = 'http://eahcp.org';
     $scope.src_wordl = '../scripts/embed/wordl-eaa.js';
-    $scope.modalShown = false;
-    $scope.myWindow = angular.element($window); // Name the variable whatever makes sense
+    // $scope.modalShown = false;
+    // $scope.myWindow = angular.element($window);
+    $scope.urlWordl = 'http://www.edwardsaquifer.org/'; // Need to point to world on server.
 
     $scope.linkModelFunc = function (url) {
       $window.open(url);
@@ -33,44 +34,48 @@ angular.module('aquiferiumApp')
       $scope.goToByScroll(dataslide);
     };
 
-    
-    $scope.toggleModal = function() {
-      $scope.modalShown = !$scope.modalShown;
-      console.log('modal toggled.', $scope.modalShown);
-
-      // $scope.script = {}; //document.createElement('script');
-      // $scope.script.src = $scope.src_wordl;
-      // $scope.script.async = false;
-      // // console.log($scope.script.src);
-
-      // $scope.targetElement = document.getElementById('wordlObject');
-      // // console.log($scope.targetElement);
-
-      // // $scope.targetElement.innerHTML = '<div onload="displayWordl()"></div>';
-      // $scope.targetElement.innerHTML = ('<script src="' + $scope.script.src + '"></script>');
+    $scope.fullscreenWordl = function () {
+      console.log('Go to the wordl.');
     };
+
+    
+    // $scope.toggleModal = function() {
+    //   $scope.modalShown = !$scope.modalShown;
+    //   console.log('modal toggled.', $scope.modalShown);
+
+    //   // $scope.script = {}; //document.createElement('script');
+    //   // $scope.script.src = $scope.src_wordl;
+    //   // $scope.script.async = false;
+    //   // // console.log($scope.script.src);
+
+    //   // $scope.targetElement = document.getElementById('wordlObject');
+    //   // // console.log($scope.targetElement);
+
+    //   // // $scope.targetElement.innerHTML = '<div onload="displayWordl()"></div>';
+    //   // $scope.targetElement.innerHTML = ('<script src="' + $scope.script.src + '"></script>');
+    // };
 
     $scope.resetView();
 
-    $scope.myWindow.on("scroll", function() {
+    // $scope.myWindow.on("scroll", function() {
 
-      console.log('scrolling...');
-      // console.log($scope.modalShown);
+    //   // console.log('scrolling...');
+    //   // console.log($scope.modalShown);
 
-      if($scope.modalShown) {
-        console.log('its TRUE!');
+    //   if($scope.modalShown) {
+    //     // console.log('its TRUE!');
 
-        // $scope.toggleModal();
+    //     // $scope.toggleModal();
 
-        // $scope.el = document.getElementById('modal-world');
-        // angular.element($scope.el).triggerHandler('ng-click');
+    //     // $scope.el = document.getElementById('modal-world');
+    //     // angular.element($scope.el).triggerHandler('ng-click');
 
-        // $timeout(function() {
-        //     angular.element($scope.el).triggerHandler('click');
-        // }, 0);
-      } else {
-        console.log('filthy LIES!!!!');
-      }
-    });
+    //     // $timeout(function() {
+    //     //     angular.element($scope.el).triggerHandler('click');
+    //     // }, 0);
+    //   } else {
+    //     // console.log('filthy LIES!!!!');
+    //   }
+    // });
 
   }]);

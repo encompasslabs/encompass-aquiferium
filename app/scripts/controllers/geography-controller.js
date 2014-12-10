@@ -4,20 +4,15 @@ angular.module('aquiferiumApp')
   .controller('GeographyCtrl', ['$scope', '$location', '$anchorScroll', function ($scope, $location, $anchorScroll) {
     $scope.pageClass = 'geography';
 
-    $scope.resetView = function () {
-      $location.hash('.geography');
-      $anchorScroll();
-    };
-
-    // $scope.resetView();
-
-    // $scope.animateTo(10000, 15000, linear);
-    // console.log($skrollr.data.curTop);
-
     $scope.dataPanelVisible = false;
     $scope.rechargeVisible = false;
     $scope.wellsVisible = false;
     $scope.springsVisible = false;
+
+    $scope.resetView = function () {
+      $location.hash('.geography');
+      $anchorScroll();
+    };
 
     $scope.togglePanel = function(target) {
       $(target).toggleClass('open-panel');
@@ -128,4 +123,12 @@ angular.module('aquiferiumApp')
     $('#toggle-springs-data').on('click', function(){
       $scope.selectSlide('springs');
     });
+
+    // $scope.resetView();
+
+    // $scope.animateTo(10000, 15000, linear);
+    // console.log($skrollr.data.curTop);
+
+    // $('#map').getBounds());
+    // $('#map').fitBounds();
   }]);

@@ -141,29 +141,15 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             var setDisplayData = function(targetIndex) {
                 // console.log(targetIndex);
                 var dataSet = ingestedData[targetIndex];
-                var vals = Object.keys(dataSet).map(function(key) {
-                    return dataSet[key];
-                }); // console.log(key);
-                // console.log(vals);
+                var vals = Object.keys(dataSet).map(function(key) { return dataSet[key]; }); 
                 var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item-springs').selectAll('text');
-                // console.log(dataLabelArray);
 
                 // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
                 for (var j = 0; j < dataLabelArray.length; j++) {
 
-                    // console.log('------------------------');
-                    // console.log(j); // 0-7.
-                    // console.log(dataLabelArray[j]);
-                    // console.log(dataLabelArray[j]['parentNode']['__data__']);
-                    // console.log(dataLabelArray[j]['parentNode']['__data__']['name']);
-                    // console.log(dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]);
-                    // console.log(dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex']);
-                    // console.log(' ');
-
+                    var currentGaugeName = dataLabelArray[j]['parentNode']['__data__']['name'];
                     var currentGaugeValue = dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex'];
-                    // console.log('j: ' + j + ', value: ' + currentGaugeValue);
-
-                    // setGaugeDisplay(currentGaugeValue, j, targetIndex, vals);
+                    console.log('j: ' + j + ', ' + currentGaugeName + ' = ' + currentGaugeValue);
 
                     // var dataIndexOffset = j + 1;
                     // d3.select(dataLabelArray[j][1]).text( function() {
@@ -171,102 +157,33 @@ angular.module('eaa.directives.d3.interactive.springs', [])
                     //   if (isNaN(thisValue)) {
                     //     return 'No Data';
                     //   } else {
-                    //     return thisValue.toString() + ' CFS';
+                    //     return thisValue.toString(); // + ' CFS';
                     //   }
                     // });
 
-                    console.log('gaugeIndex: ' + j + ', currentGaugeValue: ' + currentGaugeValue + ', dataIndex: ' + targetIndex);
-                    console.log(vals);
+                    // console.log('gaugeIndex: ' + j + ', currentGaugeName: ' + currentGaugeName + ', currentGaugeValue: ' + currentGaugeValue + ', dataIndex: ' + targetIndex);
+                    // console.log(vals);
 
-                    var targetItemPath = 'data-item-springs-' + j.toString();
-                    var targetDataPath = 'data-value-springs-' + j.toString();
+                    // UPDATE VIEW FROM HERE.
+                    // var targetDataPath = 'data-value-springs-' + j.toString();
+                    // console.log(targetDataPath);
+                    // var thisTargetData = d3.select(targetDataPath);
+                    // console.log(thisTargetData);
 
-                    var thisTargetItem = d3.select(targetItemPath);
-                    var thisTargetData = d3.select(targetDataPath);
+                    // thisTargetData.text( function (currentGaugeValue) {
+                    //     if (isNaN(currentGaugeValue)) {
+                    //         return 'No Data';
+                    //     } else {
+                    //         return roundDecimals(currentGaugeValue, 2).toString();
+                    //     }
+                    // });
 
-                    thisTargetItem.text('item');
-
-                    thisTargetData.text(function() {
-                        if (isNaN(currentGaugeValue)) {
-                            return 'No Data';
-                        } else {
-                            return roundDecimals(currentGaugeValue, 2).toString();
-                        }
-                    });
+                    // if (isNaN(currentGaugeValue)) {
+                    //   thisTargetData.text('No Data');
+                    // } else {
+                    //   thisTargetData.text(roundDecimals(currentGaugeValue, 2).toString());
+                    // }
                 }
-            };
-
-            var setGaugeDisplay = function(currentGaugeValue, gaugeIndex, dataIndex, vals) {
-                // console.log('gaugeIndex: ' + gaugeIndex + ', currentGaugeValue: ' + currentGaugeValue + ', dataIndex: ' + dataIndex);
-                // console.log(vals);
-
-                // if (gaugeIndex === 0) {
-                //     // do stuff.
-                //   } else if (gaugeIndex === 1) {
-                //     // do stuff.
-                //   } else if (gaugeIndex === 2) {
-                //     // do stuff.
-                //   } else if (gaugeIndex === 3) {
-                //     // do stuff.
-                //   } else if (gaugeIndex === 4) {
-                //     // do stuff.
-                //   } else if (gaugeIndex === 5) {
-                //     // do stuff.
-                //   } else if (gaugeIndex === 6) {
-                //     // do stuff.
-                //   } else if (gaugeIndex === 7) {
-                //     // do stuff.
-                //   }
-
-                // var targetItemPath = 'data-item-springs-' + gaugeIndex.toString();
-                // var targetDataPath = 'data-value-springs-' + gaugeIndex.toString();
-
-                // var thisTargetItem = d3.select(targetItemPath);
-                // var thisTargetData = d3.select(targetDataPath);
-
-                // thisTargetItem.text('item');
-
-                // thisTargetData.text( function () {
-                //    if (isNaN(currentGaugeValue)) {
-                //       return 'No Data';
-                //     } else {
-                //       return roundDecimals(currentGaugeValue,2).toString();
-                //     }          
-                // });
-
-                // var gaugeDataDisplay = d3.select('.map-marker-j17-wells');
-
-                // var targetPathJ17 = newJ17Image[0][0];
-                // var newJ17Stage = d3.select('.stage-j17-value');
-                // var newj17Level = d3.select('.legend-j17-value');
-
-                // if (isNaN(currentGaugeValue)) {
-                //   newj17Level.text('No Data');
-                // } else {
-                //   newj17Level.text(roundDecimals(currentGaugeValue,2));
-                // }
-
-                // if (currentGaugeValue < 625) {
-                //   // console.log('stage V');
-                //   targetPathJ17.src = mapMarkerJ17_stage5Purple;
-                //   newJ17Stage.style('background-color', '#6d2158');
-                // } else if (currentGaugeValue >= 625 && currentGaugeValue < 630) {
-                //   // console.log('stage IV');
-                //   targetPathJ17.src = mapMarkerJ17_stage4Red;
-                //   newJ17Stage.style('background-color', '#da1f28');
-                // } else if (currentGaugeValue >= 630 && currentGaugeValue < 640) {
-                //   // console.log('stageIII');
-                //   targetPathJ17.src = mapMarkerJ17_stage3Orange;
-                //   newJ17Stage.style('background-color', '#e08625');
-                // } else if (currentGaugeValue >= 640 && currentGaugeValue < 650) {
-                //   // console.log('stageII');
-                //   targetPathJ17.src = mapMarkerJ17_stage2Yellow;
-                //   newJ17Stage.style('background-color', '#e7b921');
-                // } else if (currentGaugeValue >= 650) {
-                //   // console.log('stage I');
-                //   targetPathJ17.src = mapMarkerJ17_stage1Green;
-                //   newJ17Stage.style('background-color', '#72a641');
-                // }
             };
 
 
@@ -513,155 +430,41 @@ angular.module('eaa.directives.d3.interactive.springs', [])
 
                 // LEGEND.
                 var legend = dataDisplay.append('div').attr('class', 'legend-box legend-box-springs').attr('transform', 'translate(-180,30)');
-                var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', 'legend-item-springs');
+                var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', function (d, i) { return 'div-absolute legend-item-springs legend-item-springs-' + i.toString(); });
 
-                var box = legendItem.append('rect')
-                    // .attr('x', 0)
-                    // .attr('y', function (d, i) { console.log(i * legendVertSpacingFactor);  return i * legendVertSpacingFactor; })
-                    .attr('x', function (d, i) {
-                      // console.log(d,i);
-                      if (d.name === 'San Marcos Springs') {
-                        return '0px';
-                      } else if (d.name === 'Hueco Springs') {
-                        return '0px';
-                      } else if (d.name === 'San Antonio Springs') {
-                        return '0px';
-                      } else if (d.name === 'San Pedro Springs') {
-                        return '0px';
-                      }else if (d.name === 'Comal Springs') {
-                        return '50%';
-                      }  else if (d.name === 'Leona Springs') {
-                        return '50%';
-                      } else if (d.name === 'Las Moras Springs') {
-                        // Out of bounds.
-                      } else if (d.name === 'Barton Springs') {
-                        // Out of bounds.
-                      } 
-                    })
-                    .attr('y', function(d, i) {
-                        // console.log(d,i);
-                        if (d.name === 'San Marcos Springs') {
-                            return 0; //'0px';
-                        } else if (d.name === 'Hueco Springs') {
-                            return 1; //'30px';
-                        } else if (d.name === 'San Antonio Springs') {
-                            return 2; //'60px';
-                        } else if (d.name === 'San Pedro Springs') {
-                            return 3; //'90px';
-                        } else if (d.name === 'Comal Springs') {
-                            return 4; //'0px';
-                        } else if (d.name === 'Leona Springs') {
-                            return 5; //'30px';
-                        } else if (d.name === 'Las Moras Springs') {
-                            return 6; // Out of bounds.
-                        } else if (d.name === 'Barton Springs') {
-                            return 7; // Out of bounds.
-                        }
-                    })
+                var dataBox_ = legendItem.append('rect')
                     .attr('width', legendBoxDimensions)
                     .attr('height', legendBoxDimensions)
-                    .attr('class', 'legend-box')
-                    .style('fill', function(d) {
+                    .attr('class', function (d, i) {
+                        return 'legend-box-springs-' + i.toString();
+                    })
+                    .style('fill', function (d) {
+                      if (d === 4 || d === 5) {
+                        return null;
+                      } else {
                         return color(d.name);
+                      }
                     });
+                
+                var dataLabel_0 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-0').text('Hueco Springs');
+                var dataLabel_1 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-1').text('San Antonio Springs');
+                var dataLabel_2 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-2').text('San Pedro Springs');
+                var dataLabel_3 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-3').text('Leona Springs');
+                // var dataLabel_4 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-4').text('Test4 Springs');
+                // var dataLabel_5 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-5').text('Test5 Springs');
+                var dataLabel_6 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-6').text('San Marcos Springs');
+                var dataLabel_7 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-7').text('Comal Springs');
 
-                var label = legendItem.append('text')
-                    // .attr('x', '10%')
-                    // .attr('y', function (d, i) { console.log((i * legendVertSpacingFactor) + legendVertOffset); return (i * legendVertSpacingFactor) + legendVertOffset; })
-                    .attr('x', function (d, i) {
-                      // console.log(d,i);
-                      if (d.name === 'San Marcos Springs') {
-                        return '0px';
-                      } else if (d.name === 'Hueco Springs') {
-                        return '0px';
-                      } else if (d.name === 'San Antonio Springs') {
-                        return '0px';
-                      } else if (d.name === 'San Pedro Springs') {
-                        return '0px';
-                      }else if (d.name === 'Comal Springs') {
-                        return '50%';
-                      }  else if (d.name === 'Leona Springs') {
-                        return '50%';
-                      } else if (d.name === 'Las Moras Springs') {
-                        // Out of bounds.
-                      } else if (d.name === 'Barton Springs') {
-                        // Out of bounds.
-                      } 
-                    })
-                    .attr('y', function(d, i) {
-                        // console.log(d,i);
-                        if (d.name === 'San Marcos Springs') {
-                            return 15.5; //'0px';
-                        } else if (d.name === 'Hueco Springs') {
-                            return 16.5; //'30px';
-                        } else if (d.name === 'San Antonio Springs') {
-                            return 17.5; //'60px';
-                        } else if (d.name === 'San Pedro Springs') {
-                            return 18.5; //'90px';
-                        } else if (d.name === 'Comal Springs') {
-                            return 19.5; //'0px';
-                        } else if (d.name === 'Leona Springs') {
-                            return 20.5; //'30px';
-                        } else if (d.name === 'Las Moras Springs') {
-                            return 21.5; // Out of bounds.
-                        } else if (d.name === 'Barton Springs') {
-                            return 22.5; // Out of bounds.
-                        }
-                    })
-                    .text(function(d) {
-                        return d.name;
-                    })
-                    .attr('class', function(d, i) {
-                        return 'data-item-springs-' + i.toString();
-                    });
+                var dataValue_0 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-0').text('0236971');
+                var dataValue_1 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-1').text('0236971');
+                var dataValue_2 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-2').text('0236971');
+                var dataValue_3 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-3').text('0236971');
+                // var dataValue_4 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-4').text('0236971');
+                // var dataValue_5 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-5').text('0236971');
+                var dataValue_6 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-6').text('0236971');
+                var dataValue_7 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-7').text('0236971');
 
-                var dataValueText = legendItem.append('text')
-                    // .attr('x', '65%')
-                    // .attr('y', function (d, i) { console.log((i * legendVertSpacingFactor) + legendVertOffset); return (i * legendVertSpacingFactor) + legendVertOffset; })
-                    .attr('x', function (d, i) {
-                      // console.log(d,i);
-                      if (d.name === 'San Marcos Springs') {
-                        return '0px';
-                      } else if (d.name === 'Hueco Springs') {
-                        return '0px';
-                      } else if (d.name === 'San Antonio Springs') {
-                        return '0px';
-                      } else if (d.name === 'San Pedro Springs') {
-                        return '0px';
-                      }else if (d.name === 'Comal Springs') {
-                        return '50%';
-                      }  else if (d.name === 'Leona Springs') {
-                        return '50%';
-                      } else if (d.name === 'Las Moras Springs') {
-                        // Out of bounds.
-                      } else if (d.name === 'Barton Springs') {
-                        // Out of bounds.
-                      } 
-                    })
-                    .attr('y', function(d, i) {
-                        // console.log(d,i);
-                        if (d.name === 'San Marcos Springs') {
-                            return 15.5; //'0px';
-                        } else if (d.name === 'Hueco Springs') {
-                            return 16.5; //'30px';
-                        } else if (d.name === 'San Antonio Springs') {
-                            return 17.5; //'60px';
-                        } else if (d.name === 'San Pedro Springs') {
-                            return 18.5; //'90px';
-                        } else if (d.name === 'Comal Springs') {
-                            return 19.5; //'0px';
-                        } else if (d.name === 'Leona Springs') {
-                            return 20.5; //'30px';
-                        } else if (d.name === 'Las Moras Springs') {
-                            return 21.5; // Out of bounds.
-                        } else if (d.name === 'Barton Springs') {
-                            return 22.5; // Out of bounds.
-                        }
-                    })
-                    .text('')
-                    .attr('class', function(d, i) {
-                        return 'data-value-springs-' + i.toString();
-                    });
+                var lineBreak = legend.append('svg').attr('width', '100%').attr('class', 'linebreak-hr').append('line').attr('x1', '0').attr('y1', '45').attr('x2', '100%').attr('y2', '45').attr('stroke', '#000').attr('stroke-width', '2');
 
                 // NOTE.
                 var notes = viz.append('div').attr('class', 'graph-notes')

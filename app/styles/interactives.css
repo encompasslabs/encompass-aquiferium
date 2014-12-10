@@ -361,90 +361,152 @@
   top: 4rem;
   left: 1rem;
 }
+
+.linebreak-hr {
+  /*color: #000;*/
+  /*background-color: #000;*/
+  /*top: 2rem;*/
+  /*left: 2rem;*/
+}
+
+
+.data-item-springs {
+  /*padding: 2rem;*/
+  /*width: 8rem;*/
+  /*height: 2rem;*/
+  /*color: #000;*/
+  /*font-size: 1.1rem;*/
+  /*font-weight: 500;*/
+  /*border: 1px solid #000;*/
+}
+
+
 .legend-box-springs {
   width: 29rem;
   height: 13rem;
 }
+
+/*
+  0: Hueco Springs
+  1: San Antonio Springs
+  2: San Pedro Springs
+  3: Leona Springs
+  4 & 5: Barton | San Antonio
+  6: San Marcos Springs
+  7: Comal Springs
+
+*/
 .legend-item-springs {
+  width: 50%;
   height: 2rem;
+  vertical-align: middle;
 }
-.data-item-springs {
-  font-size: 1rem;
+
+.legend-item-springs-0 {
+  top: 5rem;
+  left: 0.5rem;
 }
+.legend-item-springs-1 {
+  top: 7.75rem;
+  left: 0.5rem;
+}
+.legend-item-springs-2 {
+  top: 10.5rem;
+  left: 0.5rem;
+}
+.legend-item-springs-3 {
+  top: 5rem;
+  left: 55%;
+}
+.legend-item-springs-4 {
+  visibility: hidden;
+}
+.legend-item-springs-5 {
+  visibility: hidden;
+}
+.legend-item-springs-6 {
+  top: 1rem;
+  left: 0.5rem;
+}
+.legend-item-springs-7 {
+  top: 1rem;
+  left: 55%;
+}
+
 
 .data-label-springs {
-  top: 4.5rem;
+  font-family: 'Open Sans Condensed', sans-serif;
   color: #000;
   font-size: 1.1rem;
   font-weight: 700;
 }
+
+.data-label-springs-0 {
+  top: 5.75rem;
+  left: 2.25rem;
+}
+.data-label-springs-1 {
+  top: 8.5rem;
+  left: 2.25rem;
+}
+.data-label-springs-2 {
+  top: 11.25rem;
+  left: 2.25rem;
+}
+.data-label-springs-3 {
+  top: 5.75rem;
+  left: 61%;
+}
+.data-label-springs-4 {
+}
+.data-label-springs-5 {
+}
+.data-label-springs-6 {
+  top: 1.75rem;
+  left: 2.25rem;
+}
+.data-label-springs-7 {
+  top: 1.75rem;
+  left: 61%;
+}
+
 
 .data-value-springs {
-  top: 4.5rem;
-  color: #000;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.stage-label-springs {
-  top: 6.5rem;
-  color: #000;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.stage-box {
-  width: 3.5rem;
-  height: 1.75rem;
-  border: 1px solid #000;
-}
-
-.stage-value-springs {
-  top: 5.75rem;
-  color: #000;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.legend-stages-springs {
-  width: 13rem;
-  margin-left: 21rem;
-  margin-top: 1.5rem; /* 4rem;*/
   font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
   color: #000;
-  /*vertical-align: bottom;*/
+  font-size: 1.2rem;
 }
-.springs-stage {
-  height: 0;
-  padding-left: 1rem;
-  border-bottom: 40px solid #ddd;
-  border-right: 10px solid transparent;
-  /*border-width: 1.5rem;*/
-  margin-bottom: 0.25rem;
+
+.data-value-springs-0 {
+  top: 5.75rem;
+  left: 11.5rem;
 }
-.springs-stage-1 {
-  border-bottom: 20px solid #72a641;
-  border-width: 1.5rem;
+.data-value-springs-1 {
+  top: 8.5rem;
+  left: 11.5rem;
 }
-.springs-stage-2 {
-  border-bottom: 20px solid #e7b921;
-  border-width: 1.5rem;
+.data-value-springs-2 {
+  top: 11.25rem;
+  left: 11.5rem;
 }
-.springs-stage-3 {
-  border-bottom: 20px solid #e08625;
-  border-width: 1.5rem;
+.data-value-springs-3 {
+  top: 5.75rem;
+  left: 85%;
 }
-.springs-stage-4 {
-  border-bottom: 20px solid #da1f28;
-  border-width: 1.5rem;
+.data-value-springs-4 {
 }
-.springs-stage-5 {
-  color: #fff;
-  border-bottom: 20px solid #6d2158;
-  border-width: 1.5rem;
+.data-value-springs-5 {
 }
+.data-value-springs-6 {
+  top: 1.75rem;
+  left: 11.5rem;
+}
+.data-value-springs-7 {
+  top: 1.75rem;
+  left: 85%;
+}
+
+
 
 /*.map-image-stages-springs {
   width: 10rem;

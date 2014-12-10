@@ -530,16 +530,6 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         var stageLabelJ27 = legend.append('div').attr('class', 'div-absolute stage-label-wells stage-j27-label').text('Stage: ');
         var stageValueJ27 = legend.append('div').attr('class', 'div-absolute stage-value-wells stage-j27-value stage-box');
 
-
-
-
-
-
-
-
-
-
-
         // NOTE.
         var notes = viz.append('div').attr('class','graph-notes')
           .append('text')          

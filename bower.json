@@ -30,7 +30,7 @@
     "angular-leaflet-directive": "~0.7.8",
     "leaflet-tilelayer-geojson": "*",
     "jQuery.print": "~1.2.0",
-    "bootstrap-sass": "~3.0.2",
+    "bootstrap-sass": "~3.0.2"
   },
   "devDependencies": {},
   "resolutions": {

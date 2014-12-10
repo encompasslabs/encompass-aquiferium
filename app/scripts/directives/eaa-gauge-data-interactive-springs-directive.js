@@ -138,59 +138,39 @@ angular.module('eaa.directives.d3.interactive.springs', [])
                 decimalValue = roundDecimals((newValue / 100), 2);
             };
 
+            var setDataLabel = function(targetIndex, currentGaugeValue) {
+
+                var newDataValue = d3.select('.data-value-springs-' + targetIndex.toString());
+
+                if (isNaN(currentGaugeValue)) {
+                    newDataValue.text('No Data');
+                } else {
+                    newDataValue.text(roundDecimals(currentGaugeValue, 2));
+                }
+            };
+
             var setDisplayData = function(targetIndex) {
                 // console.log(targetIndex);
                 var dataSet = ingestedData[targetIndex];
-                var vals = Object.keys(dataSet).map(function(key) { return dataSet[key]; }); 
+                var vals = Object.keys(dataSet).map(function(key) {
+                    return dataSet[key];
+                });
                 var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item-springs').selectAll('text');
 
                 // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
                 for (var j = 0; j < dataLabelArray.length; j++) {
-
-                    var currentGaugeName = dataLabelArray[j]['parentNode']['__data__']['name'];
-                    var currentGaugeValue = dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex'];
-                    console.log('j: ' + j + ', ' + currentGaugeName + ' = ' + currentGaugeValue);
-
-                    // var dataIndexOffset = j + 1;
-                    // d3.select(dataLabelArray[j][1]).text( function() {
-                    //   var thisValue = roundDecimals(vals[dataIndexOffset], 0);
-                    //   if (isNaN(thisValue)) {
-                    //     return 'No Data';
-                    //   } else {
-                    //     return thisValue.toString(); // + ' CFS';
-                    //   }
-                    // });
-
                     // console.log('gaugeIndex: ' + j + ', currentGaugeName: ' + currentGaugeName + ', currentGaugeValue: ' + currentGaugeValue + ', dataIndex: ' + targetIndex);
                     // console.log(vals);
-
-                    // UPDATE VIEW FROM HERE.
-                    // var targetDataPath = 'data-value-springs-' + j.toString();
-                    // console.log(targetDataPath);
-                    // var thisTargetData = d3.select(targetDataPath);
-                    // console.log(thisTargetData);
-
-                    // thisTargetData.text( function (currentGaugeValue) {
-                    //     if (isNaN(currentGaugeValue)) {
-                    //         return 'No Data';
-                    //     } else {
-                    //         return roundDecimals(currentGaugeValue, 2).toString();
-                    //     }
-                    // });
-
-                    // if (isNaN(currentGaugeValue)) {
-                    //   thisTargetData.text('No Data');
-                    // } else {
-                    //   thisTargetData.text(roundDecimals(currentGaugeValue, 2).toString());
-                    // }
+                    // console.log('j: ' + j + ', ' + currentGaugeName + ' = ' + currentGaugeValue);
+                    var currentGaugeName = dataLabelArray[j]['parentNode']['__data__']['name'];
+                    var currentGaugeValue = dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex'];
+                    setDataLabel(j, currentGaugeValue);
                 }
             };
-
 
             var setDisplayDate = function(targetDate) {
                 d3.select(el).select('.year-display-springs').text(Math.round(targetDate));
             };
-
 
             var mouseOverGraph = function(event) {
                 var position = d3.mouse(this);
@@ -430,22 +410,24 @@ angular.module('eaa.directives.d3.interactive.springs', [])
 
                 // LEGEND.
                 var legend = dataDisplay.append('div').attr('class', 'legend-box legend-box-springs').attr('transform', 'translate(-180,30)');
-                var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', function (d, i) { return 'div-absolute legend-item-springs legend-item-springs-' + i.toString(); });
+                var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class', function(d, i) {
+                    return 'div-absolute legend-item-springs legend-item-springs-' + i.toString();
+                });
 
                 var dataBox_ = legendItem.append('rect')
                     .attr('width', legendBoxDimensions)
                     .attr('height', legendBoxDimensions)
-                    .attr('class', function (d, i) {
+                    .attr('class', function(d, i) {
                         return 'legend-box-springs-' + i.toString();
                     })
-                    .style('fill', function (d) {
-                      if (d === 4 || d === 5) {
-                        return null;
-                      } else {
-                        return color(d.name);
-                      }
+                    .style('fill', function(d) {
+                        if (d === 4 || d === 5) {
+                            return null;
+                        } else {
+                            return color(d.name);
+                        }
                     });
-                
+
                 var dataLabel_0 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-0').text('Hueco Springs');
                 var dataLabel_1 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-1').text('San Antonio Springs');
                 var dataLabel_2 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-2').text('San Pedro Springs');

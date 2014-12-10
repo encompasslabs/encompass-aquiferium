@@ -404,22 +404,16 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var legendItem = legend.selectAll('.svg').data(gauges).enter().append('svg').attr('class','legend-item-recharge');
             
         var label = legendItem.append('text')
-          .attr('x', '0%')
-          .attr('y', '22%')//function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; }) //16 or 17.
+          .attr('x', '2%')
+          .attr('y', '22%')
           .text(function (d) { return d.name; })
           .attr('class', 'data-item-recharge');
 
         var dataValueText = legendItem.append('text')
-          .attr('x', '4%')
-          .attr('y', '98%') //function (d, i) { return (i * legendVertSpacingFactor) + legendVertOffset; })
+          .attr('x', '7%')
+          .attr('y', '72%')
           .text('0')
-          .attr('class', 'data-value-recharge');
-
-        // var dataValueTextSuffix = legendItem.append('text')
-        //   .attr('x', '40%')// '80px')
-        //   .attr('y', '98%')// '64px')
-        //   .text('TAF')
-        //   .attr('class', 'data-value data-value-recharge');
+          .attr('class', 'div-absolute data-value-recharge');
 
         var horBar = legendItem.append('text')
           .attr('x', '0%')

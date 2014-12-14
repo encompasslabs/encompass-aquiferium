@@ -348,8 +348,8 @@ angular.module('eaa.directives.maps.leaflet', [])
                 L.Browser.touch = true;
                 L.control.attribution({position: 'bottomright'}).addTo(map);
                 L.control.layers(baseLayers, overlays, {position: 'topleft'}).addTo(map);
-                L.control.zoom({position: 'bottomleft'}).addTo(map);
-                // L.control.scale({position: 'bottomleft'}).addTo(map);
+                // L.control.zoom({position: 'bottomleft'}).addTo(map);
+                L.control.scale({position: 'bottomleft'}).addTo(map);
                 
 
 

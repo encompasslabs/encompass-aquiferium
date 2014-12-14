@@ -1,14 +1,16 @@
 /* Encompass Custom Leaflet Styles */
 
 /* For embedded maps */
-/*.leaflet-map {
-  margin-left: 0;
+.leaflet-map {
+  margin-top: 0;
   margin-right: 0;
-  width: 64rem;
-  height: 36rem;
-  border: 2px solid #ffffff;
-  color: #000;
-}*/
+  margin-bottom: 0;
+  margin-left: 0;
+  /*width: 64rem;*/
+  /*height: 36rem;*/
+  /*border: 2px solid #ffffff;*/
+  /*color: #000;*/
+}
 
 .leaflet-control {
   font-family: 'Open Sans Condensed', sans-serif;

@@ -27,15 +27,6 @@
   list-style: none;
 }
 
-.leaflet-map {
-  margin-left: 0;
-  margin-right: 0;
-  width: 64rem;
-  height: 36rem;
-  border: 2px solid #ffffff;
-  color: #000;
-}
-
 .legend {
   padding: 0.5rem 1rem;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -63,15 +54,11 @@
   cursor: default;
 }
 
-.popup {
-  color: #000;
-}
-
 /* DATA */
 
 button {
   display: inline-block;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: bold;
   /*text-transform: uppercase;*/
   padding: 10px 15px;

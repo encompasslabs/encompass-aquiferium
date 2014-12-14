@@ -93,10 +93,12 @@
 .map-image-base-recharge {
   width: 22rem;
   height: auto;
+  margin-top: 2.85rem;
 }
 .map-image-aquifer-recharge {
   width: 22rem;
   height: auto;
+  margin-top: -0.25rem;
 }
 .map-image-key-recharge {
   width: 5rem;

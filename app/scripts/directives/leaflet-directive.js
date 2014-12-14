@@ -293,13 +293,13 @@ angular.module('eaa.directives.maps.leaflet', [])
 
                 var baseLayers = {
                     'MapQuest Open Arial': mqArialMap,
-                    'MapQuest-OSM': mqosmMap,
-                    'Open Street Map OSM Mapnik': osmMap,
-                    'Open Street Map OSM Black and White': osmBwMap,
-                    'Thunderforest Landscape': thunLandscapeMap,
-                    'Thunderforest Outdoors': thunOutdoorsMap,
-                    'Stamen Watercolor': stamenMap,
-                    'ESRI World Imagery': esriMap
+                    // 'MapQuest-OSM': mqosmMap,
+                    'Open Street Map': osmMap,
+                    'Open Street Map (Black and White)': osmBwMap,
+                    'ESRI World Imagery': esriMap //,
+                    // 'Thunderforest Landscape': thunLandscapeMap,
+                    // 'Thunderforest Outdoors': thunOutdoorsMap,
+                    // 'Stamen Watercolor': stamenMap    
                 };
 
                 var overlays = {
@@ -323,15 +323,33 @@ angular.module('eaa.directives.maps.leaflet', [])
 
                 var map = L.map('map', {
                     zoomControl: false,
-                    attributionControl: true,
+                    attributionControl: false,
+                    inertia: false,
+                    keyboard: true,
+                    dragging: true,
+                    scrollWheelZoom: true,
+                    zoomAnimation: false,
+                    click: true,
                     layers: [mqArialMap] // only add one!
                 }).setView(initialPosition, initialZoom);
 
-                L.control.layers(baseLayers, overlays, {
-                    position: 'topleft'
-                }).addTo(map);
-                L.control.scale().addTo(map);
+                // var maskmap = new L.map('maskmap', {
+                //     zoomControl: false,
+                //     inertia: false,
+                //     keyboard: false,
+                //     dragging: false,
+                //     scrollWheelZoom: false,
+                //     attributionControl: false,
+                //     zoomAnimation: false,
+                //     click: true,
+                //     layers: [mqosmMap]
+                // }).setView(viewCoordinates, viewZoomLevel);
+
                 L.Browser.touch = true;
+                L.control.attribution({position: 'bottomright'}).addTo(map);
+                L.control.layers(baseLayers, overlays, { position: 'topleft' }).addTo(map);
+                L.control.scale().addTo(map);
+                
 
 
 

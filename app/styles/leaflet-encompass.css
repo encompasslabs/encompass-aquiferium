@@ -1,0 +1,82 @@
+/* Encompass Custom Leaflet Styles */
+
+.leaflet-control {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  /*font-weight: 300 !important;*/
+  z-index: 5000;
+  padding: 0.25rem 0.5rem;
+}
+
+.leaflet-control-layers {
+  color: #fff;
+  background-color: rgba(1,0,1,0.9);
+  border: 1px solid #71B2C9; /*#ea2;*/
+  border-radius: 0;
+}
+
+.leaflet-control-layers-toggle {
+  /*background-image: url(images/layers-flat-green.png);*/
+  line-height:36px;
+  width: 9rem;
+  background-position:0.25rem 50%; 
+  text-decoration:none;
+}
+.leaflet-control-layers-toggle:after {
+  font-size: 1.2rem;
+  padding-left: 3rem;
+  color: #fff;
+  content: 'Map Layers';
+}
+
+.leaflet-control-layers-base {
+  padding-bottom: 0.5rem;
+}
+
+.leaflet-control-layers-expanded {
+  padding: 0.5rem 1rem;
+}
+
+.leaflet-control-layers-list:before {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #AADD6D;
+  padding: 1rem 1rem 1rem 2.5rem;
+  content: "Base Maps";
+}
+
+.leaflet-control-layers-overlays:before {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fb0;
+  padding: 1rem 1rem 1rem 2.5rem;
+  content: "Data Overlays";
+}
+
+/*label > input.leaflet-control-layers-selector > span {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 300 !important;
+  font-weight: normal;
+  color:#f00;
+}*/
+label {
+  font-weight: 300;
+}
+
+.leaflet-popup {
+  font-family: 'Open Sans Condensed', sans-serif;
+  vertical-align: middle;
+}
+.leaflet-popup-content {
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 0;
+  background-color: rgba(1,0,1,0.9);
+  border: 1px solid #ea2;
+}
+.leaflet-popup-tip {
+  background-color: #ea2;
+}

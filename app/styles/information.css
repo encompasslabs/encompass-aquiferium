@@ -26,16 +26,20 @@
   color: #fff;
 }
 .info-video {
-  /*width: 352px;*/
-  /*height: 198px;*/
-  padding: 1rem 0 0 1rem;
-  border: 1px solid #333;
+  margin: 1rem 0 0 0;
+  height: 10rem !important;
+  border: 1px solid #555;
+}
+.info-quote {
+  margin: 0;
+  padding: 0;
 }
 .info-quoted {
   margin-top: 1rem;
-  margin-left: 1rem;
-  padding: 0 2rem 0 2rem;
-  color: #AADD6D; /* Tan: #E6D395; Melon: #AADD6D; Lake: #71B2C9; */
+  margin-left: 0;
+  padding: 0 1rem 0 1rem;
+   /* Tan: #E6D395; Melon: #AADD6D; Lake: #71B2C9; */
+  color: #AADD6D;
 }
 .info-quotedby {
   float: right;
@@ -60,9 +64,9 @@
 .eaa-logo-contact {
   /*top: 27rem;*/
   /*left: 34rem;*/
-  top: 76%;
-  left: 50%;
-  width: 12rem;
+  top: 77%;
+  left: 45%;
+  width: 11rem;
   padding: 1rem;
   background-color: #000;
   border: 2px solid rgba(0,0,0,0);
@@ -70,8 +74,8 @@
 .encompass-logo-contact {
   /*top: 28rem;*/
   /*left: 47rem;*/
-  top: 78%;
-  left: 67%;
+  top: 77.5%;
+  left: 60%;
   width: 13rem;
   padding: 0.5rem 1rem;
   background-color: #000;
@@ -80,8 +84,8 @@
 .ut-logo-contact {
   /*top: 28rem;*/
   /*left: 61rem;*/
-  top: 78%;
-  left: 85%;
+  top: 77%;
+  left: 78%;
   width: 8rem;
   border: 2px solid rgba(0,0,0,0);
 }

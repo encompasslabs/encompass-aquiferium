@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+.nav, .pagination, .carousel, .panel-title a { 
+  cursor: pointer; 
+}
+.nav-spacing {
+  padding: 0 2rem;
+}
+.fullscreen {
+  top: 1rem;
+  right: 1rem;
+}
+.apptitle {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 2rem;
+  /*color: #9CCAEA;*/
+  /*background-color: #71B2C9;*/ 
+}

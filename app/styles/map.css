@@ -1,0 +1,57 @@
+/* MAP */
+
+#map {
+  width: 100%;
+  height: 100%;
+  top: 5%;  /* 5%; */
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#map-nav {
+  top: 6rem;
+  left: 0.5rem;
+  width: 5rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: rgba(255,255,255, 0.9);
+  line-height: 1.5rem;
+  border: 1px solid #000;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  color: #555;
+}
+#map-nav > ul {
+  margin: 0 auto;
+}
+#map-nav > ul > li {
+  display: inline;
+  list-style: none;
+}
+
+.legend {
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: rgba(255,255,255, 0.9);
+  line-height: 1.5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  color: #555;
+  width: 9rem;
+}
+
+.legend i {
+  color: #777;
+  width: 1rem;
+  height: 1rem;
+  float: left;
+  margin-right: 0.5rem;
+  opacity: 0.6;
+  border: 1px solid #000;
+}
+
+.legend > .info-label {
+  vertical-align: middle;
+  width: 10rem;
+  cursor: default;
+}

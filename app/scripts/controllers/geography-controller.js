@@ -23,15 +23,12 @@ angular.module('aquiferiumApp')
     };
 
     $scope.displayPanel = function() {
-      // console.log('toggling panel');
       if ($scope.dataPanelVisible) {
-        // console.log('panel was open');
         $scope.selectSlide('close');
         $scope.togglePanel('#data-panel');
         $scope.dataPanelVisible = false;
         document.getElementById('toggle-data-panel').innerHTML = 'Show Data';
       } else {
-        // console.log('panel was closed');
         $scope.togglePanel('#data-panel');
         $scope.dataPanelVisible = true;
         document.getElementById('toggle-data-panel').innerHTML = 'Hide Data';
@@ -105,7 +102,6 @@ angular.module('aquiferiumApp')
           $scope.springsVisible = false;
         }
       }
-      // console.log(dataPanelVisible, rechargeVisible, wellsVisible, springsVisible);
     };
 
     $('#toggle-data-panel').on('click', function(){
@@ -124,11 +120,28 @@ angular.module('aquiferiumApp')
       $scope.selectSlide('springs');
     });
 
-    // $scope.resetView();
+    $scope.displayRechargePanel = function() {
+      console.log('$scope.displayRechargePanel() called.');
+      // Reposition map for best display.
+      // Flyout interactive panel.
+      // Reverse on panel close.
+    };
 
+    $scope.displayWellsPanel = function() {
+      console.log('$scope.displayWellsPanel() called.');
+      // Reposition map for best display.
+      // Flyout interactive panel.
+      // Reverse on panel close.
+    };
+
+    $scope.displaySpringsPanel = function() {
+      console.log('$scope.displaySpringsPanel() called.');
+      // Reposition map for best display.
+      // Flyout interactive panel.
+      // Reverse on panel close.
+    };
+
+    // $scope.resetView();
     // $scope.animateTo(10000, 15000, linear);
     // console.log($skrollr.data.curTop);
-
-    // $('#map').getBounds());
-    // $('#map').fitBounds();
   }]);

@@ -44,12 +44,20 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       var slideDescText = 'Water or rainfall entering the recharge zone of the Aquifer replenishes this valuable resource.';
       var mapImageBaseSource = '../../images/directives/tr-panel01-map.png';
-      var mapImageAquiferSource00 = '../../images/directives/tr-panel02-range00.png';
-      var mapImageAquiferSource01 = '../../images/directives/tr-panel02-range01.png';
+      // EAA Version. *Incorrect*
+      // var mapImageAquiferSource00 = '../../images/directives/tr-panel02-range00.png';
+      // var mapImageAquiferSource01 = '../../images/directives/tr-panel02-range01.png';
+      // var mapImageAquiferSource02 = '../../images/directives/tr-panel02-range02.png';
+      // var mapImageAquiferSource03 = '../../images/directives/tr-panel02-range03.png';
+      // var mapImageAquiferSource04 = '../../images/directives/tr-panel02-range04.png';
+      // var mapImageKeySource = '../../images/directives/tr-panel03-key.png';
+      // Encompass Version. *Correct - adjusts for inversion of intensity measure implicit in meteorological data.
+      var mapImageAquiferSource00 = '../../images/directives/tr-panel02-range04.png';
+      var mapImageAquiferSource01 = '../../images/directives/tr-panel02-range03.png';
       var mapImageAquiferSource02 = '../../images/directives/tr-panel02-range02.png';
-      var mapImageAquiferSource03 = '../../images/directives/tr-panel02-range03.png';
-      var mapImageAquiferSource04 = '../../images/directives/tr-panel02-range04.png';
-      var mapImageKeySource = '../../images/directives/tr-panel03-key.png';
+      var mapImageAquiferSource03 = '../../images/directives/tr-panel02-range01.png';
+      var mapImageAquiferSource04 = '../../images/directives/tr-panel02-range00.png';
+      var mapImageKeySource = '../../images/directives/tr-panel03-key-inverted.png';
       
       var boundariesSource = '../../data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
       var dataSource = '../../data/recharge-annualAvg-byDate2.csv';
@@ -164,9 +172,9 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         var newImage = d3.select('.map-image-aquifer-recharge');
         var targetPath = newImage[0][0];
 
-        if (dataValue < 150) {
+        if (dataValue < 100) {
           targetPath.src = mapImageAquiferSource00;
-        } else if (dataValue >= 150 && dataValue < 500) {
+        } else if (dataValue >= 100 && dataValue < 500) {
           targetPath.src = mapImageAquiferSource01;
         } else if (dataValue >= 500 && dataValue < 1000) {
           targetPath.src = mapImageAquiferSource02;

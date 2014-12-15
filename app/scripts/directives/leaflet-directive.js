@@ -11,7 +11,11 @@ angular.module('eaa.directives.maps.leaflet', [])
                 priority: 0,
                 require: false,
                 restrict: 'E',
-                scope: {},
+                scope: {
+                  displayRechargePanel: '&',
+                  displayWellsPanel: '&',
+                  displaySpringsPanel: '&'
+                },
                 template: false,
                 templateUrl: false,
                 terminal: false,
@@ -93,14 +97,17 @@ angular.module('eaa.directives.maps.leaflet', [])
 
                 var weight = 1.0;
                 var opacity = 1.0;
-                var fillOpacity = 0.7;
-                var fillOpacityHover = 1.0;
+                var fillOpacity = 0.6;
+                var fillOpacityHover = 0.8;
 
                 var usaStyle = {
                     'fillColor': color_blue
                 };
                 var texasStyle = {
-                    'fillColor': color_red
+                    'fillColor': color_red,
+                    'fillOpacity': 0.0,
+                    'color': color_red,
+                    'weight': '3px'   
                 };
                 var majorAquiferStyle = {
                     'fillColor': color_blue
@@ -124,10 +131,12 @@ angular.module('eaa.directives.maps.leaflet', [])
                 var mergeObjects = function() {
                     var o = {}
                     for (var i = arguments.length - 1; i >= 0; i--) {
-                        var s = arguments[i]
-                        for (var k in s) o[k] = s[k]
+                        var s = arguments[i];
+                        for (var k in s) {
+                          o[k] = s[k];
+                        }
                     }
-                    return o
+                    return o;
                 };
 
                 var baseStyle = {
@@ -351,6 +360,65 @@ angular.module('eaa.directives.maps.leaflet', [])
                 // L.control.zoom({position: 'bottomleft'}).addTo(map);
                 L.control.scale({position: 'bottomleft'}).addTo(map);
                 
+                // Markers.
+
+                var j17MarkerLocation = [29.45, -98.48];
+                var leonaSpringsMarkerLocation = [29.15417, -99.7431];
+                var sanMarcosSpringsMarkerLocation = [29.89326, -97.9312];
+
+                var j17MarkerOptions = {title:'J17'};
+                var leonaSpringsMarkerOptions = {title:'Leona Springs'};
+                var sanMarcosSpringsMarkerOptions = {title:'San Marcos Springs'};
+
+                var j17Marker = L.marker(j17MarkerLocation, j17MarkerOptions);
+                var leonaSpringsMarker = L.marker(leonaSpringsMarkerLocation, leonaSpringsMarkerOptions);
+                var sanMarcosSpringsMarker = L.marker(sanMarcosSpringsMarkerLocation, sanMarcosSpringsMarkerOptions);
+
+                j17Marker.addTo(map);
+                leonaSpringsMarker.addTo(map);
+                sanMarcosSpringsMarker.addTo(map);
+
+                var j17PopupContent = '<p><h2>Well J17</h2></p>';
+                var leonaSpringsPopupContent = '<p><h2>Leona Springs</h2></p>';
+                var sanMarcosSpringsPopupContent = '<p><h2>San Marcos Springs</h2></p>';
+
+                // j17Marker.bindPopup(j17PopupContent);
+                // leonaSpringsMarker.bindPopup(leonaSpringsPopupContent);
+                // sanMarcosSpringsMarker.bindPopup(sanMarcosSpringsPopupContent);
+
+
+
+                // Popup with Links
+                var j17ContentContainer = $('<div />');
+                // Delegate all event handling for the container itself and its contents to the container
+                j17ContentContainer.on('click', '.rechargeInteractiveLink', function() {
+                  event.preventDefault();
+                  console.log('clicked recharge link');
+                  scope.displayRechargePanel();       
+                  // Take care with hyphenated spelling of method in view HTML.
+                });
+                j17ContentContainer.html("Well J17<br/><a href='' class='rechargeInteractiveLink'>Recharge Data Interactive</a><br/>");
+                j17Marker.bindPopup(j17ContentContainer[0]);
+
+                var leonaSpringsContentContainer = $('<div />');
+                // Delegate all event handling for the container itself and its contents to the container
+                leonaSpringsContentContainer.on('click', '.wellsInteractiveLink', function() {
+                  event.preventDefault();
+                  console.log('clicked wells link');
+                  scope.displayWellsPanel();       
+                });
+                leonaSpringsContentContainer.html("Leona Springs<br/><a href='' class='wellsInteractiveLink'>Wells Data Interactive</a><br/>");
+                leonaSpringsMarker.bindPopup(leonaSpringsContentContainer[0]);
+
+                var sanMarcosSpringsContentContainer = $('<div />');
+                // Delegate all event handling for the container itself and its contents to the container
+                sanMarcosSpringsContentContainer.on('click', '.springsInteractiveLink', function() {
+                  event.preventDefault();
+                  console.log('clicked springs link');
+                  scope.displaySpringsPanel();       
+                });
+                sanMarcosSpringsContentContainer.html("San Marcos Springs<br/><a href='' class='springsInteractiveLink'>Springs Data Interactive</a><br/>");
+                sanMarcosSpringsMarker.bindPopup(sanMarcosSpringsContentContainer[0]);
 
 
 
@@ -447,7 +515,8 @@ angular.module('eaa.directives.maps.leaflet', [])
                 // map.zoomIn(2, zoomOptions).panInsideBounds(bounds0,panOptions).zoomIn(3, zoomOptions).panInsideBounds(bounds1,panOptions);
                 // map.panBy(500).zoomIn();
 
-                majorAquifersLayer.addTo(map);
+                // majorAquifersLayer.addTo(map);
+                texasLayer.addTo(map);
                 // aquiferZonesLayer.addTo(map);
                 // eaaBoundaryLayer.addTo(map);
               };

@@ -24,13 +24,11 @@ angular.module('aquiferiumApp')
     $scope.getClass = function (path) {
       if (path === '/') {
         if ($location.path() === '/') {
-          // console.log('if /: ' + $location.path());
           return 'active';
         }
       }
 
-      if ($location.path().substr(0, path.length) === path) {
-        // console.log('if not /: ' + $location.path());        
+      if ($location.path().substr(0, path.length) === path) {       
         return 'active';
       }
     };
@@ -42,7 +40,6 @@ angular.module('aquiferiumApp')
     $scope.togglePanel = function (target) {
       $(target).toggleClass('open-panel-top-50');
       $scope.infoToggled = !$scope.infoToggled;
-      // console.log('panel toggled.');
     };
 
     $scope.toggleFullScreen = function() {
@@ -65,9 +62,5 @@ angular.module('aquiferiumApp')
         }
       }
     };
-
-    // var infoPanel = angular.element( elem[0].querySelector('#information'));   // NOT WORKING - elem undefined. Would be good for unit tests.
-    // var infoPanel = angular.element( document.querySelector( '#information' ) );   // WORKING.
-    // var infoPanel = angular.element.find('#information');  // WORKING.  Prefer this way.
 
   }]);

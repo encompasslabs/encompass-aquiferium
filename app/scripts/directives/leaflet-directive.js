@@ -327,7 +327,7 @@ angular.module('eaa.directives.maps.leaflet', [])
                     // 'Reservoirs': reservoirsLayer
                 };
 
-                var initialPosition = [55, -97];
+                var initialPosition = [49, -97];
                 var initialZoom = 6;
 
                 var map = L.map('map', {
@@ -359,6 +359,43 @@ angular.module('eaa.directives.maps.leaflet', [])
                 L.control.layers(baseLayers, overlays, {position: 'topleft'}).addTo(map);
                 // L.control.zoom({position: 'bottomleft'}).addTo(map);
                 L.control.scale({position: 'bottomleft'}).addTo(map);
+
+                // Map Panning/Zooming.
+                var southWest0 = L.latLng(32, -100),
+                    northEast0 = L.latLng(28, -92),
+                    bounds0 = L.latLngBounds(southWest0, northEast0);
+
+                var southWest1 = L.latLng(17, 100),
+                    northEast1 = L.latLng(16, 100),
+                    bounds1 = L.latLngBounds(southWest1, northEast1);
+
+                var southWest2 = L.latLng(30, -97),
+                    northEast2 = L.latLng(30, -97),
+                    bounds2 = L.latLngBounds(southWest2, northEast2);
+
+                var area3 = L.latLngBounds([[32, -100],[28, -92]]);
+
+                var rechargeView = L.latLng(29.45, -109.48);
+                var wellsView = L.latLng(29.15417, -110.7431);
+                var springsView =L.latLng(29.89326, -108.9312);
+
+                var panOptions = {
+                    'animate': true,
+                    'duration': 5,
+                    'easeLinearity': 0.25,
+                    'noMoveStart': 'false'
+                };
+
+                var panOptionsInteractive = {
+                    'animate': true,
+                    'duration': 2,
+                    'easeLinearity': 0.25,
+                    'noMoveStart': 'false'
+                };
+
+                var zoomOptions = { 'animate': 'true' };
+                var zoomPanOptions = {'reset': false, 'pan': panOptions, 'zoom': zoomOptions, 'animate': 'true' };
+                var fitBoundsOptions = { 'paddingTopLeft': [0, 0], 'paddingBottomRight': [0, 0], 'maxZoom': 16 };
                 
                 // Markers.
 
@@ -393,19 +430,24 @@ angular.module('eaa.directives.maps.leaflet', [])
                 // Delegate all event handling for the container itself and its contents to the container
                 j17ContentContainer.on('click', '.rechargeInteractiveLink', function() {
                   event.preventDefault();
-                  console.log('clicked recharge link');
-                  scope.displayRechargePanel();       
-                  // Take care with hyphenated spelling of method in view HTML.
+                  // $(".leaflet-popup-close-button")[0].click();
+                  // Reverse this so close button on slide closes popup on leaflet map (reverse of displayRechargePanel method).
+                  // Also have the method pan the view back to the default.
+                  map.panTo(rechargeView,panOptionsInteractive);
+                  scope.displayRechargePanel();  // Take care with hyphenated spelling of method in view HTML.                  
                 });
-                j17ContentContainer.html("Well J17<br/><a href='' class='rechargeInteractiveLink'>Recharge Data Interactive</a><br/>");
+                j17ContentContainer.html("J17 Index Well<br/><a href='' class='rechargeInteractiveLink'>Recharge Data Interactive</a><br/>");
                 j17Marker.bindPopup(j17ContentContainer[0]);
 
                 var leonaSpringsContentContainer = $('<div />');
                 // Delegate all event handling for the container itself and its contents to the container
                 leonaSpringsContentContainer.on('click', '.wellsInteractiveLink', function() {
                   event.preventDefault();
-                  console.log('clicked wells link');
-                  scope.displayWellsPanel();       
+                  // $(".leaflet-popup-close-button")[0].click();
+                  // Reverse this so close button on slide closes popup on leaflet map (reverse of displayRechargePanel method).
+                  // Also have the method pan the view back to the default.
+                  map.panTo(wellsView,panOptionsInteractive);
+                  scope.displayWellsPanel();
                 });
                 leonaSpringsContentContainer.html("Leona Springs<br/><a href='' class='wellsInteractiveLink'>Wells Data Interactive</a><br/>");
                 leonaSpringsMarker.bindPopup(leonaSpringsContentContainer[0]);
@@ -414,8 +456,11 @@ angular.module('eaa.directives.maps.leaflet', [])
                 // Delegate all event handling for the container itself and its contents to the container
                 sanMarcosSpringsContentContainer.on('click', '.springsInteractiveLink', function() {
                   event.preventDefault();
-                  console.log('clicked springs link');
-                  scope.displaySpringsPanel();       
+                  // $(".leaflet-popup-close-button")[0].click();
+                  // Reverse this so close button on slide closes popup on leaflet map (reverse of displayRechargePanel method).
+                  // Also have the method pan the view back to the default.
+                  map.panTo(springsView,panOptionsInteractive);
+                  scope.displaySpringsPanel();                  
                 });
                 sanMarcosSpringsContentContainer.html("San Marcos Springs<br/><a href='' class='springsInteractiveLink'>Springs Data Interactive</a><br/>");
                 sanMarcosSpringsMarker.bindPopup(sanMarcosSpringsContentContainer[0]);
@@ -478,30 +523,7 @@ angular.module('eaa.directives.maps.leaflet', [])
 
                 // L.panInsideBounds([[40.712, -74.227],[40.774, -74.125]], { true, 3, 0.5, false });
                 // L.map('map').panBy(5000, { 'animate': true, 'duration': 9, 'easeLinearity': 0.5, 'noMoveStart': false });
-                var southWest0 = L.latLng(32, -100),
-                    northEast0 = L.latLng(28, -92),
-                    bounds0 = L.latLngBounds(southWest0, northEast0);
-
-                var southWest1 = L.latLng(17, 100),
-                    northEast1 = L.latLng(16, 100),
-                    bounds1 = L.latLngBounds(southWest1, northEast1);
-
-                var southWest2 = L.latLng(30, -97),
-                    northEast2 = L.latLng(30, -97),
-                    bounds2 = L.latLngBounds(southWest2, northEast2);
-
-                var area3 = L.latLngBounds([[32, -100],[28, -92]]);
-
-                var panOptions = {
-                    'animate': true,
-                    'duration': 10,
-                    'easeLinearity': 0.25,
-                    'noMoveStart': 'false'
-                };
-
-                var zoomOptions = { 'animate': 'true' };
-                var zoomPanOptions = {'reset': false, 'pan': panOptions, 'zoom': zoomOptions, 'animate': 'true' };
-                var fitBoundsOptions = { 'paddingTopLeft': [0, 0], 'paddingBottomRight': [0, 0], 'maxZoom': 16 };
+                
 
                 map.panInsideBounds(bounds2,panOptions);
                 

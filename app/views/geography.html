@@ -1,7 +1,7 @@
 <div class="container">
   <div class="geography">
     <leaflet-map id="map" class="div-fixed z-100" display-recharge-panel="displayRechargePanel()" display-wells-panel="displayWellsPanel()" display-springs-panel="displaySpringsPanel()"></leaflet-map>
-    <div id="data-access-index" class="div-fixed z-500">
+    <!-- <div id="data-access-index" class="div-fixed z-500">
       <button id="toggle-data-panel">Show Data</button>
     </div>
     <div id="data-panel" class="div-fixed z-300 backdrop offstage transition">
@@ -34,6 +34,63 @@
             </div>
           </div>
           <div class="slide-label">Historical Spring Data</div>
+        </div>
+      </div>
+    </div> -->
+    <div id="data-panel-recharge" class="div-fixed z-300 backdrop-interactive backdrop-recharge offstage transition">
+      <div class="div-relative close-interactive"><a ng-click="closePanels()"><span class="glyphicon glyphicon-remove-circle"></span></a></div>
+      <div class="z-200">
+        <div id="recharge-slide" class="div-relative data-slide">
+          <div id="interactive" class="interactive interactive-frame">
+            <eaa-gauge-data-interactive-recharge></eaa-gauge-data-interactive-recharge>
+          </div>
+        </div>
+        <div class="slide-label">Historical Recharge Data</div>
+        <div class="div-relative end-link-interactive">
+          <a href="#/geology">Learn More
+            <div id="holder">
+              <div class="dot"></div>
+              <div class="pulse"></div>      
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="data-panel-wells" class="div-fixed z-300 backdrop-interactive backdrop-wells offstage transition">
+      <div class="div-relative close-interactive"><a ng-click="closePanels()"><span class="glyphicon glyphicon-remove-circle"></span></a></div>
+      <div class="z-200">
+        <div id="wells-slide" class="div-relative data-slide">
+          <div id="interactive" class="interactive interactive-frame">
+            <eaa-gauge-data-interactive-wells></eaa-gauge-data-interactive-wells>
+          </div>
+        </div>
+        <div class="slide-label">Historical Well Data</div>
+        <div class="div-relative end-link-interactive">
+          <a href="#/conservation">Learn More
+            <div id="holder">
+              <div class="dot"></div>
+              <div class="pulse"></div>      
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="data-panel-springs" class="div-fixed z-300 backdrop-interactive backdrop-springs offstage transition">
+      <div class="div-relative close-interactive"><a ng-click="closePanels()"><span class="glyphicon glyphicon-remove-circle"></span></a></div>
+      <div class="z-200">
+        <div id="springs-slide" class="div-relative data-slide">
+          <div id="interactive" class="interactive interactive-frame">
+            <eaa-gauge-data-interactive-springs></eaa-gauge-data-interactive-springs>
+          </div>
+        </div>
+        <div class="slide-label">Historical Spring Data</div>
+        <div class="div-relative end-link-interactive">
+          <a href="#/springs">Learn More
+            <div id="holder">
+              <div class="dot"></div>
+              <div class="pulse"></div>      
+            </div>
+          </a>
         </div>
       </div>
     </div>

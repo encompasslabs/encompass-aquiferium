@@ -17,10 +17,48 @@
   background-color: #000;
 }
 
+.backdrop-interactive {
+  top: 15%;
+  width: 66rem;
+  height: 43rem;
+  padding: 1rem 1rem 0 1rem;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 1rem;
+}
+
+.backdrop-recharge {
+}
+
+.backdrop-wells {
+}
+
+.backdrop-springs {
+}
+
+.close-interactive {
+  top: -1%;
+  left: 98%;
+}
+
+.end-link-interactive {
+  margin-top: -4%;
+  left: 80%;
+  cursor: default;
+  width: 10rem;
+  padding-left: 0.5rem;
+  font-size: 1rem;
+}
+.end-link-interactive > a:hover {
+  /*color: rgba(209,91,5,1);*/
+  /*color: #8F8100;*/
+  color: #71B2C9;
+  /*color: #AB650D;*/
+}
+
 .offstage { left: -200%; }
 .offstage-top { top: -150%; }
 
-.open-panel { left:0 !important; }
+.open-panel { left: 1% !important; }
 .open-panel-top-50 { top: 3rem !important; }
 
 .open { left:12% !important; }
@@ -97,6 +135,7 @@ button:focus {
 /*#data-slides-container {}*/
 
 .slide-label {
+  margin-left: 2rem;
   font-size: 3rem;
   font-weight: 700;
   color: #ccc;

@@ -248,7 +248,7 @@
   background: #dedede;
   background-size: cover;
   border-radius: 2rem;
-  border: 0.15rem solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
+  border: 2px solid #444; /*#8E8C7A;*/ /*rgba(255,255,255,0.7);*/
 }
 .interactive-frame.aquifers {
   background: rgba(17,17,17,0.8);

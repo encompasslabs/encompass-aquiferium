@@ -302,13 +302,13 @@ angular.module('eaa.directives.maps.leaflet', [])
 
                 var baseLayers = {
                     'MapQuest Open Arial': mqArialMap,
-                    // 'MapQuest-OSM': mqosmMap,
+                    'MapQuest-OSM': mqosmMap,
                     'Open Street Map': osmMap,
-                    'Open Street Map (Black and White)': osmBwMap,
-                    'ESRI World Imagery': esriMap //,
-                    // 'Thunderforest Landscape': thunLandscapeMap,
-                    // 'Thunderforest Outdoors': thunOutdoorsMap,
-                    // 'Stamen Watercolor': stamenMap    
+                    // 'Open Street Map (Black and White)': osmBwMap,   // Not performant.
+                    'ESRI World Imagery': esriMap,
+                    'Thunderforest Landscape': thunLandscapeMap,
+                    'Thunderforest Outdoors': thunOutdoorsMap,
+                    'Stamen Watercolor': stamenMap    
                 };
 
                 var overlays = {
@@ -393,15 +393,22 @@ angular.module('eaa.directives.maps.leaflet', [])
                     'noMoveStart': 'false'
                 };
 
+                var panOptionsMarkers = {
+                    'animate': true,
+                    'duration': 1,
+                    'easeLinearity': 0.25,
+                    'noMoveStart': 'false'
+                };
+
                 var zoomOptions = { 'animate': 'true' };
                 var zoomPanOptions = {'reset': false, 'pan': panOptions, 'zoom': zoomOptions, 'animate': 'true' };
                 var fitBoundsOptions = { 'paddingTopLeft': [0, 0], 'paddingBottomRight': [0, 0], 'maxZoom': 16 };
                 
                 // Markers.
 
-                var j17MarkerLocation = [29.45, -98.48];
-                var leonaSpringsMarkerLocation = [29.15417, -99.7431];
-                var sanMarcosSpringsMarkerLocation = [29.89326, -97.9312];
+                var j17MarkerLocation = L.latLng(29.45, -98.48);
+                var leonaSpringsMarkerLocation = L.latLng(29.15417, -99.7431);
+                var sanMarcosSpringsMarkerLocation = L.latLng(29.89326, -97.9312);
 
                 var j17MarkerOptions = {title:'J17'};
                 var leonaSpringsMarkerOptions = {title:'Leona Springs'};
@@ -423,29 +430,20 @@ angular.module('eaa.directives.maps.leaflet', [])
                 // leonaSpringsMarker.bindPopup(leonaSpringsPopupContent);
                 // sanMarcosSpringsMarker.bindPopup(sanMarcosSpringsPopupContent);
 
-
-
                 // Popup with Links
+                // NOTE: Take care with hyphenated spelling of method in view HTML.
                 var j17ContentContainer = $('<div />');
-                // Delegate all event handling for the container itself and its contents to the container
                 j17ContentContainer.on('click', '.rechargeInteractiveLink', function() {
                   event.preventDefault();
-                  // $(".leaflet-popup-close-button")[0].click();
-                  // Reverse this so close button on slide closes popup on leaflet map (reverse of displayRechargePanel method).
-                  // Also have the method pan the view back to the default.
                   map.panTo(rechargeView,panOptionsInteractive);
-                  scope.displayRechargePanel();  // Take care with hyphenated spelling of method in view HTML.                  
+                  scope.displayRechargePanel();                
                 });
                 j17ContentContainer.html("J17 Index Well<br/><a href='' class='rechargeInteractiveLink'>Recharge Data Interactive</a><br/>");
                 j17Marker.bindPopup(j17ContentContainer[0]);
 
                 var leonaSpringsContentContainer = $('<div />');
-                // Delegate all event handling for the container itself and its contents to the container
                 leonaSpringsContentContainer.on('click', '.wellsInteractiveLink', function() {
                   event.preventDefault();
-                  // $(".leaflet-popup-close-button")[0].click();
-                  // Reverse this so close button on slide closes popup on leaflet map (reverse of displayRechargePanel method).
-                  // Also have the method pan the view back to the default.
                   map.panTo(wellsView,panOptionsInteractive);
                   scope.displayWellsPanel();
                 });
@@ -453,18 +451,50 @@ angular.module('eaa.directives.maps.leaflet', [])
                 leonaSpringsMarker.bindPopup(leonaSpringsContentContainer[0]);
 
                 var sanMarcosSpringsContentContainer = $('<div />');
-                // Delegate all event handling for the container itself and its contents to the container
                 sanMarcosSpringsContentContainer.on('click', '.springsInteractiveLink', function() {
                   event.preventDefault();
-                  // $(".leaflet-popup-close-button")[0].click();
-                  // Reverse this so close button on slide closes popup on leaflet map (reverse of displayRechargePanel method).
-                  // Also have the method pan the view back to the default.
                   map.panTo(springsView,panOptionsInteractive);
                   scope.displaySpringsPanel();                  
                 });
                 sanMarcosSpringsContentContainer.html("San Marcos Springs<br/><a href='' class='springsInteractiveLink'>Springs Data Interactive</a><br/>");
                 sanMarcosSpringsMarker.bindPopup(sanMarcosSpringsContentContainer[0]);
 
+
+
+
+
+                // Encompass Data.
+                var exampleMarkerLocation = L.latLng(45.5, -100.5);
+                var exampleMarkerLocationSW = L.latLng(35.5, -90.5);
+                var exampleMarkerLocationNE = L.latLng(55.5, -110.5);
+                var exampleMarkerBounds = L.latLngBounds(exampleMarkerLocationSW, exampleMarkerLocationNE);
+                var exampleMarkerOptions = {title:'example title'};
+                var exampleMarker = L.marker(exampleMarkerLocation, exampleMarkerOptions);
+                exampleMarker.on('click', function() {
+                  // event.preventDefault();
+                  // map.panTo(exampleView,panOptionsMarkers);
+                  map.panInsideBounds(exampleMarkerBounds,panOptionsMarkers);      
+                });
+                exampleMarker.addTo(map);
+                var exampleView = L.latLng(45.5, -100.5);
+                var examplePopupContent = '<p><h2>Example Popup</h2></p>';
+                var exampleContentContainer = $('<div />');
+                // exampleContentContainer.on('click', '.exampleInteractiveLink', function() {
+                //   event.preventDefault();
+                //   map.panTo(exampleView,panOptionsMarkers);             
+                // });
+                // exampleContentContainer.html("<a href='' class='exampleInteractiveLink'>Example Content</a>");
+                exampleContentContainer.html("<h2>Example Content</h2>");
+                exampleMarker.bindPopup(exampleContentContainer[0]);
+
+
+
+
+
+                // Close all popups.
+                // $(".leaflet-popup-close-button")[0].click();
+                // Reverse this so close button on slide closes popup on leaflet map (reverse of displayRechargePanel method).
+                // Also have the method pan the view back to the default.
 
 
                 // var eaaBounds = [[22, 122], [48, 154]];

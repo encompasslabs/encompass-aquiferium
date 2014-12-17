@@ -65,9 +65,9 @@
 .slide-banner-recharge {
   overflow: hidden;
   background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
-  border: 0.05rem; solid #000;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  /*border: 2px solid #000;*/
+  border-top-left-radius: 1.8rem;
+  border-top-right-radius: 1.8rem;
 }
 .banner-text-recharge {
   margin-left: 30%;
@@ -144,9 +144,9 @@
 .slide-banner-wells {
   overflow: hidden;
   background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
-  border: 0.05rem; solid #000;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  /*border: 0.05rem; solid #000;*/
+  border-top-left-radius: 1.8rem;
+  border-top-right-radius: 1.8rem;
 }
 .banner-text-wells {
   margin-left: 30%;
@@ -346,9 +346,9 @@
 .slide-banner-springs {
   overflow: hidden;
   background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
-  border: 0.05rem; solid #000;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  /*border: 0.05rem; solid #000;*/
+  border-top-left-radius: 1.8rem;
+  border-top-right-radius: 1.8rem;
 }
 .banner-text-springs {
   margin-left: 45%;

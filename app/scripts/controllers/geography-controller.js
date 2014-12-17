@@ -13,18 +13,88 @@ angular.module('aquiferiumApp')
     $scope.wellsPanelVisible = false;
     $scope.springsPanelVisible = false;
 
+    $scope.initialPosition = [49, -97];
+    $scope.panOptionsInteractive = {
+      'animate': true,
+      'duration': 2,
+      'easeLinearity': 0.25,
+      'noMoveStart': 'false'
+    };
+
     $scope.resetView = function () {
       $location.hash('.geography');
       $anchorScroll();
     };
 
-    $scope.togglePanel = function(target) {
+    $scope.togglePanel = function (target) {
       $(target).toggleClass('open-panel');
     };
 
-    $scope.toggleSlide = function(target) {
+    $scope.toggleSlide = function (target) {
       $(target).toggleClass('open');
     };
+
+    $scope.closeAllPanels = function () {
+      if ($scope.rechargePanelVisible) {
+        $scope.togglePanel('#data-panel-recharge');
+        $scope.rechargePanelVisible = false;
+      }
+      if ($scope.wellsPanelVisible) {
+        $scope.togglePanel('#data-panel-wells');
+        $scope.wellsPanelVisible = false;
+      }
+      if ($scope.springsPanelVisible) {
+        $scope.togglePanel('#data-panel-springs');
+        $scope.springsPanelVisible = false;
+      }
+    };
+
+    $scope.closePanel = function (event) {
+      // console.log('you wanna close this?');
+      // console.log(this);
+      // console.log(event);
+      // console.log(event.target);
+      // console.log(event.target.parentElement);
+      // console.log(event.target.parentElement.parentElement);
+      // console.log(event.target.parentElement.parentElement.parentElement);
+      // console.log(event.target.parentElement.parentElement.parentElement.parentElement);
+      // console.log(event.target.parentElement.parentElement.parentElement.parentElement.parentElement);
+
+      console.log(event.target.parentElement.parentElement.parentElement.parentElement.getElementById('map'));
+
+      // angular.element(map).panTo($scope.initialPosition, $scope.panOptionsInteractive);
+    };
+
+    $scope.displayRechargePanel = function () {
+      console.log('$scope.displayRechargePanel() called.');
+      $scope.closeAllPanels();
+      if (!$scope.rechargePanelVisible) {
+        $scope.togglePanel('#data-panel-recharge');
+        $scope.rechargePanelVisible = true;
+      }
+    };
+
+    $scope.displayWellsPanel = function () {
+      console.log('$scope.displayWellsPanel() called.');
+      $scope.closeAllPanels();
+      if (!$scope.wellsPanelVisible) {
+        $scope.togglePanel('#data-panel-wells');
+        $scope.wellsPanelVisible = true;
+      }
+    };
+
+    $scope.displaySpringsPanel = function () {
+      console.log('$scope.displaySpringsPanel() called.');
+      $scope.closeAllPanels();
+      if (!$scope.springsPanelVisible) {
+        $scope.togglePanel('#data-panel-springs');
+        $scope.springsPanelVisible = true;
+      }
+    };
+
+
+
+
 
     // $scope.displayPanel = function() {
     //   if ($scope.dataPanelVisible) {
@@ -123,87 +193,6 @@ angular.module('aquiferiumApp')
     // $('#toggle-springs-data').on('click', function(){
     //   $scope.selectSlide('springs');
     // });
-
-
-
-
-
-    $scope.closePanels = function () {
-      if ($scope.rechargePanelVisible) {
-        $scope.togglePanel('#data-panel-recharge');
-        $scope.rechargePanelVisible = false;
-      }
-      if ($scope.wellsPanelVisible) {
-        $scope.togglePanel('#data-panel-wells');
-        $scope.wellsPanelVisible = false;
-      }
-      if ($scope.springsPanelVisible) {
-        $scope.togglePanel('#data-panel-springs');
-        $scope.springsPanelVisible = false;
-      }
-    };
-
-    // $scope.closePanels = function (target) {
-    //   switch (target) {
-    //     case '#data-panel-recharge':
-    //       $scope.togglePanel(target);
-    //       $scope.rechargePanelVisible = false;
-    //       break;
-    //     case '#data-panel-wells':
-    //       $scope.togglePanel(target);
-    //       $scope.wellsPanelVisible = false;
-    //       break;
-    //     case '#data-panel-springs':
-    //       $scope.togglePanel(target);
-    //       $scope.springsPanelVisible = false;
-    //       break;
-    //   }
-    // };
-
-    $scope.displayRechargePanel = function() {
-      console.log('$scope.displayRechargePanel() called.');
-      $scope.closePanels();
-      if ($scope.rechargePanelVisible) {
-        // $scope.selectSlide('close');
-        // $scope.togglePanel('#data-panel-recharge');
-        // $scope.rechargePanelVisible = false;
-        // $scope.closePanels();
-        // $scope.closePanels('#data-panel-recharge');
-      } else {
-        $scope.togglePanel('#data-panel-recharge');
-        $scope.rechargePanelVisible = true;
-      }
-    };
-
-    $scope.displayWellsPanel = function() {
-      console.log('$scope.displayWellsPanel() called.');
-      $scope.closePanels();
-      if ($scope.wellsPanelVisible) {
-        // $scope.selectSlide('close');
-        // $scope.togglePanel('#data-panel-wells');
-        // $scope.wellsPanelVisible = false;
-        // $scope.closePanels();
-        // $scope.closePanels('#data-panel-wells');
-      } else {
-        $scope.togglePanel('#data-panel-wells');
-        $scope.wellsPanelVisible = true;
-      }
-    };
-
-    $scope.displaySpringsPanel = function() {
-      console.log('$scope.displaySpringsPanel() called.');
-      $scope.closePanels();
-      if ($scope.springsPanelVisible) {
-        // $scope.selectSlide('close');
-        // $scope.togglePanel('#data-panel-springs');
-        // $scope.springsPanelVisible = false;
-        // $scope.closePanels();
-        // $scope.closePanels('#data-panel-springs');
-      } else {
-        $scope.togglePanel('#data-panel-springs');
-        $scope.springsPanelVisible = true;
-      }
-    };
 
     // $scope.resetView();
     // $scope.animateTo(10000, 15000, linear);

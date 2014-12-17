@@ -19,6 +19,10 @@
   padding: 0.25rem 0.5rem;
 }
 
+.leaflet-control-container {
+  z-index: 5000;
+}
+
 .leaflet-control-layers {
   color: #fff;
   background-color: rgba(1,0,1,0.9);

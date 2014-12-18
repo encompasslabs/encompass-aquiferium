@@ -486,7 +486,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             var catolicaDelNorteMarker = L.marker(catolicaDelNorteMarkerLocation, catolicaDelNorteMarkerOptions);
             // catolicaDelNorteMarker.addTo(chlMarkersLayer);    
             catolicaDelNorteMarker.addTo(allMarkersLayer);       
-            var catolicaDelNortePopupContent = '<p><h2>Universidad Catolica del Norte</h2></p>';
+            var catolicaDelNortePopupContent = '<p><h2>Universidad Catolica del Norte</h2><a href="http://www.geo.cornell.edu/geology/faculty/TEJ/research/current_research/late_quaternary_climate_cha.html" target="_blank">Terry Jordan</a></p>';
             var catolicaDelNorteContentContainer = $('<div />');
             catolicaDelNorteContentContainer.html(catolicaDelNortePopupContent);
             catolicaDelNorteMarker.bindPopup(catolicaDelNorteContentContainer[0]);
@@ -644,6 +644,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             });
 
             L.Browser.touch = true;
+            L.Icon.Default.imagePath = './images';
             L.control.attribution({
                 position: 'bottomright'
             }).addTo(map);

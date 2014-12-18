@@ -411,9 +411,9 @@ angular.module('eaa.directives.maps.leaflet', [])
             var j17Marker = L.marker(j17MarkerLocation, j17MarkerOptions);
             // j17Marker.addTo(usaMarkersLayer);
             j17Marker.addTo(allMarkersLayer);
-            var j17PopupContent = '<p><h2>Well J17</h2></p>';
+            var j17PopupContent = '<h2>J17 Index Well</h2><a href="" class="rechargeInteractiveLink">Recharge Data Interactive</a><br/>';
             var j17ContentContainer = $('<div />');
-            j17ContentContainer.html('J17 Index Well<br/><a href="" class="rechargeInteractiveLink">Recharge Data Interactive</a><br/>');
+            j17ContentContainer.html(j17PopupContent);
             j17Marker.bindPopup(j17ContentContainer[0]);
             j17ContentContainer.on('click', '.rechargeInteractiveLink', function() {
                 event.preventDefault();
@@ -427,9 +427,9 @@ angular.module('eaa.directives.maps.leaflet', [])
             var leonaSpringsMarker = L.marker(leonaSpringsMarkerLocation, leonaSpringsMarkerOptions);
             // leonaSpringsMarker.addTo(usaMarkersLayer);
             leonaSpringsMarker.addTo(allMarkersLayer);
-            var leonaSpringsPopupContent = '<p><h2>Leona Springs</h2></p>';
+            var leonaSpringsPopupContent = '<h2>Leona Springs</h2><a href="" class="wellsInteractiveLink">Wells Data Interactive</a><br/>';
             var leonaSpringsContentContainer = $('<div />');
-            leonaSpringsContentContainer.html('Leona Springs<br/><a href="" class="wellsInteractiveLink">Wells Data Interactive</a><br/>');
+            leonaSpringsContentContainer.html(leonaSpringsPopupContent);
             leonaSpringsMarker.bindPopup(leonaSpringsContentContainer[0]);
             leonaSpringsContentContainer.on('click', '.wellsInteractiveLink', function() {
                 event.preventDefault();
@@ -443,7 +443,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             var sanMarcosSpringsMarker = L.marker(sanMarcosSpringsMarkerLocation, sanMarcosSpringsMarkerOptions);
             // sanMarcosSpringsMarker.addTo(usaMarkersLayer);      
             sanMarcosSpringsMarker.addTo(allMarkersLayer);         
-            var sanMarcosSpringsPopupContent = 'San Marcos Springs<br/><a href="" class="springsInteractiveLink">Springs Data Interactive</a><br/>';
+            var sanMarcosSpringsPopupContent = '<h2>San Marcos Springs</h2><a href="" class="springsInteractiveLink">Springs Data Interactive</a><br/>';
             var sanMarcosSpringsContentContainer = $('<div />');
             sanMarcosSpringsContentContainer.html(sanMarcosSpringsPopupContent);
             sanMarcosSpringsMarker.bindPopup(sanMarcosSpringsContentContainer[0]);
@@ -461,7 +461,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             var ecogesMarker = L.marker(ecogesMarkerLocation, ecogesMarkerOptions);
             // ecogesMarker.addTo(chlMarkersLayer);   
             ecogesMarker.addTo(allMarkersLayer);          
-            var ecogesPopupContent = '<p><h1>ECOGES</h1><br/><a href="http://www.fen.uchile.cl/" target="_blank">Universidad de Chile</a></p>';
+            var ecogesPopupContent = '<p><h2>ECOGES</h2><a href="http://www.fen.uchile.cl/" target="_blank">Universidad de Chile</a></p>';
             var ecogesContentContainer = $('<div />');
             ecogesContentContainer.html(ecogesPopupContent);
             ecogesMarker.bindPopup(ecogesContentContainer[0]);
@@ -475,7 +475,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             var vertienteMarker = L.marker(vertienteMarkerLocation, vertienteMarkerOptions);
             // vertienteMarker.addTo(chlMarkersLayer); 
             vertienteMarker.addTo(allMarkersLayer);            
-            var vertientePopupContent = '<p><h1>Vertiente 11</h1><br/>Salar de Ascotan<br/>Ollague, Chile</p>';
+            var vertientePopupContent = '<p><h2>Vertiente 11</h2>Salar de Ascotan<br/>Ollague, Chile</p>';
             var vertienteContentContainer = $('<div />');
             vertienteContentContainer.html(vertientePopupContent);
             vertienteMarker.bindPopup(vertienteContentContainer[0]);
@@ -486,7 +486,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             var catolicaDelNorteMarker = L.marker(catolicaDelNorteMarkerLocation, catolicaDelNorteMarkerOptions);
             // catolicaDelNorteMarker.addTo(chlMarkersLayer);    
             catolicaDelNorteMarker.addTo(allMarkersLayer);       
-            var catolicaDelNortePopupContent = '<p><h1>Universidad Catolica del Norte</h1></p>';
+            var catolicaDelNortePopupContent = '<p><h2>Universidad Catolica del Norte</h2></p>';
             var catolicaDelNorteContentContainer = $('<div />');
             catolicaDelNorteContentContainer.html(catolicaDelNortePopupContent);
             catolicaDelNorteMarker.bindPopup(catolicaDelNorteContentContainer[0]);
@@ -497,7 +497,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             var icanMarker = L.marker(icanMarkerLocation, icanMarkerOptions);
             // icanMarker.addTo(ausMarkersLayer);     
             icanMarker.addTo(allMarkersLayer);       
-            var icanPopupContent = '<p><h1>iCAM</h1>Australian National University</p>';
+            var icanPopupContent = '<p><h2>iCAM</h2>Australian National University</p>';
             var icanContentContainer = $('<div />');
             icanContentContainer.html(icanPopupContent);
             icanMarker.bindPopup(icanContentContainer[0]);
@@ -508,7 +508,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             var flindersMarker = L.marker(flindersMarkerLocation, flindersMarkerOptions);
             // flindersMarker.addTo(ausMarkersLayer);   
             flindersMarker.addTo(allMarkersLayer);         
-            var flindersPopupContent = '<p><h1>National Centre for Groundwater Research and Training</h1>Flinders University</p>';
+            var flindersPopupContent = '<p><h2>Flinders University</h2>National Centre for Groundwater <br/>Research and Training</p>';
             var flindersContentContainer = $('<div />');
             flindersContentContainer.html(flindersPopupContent);
             flindersMarker.bindPopup(flindersContentContainer[0]);
@@ -529,13 +529,15 @@ angular.module('eaa.directives.maps.leaflet', [])
             };
 
             var overlays = {
+                // All Markers.
+                'Partners & Sponsors<br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/><span style="margin-top:0.5rem; padding-left:1.5rem; font-weight:700; font-size:1.2rem; color:#71B2C9;">United States</span><br/>': allMarkersLayer,
                 // USA.
                 // 'USA Markers': usaMarkersLayer,
                 'USA': usaLayer,
                 'Texas': texasLayer,
                 'Major Aquifers': majorAquifersLayer,
                 'Aquifer Zones': aquiferZonesLayer,
-                'EAA Boundary Zone<br/><span style="color:#aaaaaa;">________________</span><br/>': eaaBoundaryLayer,    
+                'EAA Boundary Zone<br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/><span style="margin-top:0.5rem; padding-left:1.5rem; font-weight:700; font-size:1.2rem; color:#71B2C9;">Chile</span><br/>': eaaBoundaryLayer,    
                 // Chile.
                 // 'Chile Markers': chlMarkersLayer,
                 'ci': encompass_ciLayer,
@@ -543,13 +545,11 @@ angular.module('eaa.directives.maps.leaflet', [])
                 'ci_cuencas_hidrograficas': encompass_cl_cuencas_hidrograficasLayer,               
                 'cl_unidades_geomorfologicas': encompass_cl_unidades_geomorfologicasLayer,
                 'cl_zonas_climaticas': encompass_cl_zonas_climaticasLayer,
-                'cl_curvas_nivel100m<br/><span style="color:#aaaaaa;">________________</span><br/>': encompass_cl_curvas_nivel100mLayer,
+                'cl_curvas_nivel100m': encompass_cl_curvas_nivel100mLayer // <br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/>
                 // Australia.
-                // 'Australia Markers<br/><span style="color:#aaaaaa;">________________</span><br/>': ausMarkersLayer,
-                // Testing.
-                'Partner Markers': allMarkersLayer  
-                // <br/><span style="color:#aaaaaa;">________________</span><br/>
-                // <br/><span style="color:#aaaaaa;">________________</span><br/><span style="margin-top:0.5rem; padding-left:1.5rem; font-weight:700; font-size:1.2rem; color:#71B2C9;">TITLE</span><br/>
+                // 'Australia Markers<br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/>': ausMarkersLayer,                 
+                // <br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/>
+                // <br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/><span style="margin-top:0.5rem; padding-left:1.5rem; font-weight:700; font-size:1.2rem; color:#71B2C9;">TITLE</span><br/>
             };
 
             // Map Panning/Zooming.

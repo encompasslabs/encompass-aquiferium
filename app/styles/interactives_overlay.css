@@ -13,7 +13,7 @@
 
 .backdrop-info {
   width: 100%;
-  height: 80%;
+  height: 85%;
   background-color: #000;
 }
 
@@ -59,7 +59,7 @@
 .offstage-top { top: -150%; }
 
 .open-panel { left: 1% !important; }
-.open-panel-top-50 { top: 3rem !important; }
+.open-panel-top-50 { top: 2.8rem !important; }
 
 .open { left:12% !important; }
 

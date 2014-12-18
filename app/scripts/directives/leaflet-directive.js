@@ -644,7 +644,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             });
 
             L.Browser.touch = true;
-            L.Icon.Default.imagePath = './images';
+            L.Icon.Default.imagePath = './styles/images';
             L.control.attribution({
                 position: 'bottomright'
             }).addTo(map);

@@ -16,7 +16,7 @@ angular.module('aquiferiumApp')
     $scope.initialPosition = [49, -97];
     $scope.panOptionsInteractive = {
       'animate': true,
-      'duration': 2,
+      'duration': 3,
       'easeLinearity': 0.25,
       'noMoveStart': 'false'
     };
@@ -35,6 +35,7 @@ angular.module('aquiferiumApp')
     };
 
     $scope.closeAllPanels = function () {
+      // console.log('$scope.closeAllPanels() called.');
       if ($scope.rechargePanelVisible) {
         $scope.togglePanel('#data-panel-recharge');
         $scope.rechargePanelVisible = false;
@@ -60,13 +61,30 @@ angular.module('aquiferiumApp')
       // console.log(event.target.parentElement.parentElement.parentElement.parentElement);
       // console.log(event.target.parentElement.parentElement.parentElement.parentElement.parentElement);
 
-      console.log(event.target.parentElement.parentElement.parentElement.parentElement.getElementById('map'));
+      // console.log(event.target.parentElement.parentElement.parentElement.parentElement.getElementById('map'));
+      $scope.closeAllPanels();
 
-      // angular.element(map).panTo($scope.initialPosition, $scope.panOptionsInteractive);
+      // var theMap = document.getElementById('map');
+      // console.log(theMap);
+
+      // var cZ = theMap.getZoom();
+      // theMap.setView($scope.initialPosition, cZ, {animate: true});
+
+      // theMap.panTo($scope.initialPosition, $scope.panOptionsInteractive);
+      // theMap.setView();
+
+      // var setZoom = window.L.getZoom();
+      // var cZ = theMap.setZoom;
+      // var setView = window.L.setView($scope.initialPosition, cZ, {animate: true});
+      // theMap.setView;
+
+      // var setPosition = window.L.panTo($scope.initialPosition, $scope.panOptionsInteractive);
+      
+      // theMap.setView($scope.initialPosition, cZ, {animate: true});
     };
 
     $scope.displayRechargePanel = function () {
-      console.log('$scope.displayRechargePanel() called.');
+      // console.log('$scope.displayRechargePanel() called.');
       $scope.closeAllPanels();
       if (!$scope.rechargePanelVisible) {
         $scope.togglePanel('#data-panel-recharge');
@@ -75,7 +93,7 @@ angular.module('aquiferiumApp')
     };
 
     $scope.displayWellsPanel = function () {
-      console.log('$scope.displayWellsPanel() called.');
+      // console.log('$scope.displayWellsPanel() called.');
       $scope.closeAllPanels();
       if (!$scope.wellsPanelVisible) {
         $scope.togglePanel('#data-panel-wells');
@@ -84,17 +102,13 @@ angular.module('aquiferiumApp')
     };
 
     $scope.displaySpringsPanel = function () {
-      console.log('$scope.displaySpringsPanel() called.');
+      // console.log('$scope.displaySpringsPanel() called.');
       $scope.closeAllPanels();
       if (!$scope.springsPanelVisible) {
         $scope.togglePanel('#data-panel-springs');
         $scope.springsPanelVisible = true;
       }
     };
-
-
-
-
 
     // $scope.displayPanel = function() {
     //   if ($scope.dataPanelVisible) {

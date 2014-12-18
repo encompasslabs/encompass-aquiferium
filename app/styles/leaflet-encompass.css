@@ -41,7 +41,7 @@
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 1.2rem;
   /*font-weight: 700;*/
-  padding-left: 3rem;
+  padding-left: 2.5rem;
   color: #ddd;
   content: 'Map Layers';
 }
@@ -59,7 +59,7 @@
   font-size: 1.2rem;
   /*font-weight: 700;*/
   color: #AADD6D;
-  padding: 1rem 1rem 1rem 2.5rem;
+  padding: 1rem 1rem 1rem 1.5rem;
   content: "Base Maps";
 }
 
@@ -68,7 +68,7 @@
   font-size: 1.2rem;
   /*font-weight: 700;*/
   color: #fb0;
-  padding: 1rem 1rem 1rem 2.5rem;
+  padding: 1rem 1rem 1rem 1.5rem;
   content: "Data Overlays";
 }
 

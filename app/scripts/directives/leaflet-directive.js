@@ -127,8 +127,8 @@ angular.module('eaa.directives.maps.leaflet', [])
             };
             var baseStyleHover = { 'fillOpacity': fillOpacityHover };
 
-            var usaStyle = { 'fillColor': color_eaa_Blue };
-            var usaStyleHover = { };
+            // var usaStyle = { 'fillColor': color_eaa_Blue };
+            // var usaStyleHover = { };
 
             var texasStyle = {
                 'fillColor': color_eaa_Orange,
@@ -147,90 +147,24 @@ angular.module('eaa.directives.maps.leaflet', [])
             var aquiferZonesStyle = { 'fillColor': color_eaa_Melon };
             var aquiferZonesStyleHover = { };
 
-            // var hatchedAreaStyle = { 'fillColor': color_grey };
-            // var directorDistrictsStyle = { 'fillColor': color_purple };
-            // var basinsStyle = { 'fillColor': color_orange };
-            // var precipitationStyle = { 'fillColor': color_green };
-            // var hucddStyle = { 'fillColor': color_green };
-            // var majorRiversStyle = { 'fillColor': color_gold };
-            // var minorAquifersStyle = { 'fillColor': color_blue };
-            // var reservoirsStyle = { 'fillColor': color_brown };
-
-            // Encompass Styles.
-            var ciStyle = { 'fillColor': color_eaa_Sky };
-            var ciStyleHover = {};
-
-            var cl_cuencas_hidrograficasStyle = { 'fillColor': color_eaa_Teal };
-            var cl_cuencas_hidrograficasStyleHover = {};
-
-            var cl_curvas_nivel100mStyle = { 'fillColor': color_eaa_Brown };
-            var cl_curvas_nivel100mStyleHover = {};
-
-            var cl_salaresStyle = { 'fillColor': color_eaa_Amber };
-            var cl_salaresStyleHover = {};
-
-            var cl_unidades_geomorfologicasStyle = { 'fillColor': color_eaa_Lake };
-            var cl_unidades_geomorfologicasStyleHover = {};
-
-            var cl_zonas_climaticasStyle = { 'fillColor': color_eaa_Stone };
-            var cl_zonas_climaticasStyleHover = {};
-
             // Geojson to display.
-            var usaGeojson = './data/geojson/USA.geo.json';
+            // var usaGeojson = './data/geojson/USA.geo.json';
             // var usaGeojson = './data/geojson/gz_2010_us_outline_20m.json';  // Outline only.
             var texasGeojson = './data/geojson/TX.geo.json';
             var majorAquifersGeojson = './data/geojson/eaa/NEW_major_aquifers_dd_reduced100.geo.json';
             var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
             var aquiferZonesGeojson = './data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
 
-            // ALL of these render as the aquifer zones. Must have bad shp files or need to do something different to export for geojson.
-            // var hatchedAreaGeojson = './data/geojson/eaa/713-H_HatchedArea.geo.json';
-            // var directorDistrictsGeojson = './data/geojson/eaa/DirectorDistricts2014._optimized.EPSG4326.geo.json';
-            // var basinsGeojson = './data/geojson/eaa/basins_dd.geo.json';
-            // var precipitationGeojson = './data/geojson/eaa/precipitation_lin.geo.json';
-            // var hucddGeojson = './data/geojson/eaa/tx_hucdd.geo.json';
-            // var majorRiversGeojson = './data/geojson/eaa/MajorRivers_dd83.geo.json';
-            // var minorAquifersGeojson = './data/geojson/eaa/NEW_minor_aquifers_dd.geo.json';
-            // var reservoirsGeojson = './data/geojson/eaa/Existing_Reservoirs_2007_dd.geo.json';
-
-            // Encompass data.
-            // var Geojson = './data/geojson/encompass/XXX.json';
-            var encompass_ciGeojson = './data/geojson/encompass/ci.json';
-            var encompass_cl_cuencas_hidrograficasGeojson = './data/geojson/encompass/cl_cuencas_hidrograficas_geo.json';
-            var encompass_cl_curvas_nivel100mGeojson = './data/geojson/encompass/cl_curvas_nivel100m_geo.json';
-            var encompass_cl_salaresGeojson = './data/geojson/encompass/cl_salares_geo.json';
-            var encompass_cl_unidades_geomorfologicasGeojson = './data/geojson/encompass/cl_unidades_geomorfologicas_geo.json';
-            var encompass_cl_zonas_climaticasGeojson = './data/geojson/encompass/cl_zonas_climaticas_geo.json';
-
             // GeoJSON Layers.
-            var usaLayer = new L.LayerGroup();
+            // var usaLayer = new L.LayerGroup();
             var texasLayer = new L.LayerGroup();
             var majorAquifersLayer = new L.LayerGroup();
             var aquiferZonesLayer = new L.LayerGroup();
             var eaaBoundaryLayer = new L.LayerGroup();
-            // var hatchedAreaLayer = new L.LayerGroup();
-            // var directorDistrictsLayer = new L.LayerGroup();
-            // var basinsLayer = new L.LayerGroup();
-            // var precipitationLayer = new L.LayerGroup();
-            // var hucddLayer = new L.LayerGroup();
-            // var majorRiversLayer = new L.LayerGroup();
-            // var minorAquifersLayer = new L.LayerGroup();
-            // var reservoirsLayer = new L.LayerGroup();
-
-            // Encompass Layers.
-            var encompass_ciLayer = new L.LayerGroup();
-            var encompass_cl_cuencas_hidrograficasLayer = new L.LayerGroup();
-            var encompass_cl_curvas_nivel100mLayer = new L.LayerGroup();
-            var encompass_cl_salaresLayer = new L.LayerGroup();
-            var encompass_cl_unidades_geomorfologicasLayer = new L.LayerGroup();
-            var encompass_cl_zonas_climaticasLayer = new L.LayerGroup();
 
             // Marker Layers.
             // Look into using the MarkerClusterGroup.
             var allMarkersLayer = new L.LayerGroup();
-            var ausMarkersLayer = new L.LayerGroup();
-            var chlMarkersLayer = new L.LayerGroup();
-            var usaMarkersLayer = new L.LayerGroup();
 
             // Merges Style Objects.
             var mergeObjects = function() {
@@ -282,9 +216,9 @@ angular.module('eaa.directives.maps.leaflet', [])
                 geojson.addTo(layerGroup);
             };
 
-            $.getJSON(usaGeojson, function(data) {
-                processGeojson(data, usaLayer, usaStyle, usaStyleHover);
-            });
+            // $.getJSON(usaGeojson, function(data) {
+            //     processGeojson(data, usaLayer, usaStyle, usaStyleHover);
+            // });
 
             $.getJSON(texasGeojson, function(data) {
                 processGeojson(data, texasLayer, texasStyle, texasStyleHover);
@@ -323,63 +257,6 @@ angular.module('eaa.directives.maps.leaflet', [])
                     }
                 });
                 geojson.addTo(eaaBoundaryLayer);
-            });
-
-            // $.getJSON(aquiferZonesGeojson, function(data) {
-            //   processGeojson(data, hatchedAreaStyle, hatchedAreaLayer);
-            // });
-
-            // $.getJSON(aquiferZonesGeojson, function(data) {
-            //   processGeojson(data, directorDistrictsStyle, directorDistrictsLayer);
-            // });
-
-            // $.getJSON(aquiferZonesGeojson, function(data) {
-            //   processGeojson(data, basinsStyle, basinsLayer);
-            // });
-
-            // $.getJSON(aquiferZonesGeojson, function(data) {
-            //   processGeojson(data, precipitationStyle, precipitationLayer);
-            // });
-
-            // $.getJSON(aquiferZonesGeojson, function(data) {
-            //   processGeojson(data, hucddStyle, hucddLayer);
-            // });
-
-            // $.getJSON(aquiferZonesGeojson, function(data) {
-            //   processGeojson(data, majorRiversStyle, majorRiversLayer);
-            // });
-
-            // $.getJSON(aquiferZonesGeojson, function(data) {
-            //   processGeojson(data, minorAquifersStyle, minorAquifersLayer);
-            // });
-
-            // $.getJSON(aquiferZonesGeojson, function(data) {
-            //   processGeojson(data, reservoirsStyle, reservoirsLayer);
-            // });
-
-            // Encompass Data.
-            $.getJSON(encompass_ciGeojson, function(data) {
-                processGeojson(data, encompass_ciLayer, ciStyle, ciStyleHover);
-            });
-
-            $.getJSON(encompass_cl_cuencas_hidrograficasGeojson, function(data) {
-                processGeojson(data, encompass_cl_cuencas_hidrograficasLayer, cl_cuencas_hidrograficasStyle, cl_cuencas_hidrograficasStyleHover);
-            });
-
-            $.getJSON(encompass_cl_curvas_nivel100mGeojson, function(data) {
-                processGeojson(data, encompass_cl_curvas_nivel100mLayer, cl_curvas_nivel100mStyle, cl_curvas_nivel100mStyleHover);
-            });
-
-            $.getJSON(encompass_cl_salaresGeojson, function(data) {
-                processGeojson(data, encompass_cl_salaresLayer, cl_salaresStyle, cl_salaresStyleHover);
-            });
-
-            $.getJSON(encompass_cl_unidades_geomorfologicasGeojson, function(data) {
-                processGeojson(data, encompass_cl_unidades_geomorfologicasLayer, cl_unidades_geomorfologicasStyle, cl_unidades_geomorfologicasStyleHover);
-            });
-
-            $.getJSON(encompass_cl_zonas_climaticasGeojson, function(data) {
-                processGeojson(data, encompass_cl_zonas_climaticasLayer, cl_zonas_climaticasStyle, cl_zonas_climaticasStyleHover);
             });
 
             // Markers.
@@ -451,70 +328,7 @@ angular.module('eaa.directives.maps.leaflet', [])
                 event.preventDefault();
                 map.panBy(panByPoint, panOptionsInteractive);
                 scope.displaySpringsPanel();
-            });
-
-            // Encompass Data.
-
-            // ECOGES.
-            var ecogesMarkerLocation = L.latLng(-33.441618, -70.637387);
-            var ecogesMarkerOptions = { title: 'ECOGES, Universidad de Chile' };
-            var ecogesMarker = L.marker(ecogesMarkerLocation, ecogesMarkerOptions);
-            // ecogesMarker.addTo(chlMarkersLayer);   
-            ecogesMarker.addTo(allMarkersLayer);          
-            var ecogesPopupContent = '<p><h2>ECOGES</h2><a href="http://www.fen.uchile.cl/" target="_blank">Universidad de Chile</a></p>';
-            var ecogesContentContainer = $('<div />');
-            ecogesContentContainer.html(ecogesPopupContent);
-            ecogesMarker.bindPopup(ecogesContentContainer[0]);
-
-            // CEGA.
-            // TBD.
-
-            // Vertiente.
-            var vertienteMarkerLocation = L.latLng(-21.693321, -68.213253);
-            var vertienteMarkerOptions = { title: 'vertiente, Universidad de Chile' };
-            var vertienteMarker = L.marker(vertienteMarkerLocation, vertienteMarkerOptions);
-            // vertienteMarker.addTo(chlMarkersLayer); 
-            vertienteMarker.addTo(allMarkersLayer);            
-            var vertientePopupContent = '<p><h2>Vertiente 11</h2>Salar de Ascotan<br/>Ollague, Chile</p>';
-            var vertienteContentContainer = $('<div />');
-            vertienteContentContainer.html(vertientePopupContent);
-            vertienteMarker.bindPopup(vertienteContentContainer[0]);
-
-            // CatolicaDelNorte.
-            var catolicaDelNorteMarkerLocation = L.latLng(-23.671175, -70.411493);
-            var catolicaDelNorteMarkerOptions = { title: 'Universidad Catolica del Norte' };
-            var catolicaDelNorteMarker = L.marker(catolicaDelNorteMarkerLocation, catolicaDelNorteMarkerOptions);
-            // catolicaDelNorteMarker.addTo(chlMarkersLayer);    
-            catolicaDelNorteMarker.addTo(allMarkersLayer);       
-            var catolicaDelNortePopupContent = '<p><h2>Universidad Catolica del Norte</h2><a href="http://www.geo.cornell.edu/geology/faculty/TEJ/research/current_research/late_quaternary_climate_cha.html" target="_blank">Terry Jordan</a></p>';
-            var catolicaDelNorteContentContainer = $('<div />');
-            catolicaDelNorteContentContainer.html(catolicaDelNortePopupContent);
-            catolicaDelNorteMarker.bindPopup(catolicaDelNorteContentContainer[0]);
-
-            // iCAN / ANU.
-            var icanMarkerLocation = L.latLng(-35.277691 , 149.115409);
-            var icanMarkerOptions = { title: 'iCAN / ANU' };
-            var icanMarker = L.marker(icanMarkerLocation, icanMarkerOptions);
-            // icanMarker.addTo(ausMarkersLayer);     
-            icanMarker.addTo(allMarkersLayer);       
-            var icanPopupContent = '<p><h2>iCAM</h2>Australian National University</p>';
-            var icanContentContainer = $('<div />');
-            icanContentContainer.html(icanPopupContent);
-            icanMarker.bindPopup(icanContentContainer[0]);
-
-            // Flinders.        
-            var flindersMarkerLocation = L.latLng(-35.028912, 138.572456);
-            var flindersMarkerOptions = { title: 'Flinders University' };
-            var flindersMarker = L.marker(flindersMarkerLocation, flindersMarkerOptions);
-            // flindersMarker.addTo(ausMarkersLayer);   
-            flindersMarker.addTo(allMarkersLayer);         
-            var flindersPopupContent = '<p><h2>Flinders University</h2>National Centre for Groundwater <br/>Research and Training</p>';
-            var flindersContentContainer = $('<div />');
-            flindersContentContainer.html(flindersPopupContent);
-            flindersMarker.bindPopup(flindersContentContainer[0]);
-
-            // Earth Society.
-            // TBD.            
+            });   
 
             // Populate Map Controls.
             var baseLayers = {
@@ -530,26 +344,13 @@ angular.module('eaa.directives.maps.leaflet', [])
 
             var overlays = {
                 // All Markers.
-                'Partners & Sponsors<br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/><span style="margin-top:0.5rem; padding-left:1.5rem; font-weight:700; font-size:1.2rem; color:#71B2C9;">United States</span><br/>': allMarkersLayer,
+                'EAA Monitoring Stations<br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/><span style="margin-top:0.5rem; padding-left:1.5rem; font-weight:700; font-size:1.2rem; color:#71B2C9;">United States</span><br/>': allMarkersLayer,
                 // USA.
-                // 'USA Markers': usaMarkersLayer,
-                'USA': usaLayer,
+                // 'USA': usaLayer,
                 'Texas': texasLayer,
                 'Major Aquifers': majorAquifersLayer,
                 'Aquifer Zones': aquiferZonesLayer,
-                'EAA Boundary Zone<br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/><span style="margin-top:0.5rem; padding-left:1.5rem; font-weight:700; font-size:1.2rem; color:#71B2C9;">Chile</span><br/>': eaaBoundaryLayer,    
-                // Chile.
-                // 'Chile Markers': chlMarkersLayer,
-                'ci': encompass_ciLayer,
-                'cl_salares': encompass_cl_salaresLayer,
-                'ci_cuencas_hidrograficas': encompass_cl_cuencas_hidrograficasLayer,               
-                'cl_unidades_geomorfologicas': encompass_cl_unidades_geomorfologicasLayer,
-                'cl_zonas_climaticas': encompass_cl_zonas_climaticasLayer,
-                'cl_curvas_nivel100m': encompass_cl_curvas_nivel100mLayer // <br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/>
-                // Australia.
-                // 'Australia Markers<br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/>': ausMarkersLayer,                 
-                // <br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/>
-                // <br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/><span style="margin-top:0.5rem; padding-left:1.5rem; font-weight:700; font-size:1.2rem; color:#71B2C9;">TITLE</span><br/>
+                'EAA Boundary Zone<br/>': eaaBoundaryLayer,    
             };
 
             // Map Panning/Zooming.
@@ -614,14 +415,10 @@ angular.module('eaa.directives.maps.leaflet', [])
 
             // Build Map.
 
-            // var initialPosition = [49, -97];
-            // var initialZoom = 6;
-
-            var initialZoom = 3;
-            var initialPosition = [-25, -75];
-            var targetPosition = [0, 25];
+            var initialZoom = 6;
+            var initialPosition = [50, -98];
+            var targetPosition = [30, -98];
             
-
             var map = L.map('map', {
                 zoomControl: false,
                 attributionControl: false,
@@ -651,73 +448,22 @@ angular.module('eaa.directives.maps.leaflet', [])
             L.control.layers(baseLayers, overlays, {
                 position: 'topleft'
             }).addTo(map);
-            // L.control.zoom({position: 'bottomleft'}).addTo(map);
+            L.control.zoom({position: 'topright'}).addTo(map);
             L.control.scale({
                 position: 'bottomleft'
             }).addTo(map);
 
-            // Animate Initial View.
-            // map.panInsideBounds(bounds2, panOptions);
+            // Setup Initial View & Animation.
+            texasLayer.addTo(map);
+            eaaBoundaryLayer.addTo(map);
+            allMarkersLayer.addTo(map);
             map.panTo(targetPosition, panOptionsInitial);
-            // texasLayer.addTo(map);
-
 
             // $(".leaflet-popup-close-button")[0].click();  // Closes all popups.
             // Reverse this so close button on slide closes popup on leaflet map (reverse of displayRechargePanel method).
-            // Also have the method pan the view back to the default.                
-
-            // console.log(map);
-            // console.log(eaaBounds);
-            // console.log(panOptions);
-            // console.log(L.hasOwnProperty('panInsideBounds'));
-            // console.log(map.hasOwnProperty('panInsideBounds'));
-            // map.panInsideBounds(eaaBounds, panOptions);                
-            // map.setZoom(5);
-            // map.panInsideBounds(bounds0,panOptions);
-            // map.fitBounds(bounds0,zoomPanOptions);
-            // map.setZoom(5, zoomPanOptions);
-            // map.fitBounds(area3, fitBoundsOptions);                
-            // map.setZoom(1);
-            // map.zoomIn(15, zoomOptions);
-            // map.zoomIn(2, zoomOptions).panInsideBounds(bounds0,panOptions).zoomIn(3, zoomOptions).panInsideBounds(bounds1,panOptions);
-            // map.panBy(500).zoomIn();                
+            // Also have the method pan the view back to the default.                              
 
             // // $scope.resetView();  // Causes the page to hang. Why?
-
-            // RANDOM PARTS...
-
-            // // L.legend.addTo(map);
-            // // map.legendControl.addLegend(legend);
-
-            // // L.control.add(legend);
-
-            // // var info = L.control({position: 'bottomleft'});
-
-            // // info.onAdd = function (map) {
-            // //     this._div = L.DomUtil.create('div', 'legend'); // create a div with a class "info"
-            // //     this.update();
-            // //     return this._div;
-            // // };
-
-            // // var legend = L.control({position: 'topleft'});  
-            // // legend.onAdd = function (map) {
-
-            // // var div = L.DomUtil.create('div', 'info legend'),
-            // //     grades = [50, 100, 150, 200, 250, 300],
-            // //     labels = ['<strong> THE TITLE </strong>'],
-            // //     from, to;
-
-            // // for (var i = 0; i < grades.length; i++) {
-            // //     from = grades [i];
-            // //     to = grades[i+1]-1;
-
-            // // labels.push(
-            // //     '<i style="background:' + getColor(from + 1) + '"></i> ' +
-            // //     from + (to ? '&ndash;' + to : '+'));
-            // //     }
-            // //     div.innerHTML = labels.join('<br>');
-            // //     return div;
-            // //     }; 
         };
 
         return directiveDefinitionObject;

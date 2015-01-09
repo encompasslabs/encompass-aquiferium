@@ -47,7 +47,6 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             var graphLeftOffset = vizWidth * 0.05;
             var graphWidthOffset = 0.98;
 
-            // var slideDescText = 'Springs do...';
             var mapImageStagesSource = '../../images/directives/Stages-Key.png';
             var mapImageBaseSource = '../../images/directives/Springs-Map.png';
 
@@ -55,10 +54,6 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             var markersSource = '../../data/springs-markerData.csv';
             var dataSource = '../../data/springs-annualAvg-byDate.csv';
             var ingestedData = {};
-
-            // var markerRadius = 5;
-            // var mapLabels = [];
-            // var mapLabelsLength = mapLabels.length;
 
             var legendBoxDimensions = width / 50;
             var legendVertSpacingFactor = 1;
@@ -150,18 +145,13 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             };
 
             var setDisplayData = function(targetIndex) {
-                // console.log(targetIndex);
                 var dataSet = ingestedData[targetIndex];
                 var vals = Object.keys(dataSet).map(function(key) {
                     return dataSet[key];
                 });
                 var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item-springs').selectAll('text');
-
                 // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
                 for (var j = 0; j < dataLabelArray.length; j++) {
-                    // console.log('gaugeIndex: ' + j + ', currentGaugeName: ' + currentGaugeName + ', currentGaugeValue: ' + currentGaugeValue + ', dataIndex: ' + targetIndex);
-                    // console.log(vals);
-                    // console.log('j: ' + j + ', ' + currentGaugeName + ' = ' + currentGaugeValue);
                     var currentGaugeName = dataLabelArray[j]['parentNode']['__data__']['name'];
                     var currentGaugeValue = dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex'];
                     setDataLabel(j, currentGaugeValue);
@@ -224,14 +214,6 @@ angular.module('eaa.directives.d3.interactive.springs', [])
                 .text('Springs')
                 .attr('class', 'banner-text-springs');
 
-            // Slide Description.
-            // var slideDescription = viz.append('div').attr('class','slide-desc-springs');
-            // var descriptionText = slideDescription.append('text')
-            //   .attr('x', '0%')
-            //   .attr('y', '20%')
-            //   .text(slideDescText)
-            //   .attr('class', 'desc-text-springs');
-
             // Data
             var dataDisplay = viz.append('div').attr('class', 'div-absolute data-display-springs');
 
@@ -244,10 +226,6 @@ angular.module('eaa.directives.d3.interactive.springs', [])
 
             viz.on('mousemove', mouseOverGraph);
             viz.append('text').attr('class', 'year-display-springs').text('');
-
-            // var geoBounds = viz.append('svg').attr('class', 'geo-bounds springs')
-            //   .attr('width', mapWidth)
-            //   .attr('height', mapHeight);
 
             var graphBounds = viz.append('svg').attr('class', 'graph-bounds')
                 .attr('width', graphWidth)
@@ -265,42 +243,6 @@ angular.module('eaa.directives.d3.interactive.springs', [])
                 .defined(function(d) {
                     return d.gindex;
                 });
-
-            // MAP.
-            // d3.json(boundariesSource, function (error, boundariesData) {
-            //   if (error) {
-            //     return console.error(error);
-            //   }
-            //   var scale = mapHeight * 28; // geojson display.
-            //   var offset = [mapWidth / 2, mapHeight / 2];
-            //   var center = d3.geo.centroid(boundariesData);
-            //   // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
-            //   // Note: albersUsa() and transverseMercator() require additional configs.
-            //   var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
-            //   var path = d3.geo.path().projection(projection);
-            //   var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-            //   geoBoundaries.append('path').attr('d', path).attr('class', 'area').attr('fill', '#8F8100').attr('stroke', '#000');
-            //   var eaaMarkers = geoBoundaries.append('g');
-
-            //   d3.csv(markersSource, function (error, data) {
-            //     if (error) {
-            //       return console.error(error);
-            //     }
-            //     eaaMarkers.selectAll('circle').data(data).enter().append('circle')
-            //       .attr('class', function (d) { return d.Location; })
-            //       .attr('cx', function (d) {
-            //         return projection([d.lon_ddd, d.lat_ddd])[0];
-            //       })
-            //       .attr('cy', function (d) {
-            //         return projection([d.lon_ddd, d.lat_ddd])[1];
-            //       })
-            //       .attr('r', markerRadius)
-            //       .attr('z-index', 0)
-            //       .style('fill', function (d) { return color(d.Location); })
-            //       .style('stroke', '#000')
-            //       .on('click', onTargetClick);
-            //   });
-            // });
 
             // CHART.
             d3.csv(dataSource, function(error, data) {
@@ -432,8 +374,6 @@ angular.module('eaa.directives.d3.interactive.springs', [])
                 var dataLabel_1 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-1').text('San Antonio Springs');
                 var dataLabel_2 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-2').text('San Pedro Springs');
                 var dataLabel_3 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-3').text('Leona Springs');
-                // var dataLabel_4 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-4').text('Test4 Springs');
-                // var dataLabel_5 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-5').text('Test5 Springs');
                 var dataLabel_6 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-6').text('San Marcos Springs');
                 var dataLabel_7 = legend.append('div').attr('class', 'div-absolute data-label-springs data-label-springs-7').text('Comal Springs');
 
@@ -441,8 +381,6 @@ angular.module('eaa.directives.d3.interactive.springs', [])
                 var dataValue_1 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-1').text('0236971');
                 var dataValue_2 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-2').text('0236971');
                 var dataValue_3 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-3').text('0236971');
-                // var dataValue_4 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-4').text('0236971');
-                // var dataValue_5 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-5').text('0236971');
                 var dataValue_6 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-6').text('0236971');
                 var dataValue_7 = legend.append('div').attr('class', 'div-absolute data-value-springs data-value-springs-7').text('0236971');
 

@@ -63,10 +63,6 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       var dataSource = '../../data/wells-annualAvg-byDate.csv';
       var ingestedData = {};
 
-      // var markerRadius = 5;
-      // var mapLabels = [];
-      // var mapLabelsLength = mapLabels.length;
-
       var legendBoxDimensions = width / 50;
       var legendVertSpacingFactor = 1;
       var legendVertOffset = legendBoxDimensions * 0.8;
@@ -214,59 +210,25 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       };
 
       var setDisplayData = function (targetIndex) {
-        // console.log(targetIndex);
         var dataSet = ingestedData[targetIndex];        
         var vals = Object.keys(dataSet).map(function (key) {
-          // console.log(key);
           return dataSet[key];
         });
-        // console.log(vals);
         var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item-wells').selectAll('text');
-        // console.log(dataLabelArray);
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
-          // console.log('------------------------');
-          // console.log(j);
-          // console.log(dataLabelArray[j]);
-          // console.log(dataLabelArray[j]['parentNode']['__data__']);
-          // console.log(dataLabelArray[j]['parentNode']['__data__']['name']);
-          // console.log(dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]);
-          // console.log(dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex']);
-          // console.log(' ');
-
           var currentGaugeValue = dataLabelArray[j]['parentNode']['__data__']['values'][targetIndex]['gindex'];
-          // console.log(currentGaugeValue);
 
           if (j === 0) {
-            // console.log('J17');
             setMapMarkersJ17(currentGaugeValue);
           } else if (j === 1) {
-            // console.log('J27');
             setMapMarkersJ27(currentGaugeValue);
           }
-
-          // var dataIndexOffset = j + 1;
-          // d3.select(dataLabelArray[j][1]).text( function() {
-          //   var thisValue = roundDecimals(vals[dataIndexOffset], 0);
-          //   // console.log(thisValue);
-          //   if (isNaN(thisValue)) {
-          //     // console.log('No Data');
-          //     return 'No Data';
-          //   } else {
-          //     // console.log(thisValue);
-          //     return thisValue.toString(); // + ' FAMSL';
-          //   }
-          // });
         }
       };
 
-      // var setMapFill = function (targetDate) {
-      //   console.log('setMapFill');
-      // };
-
       var setDisplayDate = function (targetDate) {
         d3.select(el).select('.year-display-wells').text(Math.round(targetDate));
-        // setMapFill(targetDate);
       };
 
       var mouseOverGraph = function (event) {
@@ -386,10 +348,6 @@ angular.module('eaa.directives.d3.interactive.wells', [])
       viz.on('mousemove', mouseOverGraph);
       viz.append('text').attr('class','year-display-wells').text('');
 
-      // var geoBounds = viz.append('svg').attr('class', 'geo-bounds wells')
-      //   .attr('width', mapWidth)
-      //   .attr('height', mapHeight);
-
       var graphBounds = viz.append('svg').attr('class', 'graph-bounds')
         .attr('width', graphWidth)
         .attr('height', graphHeight);
@@ -401,42 +359,6 @@ angular.module('eaa.directives.d3.interactive.wells', [])
         .y(function (d) { return y(d.gindex); })
         .defined(function (d) { return d.gindex; });
 
-      // MAP.
-      // d3.json(boundariesSource, function (error, boundariesData) {
-      //   if (error) {
-      //     return console.error(error);
-      //   }
-      //   var scale = mapHeight * 30; // geojson display.
-      //   var offset = [mapWidth / 2, mapHeight / 2];
-      //   var center = d3.geo.centroid(boundariesData);
-      //   // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
-      //   // Note: albersUsa() and transverseMercator() require additional configs.
-      //   var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
-      //   var path = d3.geo.path().projection(projection);
-      //   var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-      //   geoBoundaries.append('path').attr('d', path).attr('class', 'area').attr('fill', '#8F8100').attr('stroke', '#000');
-      //   var eaaMarkers = geoBoundaries.append('g');
-
-      //   d3.csv(markersSource, function (error, data) {
-      //     if (error) {
-      //       return console.error(error);
-      //     }
-      //     eaaMarkers.selectAll('circle').data(data).enter().append('circle')
-      //       .attr('class', function (d) { return d.Location; })
-      //       .attr('cx', function (d) {
-      //         return projection([d.lon_ddd, d.lat_ddd])[0];
-      //       })
-      //       .attr('cy', function (d) {
-      //         return projection([d.lon_ddd, d.lat_ddd])[1];
-      //       })
-      //       .attr('r', markerRadius)
-      //       .attr('z-index', 0)
-      //       .style('fill', function (d) { return color(d.Location); })
-      //       .style('stroke', '#000')
-      //       .on('click', onTargetClick);
-      //   });
-      // });
-
       // CHART.
       d3.csv(dataSource, function (error, data) {
 
@@ -447,14 +369,7 @@ angular.module('eaa.directives.d3.interactive.wells', [])
           d['J27'] = +d['J27'];
         });
 
-
-
-
-
-
-
         ingestedData = data;
-
         dataKey.domain(d3.keys(data[0]).filter(function (key) { return key !== 'Date'; }));
 
         var gauges = dataKey.domain().map(function (name) {

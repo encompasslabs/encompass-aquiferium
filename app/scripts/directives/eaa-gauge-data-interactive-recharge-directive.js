@@ -44,32 +44,17 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       var slideDescText = 'Water or rainfall entering the recharge zone of the Aquifer replenishes this valuable resource.';
       var mapImageBaseSource = '../../images/directives/tr-panel01-map.png';
-      // EAA Version. *Incorrect*
-      // var mapImageAquiferSource00 = '../../images/directives/tr-panel02-range00.png';
-      // var mapImageAquiferSource01 = '../../images/directives/tr-panel02-range01.png';
-      // var mapImageAquiferSource02 = '../../images/directives/tr-panel02-range02.png';
-      // var mapImageAquiferSource03 = '../../images/directives/tr-panel02-range03.png';
-      // var mapImageAquiferSource04 = '../../images/directives/tr-panel02-range04.png';
-      // var mapImageKeySource = '../../images/directives/tr-panel03-key.png';
-      // Encompass Version. *Correct - adjusts for inversion of intensity measure implicit in meteorological data.
-      var mapImageAquiferSource00 = '../../images/directives/tr-panel02-range04.png';
-      var mapImageAquiferSource01 = '../../images/directives/tr-panel02-range03.png';
+      // Encompass Version of Recharge Images. These correct for the inversion of intensity measure implicit in meteorological data.
+      var mapImageAquiferSource00 = '../../images/directives/tr-panel02-range00-correct.png';
+      var mapImageAquiferSource01 = '../../images/directives/tr-panel02-range01-correct.png';
       var mapImageAquiferSource02 = '../../images/directives/tr-panel02-range02.png';
-      var mapImageAquiferSource03 = '../../images/directives/tr-panel02-range01.png';
-      var mapImageAquiferSource04 = '../../images/directives/tr-panel02-range00.png';
+      var mapImageAquiferSource03 = '../../images/directives/tr-panel02-range03-correct.png';
+      var mapImageAquiferSource04 = '../../images/directives/tr-panel02-range04-correct.png';
       var mapImageKeySource = '../../images/directives/tr-panel03-key-inverted.png';
       
       var boundariesSource = '../../data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
       var dataSource = '../../data/recharge-annualAvg-byDate2.csv';
       var ingestedData = {};
-
-      // var markerRadius = 5;
-      // var mapLabels = [];
-      // var mapLabelsLength = mapLabels.length;
-
-      // var legendBoxDimensions = width / 50;
-      // var legendVertSpacingFactor = 1;
-      // var legendVertOffset = legendBoxDimensions * 0.8;
 
       var color = d3.scale.category10().domain(['Barton Springs', 'Comal Springs', 'Hueco Springs', 'J17', 'J27', 'Las Moras Springs', 'Leona Springs', 'San Antonio Springs', 'San Marcos Springs', 'San Pedro Springs']);
       var dataKey = d3.scale.ordinal();
@@ -164,10 +149,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         decimalValue = roundDecimals((newValue / 100), 4);
       };
 
-      // var setMapFillValue = function () {
-      //   d3.selectAll('.Recharge.Zone').transition().style('fill', 'rgba(113,178,201,' + decimalValue + ')').duration(100);
-      // };
-
       var setMapGraphicImage = function (dataValue) {
         var newImage = d3.select('.map-image-aquifer-recharge');
         var targetPath = newImage[0][0];
@@ -187,7 +168,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       var updateMapDisplay = function (dataValue) {
         setDataValuePercent(dataValue);
-        // setMapFillValue();
         setMapGraphicImage(dataValue);
       };
 
@@ -201,7 +181,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
           return dataSet[key];
         });
         var dataLabelArray = d3.select(el).select('.legend-box').selectAll('.legend-item-recharge').selectAll('text');
-        // console.log(dataLabelArray[0][1]); // THIS ONE!!!
         // Need to populate each legend-item text value with the appropriate val index string (remember to skip 0 which is the Date value).
         for (var j=0; j < dataLabelArray.length; j++) {
           var dataIndexOffset = j + 1;
@@ -305,10 +284,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
 
       var dataDisplay = viz.append('div').attr('class','data-display data-display-recharge');
 
-      // var geoBounds = viz.append('svg').attr('class', 'geo-bounds recharge')
-      //   .attr('width', mapWidth)
-      //   .attr('height', mapHeight);
-
       var graphBounds = viz.append('svg').attr('class', 'graph-bounds')
         .attr('width', graphWidth)
         .attr('height', graphHeight);
@@ -319,22 +294,6 @@ angular.module('eaa.directives.d3.interactive.recharge', [])
         .x(function (d) { return x(d.date); })
         .y(function (d) { return y(d.gindex); })
         .defined(function (d) { return d.gindex; });
-
-      // MAP.
-      // d3.json(boundariesSource, function (error, boundariesData) {
-      //   if (error) {
-      //     return console.error(error);
-      //   }
-      //   var scale = mapHeight * 30; // geojson display.
-      //   var offset = [mapWidth / 2, mapHeight / 2];
-      //   var center = d3.geo.centroid(boundariesData);
-      //   // Valid projection types: azimuthalEqualArea, azimuthalEquidistant, conicEqualArea, conicConformal, conicEquidistant, equirectangular, gnomonic, mercator, orthographic, stereographic, 
-      //   // Note: albersUsa() and transverseMercator() require additional configs.
-      //   var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
-      //   var path = d3.geo.path().projection(projection);
-      //   var geoBoundaries = geoBounds.selectAll('g').data(boundariesData.features).enter().append('g');
-      //   geoBoundaries.append('path').attr('d', path).attr('class', function (d) { return 'subunit ' + d.properties.Name; }).attr('stroke', 'rgba(0,0,0,0.5)').on('click', onTargetClick);
-      // });
 
       // CHART.
       d3.csv(dataSource, function (error, data) {

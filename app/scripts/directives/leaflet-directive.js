@@ -30,7 +30,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             var mqPic = '<img src="http://developer.mapquest.com/content/osm/mq_logo.png">';
             var mqArialUrl = 'http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg';
             var mqosmUrl = 'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg';
-            var mqArialAttrib = '&copy; ' + mqArialUrl + '. Tiles courtesy of ' + mqLink + mqPic;
+            var mqArialAttrib = 'Tiles courtesy of ' + mqLink + mqPic;
             var mqosmAttrib = 'Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency. Tiles courtesy of ' + mqLink + mqPic;
             var mqArialMap = L.tileLayer(mqArialUrl, {
                 attribution: mqArialAttrib,
@@ -344,7 +344,7 @@ angular.module('eaa.directives.maps.leaflet', [])
 
             var overlays = {
                 // All Markers.
-                'EAA Monitoring Stations<br/><span style="padding-left:1rem; color:#aaaaaa;">________________</span><br/><span style="margin-top:0.5rem; padding-left:1.5rem; font-weight:700; font-size:1.2rem; color:#71B2C9;">United States</span><br/>': allMarkersLayer,
+                'EAA Monitoring Stations': allMarkersLayer,
                 // USA.
                 // 'USA': usaLayer,
                 'Texas': texasLayer,
@@ -442,15 +442,19 @@ angular.module('eaa.directives.maps.leaflet', [])
 
             L.Browser.touch = true;
             L.Icon.Default.imagePath = './styles/images';
-            L.control.attribution({
-                position: 'bottomright'
-            }).addTo(map);
+
             L.control.layers(baseLayers, overlays, {
                 position: 'topleft'
             }).addTo(map);
+
             L.control.zoom({position: 'topright'}).addTo(map);
+
             L.control.scale({
                 position: 'bottomleft'
+            }).addTo(map);
+
+            L.control.attribution({
+                position: 'bottomright'
             }).addTo(map);
 
             // Setup Initial View & Animation.

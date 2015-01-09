@@ -72,12 +72,14 @@
   content: "Data Overlays";
 }
 
-label {
-  font-weight: 300;
+.leaflet-control-attribution {
+  bottom: 3rem;
+  background-color: rgba(0,0,0,0.8) !important;
+  color: #fff;
 }
 
-.leaflet-control-attribution {
-  margin-bottom: 3rem;
+.leaflet-control-scale {
+  bottom: 3rem;
 }
 
 .leaflet-popup {
@@ -101,4 +103,8 @@ label {
 
 .popup {
   color: #fff;
+}
+
+label {
+  font-weight: 300;
 }

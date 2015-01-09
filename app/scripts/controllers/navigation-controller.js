@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('NavigationCtrl', ['$scope', '$location', '$document', function ($scope, $location, $document) {
+  .controller('NavigationCtrl', ['$scope', '$location', '$document', '$window', function ($scope, $location, $document, $window) {
     $scope.isCollapsed = true;
     $scope.infoToggled = false;
     $scope.code = 'SUhtSnl_ZRM';
@@ -15,6 +15,7 @@ angular.module('aquiferiumApp')
 
     $scope.$on('$routeChangeSuccess', function () {
       $scope.isCollapsed = true;
+      $window.scrollTo(0, top);
     });
 
     $scope.logLocation = function () {
@@ -24,11 +25,13 @@ angular.module('aquiferiumApp')
     $scope.getClass = function (path) {
       if (path === '/') {
         if ($location.path() === '/') {
+          console.log($location.path());
           return 'active';
         }
       }
 
-      if ($location.path().substr(0, path.length) === path) {       
+      if ($location.path().substr(0, path.length) === path) {
+        console.log($location.path());     
         return 'active';
       }
     };

@@ -447,7 +447,7 @@ angular.module('eaa.directives.maps.leaflet', [])
                 position: 'topleft'
             }).addTo(map);
 
-            L.control.zoom({position: 'topright'}).addTo(map);
+            // L.control.zoom({position: 'topright'}).addTo(map);
 
             L.control.scale({
                 position: 'bottomleft'

@@ -426,7 +426,7 @@ angular.module('eaa.directives.maps.leaflet', [])
                 keyboard: true,
                 dragging: true,
                 scrollWheelZoom: true,
-                zoomAnimation: false,
+                zoomAnimation: true,
                 click: true,
                 layers: [mqArialMap] // only add one!
             }).setView(initialPosition, initialZoom);

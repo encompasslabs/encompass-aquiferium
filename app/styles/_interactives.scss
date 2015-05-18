@@ -1,0 +1,707 @@
+@charset "utf-8";
+
+/*******************/
+/* General */
+
+#interactive {
+  width: 64rem;
+  height: 36rem;
+}
+.interactive {
+  /*margin: 0rem 0rem 0rem 0rem;*/
+}
+.viz {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: default;
+}
+.year-display {
+  position: absolute;
+  margin-top: -6rem;
+  margin-left: 11rem;
+  padding: 0;
+  font-size: 18em;
+  font-weight: 700;
+  color: rgba(0,0,0,0.1);
+}
+
+/**************************/
+/* Data Display Baseline */
+.data-display {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.data-item {
+  font-size: 1rem;
+  font-weight: 100;
+}
+.data-value {
+  font-weight: 500;
+}
+.legend-box {
+  z-index: 200;
+  width: 24rem;
+  line-height: 0.1rem;
+  font-size: 1rem;
+  /*background-color: rgba(100, 100, 100, 0.2);*/
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: rgba(255,255,255, 0.7);
+  /*border: 1px solid #000;*/
+  border: 0.05rem solid #000;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 1rem;
+  stroke: #000;
+}
+.legend-item {
+  width: 25rem;
+  height: 1.8rem;
+}
+
+/**************************/
+/* Data Display Recharge */
+.slide-banner-recharge {
+  overflow: hidden;
+  background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
+  /*border: 2px solid #000;*/
+  border-top-left-radius: 1.8rem;
+  border-top-right-radius: 1.8rem;
+}
+.banner-text-recharge {
+  margin-left: 30%;
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #eee;
+}
+.slide-desc-recharge {
+  padding: 1rem 2rem 0 1rem;
+}
+.desc-text-recharge {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}
+.slide-map-recharge {
+  margin-top: -2rem;
+  margin-left: 12rem;
+  width: auto;
+}
+.map-image-base-recharge {
+  width: 22rem;
+  height: auto;
+  margin-top: 2.85rem;
+}
+.map-image-aquifer-recharge {
+  width: 22rem;
+  height: auto;
+  margin-top: -0.25rem;
+}
+.map-image-key-recharge {
+  width: 5rem;
+  height: auto;
+}
+
+.data-display-recharge {
+  width: 5rem;
+  top: 6rem;
+}
+.legend-box-recharge {
+  width: 10.5rem;
+  height: 9rem;
+}
+
+.legend-item-recharge {
+  width: 100%;
+  /*height: 5rem;*/
+}
+.data-item-recharge {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.6rem;
+  /*font-weight: 700;*/
+}
+.data-value-recharge {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.year-display-recharge {
+  position: absolute;
+  margin-top: -6rem;
+  margin-left: 11rem;
+  padding: 0;
+  font-size: 18em;
+  font-weight: 700;
+  color: rgba(0,0,0,0.1);
+}
+
+/*******************^^^^/
+/* Data Display Wells */
+
+.slide-banner-wells {
+  overflow: hidden;
+  background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
+  /*border: 0.05rem; solid #000;*/
+  border-top-left-radius: 1.8rem;
+  border-top-right-radius: 1.8rem;
+}
+.banner-text-wells {
+  margin-left: 30%;
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #eee;
+}
+
+.slide-desc-wells {
+  padding: 1rem 2rem 0 1rem;
+}
+.desc-text-wells {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.data-display-wells {
+  top: 7rem;
+  left: 1rem;
+}
+.legend-box-wells {
+  width: 18.5rem;
+  height: 8rem;
+}
+.legend-item-wells {
+  height: 5rem;
+}
+.data-item-wells {
+  font-size: 1rem;
+}
+
+
+.legend-title {
+  top: 0.5rem;
+  width: 8.5rem;
+  height: 2.5rem;
+  color:#000;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 1rem 0.5rem 0 0.5rem;
+  border: 1px solid #111;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  stroke: #000;
+}
+.legend-j17-title {
+  left: 0.5rem;
+  background-color: #D62728;
+}
+.legend-j27-title {
+  left: 9.5rem;
+  background-color: #9467BD;
+}
+
+.data-label-wells {
+  font-family: 'Open Sans Condensed', sans-serif;
+  top: 4.5rem;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.legend-j17-label {
+  left: 0.75rem;
+}
+.legend-j27-label {
+  left: 9.75rem;
+}
+
+.data-value-wells {
+  font-family: 'Open Sans Condensed', sans-serif;
+  top: 4.5rem;
+  color: #000;
+  font-size: 1.4rem;
+  /*font-weight: 700;*/
+}
+.legend-j17-value {
+  left: 4.5rem;
+}
+.legend-j27-value {
+  left: 13.5rem;
+}
+
+.stage-label-wells {
+  font-family: 'Open Sans Condensed', sans-serif;
+  top: 6.5rem;
+  color: #000;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.stage-j17-label {
+  left: 0.75rem;
+}
+.stage-j27-label {
+  left: 9.75rem;
+}
+
+.stage-box {
+  width: 3.5rem;
+  height: 1.75rem;
+  border: 1px solid #000;
+}
+
+.stage-value-wells {
+  top: 5.75rem;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.stage-j17-value {
+  left: 5rem;
+  background-color: #dcc;
+}
+.stage-j27-value {
+  left: 14rem;
+  background-color: #ccd;
+}
+
+.legend-stages-wells {
+  width: 13rem;
+  margin-left: 21rem;
+  margin-top: 1.5rem; /* 4rem;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  /*vertical-align: bottom;*/
+}
+.wells-stage {
+  height: 0;
+  padding-left: 1rem;
+  border-bottom: 40px solid #ddd;
+  border-right: 10px solid transparent;
+  /*border-width: 1.5rem;*/
+  margin-bottom: 0.25rem;
+}
+.wells-stage-1 {
+  border-bottom: 20px solid #72a641;
+  border-width: 1.5rem;
+}
+.wells-stage-2 {
+  border-bottom: 20px solid #e7b921;
+  border-width: 1.5rem;
+}
+.wells-stage-3 {
+  border-bottom: 20px solid #e08625;
+  border-width: 1.5rem;
+}
+.wells-stage-4 {
+  border-bottom: 20px solid #da1f28;
+  border-width: 1.5rem;
+}
+.wells-stage-5 {
+  color: #fff;
+  border-bottom: 20px solid #6d2158;
+  border-width: 1.5rem;
+}
+
+/*.map-image-stages-wells {
+  width: 10rem;
+  height: auto;
+}*/
+
+.slide-map-wells {
+  top: 4rem;
+  left: 35rem;
+  width: auto;
+}
+.map-image-base-wells {
+  width: 28rem;
+}
+.map-marker-j17-wells {
+  top: 5rem;
+  left: 14rem;
+}
+.map-marker-j27-wells {
+  top: 6.5rem;
+  left: 7.5rem;
+}
+
+.year-display-wells {
+  position: absolute;
+  margin-top: -3rem;
+  margin-left: 11rem;
+  padding: 0;
+  font-size: 18em;
+  font-weight: 700;
+  color: rgba(0,0,0,0.1);
+}
+
+/*************************/
+/* Data Display Springs */
+
+.slide-banner-springs {
+  overflow: hidden;
+  background-color: #425968; /*#71B2C9;*/ /*#4298B5;*/
+  /*border: 0.05rem; solid #000;*/
+  border-top-left-radius: 1.8rem;
+  border-top-right-radius: 1.8rem;
+}
+.banner-text-springs {
+  margin-left: 45%;
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #eee;
+}
+
+/*.slide-desc-springs {
+  padding: 1rem 2rem 0 1rem;
+}
+.desc-text-springs {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}*/
+
+.data-display-springs {
+  top: 4rem;
+  left: 1rem;
+}
+
+.linebreak-hr {
+  /*color: #000;*/
+  /*background-color: #000;*/
+  /*top: 2rem;*/
+  /*left: 2rem;*/
+}
+
+
+.data-item-springs {
+  /*padding: 2rem;*/
+  /*width: 8rem;*/
+  /*height: 2rem;*/
+  /*color: #000;*/
+  /*font-size: 1.1rem;*/
+  /*font-weight: 500;*/
+  /*border: 1px solid #000;*/
+}
+
+
+.legend-box-springs {
+  width: 29rem;
+  height: 13rem;
+}
+
+/*
+  0: Hueco Springs
+  1: San Antonio Springs
+  2: San Pedro Springs
+  3: Leona Springs
+  4 & 5: Barton | San Antonio
+  6: San Marcos Springs
+  7: Comal Springs
+
+*/
+.legend-item-springs {
+  width: 50%;
+  height: 2rem;
+  vertical-align: middle;
+}
+
+.legend-item-springs-0 {
+  top: 5rem;
+  left: 0.5rem;
+}
+.legend-item-springs-1 {
+  top: 7.75rem;
+  left: 0.5rem;
+}
+.legend-item-springs-2 {
+  top: 10.5rem;
+  left: 0.5rem;
+}
+.legend-item-springs-3 {
+  top: 5rem;
+  left: 55%;
+}
+.legend-item-springs-4 {
+  visibility: hidden;
+}
+.legend-item-springs-5 {
+  visibility: hidden;
+}
+.legend-item-springs-6 {
+  top: 1rem;
+  left: 0.5rem;
+}
+.legend-item-springs-7 {
+  top: 1rem;
+  left: 55%;
+}
+
+
+.data-label-springs {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.data-label-springs-0 {
+  top: 5.75rem;
+  left: 2.25rem;
+}
+.data-label-springs-1 {
+  top: 8.5rem;
+  left: 2.25rem;
+}
+.data-label-springs-2 {
+  top: 11.25rem;
+  left: 2.25rem;
+}
+.data-label-springs-3 {
+  top: 5.75rem;
+  left: 61%;
+}
+.data-label-springs-4 {
+}
+.data-label-springs-5 {
+}
+.data-label-springs-6 {
+  top: 1.75rem;
+  left: 2.25rem;
+}
+.data-label-springs-7 {
+  top: 1.75rem;
+  left: 61%;
+}
+
+
+.data-value-springs {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #000;
+  font-size: 1.4rem;
+}
+
+.data-value-springs-0 {
+  top: 5.75rem;
+  left: 11.5rem;
+}
+.data-value-springs-1 {
+  top: 8.5rem;
+  left: 11.5rem;
+}
+.data-value-springs-2 {
+  top: 11.25rem;
+  left: 11.5rem;
+}
+.data-value-springs-3 {
+  top: 5.75rem;
+  left: 85%;
+}
+.data-value-springs-4 {
+}
+.data-value-springs-5 {
+}
+.data-value-springs-6 {
+  top: 1.75rem;
+  left: 11.5rem;
+}
+.data-value-springs-7 {
+  top: 1.75rem;
+  left: 85%;
+}
+
+
+
+/*.map-image-stages-springs {
+  width: 10rem;
+  height: auto;
+}*/
+
+.slide-map-springs {
+  top: 2.5rem;
+  left: 30rem;
+}
+
+.map-image-base-springs {
+  width: 34rem;
+}
+
+.year-display-springs {
+  position: absolute;
+  margin-top: 9.4rem;
+  margin-left: 11rem;
+  padding: 0;
+  font-size: 18em;
+  font-weight: 700;
+  color: rgba(0,0,0,0.1);
+}
+
+/*******************/
+/* Map */
+.geo-bounds {
+  position: absolute;
+  width: 46rem;
+  margin-left: 0rem;
+  margin-top: 0rem;
+}
+.geo-bounds.recharge {
+  margin-left: 14rem;
+}
+.geo-bounds.wells {
+  margin-left: 14rem;
+}
+.geo-bounds.springs {
+  margin-top: 1rem;
+  margin-left: 14rem;
+}
+.area1 {
+  stroke: rgba(66, 152, 181, 0.8);
+  stroke-width: 0.01rem;
+  /*fill: rgba(66, 89, 104, 0.8);*/
+  /*fill: rgba(181,202,210,0.8);*/
+  /*fill: rgba(128,177,193,0.8);*/
+  /*fill: rgba(76,254,216,0.8);*/
+  /*fill: rgba(10,189,201,0.8);*/
+  /*fill: rgba(60,180,200,0.8);*/
+  fill: rgba(175,235,222,0.8);
+}
+.area2 {
+  stroke: rgba(66, 152, 181, 0.8);
+  stroke-width: 0.01rem;
+  fill: rgba(113, 178, 201, 0.8);
+}
+.info-panel {
+  width: 16rem;
+  height: 3rem;
+  color: #000;
+  border: 1px solid #000;
+  -moz-border-radius-topleft: 1rem;
+  -webkit-border-top-left-radius: 1rem;
+  -moz-border-radius-topright: 1rem;
+  -webkit-border-top-right-radius: 1rem;
+  -moz-border-radius-bottomleft: 1rem;
+  -webkit-border-bottom-left-radius: 1rem;
+  -moz-border-radius-bottomright: 1rem;
+  -webkit-border-bottom-right-radius: 1rem;
+}
+#j17 {
+  position: fixed;
+  top: 40.25rem;
+  left: 39rem;
+  width: 7rem;
+  background-color: #E64457;
+  /*border: 1px solid #991E2D;*/
+  -moz-border-radius-topleft: 0rem;
+  -webkit-border-top-left-radius: 0rem;
+}
+#leona {
+  position: fixed;
+  top: 41rem;
+  left: 22rem;
+  width: 12rem;
+  background-color: #E07CE6;
+  /*color: #000;*/
+  /*border: 1px solid #944399;*/
+  -moz-border-radius-topright: 0rem;
+  -webkit-border-top-right-radius: 0rem;
+}
+#san-marcos {
+  position: fixed;
+  top: 34rem;
+  left: 40.25rem;
+  width: 14rem;
+  background-color: #D6D371;
+  /*color: #000;*/
+  /*border: 1px solid #8A883B;*/
+  -moz-border-radius-bottomleft: 0rem;
+  -webkit-border-bottom-left-radius: 0rem;
+}
+.marker-name {
+  margin: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
+}
+.subunit-label {
+  fill: #777;
+  fill-opacity: .5;
+  font-size: 20px;
+  font-weight: 300;
+  text-anchor: middle;
+}
+.map-label {
+  color: #000;
+}
+.Drainage {
+  fill: rgba(170, 221, 109, 1);
+}
+.Recharge {
+  fill: rgba(113, 178, 201, 1);
+}
+.Artesian {
+  fill: rgba(230, 211, 149, 1);
+}
+.map-region {
+  fill: #f00;
+  stroke: #0f0;
+}
+
+/*******************/
+/* Line Graph */
+.graph-bounds {
+  position: absolute;
+  bottom: 1em;
+  font-size: .7rem;
+}
+.chart {
+  font-size: .7rem;
+}
+.axis {
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.x.axis path {
+  /*display: none;*/
+}
+.y.axis path {
+  display: none;
+}
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+.indicator-line {
+  z-index: 50;
+  visibility: hidden;
+}
+.chart-subtext {
+  margin-top: 1rem;
+  margin-left: 3rem;
+  color: #000;
+  font-size: .65rem;
+  font-style: italic;
+}
+.graph-notes {
+  z-index: 200;
+  position: absolute;
+  bottom: 1.2em;
+  right: 5em;
+  color: #333;
+  font-size: 0.6rem;
+  font-style: italic;
+}
+
+/*******************/

@@ -148,12 +148,20 @@ angular.module('eaa.directives.maps.leaflet', [])
             var aquiferZonesStyleHover = { };
 
             // Geojson to display.
+            // // var usaGeojson = './data/geojson/USA.geo.json';
+            // // var usaGeojson = './data/geojson/gz_2010_us_outline_20m.json';  // Outline only.
+            // var texasGeojson = './data/geojson/TX.geo.json';
+            // var majorAquifersGeojson = './data/geojson/eaa/NEW_major_aquifers_dd_reduced100.geo.json';
+            // var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
+            // var aquiferZonesGeojson = './data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
+
+            // TESTING BUILD PATH.
             // var usaGeojson = './data/geojson/USA.geo.json';
             // var usaGeojson = './data/geojson/gz_2010_us_outline_20m.json';  // Outline only.
             var texasGeojson = './data/geojson/TX.geo.json';
-            var majorAquifersGeojson = './data/geojson/eaa/NEW_major_aquifers_dd_reduced100.geo.json';
-            var eaaBoundaryZonesGeojson = './data/geojson/eaa/eaa_boundary_EPSG-3081.geo.json';
-            var aquiferZonesGeojson = './data/geojson/eaa/eaa-aquifer-zones-2014.geo.json';
+            var majorAquifersGeojson = './data/geojson/NEW_major_aquifers_dd_reduced100.geo.json';
+            var eaaBoundaryZonesGeojson = './data/geojson/eaa_boundary_EPSG-3081.geo.json';
+            var aquiferZonesGeojson = './data/geojson/eaa-aquifer-zones-2014.geo.json';
 
             // GeoJSON Layers.
             // var usaLayer = new L.LayerGroup();
@@ -271,7 +279,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             // var exampleMarkerLocation = L.latLng(45.5, -100.5);
             // var exampleMarkerOptions = { title: 'example title' };
             // var exampleMarker = L.marker(exampleMarkerLocation, exampleMarkerOptions);
-            // exampleMarker.addTo(allMarkersLayer);            
+            // exampleMarker.addTo(allMarkersLayer);
             // var examplePopupContent = '<p>Example Popup</p>';
             // var exampleContentContainer = $('<div />');
             // exampleContentContainer.html(examplePopupContent);
@@ -281,7 +289,7 @@ angular.module('eaa.directives.maps.leaflet', [])
             //     map.panBy(panByPoint, panOptionsInteractive);
             //     scope.displaySpringsPanel();
             // });
-            
+
             // J17.
             var j17MarkerLocation = L.latLng(29.45, -98.48);
             var j17MarkerOptions = { title: 'J17' };
@@ -318,8 +326,8 @@ angular.module('eaa.directives.maps.leaflet', [])
             var sanMarcosSpringsMarkerLocation = L.latLng(29.89326, -97.9312);
             var sanMarcosSpringsMarkerOptions = { title: 'San Marcos Springs' };
             var sanMarcosSpringsMarker = L.marker(sanMarcosSpringsMarkerLocation, sanMarcosSpringsMarkerOptions);
-            // sanMarcosSpringsMarker.addTo(usaMarkersLayer);      
-            sanMarcosSpringsMarker.addTo(allMarkersLayer);         
+            // sanMarcosSpringsMarker.addTo(usaMarkersLayer);
+            sanMarcosSpringsMarker.addTo(allMarkersLayer);
             var sanMarcosSpringsPopupContent = '<h2>San Marcos Springs</h2><a href="" class="springsInteractiveLink">Springs Data Interactive</a><br/>';
             var sanMarcosSpringsContentContainer = $('<div />');
             sanMarcosSpringsContentContainer.html(sanMarcosSpringsPopupContent);
@@ -328,7 +336,7 @@ angular.module('eaa.directives.maps.leaflet', [])
                 event.preventDefault();
                 map.panBy(panByPoint, panOptionsInteractive);
                 scope.displaySpringsPanel();
-            });   
+            });
 
             // Populate Map Controls.
             var baseLayers = {
@@ -350,7 +358,7 @@ angular.module('eaa.directives.maps.leaflet', [])
                 'Texas': texasLayer,
                 'Major Aquifers': majorAquifersLayer,
                 'Aquifer Zones': aquiferZonesLayer,
-                'EAA Boundary Zone<br/>': eaaBoundaryLayer,    
+                'EAA Boundary Zone<br/>': eaaBoundaryLayer,
             };
 
             // Map Panning/Zooming.
@@ -411,14 +419,14 @@ angular.module('eaa.directives.maps.leaflet', [])
 
             var rechargeView = L.latLng(29.45, -109.48);
             var wellsView = L.latLng(29.15417, -110.7431);
-            var springsView = L.latLng(29.89326, -108.9312);   
+            var springsView = L.latLng(29.89326, -108.9312);
 
             // Build Map.
 
             var initialZoom = 6;
             var initialPosition = [50, -98];
             var targetPosition = [30, -98];
-            
+
             var map = L.map('map', {
                 zoomControl: false,
                 attributionControl: false,
@@ -465,7 +473,7 @@ angular.module('eaa.directives.maps.leaflet', [])
 
             // $(".leaflet-popup-close-button")[0].click();  // Closes all popups.
             // Reverse this so close button on slide closes popup on leaflet map (reverse of displayRechargePanel method).
-            // Also have the method pan the view back to the default.                              
+            // Also have the method pan the view back to the default.
 
             // // $scope.resetView();  // Causes the page to hang. Why?
         };

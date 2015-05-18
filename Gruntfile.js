@@ -302,7 +302,7 @@ module.exports = function (grunt) {
             'images/**/*.{png,jpg,gif,webp,svg}',
             'videos/**/*.{mp4,webm,ogg,mpg,mov,avi,flv}',
             'scripts/**/*.js',
-            'data/**/*.{json,csv,tsv,xml,txt}',
+            'data/**/*.{json,csv}', //'data/**/*.{json,csv,tsv,xml,txt}',
             'fonts/*'
           ]
         }, {
@@ -329,7 +329,7 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.app %>/data',
         dest: '<%= yeoman.dist %>/data',
-        src: '/data/*'
+        src: '/**/*' // '/data/*'
       },
       videos: {
         expand: true,

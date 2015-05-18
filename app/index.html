@@ -12,6 +12,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css" />
@@ -20,13 +25,9 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <!-- Web Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <!-- endbuild -->
+    <!--
     <link rel="stylesheet" type="text/css" href="styles/baseline.css">
     <link rel="stylesheet" type="text/css" href="styles/baseline_transitions.css">
     <link rel="stylesheet" type="text/css" href="styles/baseline_style.css">
@@ -35,10 +36,10 @@
     <link rel="stylesheet" type="text/css" href="styles/skrollr-mq.css">
     <link rel="stylesheet" type="text/css" href="styles/skrollr.css">
     <link rel="stylesheet" type="text/css" href="styles/map.css">
-    <link rel="stylesheet" type="text/css" href="styles/leaflet-encompass.css"> 
+    <link rel="stylesheet" type="text/css" href="styles/leaflet-encompass.css">
     <link rel="stylesheet" type="text/css" href="styles/interactives.css">
-    <link rel="stylesheet" type="text/css" href="styles/interactives_overlay.css">   
-    <!-- endbuild -->
+    <link rel="stylesheet" type="text/css" href="styles/interactives_overlay.css">
+    -->
 </head>
 
 <body data-ng-app="aquiferiumApp">
@@ -107,7 +108,7 @@
                 <p>The Aquiferium is designed to engage audiences within the Edwards Aquifer region, specifically the San Antonio (or Southern) segment of the Balcones Fault Zone Edwards Aquifer. Envisioned as a science education platform, Aquiferium is comprised of interactive and gesture-enabled applications with a focus on priority content defined by the EAA. Over time, resources from the EAA website and educational program will be incorporated, or linked, into the Aquiferium. Additional items such as Aquifer careers, Timeline, Photo and Video galleries will be created and housed on the EAA website for access through the touchscreen portal.</p>
                 <p>The Aquiferium is best experienced at a 1280x1024 screen resolution or higher.</p>
                 <p>Developed by <a data-ng-href="http://www.encompassproject.org" title="Encompass Project" target="new">Encompass Labs</a> in collaboration with the <a data-ng-href="http://edwardsaquifer.org" title="Edwards Aquifer Authority" target="new">Edwards Aquifer Authority</a>.</p>
-                <p>&#169; Copyright 2014</p>                
+                <p>&#169; Copyright 2014</p>
             </div>
             <div id="contact-section">
                 <p class="info-label">Contact Information</p>
@@ -176,21 +177,11 @@
     <script src="bower_components/jquery.easing/js/jquery.easing.js"></script>
     <script src="bower_components/jquery-waypoints/waypoints.js"></script>
     <script src="bower_components/skrollr/src/skrollr.js"></script>
+    <script src="bower_components/skrollr-menu/src/skrollr.menu.js"></script>
     <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
     <script src="bower_components/leaflet/dist/leaflet.js"></script>
     <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
     <script src="bower_components/jQuery.print/jQuery.print.js"></script>
     <!-- endbower -->
@@ -217,7 +208,7 @@
     <script src="scripts/directives/eaa-gauge-data-interactive-recharge-directive.js"></script>
     <script src="scripts/directives/eaa-gauge-data-interactive-wells-directive.js"></script>
     <script src="scripts/directives/eaa-gauge-data-interactive-springs-directive.js"></script>
-    
+
     <script src="scripts/directives/modal-dialog-directive.js"></script>
     <!-- <script src="bower_components/leaflet-easy-print/leaflet.easyPrint.js"></script> -->
 

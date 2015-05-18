@@ -44,7 +44,7 @@ angular.module('aquiferiumApp')
       }
     };
 
-    $scope.closePanel = function (event) {
+    $scope.closePanel = function () { //(event)
       $scope.closeAllPanels();
     };
 

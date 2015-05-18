@@ -31,7 +31,7 @@ angular.module('aquiferiumApp')
       }
 
       if ($location.path().substr(0, path.length) === path) {
-        console.log($location.path());     
+        console.log($location.path());
         return 'active';
       }
     };

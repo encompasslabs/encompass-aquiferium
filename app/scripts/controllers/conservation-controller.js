@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('aquiferiumApp')
-  .controller('ConservationCtrl', ['$window', '$scope', '$location', '$anchorScroll','$http', '$timeout', function ($window, $scope, $location, $anchorScroll, $http, $timeout) {
+  .controller('ConservationCtrl', ['$window', '$scope', '$location', '$anchorScroll', function ($window, $scope, $location, $anchorScroll) {
 
     $scope.pageClass = 'conservation';
     $scope.urlHcp = 'http://eahcp.org';
-    $scope.src_wordl = '../scripts/embed/wordl-eaa.js';
+    $scope.srcWordl = '../scripts/embed/wordl-eaa.js';
     // $scope.modalShown = false;
     // $scope.myWindow = angular.element($window);
     $scope.urlWordl = 'http://www.edwardsaquifer.org/'; // Need to point to world on server.
@@ -38,13 +38,13 @@ angular.module('aquiferiumApp')
       console.log('Go to the wordl.');
     };
 
-    
+
     // $scope.toggleModal = function() {
     //   $scope.modalShown = !$scope.modalShown;
     //   console.log('modal toggled.', $scope.modalShown);
 
     //   // $scope.script = {}; //document.createElement('script');
-    //   // $scope.script.src = $scope.src_wordl;
+    //   // $scope.script.src = $scope.srcWordl;
     //   // $scope.script.async = false;
     //   // // console.log($scope.script.src);
 

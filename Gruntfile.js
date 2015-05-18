@@ -225,11 +225,26 @@ module.exports = function (grunt) {
       }
     },
     usemin: { // Performs rewrites based on rev and the useminPrepare configuration.
+      //options: {
+      //  assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images/*', '<%= yeoman.dist %>/videos/*', '<%= yeoman.dist %>/data/*'],
+      //},
+      //html: ['{,*/}*.html'], // Default:  ['{,*/}*.html'], Custom: ['<%= yeoman.dist %>/**/*.html'],
+      //css: ['{,*/}*.css'] // Default:  ['{,*/}*.css'], Custom: ['<%= yeoman.dist %>/styles/**/*.css']
+
       options: {
-        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images/*', '<%= yeoman.dist %>/videos/*', '<%= yeoman.dist %>/data/*'],
+        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images', '<%= yeoman.dist %>/videos'],
+        patterns: {
+          html: [
+            [/(videos\/.*?\.(?:mp4|ogg|webm))/gm, 'Update HTML to reference revved videos'],
+            [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update HTML to reference revved images'],
+            [/(styles\/.*?\.(?:css))/gm, 'Update HTML to reference revved css'],
+            [/(scripts\/.*?\.(?:js))/gm, 'Update HTML to reference revved js']
+          ]
+        }
       },
-      html: ['<%= yeoman.dist %>/**/*.html'], // Default:  /{,*/}*.html']
-      css: ['<%= yeoman.dist %>/styles/**/*.css'] // Default:  {,*/}*.css']
+      html: ['<%= yeoman.dist %>/*.html'],  // Default:  ['{,*/}*.html'], Custom: ['<%= yeoman.dist %>/**/*.html'],
+      css: ['<%= yeoman.dist %>/styles/*.css'], // Default:  ['{,*/}*.css'], Custom: ['<%= yeoman.dist %>/styles/**/*.css']
+      videos: ['<%= yeoman.dist %>/videos/720p/*.{mp4,webm,ogg,avi,mpg,mov}'] // Custom.
     },
     cssmin: { // The following *-min tasks produce minified files in the dist folder.
       options: {
@@ -302,7 +317,7 @@ module.exports = function (grunt) {
             'images/**/*.{png,jpg,gif,webp,svg}',
             'videos/**/*.{mp4,webm,ogg,mpg,mov,avi,flv}',
             'scripts/**/*.js',
-            'data/**/*.{json,csv}', //'data/**/*.{json,csv,tsv,xml,txt}',
+            'data/**/*.{json,csv,tsv,xml,txt}',
             'fonts/*'
           ]
         }, {
@@ -328,8 +343,8 @@ module.exports = function (grunt) {
       data: {
         expand: true,
         cwd: '<%= yeoman.app %>/data',
-        dest: '<%= yeoman.dist %>/data',
-        src: '/**/*' // '/data/*'
+        dest: '<%= yeoman.dist %>/data/**/*',
+        src: '/data/**/*'
       },
       videos: {
         expand: true,

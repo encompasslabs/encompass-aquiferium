@@ -1,6 +1,6 @@
-# README #
+# Aquiferium #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is the codebase for the Aquiferium application, a collaboration between the Encompass Project and the Edwards Aquifer Authority. The codebase is built entirely upon open-source technologies. Setup and usage is as follows..
 
 ### What is this repository for? ###
 
@@ -17,13 +17,10 @@ This README would normally document whatever steps are necessary to get your app
 * How to run tests
 * Deployment instructions
 
-### Contribution guidelines ###
+#### Setup ####
 
-* Writing tests
-* Code review
-* Other guidelines
+### Points of Contact ###
 
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* Encompass Project - http://www.encompassproject.org
+* Dr. Suzanne Pierce (PI) - spierce@tacc.utexas.edu 
+* John Gentle (Lead Dev) - jgentle@tacc.utexas.edu

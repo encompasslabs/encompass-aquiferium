@@ -70,7 +70,7 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/**/*.html',
           '.tmp/styles/**/*.css',
           '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.app %>/videos/**/*.{mp4,webm,ogg,mpg,mov,avi,flv}',
+          '<%= yeoman.app %>/videos/**/*.{mp4,webm,ogg,mpg,mov,avi}', // flv
           '<%= yeoman.app %>/data/**/*.{json,csv,tsv,xml,txt}'
         ]
       }
@@ -167,18 +167,18 @@ module.exports = function (grunt) {
         sassDir: '<%= yeoman.app %>/styles',
         cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
-        // generatedImagesPath: '.tmp/images/generated', // testing path - no effect.
         imagesDir: '<%= yeoman.app %>/images',
-        // imagesPath: '/images',  // testing path - no effect.
         javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        // fontsDir: '<%= yeoman.app %>/styles/fonts',
         importPath: '<%= yeoman.app %>/bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
-        relativeAssets: true, // false
+        relativeAssets: true,
         assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'
+        raw: 'Sass::Script::Number.precision = 10\n http_fonts_path="fonts"\n',
+        force: false,
+        // config: '.compass.rb'
       },
       bootstrap: {  // Adding in sass-bootstrap-official.
         sassDir: '<%= yeoman.app %>/bower_components/bootstrap-sass-official',
@@ -231,24 +231,32 @@ module.exports = function (grunt) {
       //html: ['{,*/}*.html'], // Default:  ['{,*/}*.html'], Custom: ['<%= yeoman.dist %>/**/*.html'],
       //css: ['{,*/}*.css'] // Default:  ['{,*/}*.css'], Custom: ['<%= yeoman.dist %>/styles/**/*.css']
 
+      html: ['<%= yeoman.dist %>/*.html'],  // Default:  ['{,*/}*.html'], Custom: ['<%= yeoman.dist %>/**/*.html'],
+      css: ['<%= yeoman.dist %>/styles/*.css'], // Default:  ['{,*/}*.css'], Custom: ['<%= yeoman.dist %>/styles/**/*.css']
+      // videos: ['<%= yeoman.dist %>/videos/*/*.{mp4,webm,ogg,avi,mpg,mov}'] // Custom. flv,  // trying * instead of 720p in %>/720p/*.{}
+      // js: ['<%= yeoman.dist %>/scripts/*.js'],
+
       options: {
         assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images', '<%= yeoman.dist %>/videos'],
         patterns: {
           html: [
-            [/(videos\/.*?\.(?:mp4|ogg|webm))/gm, 'Update HTML to reference revved videos'],
+            // [/(videos\/.*?\.(?:mp4|ogg|webm|avi|mpg|mov))/gm, 'Update HTML to reference revved videos'],
             [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update HTML to reference revved images'],
             [/(styles\/.*?\.(?:css))/gm, 'Update HTML to reference revved css'],
             [/(scripts\/.*?\.(?:js))/gm, 'Update HTML to reference revved js']
+          ],
+          css: [
+            [/(\/bower_components\/bootstrap\/dist\/fonts)/g, 'why boostrap, just why...', function(match) {
+              return match.replace('/bower_components/bootstrap/dist/fonts', '../fonts');
+            }]
           ]
         }
-      },
-      html: ['<%= yeoman.dist %>/*.html'],  // Default:  ['{,*/}*.html'], Custom: ['<%= yeoman.dist %>/**/*.html'],
-      css: ['<%= yeoman.dist %>/styles/*.css'], // Default:  ['{,*/}*.css'], Custom: ['<%= yeoman.dist %>/styles/**/*.css']
-      videos: ['<%= yeoman.dist %>/videos/720p/*.{mp4,webm,ogg,avi,mpg,mov}'] // Custom.
+      }
     },
     cssmin: { // The following *-min tasks produce minified files in the dist folder.
       options: {
-        //root: '<%= yeoman.app %>'  // comment this out if css pathing issues occur.
+        root: '<%= yeoman.app %>'//,  // comment this out if css pathing issues occur.
+        //rebase: false
       }
     },
     imagemin: {
@@ -315,10 +323,11 @@ module.exports = function (grunt) {
             '*.html',
             'views/**/*.html',
             'images/**/*.{png,jpg,gif,webp,svg}',
-            'videos/**/*.{mp4,webm,ogg,mpg,mov,avi,flv}',
+            'videos/**/*.{mp4,webm,ogg,mpg,mov,avi}', // flv
             'scripts/**/*.js',
-            'data/**/*.{json,csv,tsv,xml,txt}',
-            'fonts/*'
+            //'data/**/*.{json,csv,tsv,xml,txt}'//,
+            //'fonts/*'
+            'styles/fonts/{,*/}*.*'
           ]
         }, {
           expand: true,
@@ -340,12 +349,12 @@ module.exports = function (grunt) {
         dest: '.tmp/styles/',
         src: '**/*.css'
       },
-      data: {
-        expand: true,
-        cwd: '<%= yeoman.app %>/data',
-        dest: '<%= yeoman.dist %>/data/**/*',
-        src: '/data/**/*'
-      },
+      // data: {
+      //   expand: true,
+      //   cwd: '<%= yeoman.app %>/data',
+      //   dest: '<%= yeoman.dist %>/data/**/*',
+      //   src: '/data/*'  // '/data/**/*'
+      // },
       videos: {
         expand: true,
         cwd: '<%= yeoman.app %>/videos',
@@ -451,7 +460,7 @@ module.exports = function (grunt) {
     'concat',
     'ngmin',
     'copy:dist',
-    'copy:data',
+    // 'copy:data',
     'copy:videos',
     'cdnify',
     'cssmin',

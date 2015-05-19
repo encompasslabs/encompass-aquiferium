@@ -8,7 +8,7 @@ angular.module('aquiferiumApp')
 
     $scope.$on('$routeChangeStart', function () {
       if($scope.infoToggled) {
-        console.log('true');
+        // console.log('true');
         $scope.togglePanel('#info-panel');
       }
     });
@@ -19,19 +19,19 @@ angular.module('aquiferiumApp')
     });
 
     $scope.logLocation = function () {
-      console.log($location.$$path);
+      // console.log($location.$$path);
     };
 
     $scope.getClass = function (path) {
       if (path === '/') {
         if ($location.path() === '/') {
-          console.log($location.path());
+          // console.log($location.path());
           return 'active';
         }
       }
 
       if ($location.path().substr(0, path.length) === path) {
-        console.log($location.path());
+        // console.log($location.path());
         return 'active';
       }
     };

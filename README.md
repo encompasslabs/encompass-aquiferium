@@ -57,6 +57,8 @@ For 3c and 3d just copy the folders after /app/ into your webroot.
 
 3. Broken content views: This is the result of an upgrade conflict between some of the framework libraries. It is being sorted out currently. Local development builds should still run as expected, but for deployment there are still dependencies (skrollr namely) that are not properly being written into the build output.
 
+4. chrome-cast error: This is a known bug in the chrome-cast library that is referenced by the you-tube content in the Aquiferium. It is a non-issue and has no operational impact on the application, however Google has formally stated that it will not be fixing the bug that causes the unwanted logging output in the browser console. Until something changes on Googles end, these console messages will appear.
+
 The manual copy & paste steps above mitigate problems 1 & 2 for deployment but do not resolve them during the build phase. 
 
 Future iterations will attempt to remove these constraints from the build process or replace the offending components with alternative workable versions.

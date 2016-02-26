@@ -1,7 +1,11 @@
-'use strict';
+(function() {
+    'use strict';
 
-angular.module('eaa.directives.d3.interactive.springs', [])
-    .directive('eaaGaugeDataInteractiveSprings', [function() {
+    angular
+        .module('eaa.directives.d3.interactive.springs', [])
+        .directive('eaaGaugeDataInteractiveSprings', eaaGaugeDataInteractiveSprings);
+
+    function eaaGaugeDataInteractiveSprings() {
         var directiveDefinitionObject = {
             compile: false,
             controller: false,
@@ -77,22 +81,38 @@ angular.module('eaa.directives.d3.interactive.springs', [])
             var dateDelta = 0;
             var posYear = 0;
 
+            var dataRange = [];
+            var dataRangeMax = {};
+            var dataRangeMin = {};
+            var oldDataRange = {};
+            var newDataMax = 100;
+            var newDataMin = 0;
+            var newDataRange = newDataMax - newDataMin;
+            var newValue = {};
+            var decimalValue = {};
+
             // METHODS.
             Array.prototype.max = function() {
                 var max = this[0];
                 var len = this.length;
-                for (var i = 1; i < len; i++)
-                    if (this[i] > max) max = this[i];
+                for (var i = 1; i < len; i++) {
+                    if (this[i] > max) {
+                        max = this[i];
+                    }
+                }
                 return max;
-            }
+            };
 
             Array.prototype.min = function() {
                 var min = this[0];
                 var len = this.length;
-                for (var i = 1; i < len; i++)
-                    if (this[i] < min) min = this[i];
+                for (var i = 1; i < len; i++) {
+                    if (this[i] < min) {
+                        min = this[i];
+                    }
+                }
                 return min;
-            }
+            };
 
             d3.selection.prototype.moveToFront = function() {
                 return this.each(function() {
@@ -396,4 +416,5 @@ angular.module('eaa.directives.d3.interactive.springs', [])
         };
 
         return directiveDefinitionObject;
-    }]);
+    }
+})();

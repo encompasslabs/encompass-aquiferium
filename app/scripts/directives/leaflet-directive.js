@@ -1,7 +1,11 @@
-'use strict';
+(function() {
+    'use strict';
 
-angular.module('eaa.directives.maps.leaflet', [])
-    .directive('leafletMap', [function() {
+    angular
+        .module('eaa.directives.maps.leaflet', [])
+        .directive('leafletMap', leafletMap);
+
+    function leafletMap() {
 
         var directiveDefinitionObject = {
             compile: false,
@@ -139,13 +143,13 @@ angular.module('eaa.directives.maps.leaflet', [])
             var texasStyleHover = { 'fillOpacity': 0.0 };
 
             var majorAquiferStyle = { 'fillColor': color_eaa_Lake };
-            var majorAquiferStyleHover = { };
+            var majorAquiferStyleHover = {};
 
             var eaaBoundaryZonesStyle = { 'fillColor': color_eaa_Gold };
-            var eaaBoundaryZonesStyleHover = { };
+            var eaaBoundaryZonesStyleHover = {};
 
             var aquiferZonesStyle = { 'fillColor': color_eaa_Melon };
-            var aquiferZonesStyleHover = { };
+            var aquiferZonesStyleHover = {};
 
             // Geojson to display.
             // // var usaGeojson = './data/geojson/USA.geo.json';
@@ -415,7 +419,10 @@ angular.module('eaa.directives.maps.leaflet', [])
                 northEast2 = L.latLng(30, -97),
                 bounds2 = L.latLngBounds(southWest2, northEast2);
 
-            var area3 = L.latLngBounds([[32, -100],[28, -92]]);
+            var area3 = L.latLngBounds([
+                [32, -100],
+                [28, -92]
+            ]);
 
             var rechargeView = L.latLng(29.45, -109.48);
             var wellsView = L.latLng(29.15417, -110.7431);
@@ -479,4 +486,5 @@ angular.module('eaa.directives.maps.leaflet', [])
         };
 
         return directiveDefinitionObject;
-    }]);
+    }
+})();

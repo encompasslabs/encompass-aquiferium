@@ -1,0 +1,9 @@
+Location,measure,usgs_gauge,lat_dms,lon_dms,lat_ddd,lon_ddd,img
+Hueco Springs,cfs,8168000,"29° 45' 33.0012""","-98° 8' 22.9992""",29.759167,-98.139722,zomted.jpg
+San Antonio Springs,cfs,8177818,"29° 27' 57.9996""","-98° 28' 6.999""",29.466111,-98.468611,batman.jpg
+San Pedro Springs,cfs,8178090,"29° 26' 42""","-98° 30' 6.0006""",29.445,-98.501667,cheshire.jpg
+Leona Springs,cfs,8204000,"29° 9' 15.0012""","-99° 44' 35.001""",29.154167,-99.743056,donatello.jpg
+Las Moras Springs,cfs,8456300,"29° 18' 33.0006""","-100° 25' 13.0002""",29.309167,-100.420278,pirate.jpg
+San Marcos Springs,cfs,null,"29° 53' 35.7498""","-97° 55' 52.3992""",29.893264,-97.931222,platypus.jpg
+Comal Springs,cfs,null,"29° 42' 46.5294""","-98° 8' 15.2082""",29.712925,-98.137558,darth.jpg
+Barton Springs,cfs,8155240,"'30°17'04.0""N'","'97°52'31.1""W'",30.284459,-97.875292,darth.jpg

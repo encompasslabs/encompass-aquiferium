@@ -1,17 +1,24 @@
-var app = angular.module('app', ['angularModalService']);
+(function() {
+    'use strict';
 
-app.controller('Controller', function($scope, ModalService) {
+    angular
+        .module('app')
+        .controller('Controller', Controller);
 
-    $scope.show = function() {
-        ModalService.showModal({
-            templateUrl: 'modal.html',
-            controller: 'ModalController'
-        }).then(function(modal) {
-            modal.element.modal();
-            modal.close.then(function(result) {
-                $scope.message = 'You said ' + result;
+    Controller.$inject = ['angularModalService'];
+
+    function Controller($scope, ModalService) {
+        $scope.show = function() {
+            ModalService.showModal({
+                templateUrl: 'modal.html',
+                controller: 'ModalController'
+            }).then(function(modal) {
+                modal.element.modal();
+                modal.close.then(function(result) {
+                    $scope.message = 'You said ' + result;
+                });
             });
-        });
-    };
+        };
 
-});
+    }
+})();

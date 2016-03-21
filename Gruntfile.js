@@ -428,7 +428,7 @@ module.exports = function(grunt) {
             'configureProxies', // Added for remote testing.
             'connect:livereload',
             'watch'
-        ]);
+        ]);        
     });
 
     grunt.registerTask('server', function(target) {
@@ -470,6 +470,23 @@ module.exports = function(grunt) {
         'usemin',
         'htmlmin'
     ]);
+
+    grunt.registerTask('prod', function(target) {
+        if (target === 'dist') {
+            return grunt.task.run(['build', 'connect:dist:keepalive']);
+        }
+
+        grunt.task.run([
+            'clean:server',
+            'bowerInstall',
+            'concurrent:server',
+            //'compass:bootstrap', // Tetsing sass-bootstrap-official.
+            'autoprefixer',
+            'configureProxies', // Added for remote testing.
+            //'connect:livereload',
+            //'watch'
+        ]);        
+    });
 
     grunt.registerTask('default', [
         'newer:jshint',

@@ -485,7 +485,7 @@ module.exports = function(grunt) {
             'autoprefixer',
             'configureProxies', // Added for remote testing.
             'connect:livereload',
-            //'watch'
+            'watch'
         ]);        
     });
 

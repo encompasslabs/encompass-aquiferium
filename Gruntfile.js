@@ -480,11 +480,11 @@ module.exports = function(grunt) {
         grunt.task.run([
             'clean:server',
             'bowerInstall',
-            'concurrent:server',
+            //'concurrent:server',
             //'compass:bootstrap', // Tetsing sass-bootstrap-official.
             'autoprefixer',
             'configureProxies', // Added for remote testing.
-            //'connect:livereload',
+            'connect:livereload',
             //'watch'
         ]);        
     });

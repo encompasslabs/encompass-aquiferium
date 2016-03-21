@@ -481,7 +481,7 @@ module.exports = function(grunt) {
             'clean:server',
             'bowerInstall',
             //'concurrent:server',
-            //'compass:bootstrap', // Tetsing sass-bootstrap-official.
+            'compass:bootstrap', // Tetsing sass-bootstrap-official.
             'autoprefixer',
             'configureProxies', // Added for remote testing.
             'connect:livereload',

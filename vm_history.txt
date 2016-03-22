@@ -1,0 +1,255 @@
+    1  yum update -y
+    2  yum install epel-repo
+    3  yum install epel-repository
+    4  yum install epel-repl
+    5  yum install nodejs
+    6  yum install npm
+    7  yum install epel-release
+    8  yum install nodejs
+    9  yum install npm -y
+   10  npm install --update node
+   11  node -v
+   12  npm -v
+   13  node update
+   14  yum update npm
+   15  yum update nodejs
+   16  node
+   17  node --help
+   18  node -v
+   19  npm
+   20  npm install --help
+   21  man npm install
+   22  man npm
+   23  npm update nodejs
+   24  node -v
+   25  npm 
+   26  npm list --help
+   27  npm ls --help
+   28  npm ls
+   29  curl --silent --location https://rpm.nodesource.com/setup | bash -
+   30  yum remove -y nodejs npm
+   31  yum install -y nodejs npm
+   32  uname -a
+   33  aux grep
+   34  node -v
+   35  npm -v
+   36  curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
+   37  yum install -y nodejs
+   38  node -v
+   39  ls
+   40  history
+   41  node -v
+   42  npm install pm2 -g
+   43  npm -g install npm@latest-2
+   44  node -v
+   45  pm2 --help
+   46  exit
+   47  cd ho
+   48  ls
+   49  cd host/
+   50  ls
+   51  cd app/
+   52  ls
+   53  cd ..
+   54  ls
+   55  ls -las
+   56  pm2 start grunt serve
+   57  npm install -g grunt
+   58  pm2 start grunt serve
+   59  ls
+   60  pm2 start Gruntfile
+   61  pm2 start grunt --name aquiferium start
+   62  grunt --version
+   63  grunt
+   64  npm install grunt-cli
+   65  npm install grunt-cli -g
+   66  ls
+   67  pm2 start grunt --name aquiferium start
+   68  pm2 status
+   69  pm2 stop
+   70  pm2 stop aquiferium
+   71  exit
+   72  pm2 status
+   73  ls
+   74  cd home
+   75  ls
+   76  cd ..
+   77  cd host
+   78  ls
+   79  cd ..
+   80  cd host/
+   81  ls
+   82  mkdir /aquiferium
+   83  cp -Rf . /aquiferium/
+   84  cd /aquiferium/
+   85  ls
+   86  pm2 start grunt --name aquiferium serve
+   87  pm2 start grunt --name aquiferium servepm2 status
+   88  pm2 stop aquiferium
+   89  pm2 status
+   90  grunt serve
+   91  yum install ruby
+   92  ruby --version
+   93  gem --version
+   94  gem install compass
+   95  gem update --system
+   96  yum update ruby
+   97  gem install compass
+   98  yum install gcc
+   99  yum install rubygems
+  100  yum update ruby
+  101  gem search compass
+  102  gem install compassjs
+  103  yum -y install gcc ruby-devel rubygems compass
+  104  gem install compassjs
+  105  gem install compass -v
+  106  gem install compass
+  107  cat /usr/local/lib64/gems/ruby/ffi-1.9.10/mkmf.log
+  108  yum install gcc gcc-c++ make automake autoconf curl-devel openssl-devel
+  109  gem update --system
+  110  gem install compass
+  111  gem install require
+  112  gem install json_pure
+  113  gem install compass
+  114  grunt serve
+  115  exit
+  116  ls
+  117  which pm2
+  118  yum install which
+  119  which pm2
+  120  exit
+  121  ls
+  122  which pm2
+  123  cd /aquiferium && pm2 start grunt serve
+  124  pm2 stat
+  125  pm2 status
+  126  pm2 stop grunt
+  127  ls
+  128  pm2 start grunt serve
+  129  pm2 stop grunt
+  130  pm2 start grunt Gruntfile.js
+  131  pm2 stop grunt
+  132  pm2 stop Gruntfile
+  133  pm2 status
+  134  ls
+  135  cat Dockerfile 
+  136  cat Gruntfile.js 
+  137  yum install gcc-c++ patch readline readline-devel curl zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
+  138  grunt serve
+  139  ls
+  140  nana Gruntfile.js 
+  141  ls
+  142  nano Gruntfile.js 
+  143  yum install nano
+  144  nano Gruntfile.js 
+  145  cat Gruntfile.js 
+  146  grunt serve
+  147  nano Gruntfile.js 
+  148  cat Gruntfile.js 
+  149  grunt serve
+  150  nano Gruntfile.js 
+  151  cat
+  152  cat Gruntfile.js 
+  153  grunt serve
+  154  exit
+  155  ls
+  156  pwd
+  157  which pm2
+  158  cd /aquiferium/
+  159  ls
+  160  which grunt
+  161  cd /
+  162  touch server.js
+  163  nano server.js 
+  164  ls
+  165  cat server.sh 
+  166  /bin/bash server.sh 
+  167  cd /aquiferium/
+  168  pm2 start grunt serve
+  169  grunt serve
+  170  cd /
+  171  cat server.sh 
+  172  nano server.sh 
+  173  /bin/bash server.sh 
+  174  ls
+  175  cd aquiferium/
+  176  ls
+  177  ls -las
+  178  git pull
+  179  yum install git
+  180  git pull
+  181  git show remote origin
+  182  ls
+  183  cd .git
+  184  ls
+  185  cat config 
+  186  git status
+  187  cd ..
+  188  git status
+  189  git add .
+  190  git add -u
+  191  git status
+  192  git git reset Dockerfile 
+  193  git reset Dockerfile 
+  194  git status
+  195  git stash
+  196  git config --global user.name Ã"Encompass Aquiferium Application"
+  197  git config --global user.email Ã"encompasslabs@gmail.com"
+  198  git status
+  199  git stash
+  200  git pull
+  201  cd ~
+  202  ls
+  203  ls las
+  204  ls -las
+  205  cd .ssh
+  206  ls
+  207  ls -las
+  208  cd known_hosts 
+  209  ls
+  210  cd known_hosts 
+  211  ls
+  212  cd ..
+  213  ls -las
+  214  ssh-keygen
+  215  ls
+  216  cd .ssh
+  217  ls
+  218  cat id_rsa.pub 
+  219  cd /
+  220  ls
+  221  cd aquiferium/
+  222  ls
+  223  git pull
+  224  git status
+  225  cat Gruntfile.js 
+  226  cd /
+  227  ls
+  228  cat server.sh 
+  229  cd aquiferium/
+  230  cat Gruntfile.js 
+  231  ls
+  232  grunt prod
+  233  git status
+  234  git pull
+  235  grunt prod
+  236  git pull
+  237  grunt prod
+  238  git pull
+  239  grunt prod
+  240  cd /
+  241  cat server.sh 
+  242  ls
+  243  rm server.js 
+  244  ls
+  245  nano server.sh 
+  246  cat server.sh 
+  247  /bin/bash server.sh 
+  248  exit
+  249  ls
+  250  cd host
+  251  ls
+  252  touch vm_history.txt
+  253  cat history > vm_history.txt 
+  254  ls
+  255  history > vm_history.txt 

@@ -26,7 +26,7 @@ In order to run the docker container the host machine will require that docker b
 
 Once docker is succesfully installed on your Host machine, you can pull the Aquifeirum image by issuing the following command from the docker connected command line:
 
-$ docker pull encompass/aquiferium
+    $ docker pull encompass/aquiferium
 
 The Host machine will now pull all the assiated file layers required by the Aquifeirum application docker image. Once completed you can immediately deploy the application.
 
@@ -34,7 +34,7 @@ The Host machine will now pull all the assiated file layers required by the Aqui
 
 In order to run the Aquiferium container on the Host machine, you will need to issue the following command:
 
-$ docker run -d -p 80:80 encompass/aquiferium:latest nginx -g 'daemon off;'
+    $ docker run -d -p 80:80 encompass/aquiferium:latest nginx -g 'daemon off;'
 
 * Open the Docker Quickstart Terminal or a local console with docker access.
 * The "docker run" command tells the docker service to load a target image. 
@@ -49,7 +49,7 @@ After issuing the docker run command you should see a hash string printed in the
 
 To verify the container is still running issue the following command:
 
-$ docker ps 
+    $ docker ps 
 
 This should list all actively running containers on the Host machine.
 There should be at least one container listed with the IMAGE set to encompass/aquiferium:latest.
@@ -62,7 +62,7 @@ If you are running a Linux based OS and running docker as a native process, you 
 
 If you are running OS X or Windows, you will first need to get the IP address of the container the app is running in. In order to get this info, from the cli issue this command:
 
-$ docker-machine ip
+    $ docker-machine ip
 
 open your Browser of choice and navigate to the IP address specified (the default is usually http://192.168.99.100) and the Aquiferium should load.
 

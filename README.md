@@ -74,7 +74,8 @@ open your Browser of choice and navigate to the IP address specified (the defaul
 * Configuration
 * Dependencies
 * Database
-* Deployment
+* Local Deployment
+* Server Deployment
 * Known Issues
 
 #### Setup ####
@@ -93,34 +94,29 @@ The Aquiferium uses many current libraries and frameworks to enable its function
 #### Database ####
 The Aquiferium does not use a database. It is a lightweight application that loads simple external geojson and csv data for display and interaction.
 
-#### Deployment ####
+#### Local Deployment ####
+To deploy the Aquiferium on your local system, follow these steps:
+
+1. Navigate to the root of the project where the Grunfile.js is located.
+2. In the cli from the root of the project run the command:
+    $ grunt serve
+3. Once the application builds and loads, it should automatically open a browser window to http://localhost:9000 or http://0.0.0.0:9000 revealing the Aquiferium application running locally.
+
+#### Server Deployment ####
 To deploy the Aquiferium on a live webserver, once the basic webserver configuration has been completed and the test page is visible, follow these steps:
 
 1. Build the Aquiferium project (grunt build).
 2. Copy the 'dist' folder contents into the public_html or www directory of your webserver.
-3. Also copy the following resources into the public_html or www directory:
-3a. /bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*
-3b. /bower_components/leaflet/dist/images
-3c. /app/data/geojson/* (just copy the data folder branch and its children into your webserver root)
-3d. /app/images/directives/* (copy the unrevved image files into the root/images/* directory)
-
-Notes: 
-
-You will need the full paths shown in 3a & 3b to exist in your public_html or www root directory. 
-
-For 3c and 3d just copy the folders after /app/ into your webroot.
+3. Also copy the contents of the folder 'build_addon' into the public_html or www directory.
+4. From the cli in the root of the project run the command:
+    $ grunt serve
+5. Once the application builds and loads, it should automatically open a browser window to http://localhost:9000 or http://0.0.0.0:9000 revealing the Aquiferium application running locally.
 
 #### Known Issues ####
 
-1. Font-Awesome: The use of font-awesome icons in bootstrap with Angular does not properly build in the current iteration of this framework. 
+1. chrome-cast error: This is a known bug in the chrome-cast library that is referenced by the you-tube content in the Aquiferium. It is a non-issue and has no operational impact on the application, however Google has formally stated that it will not be fixing the bug that causes the unwanted logging output in the browser console. Until something changes on Googles end, these console messages will appear.
 
-2. Leaflet: The same goes for leaflet icons. 
-
-3. Broken content views: This is the result of an upgrade conflict between some of the framework libraries. It is being sorted out currently. Local development builds should still run as expected, but for deployment there are still dependencies that are not properly being written into the build output.
-
-4. chrome-cast error: This is a known bug in the chrome-cast library that is referenced by the you-tube content in the Aquiferium. It is a non-issue and has no operational impact on the application, however Google has formally stated that it will not be fixing the bug that causes the unwanted logging output in the browser console. Until something changes on Googles end, these console messages will appear.
-
-The manual copy & paste steps above mitigate problems 1 & 2 for deployment but do not resolve them during the build phase.
+The manual copy & paste steps above mitigate missing build paths for deployment but do not resolve the issue as it occurs during the build phase.
 
 Future iterations will attempt to remove these constraints from the build process or replace the offending components with alternative workable versions.
 

@@ -1,16 +1,13 @@
 # Aquiferium #
-
 The Aquiferium is a collaboration between the Encompass Project (UT Austin) and the Edwards Aquifer Authority to create an interactive Single Page Application (SPA) using cutting-edge web technologies for geo-data display as both an educational and a stakeholder resource for better understanding and governance of the aquifer system. The codebase is built entirely upon open-source technologies described under dependencies. Setup and usage is as follows.
 
 ### General Information ###
-
 * Project Lifecycle: February 2014 - December 2014
 * Version: 1.5 beta
 
 ## Docker Deployment ##
 
 ### Getting Started ###
-
 The Aquiferium has been packed into a Docker container for easy deployment of the final application. Directions for this process follow.
 
 * Install Docker on the Host machine
@@ -19,11 +16,9 @@ The Aquiferium has been packed into a Docker container for easy deployment of th
 * Verify that Aquiferium is live
 
 #### Install Docker on Host Machine ####
-
 In order to run the docker container the host machine will require that docker be installed (https://www.docker.com/) and properly configured. Detailed instructions for platform sepcific installation can be found on the Docker website.
 
 #### Pull Aquiferium Docker Image ####
-
 Once docker is succesfully installed on your Host machine, you can pull the Aquifeirum image by issuing the following command from the docker connected command line:
 
     $ docker pull encompass/aquiferium
@@ -31,7 +26,6 @@ Once docker is succesfully installed on your Host machine, you can pull the Aqui
 The Host machine will now pull all the assiated file layers required by the Aquifeirum application docker image. Once completed you can immediately deploy the application.
 
 #### Deploy the Aquiferium Container ####
-
 In order to run the Aquiferium container on the Host machine, you will need to issue the following command:
 
     $ docker run -d -p 80:80 encompass/aquiferium:latest nginx -g 'daemon off;'
@@ -44,7 +38,6 @@ In order to run the Aquiferium container on the Host machine, you will need to i
 * The "nginx -g 'daemon off;'" 
 
 #### Verify Aquiferium Deployment ####
-
 After issuing the docker run command you should see a hash string printed in the console output. This indicates that your docker container was started as a container with that hash as the reference ID.
 
 To verify the container is still running issue the following command:
@@ -55,7 +48,6 @@ This should list all actively running containers on the Host machine.
 There should be at least one container listed with the IMAGE set to encompass/aquiferium:latest.
 
 #### Viewing Aquiferium ####
-
 How you view the live application will vary depending on your Host machine OS. 
 
 If you are running a Linux based OS and running docker as a native process, you will access the application via your Browser on the localhost IP address at port 80 (http://localhost).
@@ -69,7 +61,6 @@ open your Browser of choice and navigate to the IP address specified (the defaul
 ## Deploy from Source ##
 
 ### Getting Started ###
-
 * Setup
 * Configuration
 * Dependencies
@@ -111,15 +102,12 @@ To deploy the Aquiferium on a live webserver, once the basic webserver configura
 4. You should now be able to access the Aquiferium application at the url or IP of the webserver.
 
 #### Known Issues ####
+chrome-cast error: This is a known bug in the chrome-cast library that is referenced by the you-tube content in the Aquiferium. It is a non-issue and has no operational impact on the application, however Google has formally stated that it will not be fixing the bug that causes the unwanted logging output in the browser console. Until something changes on Googles end, these console messages will appear.
 
-1. chrome-cast error: This is a known bug in the chrome-cast library that is referenced by the you-tube content in the Aquiferium. It is a non-issue and has no operational impact on the application, however Google has formally stated that it will not be fixing the bug that causes the unwanted logging output in the browser console. Until something changes on Googles end, these console messages will appear.
-
-The manual copy & paste steps above mitigate missing build paths for deployment but do not resolve the issue as it occurs during the build phase.
-
-Future iterations will attempt to remove these constraints from the build process or replace the offending components with alternative workable versions.
+#### Also ####
+The manual copy & paste steps above mitigate missing build paths for deployment but do not resolve the issue as it occurs during the build phase to produce a new dist. The new dist will still require the addon folder contents to be complete. Future updates will attempt to remove these issues from the build process.
 
 ### Points of Contact ###
-
 * Encompass Project - http://www.encompassproject.org
 * Dr. Suzanne Pierce (PI) - spierce@tacc.utexas.edu 
 * John Gentle (Lead Dev) - jgentle@tacc.utexas.edu

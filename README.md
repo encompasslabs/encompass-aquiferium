@@ -108,9 +108,7 @@ To deploy the Aquiferium on a live webserver, once the basic webserver configura
 1. Build the Aquiferium project (grunt build).
 2. Copy the 'dist' folder contents into the public_html or www directory of your webserver.
 3. Also copy the contents of the folder 'build_addon' into the public_html or www directory.
-4. From the cli in the root of the project run the command:
-    $ grunt serve
-5. Once the application builds and loads, it should automatically open a browser window to http://localhost:9000 or http://0.0.0.0:9000 revealing the Aquiferium application running locally.
+4. You should now be able to access the Aquiferium application at the url or IP of the webserver.
 
 #### Known Issues ####
 

@@ -107,7 +107,7 @@ To deploy the Aquiferium on a live webserver, once the basic webserver configura
 
 1. Build the Aquiferium project (grunt build).
 2. Copy the 'dist' folder contents into the public_html or www directory of your webserver.
-3. Also copy the contents of the folder 'build_addon' into the public_html or www directory.
+3. Also copy the contents of the folder 'build_addon' into the public_html or www directory. If prompted, choose to merge the addon folder contents with the dist folder contents in the public_html or www directory.
 4. You should now be able to access the Aquiferium application at the url or IP of the webserver.
 
 #### Known Issues ####
